@@ -17,3 +17,4 @@ This is my personal website where you can find my projects, my laboral experienc
 
 ## 👨‍⚖️ License
 ***[📄 GNU General Public License v3.0](LICENSE)***
+This software is licensed under the GNU General Public License, version 3 only.

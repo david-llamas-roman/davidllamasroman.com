@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "David Llamas Román",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-only",
   "description": "",
   "dependencies": {
     "body-parser": "^1.20.2",
