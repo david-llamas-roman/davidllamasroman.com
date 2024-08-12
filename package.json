@@ -1,0 +1,12 @@
+{
+  "name": "dlr-website",
+  "version": "1.0.0",
+  "description": "This is my personal website where you can find my projects, my laboral experience and all information about me that I consider is relevant.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
