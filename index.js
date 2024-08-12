@@ -10,7 +10,7 @@ const port = 3700
 // database connection
 mongoose.Promise = global.Promise
 mongoose
-  .connect('mongodb://localhost:27017/portfolio')
+  .connect('mongodb://localhost:27017/dlr-website')
   .then(() => {
     console.log('Database connection established correctly')
 
