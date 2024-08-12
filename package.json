@@ -1,0 +1,14 @@
+{
+  "name": "dlr-website",
+  "version": "1.0.0",
+  "description": "This is my personal website where you can find my projects, my laboral experience and all information about me that I consider is relevant.",
+  "author": "David Llamas Román",
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "eslint-prettier-config": "^1.0.1",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3"
+  }
+}
