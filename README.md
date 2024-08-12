@@ -7,8 +7,7 @@ This is my personal website where you can find my projects, my laboral experienc
 - 🔵 → CSS
 - 🟡 → Vanilla JS
 ### ⚙️ Backend
-- 🟢 → Node.js
-     → MongoDB
+- 🟢 → Node.js, MongoDB
 
 ## 🌐 Languages
 - English
