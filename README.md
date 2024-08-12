@@ -4,8 +4,10 @@ This is my personal website where you can find my projects, my laboral experienc
 ## 🛠️ Technologies
 ### 💄 Frontend
 - 🟠 → HTML
-- 🔵 → CSS
-- 🟡 → Vanilla JS
+
+> [!WARNING]
+>  More Technologies Coming Soon... (I am developing the backend first)
+
 ### ⚙️ Backend
 - 🟢 → Node.js, MongoDB
 
