@@ -20,12 +20,21 @@
 :root {
   /* colors */
   --white: #fff;
+  --black: #000;
   /* measures */
   --max-vw: 100vw;
   --max-vh: 100vh;
   --max-percentage: 100%;
+  /* -> font size */
+  --social-networks-icons-font-size: 40px;
+  --small-social-networks-icons-font-size: 30px;
   /* -> card */
-  --card-width: 60%;
+  --card-width: 80vw;
+  --desktop-version-card-width: 50vw;
+  --medium-card-width: 28.8vw;
+  --small-card-width: 20vw;
+  /* -> buttons */
+  --button-width: 180px;
 }
 
 /* reset css */
@@ -39,13 +48,31 @@
 /* general styles */
 body,
 html {
-  width: var(--max-vw);
-  height: var(--max-vh);
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: var(--black);
 }
 
+#title,
 .medium-title,
-.text {
+.text,
+#first-card-title {
+  color: var(--white);
+}
+
+#title,
+.medium-title,
+#first-card-title {
+  text-align: center;
+  padding: 2rem;
+}
+
+#title {
+  padding-bottom: 0;
+  font-size: 40px;
+}
+
+.link {
+  font-style: italic;
+  font-weight: 700;
   color: var(--white);
 }
 
@@ -54,15 +81,15 @@ footer {
   padding: 2rem;
   display: grid;
   place-items: center;
-  max-width: 80%;
-  margin: auto;
+  width: var(--max-percentage);
 }
 
 /* card */
-#card {
+.card {
+  margin: 0.6rem 0;
   padding: 1rem;
   backdrop-filter: blur(10px);
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
   border-radius: 26px;
   -webkit-border-radius: 26px;
   -moz-border-radius: 26px;
@@ -71,18 +98,145 @@ footer {
   width: var(--card-width);
 }
 
-#card-info {
-  padding: 4rem;
+.card-info {
   width: var(--max-percentage);
-  border: 1px solid var(--white);
-  border-radius: 18px;
-  -webkit-border-radius: 18px;
-  -moz-border-radius: 18px;
-  -ms-border-radius: 18px;
-  -o-border-radius: 18px;
+  border: 4px solid var(--white);
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
-#card,
-#card-info {
+.card-info ul,
+.card-content-centered,
+.social-networks {
+  padding: 0.5rem 2rem 2rem 2rem;
+  text-align: center;
+}
+
+.card-info ul li,
+.social-networks ul li {
+  display: inline-block;
+}
+
+.card-info ul li a,
+.btn,
+#login-create-account-form input {
+  display: block;
+  background-color: var(--white);
+  padding: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 26px;
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+  -ms-border-radius: 26px;
+  -o-border-radius: 26px;
+  transition: transform 0.1s;
+  -webkit-transition: transform 0.1s;
+  -moz-transition: transform 0.1s;
+  -ms-transition: transform 0.1s;
+  -o-transition: transform 0.1s;
+  margin: 0.3rem;
+  width: var(--button-width);
+  text-align: center;
+  color: var(--black);
+}
+
+.card-info ul li a:hover,
+.btn:hover,
+.social-networks ul li a:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+
+.card,
+.card-info {
   aspect-ratio: 21/9;
 }
+
+.medium-card {
+  margin-top: 1.2rem;
+}
+
+/* social networks & media */
+.social-networks {
+  padding-top: 1.5rem;
+}
+
+.social-networks ul {
+  margin: 1rem 0;
+}
+
+.social-networks ul li a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: var(--social-networks-icons-font-size);
+  display: block;
+  transition: transform 0.1s;
+  -webkit-transition: transform 0.1s;
+  -moz-transition: transform 0.1s;
+  -ms-transition: transform 0.1s;
+  -o-transition: transform 0.1s;
+  margin: 0.3rem 0.2rem;
+}
+
+.small-social-networks-btn i {
+  font-size: var(--small-social-networks-icons-font-size);
+}
+
+/* login or create an account */
+#login-create-account .medium-title {
+  padding-bottom: 1.5rem;
+}
+
+#login-create-account-form {
+  display: grid;
+  place-items: center;
+}
+
+#login-create-account-form input,
+#login-create-account-form .btn {
+  width: calc(var(--button-width) + 10vw);
+}
+
+/* footer */
+footer p {
+  text-align: center;
+}
+
+/* DESKTOP */
+@media screen and (min-width: 768px) {
+  /* general styles */
+  .flex {
+    display: flex;
+  }
+
+  #first-card-medium-title {
+    padding-top: 1rem;
+  }
+
+  /* card */
+  .card {
+    width: var(--desktop-version-card-width);
+  }
+
+  .medium-card {
+    width: var(--medium-card-width);
+  }
+
+  .small-card {
+    width: var(--small-card-width);
+  }
+
+  .medium-card,
+  .small-card {
+    margin: 0.6rem;
+  }
+}
+
+/*! less than 1280px (nest hub max) to tablet version */
