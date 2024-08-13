@@ -15,3 +15,74 @@
  *
  * Copyright (C) 2024 David Llamas Román
  */
+
+/* variables */
+:root {
+  /* colors */
+  --white: #fff;
+  /* measures */
+  --max-vw: 100vw;
+  --max-vh: 100vh;
+  --max-percentage: 100%;
+  /* -> card */
+  --card-width: 60%;
+}
+
+/* reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* general styles */
+body,
+html {
+  width: var(--max-vw);
+  height: var(--max-vh);
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.medium-title,
+.text {
+  color: var(--white);
+}
+
+main,
+footer {
+  padding: 2rem;
+  display: grid;
+  place-items: center;
+  max-width: 80%;
+  margin: auto;
+}
+
+/* card */
+#card {
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid #fff;
+  border-radius: 26px;
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+  -ms-border-radius: 26px;
+  -o-border-radius: 26px;
+  width: var(--card-width);
+}
+
+#card-info {
+  padding: 4rem;
+  width: var(--max-percentage);
+  border: 1px solid var(--white);
+  border-radius: 18px;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  -ms-border-radius: 18px;
+  -o-border-radius: 18px;
+}
+
+#card,
+#card-info {
+  aspect-ratio: 21/9;
+}
