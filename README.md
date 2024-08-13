@@ -1,4 +1,4 @@
-# 💻 DLR Website
+# davidllamasroman.com
 This is my personal website where you can find my projects, my laboral experience and all information about me that I consider is relevant.
 
 ## 🛠️ Technologies
