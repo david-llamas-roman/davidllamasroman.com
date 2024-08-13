@@ -23,25 +23,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Llamas Román</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/4734cbf68c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="container">
-    <main>
-      <section id="card">
-        <div id="card-info">
-          <h2 class="medium-title">Web Developer Student</h2>
-          <ul>
-            <li><a href="#">About Me</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Experience</a></li>
-            <li><a href="#">Get in touch</a></li>
-          </ul>
-        </div>
+  <main>
+    <section class="card">
+      <div class="card-info">
+        <h1 id="title">David Llamas Román</h1>
+        <h2 class="medium-title" id="first-card-medium-title">Web Developer Student</h2>
+        <ul>
+          <li><a href="#">About Me</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Experience</a></li>
+          <li><a href="#">Get in touch</a></li>
+        </ul>
+      </div>
+    </section>
+    <div class="flex">
+      <article class="social-networks card small-card">
+        <ul>
+          <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+        </ul>
+        <ul>
+          <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-youtube"></i></a></li>
+          <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-tiktok"></i></a></li>
+          <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-x-twitter"></i></a></li>
+          <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-threads"></i></a></li>
+          <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-facebook-f"></i></a></li>
+        </ul>
+      </article>
+      <section class="card card-content-centered medium-card" id="login-create-account">
+        <h2 class="medium-title">Login or create an account with</h2>
+        <form action="#" method="post" id="login-create-account-form">
+          <input type="email" name="email" id="email">
+          <a href="#" class="btn">Continue <i class="fa-solid fa-arrow-right"></i></a>
+        </form>
       </section>
-    </main>
-    <footer>
-      <p class="text"><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License version 3 (GPL-3.0) only</a></small></p>
-    </footer>
-  </div>
+    </div>
+  </main>
+  <footer>
+    <p class="text"><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="link">GNU General Public License version 3 (GPL-3.0) only</a></small></p>
+  </footer>
 </body>
 </html>
