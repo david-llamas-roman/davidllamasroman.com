@@ -1,4 +1,4 @@
-/*
+<!--
  * This file is part of davidllamasroman.com.
  *
  * davidllamasroman.com is free software: you can redistribute it and/or modify
@@ -14,26 +14,23 @@
  * along with davidllamasroman.com. If not, see <https://www.gnu.org/licenses/gpl-3.0.en.html>.
  *
  * Copyright (C) 2024 David Llamas Román
- */
+-->
 
-'use strict'
-
-// imports
-import mongoose from 'mongoose'
-import app from './app.js'
-
-// port
-const port = 3700
-
-// database connection
-mongoose
-  .connect('mongodb://localhost:27017/dlr-website')
-  .then(() => {
-    console.log('Database connection established correctly')
-
-    // server creation
-    app.listen(port, () => {
-      console.log('The server is running correctly in localhost:3700')
-    })
-  })
-  .catch((e) => console.log(e))
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Llamas Román</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <header></header>
+    <main></main>
+    <footer>
+      <p class="dark-text"><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License version 3 (GPL-3.0) only</a></small></p>
+    </footer>
+  </div>
+</body>
+</html>

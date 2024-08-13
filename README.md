@@ -35,6 +35,23 @@ This is my personal website where you can find my projects, my laboral experienc
 - Spanish
 
 ## 👨‍⚖️ License
-***[📄 GNU General Public License v3.0](LICENSE)***
+&copy; 2024 David Llamas Román. Licensed under the [GNU General Public License version 3 (GPL-3.0) only](https://www.gnu.org/licenses/gpl-3.0.en.html)
+
 > [!WARNING]
-> This software is licensed under the GNU General Public License, version 3 only.
+> This file is part of davidllamasroman.com.
+>
+> davidllamasroman.com is free software: you can redistribute it and/or modify
+> it under the terms of the GNU General Public License as published by
+> the Free Software Foundation, either version 3 of the License.
+>
+> davidllamasroman.com is distributed in the hope that it will be useful,
+> but WITHOUT ANY WARRANTY; without even the implied warranty of
+> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+> GNU General Public License for more details.
+>
+> You should have received a copy of the GNU General Public License
+> along with davidllamasroman.com. If not, see <https://www.gnu.org/licenses/gpl-3.0.en.html>.
+>
+> Copyright (C) 2024 David Llamas Román
+
+This is the warning that you can find in all files of davidllamasroman.com project that contains code. This warning are not in JSON files, because this type of files do not support comments.
