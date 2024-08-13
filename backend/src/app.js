@@ -5,22 +5,22 @@
 // imports
 import express from 'express'
 import bodyParser from 'body-parser'
+import cors from 'cors'
+// -> load routes files
+import projectRoutes from './routes/project.js'
 
 // execute express
 const app = express()
-
-// load route files
 
 // middlewares
 app.use(bodyParser.urlencoded({ extended: false })) //? necessary configuration, but why?
 app.use(bodyParser.json()) // convert all to json
 
 // cors
+app.use(cors())
 
 // routes
-app.get('/', (req, res) => {
-  res.status(200).send('Home page')
-})
+app.use('/api', projectRoutes)
 
 // exports
 export default app
