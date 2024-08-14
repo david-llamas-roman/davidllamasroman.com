@@ -41,7 +41,7 @@ const projectController = {
       return res.status(200).send({ project: projectAdded })
     } catch (e) {
       return res.status(500).send({
-        message: 'Failed to add the project',
+        message: 'Failed to add data',
         error: e,
       })
     }
