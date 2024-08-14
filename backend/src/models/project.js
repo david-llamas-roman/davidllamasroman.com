@@ -19,7 +19,7 @@
 'use strict'
 
 // imports
-import model, { Schema } from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
 // project schema
 const project = Schema({
@@ -31,4 +31,4 @@ const project = Schema({
   endDate: Date,
 })
 
-export default model('Project', project)
+export default mongoose.model('Project', project)

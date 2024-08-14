@@ -19,7 +19,7 @@
 'use strict'
 
 // imports
-import model, { Schema } from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
 // job schema
 const job = Schema({
@@ -33,4 +33,4 @@ const job = Schema({
   currentlyWorkingHere: Boolean,
 })
 
-export default model('Job', job)
+export default mongoose.model('Job', job)
