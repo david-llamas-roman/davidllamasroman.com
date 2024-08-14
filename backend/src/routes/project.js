@@ -26,8 +26,7 @@ const router = Router()
 
 // routes
 router.post('/add-project', ProjectController.addProject)
-router.get('/project/:id', ProjectController.getProjectById)
 router.get('/projects', ProjectController.getAllProjects)
-router.delete('/delete-project/:id', ProjectController.removeProject)
+router.delete('/project/:id', ProjectController.removeProject)
 
 export default router
