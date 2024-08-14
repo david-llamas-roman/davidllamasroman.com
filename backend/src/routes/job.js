@@ -26,5 +26,6 @@ const router = Router()
 
 // routes
 router.post('/add-job', JobController.addJob)
+router.delete('/job/:id', JobController.removeJob)
 
 export default router

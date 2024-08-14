@@ -38,12 +38,26 @@ const jobController = {
     job.currentlyWorkingHere = params.currentlyWorkingHere
 
     try {
-      const jobAdded = await job.save()
+      const jobAdded = await Job.save()
 
       return res.status(200).send({ job: jobAdded })
     } catch (e) {
       res.status(500).send({
-        message: 'Failed to add the job',
+        message: 'Failed to add data',
+        error: e,
+      })
+    }
+  },
+  // remove a specific job
+  removeJob: async function (req, res) {
+    try {
+      const jobId = req.params.id
+      const removedJob = await Job.findByIdAndDelete(jobId)
+
+      res.status(200).send({ job: removedJob })
+    } catch (e) {
+      res.status(500).send({
+        message: 'Failed to remove data',
         error: e,
       })
     }
