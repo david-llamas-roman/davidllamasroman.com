@@ -210,7 +210,7 @@ footer p {
 }
 
 /* DESKTOP */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
   /* general styles */
   .flex {
     display: flex;
@@ -231,6 +231,8 @@ footer p {
 
   .small-card {
     width: var(--small-card-width);
+    display: grid;
+    place-items: center;
   }
 
   .medium-card,
@@ -239,4 +241,29 @@ footer p {
   }
 }
 
-/*! less than 1280px (nest hub max) to tablet version */
+/* TABLET */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  /* general styles */
+  .flex {
+    display: flex;
+  }
+
+  #first-card-medium-title {
+    padding-top: 1rem;
+  }
+
+  .medium-card {
+    width: calc(var(--desktop-version-card-width) + 7.5vw);
+    display: grid;
+    place-items: center;
+  }
+
+  .small-card {
+    width: var(--small-card-width);
+  }
+
+  .medium-card,
+  .small-card {
+    margin: 0.6rem;
+  }
+}
