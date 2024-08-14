@@ -20,10 +20,11 @@
 
 // imports
 import { Router } from 'express'
-//! import UserController from '../controllers/user.js'
+import UserController from '../controllers/user.js'
 
 const router = Router()
 
 // routes
+router.post('/add-user', UserController.addUser)
 
 export default router
