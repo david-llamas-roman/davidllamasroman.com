@@ -80,6 +80,19 @@ html {
   color: var(--white);
 }
 
+.btn {
+  font-size: 1rem;
+}
+
+.form textarea {
+  resize: none;
+}
+
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+
 main,
 footer {
   padding: 2rem;
@@ -126,7 +139,8 @@ footer {
 
 .card-info ul li a,
 .btn,
-#login-create-account-form input {
+.form input,
+.form textarea {
   display: block;
   background-color: var(--white);
   padding: 1rem;
@@ -210,14 +224,19 @@ footer {
 
 /* sections */
 .sect {
-  width: var(--max-vw);
-  height: var(--max-vh);
   display: none;
   backdrop-filter: var(--blur-backdrop-filter);
 }
 
 .sect-info {
-  overflow-y: hidden;
+  overflow-y: scroll;
+}
+
+/* get in touch */
+#get-in-touch-form input,
+#get-in-touch-form .btn,
+#get-in-touch-form textarea {
+  width: calc(var(--button-width) + 20vw);
 }
 
 /* footer */
