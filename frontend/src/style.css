@@ -35,6 +35,10 @@
   --small-card-width: 20vw;
   /* -> buttons */
   --button-width: 180px;
+  /* filters */
+  /* -> backdrop-filter */
+  /* ----> blur */
+  --blur-backdrop-filter: blur(10px);
 }
 
 /* reset css */
@@ -88,7 +92,7 @@ footer {
 .card {
   margin: 0.6rem 0;
   padding: 1rem;
-  backdrop-filter: blur(10px);
+  backdrop-filter: var(--blur-backdrop-filter);
   border: 1px solid var(--white);
   border-radius: 26px;
   -webkit-border-radius: 26px;
@@ -204,9 +208,58 @@ footer {
   width: calc(var(--button-width) + 10vw);
 }
 
+/* sections */
+.sect {
+  width: var(--max-vw);
+  height: var(--max-vh);
+  display: none;
+  backdrop-filter: var(--blur-backdrop-filter);
+}
+
+.sect-info {
+  overflow-y: hidden;
+}
+
 /* footer */
 footer p {
   text-align: center;
+}
+
+/* NAVIGATION */
+/* when click in 'about me' */
+#about-me:target {
+  display: block;
+}
+
+#about-me:target ~ #home {
+  display: none;
+}
+
+/* when click in 'projects' */
+#projects:target {
+  display: block;
+}
+
+#projects:target ~ #home {
+  display: none;
+}
+
+/* when click in 'experience' */
+#experience:target {
+  display: block;
+}
+
+#experience:target ~ #home {
+  display: none;
+}
+
+/* when click in 'get in touch' */
+#get-in-touch:target {
+  display: block;
+}
+
+#get-in-touch:target + #home {
+  display: none;
 }
 
 /* DESKTOP */
