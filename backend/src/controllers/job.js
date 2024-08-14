@@ -42,7 +42,7 @@ const jobController = {
 
       return res.status(200).send({ job: jobAdded })
     } catch (e) {
-      res.status(500).send({
+      return res.status(500).send({
         message: 'Failed to add data',
         error: e,
       })
@@ -54,9 +54,9 @@ const jobController = {
       const jobId = req.params.id
       const removedJob = await Job.findByIdAndDelete(jobId)
 
-      res.status(200).send({ job: removedJob })
+      return res.status(200).send({ job: removedJob })
     } catch (e) {
-      res.status(500).send({
+      return res.status(500).send({
         message: 'Failed to remove data',
         error: e,
       })

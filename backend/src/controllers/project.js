@@ -51,7 +51,7 @@ const projectController = {
     try {
       const projects = await Project.find().sort('startDate')
 
-      res.status(200).send({ projects })
+      return res.status(200).send({ projects })
     } catch (e) {
       return res.status(500).send({
         message: 'Failed to return data',
@@ -65,7 +65,7 @@ const projectController = {
       const projectId = req.params.id
       const removedProject = await Project.findByIdAndDelete(projectId)
 
-      res.status(200).send({ removedProject })
+      return res.status(200).send({ removedProject })
     } catch (e) {
       return res.status(500).send({
         message: 'Failed to remove data',
