@@ -46,26 +46,6 @@ const projectController = {
       })
     }
   },
-  // get a specific existing project
-  getProjectById: async function (req, res) {
-    try {
-      const projectId = req.params.id
-      const project = await Project.findById(projectId)
-
-      if (!project) {
-        return res.status(404).send({
-          message: 'Project not found',
-        })
-      }
-
-      return res.status(200).send({ project })
-    } catch (e) {
-      return res.status(500).send({
-        message: 'Failed to return data',
-        error: e,
-      })
-    }
-  },
   // get all project list ordered by start date
   getAllProjects: async function (req, res) {
     try {
