@@ -20,10 +20,11 @@
 
 // imports
 import { Router } from 'express'
-//! import JobController from '../controllers/job.js'
+import JobController from '../controllers/job.js'
 
 const router = Router()
 
 // routes
+router.post('/add-job', JobController.addJob)
 
 export default router
