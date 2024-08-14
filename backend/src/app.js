@@ -24,6 +24,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 // -> load routes files
 import projectRoutes from './routes/project.js'
+import jobRoutes from './routes/job.js'
 
 // execute express
 const app = express()
@@ -37,6 +38,7 @@ app.use(cors())
 
 // routes
 app.use('/api', projectRoutes)
+app.use('/api', jobRoutes)
 
 // exports
 export default app
