@@ -36,9 +36,9 @@ const projectController = {
     project.endDate = params.endDate
 
     try {
-      const projectAdded = await project.save()
+      const addedProject = await project.save()
 
-      return res.status(200).send({ project: projectAdded })
+      return res.status(200).send({ project: addedProject })
     } catch (e) {
       return res.status(500).send({
         message: 'Failed to add data',
