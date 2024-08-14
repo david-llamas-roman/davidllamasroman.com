@@ -59,6 +59,7 @@ const projectController = {
       })
     }
   },
+  // remove a specific project
   removeProject: async function (req, res) {
     try {
       const projectId = req.params.id
