@@ -39,6 +39,9 @@
   /* -> backdrop-filter */
   /* ----> blur */
   --blur-backdrop-filter: blur(10px);
+  /* transitions */
+  /* -> hover */
+  --hover-transition: transform 0.1s;
 }
 
 /* reset css */
@@ -101,6 +104,65 @@ footer {
   width: var(--max-percentage);
 }
 
+/* header */
+header {
+  width: var(--max-percentage);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  backdrop-filter: var(--blur-backdrop-filter);
+}
+
+#quick-website-settings {
+  display: flex;
+}
+
+#select-language-btn,
+#dark-mode-btn,
+#open-responsive-menu-btn,
+#close-responsive-menu-btn {
+  padding: 0.5rem;
+  margin: 0 0.25rem;
+  display: block;
+  transition: var(--hover-transition);
+  -webkit-transition: var(--hover-transition);
+  -moz-transition: var(--hover-transition);
+  -ms-transition: var(--hover-transition);
+  -o-transition: var(--hover-transition);
+}
+
+#select-language-btn i,
+#dark-mode-btn i,
+#open-responsive-menu-btn i,
+#close-responsive-menu-btn i {
+  color: var(--white);
+  font-size: calc(var(--small-social-networks-icons-font-size) - 5px);
+}
+
+#select-language-container {
+  display: grid;
+  place-items: center;
+}
+
+#select-language {
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  display: none;
+}
+
+#select-language:target {
+  display: block;
+}
+
+#select-language:target + #select-language-btn {
+  display: none;
+}
+
+#responsive-menu-btn {
+  display: none;
+}
+
 /* card */
 .card {
   margin: 0.6rem 0;
@@ -151,17 +213,18 @@ footer {
   -moz-border-radius: 26px;
   -ms-border-radius: 26px;
   -o-border-radius: 26px;
-  transition: transform 0.1s;
-  -webkit-transition: transform 0.1s;
-  -moz-transition: transform 0.1s;
-  -ms-transition: transform 0.1s;
-  -o-transition: transform 0.1s;
+  transition: var(--hover-transition);
+  -webkit-transition: var(--hover-transition);
+  -moz-transition: var(--hover-transition);
+  -ms-transition: var(--hover-transition);
+  -o-transition: var(--hover-transition);
   margin: 0.3rem;
   width: var(--button-width);
   text-align: center;
   color: var(--black);
 }
 
+header a:hover,
 .card-info ul li a:hover,
 .btn:hover,
 .social-networks ul li a:hover {
@@ -181,6 +244,14 @@ footer {
   margin-top: 1.2rem;
 }
 
+/* input placeholders */
+.form input::placeholder,
+.form textarea::placeholder {
+  text-align: left;
+  color: var(--black);
+  opacity: 80%;
+}
+
 /* social networks & media */
 .social-networks {
   padding-top: 1.5rem;
@@ -195,11 +266,11 @@ footer {
   color: var(--white);
   font-size: var(--social-networks-icons-font-size);
   display: block;
-  transition: transform 0.1s;
-  -webkit-transition: transform 0.1s;
-  -moz-transition: transform 0.1s;
-  -ms-transition: transform 0.1s;
-  -o-transition: transform 0.1s;
+  transition: var(--hover-transition);
+  -webkit-transition: var(--hover-transition);
+  -moz-transition: var(--hover-transition);
+  -ms-transition: var(--hover-transition);
+  -o-transition: var(--hover-transition);
   margin: 0.3rem 0.2rem;
 }
 
@@ -254,12 +325,50 @@ footer p {
   display: none;
 }
 
+#about-me:target ~ header {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+#about-me:target ~ header #quick-website-settings #responsive-menu-btn {
+  display: grid;
+  place-items: center;
+}
+
+#about-me:target
+  ~ header
+  #quick-website-settings
+  #responsive-menu-btn
+  #close-responsive-menu-btn {
+  display: none;
+}
+
 /* when click in 'projects' */
 #projects:target {
   display: block;
 }
 
 #projects:target ~ #home {
+  display: none;
+}
+
+#projects:target ~ header {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+#projects:target ~ header #quick-website-settings #responsive-menu-btn {
+  display: grid;
+  place-items: center;
+}
+
+#projects:target
+  ~ header
+  #quick-website-settings
+  #responsive-menu-btn
+  #close-responsive-menu-btn {
   display: none;
 }
 
@@ -272,12 +381,50 @@ footer p {
   display: none;
 }
 
+#experience:target ~ header {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+#experience:target ~ header #quick-website-settings #responsive-menu-btn {
+  display: grid;
+  place-items: center;
+}
+
+#experience:target
+  ~ header
+  #quick-website-settings
+  #responsive-menu-btn
+  #close-responsive-menu-btn {
+  display: none;
+}
+
 /* when click in 'get in touch' */
 #get-in-touch:target {
   display: block;
 }
 
-#get-in-touch:target + #home {
+#get-in-touch:target ~ #home {
+  display: none;
+}
+
+#get-in-touch:target ~ header {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+#get-in-touch:target ~ header #quick-website-settings #responsive-menu-btn {
+  display: grid;
+  place-items: center;
+}
+
+#get-in-touch:target
+  ~ header
+  #quick-website-settings
+  #responsive-menu-btn
+  #close-responsive-menu-btn {
   display: none;
 }
 
