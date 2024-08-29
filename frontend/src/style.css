@@ -53,16 +53,26 @@
 }
 
 /* general styles */
-body,
-html {
-  background-color: var(--black);
+#container {
+  background-color: var(--white);
+  height: var(--max-vh);
+  transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
 }
 
 #title,
 .medium-title,
 .text,
 #first-card-title {
-  color: var(--white);
+  color: var(--black);
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -ms-transition: color 0.5s;
+  -o-transition: color 0.5s;
 }
 
 #title,
@@ -80,7 +90,12 @@ html {
 .link {
   font-style: italic;
   font-weight: 700;
-  color: var(--white);
+  color: var(--black);
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -ms-transition: color 0.5s;
+  -o-transition: color 0.5s;
 }
 
 .btn {
@@ -113,6 +128,11 @@ header {
   backdrop-filter: var(--blur-backdrop-filter);
 }
 
+#header-content {
+  max-width: var(--desktop-version-card-width);
+  margin: 0 auto;
+}
+
 #quick-website-settings {
   display: flex;
 }
@@ -135,8 +155,13 @@ header {
 #dark-mode-btn i,
 #open-responsive-menu-btn i,
 #close-responsive-menu-btn i {
-  color: var(--white);
+  color: var(--black);
   font-size: calc(var(--small-social-networks-icons-font-size) - 5px);
+  transition: color 0.5s;
+  -webkit-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -ms-transition: color 0.5s;
+  -o-transition: color 0.5s;
 }
 
 #select-language-container {
@@ -145,8 +170,8 @@ header {
 }
 
 #select-language {
-  background-color: var(--black);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--black);
   border: none;
   display: none;
 }
@@ -168,23 +193,33 @@ header {
   margin: 0.6rem 0;
   padding: 1rem;
   backdrop-filter: var(--blur-backdrop-filter);
-  border: 1px solid var(--white);
+  border: 1px solid var(--black);
   border-radius: 26px;
   -webkit-border-radius: 26px;
   -moz-border-radius: 26px;
   -ms-border-radius: 26px;
   -o-border-radius: 26px;
   width: var(--card-width);
+  transition: border 0.5s;
+  -webkit-transition: border 0.5s;
+  -moz-transition: border 0.5s;
+  -ms-transition: border 0.5s;
+  -o-transition: border 0.5s;
 }
 
 .card-info {
   width: var(--max-percentage);
-  border: 4px solid var(--white);
+  border: 4px solid var(--black);
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+  transition: border 0.5s;
+  -webkit-transition: border 0.5s;
+  -moz-transition: border 0.5s;
+  -ms-transition: border 0.5s;
+  -o-transition: border 0.5s;
 }
 
 .card-info ul,
@@ -204,7 +239,7 @@ header {
 .form input,
 .form textarea {
   display: block;
-  background-color: var(--white);
+  background-color: var(--black);
   padding: 1rem;
   font-weight: 700;
   text-decoration: none;
@@ -213,18 +248,33 @@ header {
   -moz-border-radius: 26px;
   -ms-border-radius: 26px;
   -o-border-radius: 26px;
-  transition: var(--hover-transition);
-  -webkit-transition: var(--hover-transition);
-  -moz-transition: var(--hover-transition);
-  -ms-transition: var(--hover-transition);
-  -o-transition: var(--hover-transition);
+  transition:
+    color 0.5s,
+    background-color 0.5s,
+    var(--hover-transition);
+  -webkit-transition:
+    color 0.5s,
+    background-color 0.5s,
+    var(--hover-transition);
+  -moz-transition:
+    color 0.5s,
+    background-color 0.5s,
+    var(--hover-transition);
+  -ms-transition:
+    color 0.5s,
+    background-color 0.5s,
+    var(--hover-transition);
+  -o-transition:
+    color 0.5s,
+    background-color 0.5s,
+    var(--hover-transition);
   margin: 0.3rem;
   width: var(--button-width);
   text-align: center;
-  color: var(--black);
+  color: var(--white);
 }
 
-header a:hover,
+header #header-content a:hover,
 .card-info ul li a:hover,
 .btn:hover,
 .social-networks ul li a:hover {
@@ -248,7 +298,7 @@ header a:hover,
 .form input::placeholder,
 .form textarea::placeholder {
   text-align: left;
-  color: var(--black);
+  color: var(--white);
   opacity: 80%;
 }
 
@@ -263,7 +313,7 @@ header a:hover,
 
 .social-networks ul li a {
   text-decoration: none;
-  color: var(--white);
+  color: var(--black);
   font-size: var(--social-networks-icons-font-size);
   display: block;
   transition: var(--hover-transition);
@@ -315,10 +365,45 @@ footer p {
   text-align: center;
 }
 
+/* DARK MODE */
+.dark-mode {
+  background-color: var(--black);
+}
+
+.dark-mode #title,
+.dark-mode .medium-title,
+.dark-mode .text,
+.dark-mode #first-card-title,
+.dark-mode .link,
+.dark-mode #select-language-btn i,
+.dark-mode #dark-mode-btn i,
+.dark-mode #open-responsive-menu-btn i,
+.dark-mode #close-responsive-menu-btn i,
+.dark-mode .social-networks ul li a {
+  color: var(--white);
+}
+
+.dark-mode .card {
+  border: 1px solid var(--white);
+}
+
+.dark-mode .card-info {
+  border: 4px solid var(--white);
+}
+
+.dark-mode .card-info ul li a,
+.dark-mode .btn,
+.dark-mode .form input,
+.dark-mode .form textarea {
+  background-color: var(--white);
+  color: var(--black);
+}
+
 /* NAVIGATION */
 /* when click in 'about me' */
 #about-me:target {
   display: block;
+  padding-top: 6.563rem;
 }
 
 #about-me:target ~ #home {
@@ -331,13 +416,18 @@ footer p {
   position: absolute;
 }
 
-#about-me:target ~ header #quick-website-settings #responsive-menu-btn {
+#about-me:target
+  ~ header
+  #header-content
+  #quick-website-settings
+  #responsive-menu-btn {
   display: grid;
   place-items: center;
 }
 
 #about-me:target
   ~ header
+  #header-content
   #quick-website-settings
   #responsive-menu-btn
   #close-responsive-menu-btn {
@@ -347,6 +437,7 @@ footer p {
 /* when click in 'projects' */
 #projects:target {
   display: block;
+  padding-top: 6.563rem;
 }
 
 #projects:target ~ #home {
@@ -359,13 +450,18 @@ footer p {
   position: absolute;
 }
 
-#projects:target ~ header #quick-website-settings #responsive-menu-btn {
+#projects:target
+  ~ header
+  #header-content
+  #quick-website-settings
+  #responsive-menu-btn {
   display: grid;
   place-items: center;
 }
 
 #projects:target
   ~ header
+  #header-content
   #quick-website-settings
   #responsive-menu-btn
   #close-responsive-menu-btn {
@@ -375,6 +471,7 @@ footer p {
 /* when click in 'experience' */
 #experience:target {
   display: block;
+  padding-top: 6.563rem;
 }
 
 #experience:target ~ #home {
@@ -387,13 +484,18 @@ footer p {
   position: absolute;
 }
 
-#experience:target ~ header #quick-website-settings #responsive-menu-btn {
+#experience:target
+  ~ header
+  #header-content
+  #quick-website-settings
+  #responsive-menu-btn {
   display: grid;
   place-items: center;
 }
 
 #experience:target
   ~ header
+  #header-content
   #quick-website-settings
   #responsive-menu-btn
   #close-responsive-menu-btn {
@@ -403,6 +505,7 @@ footer p {
 /* when click in 'get in touch' */
 #get-in-touch:target {
   display: block;
+  padding-top: 6.563rem;
 }
 
 #get-in-touch:target ~ #home {
@@ -415,13 +518,18 @@ footer p {
   position: absolute;
 }
 
-#get-in-touch:target ~ header #quick-website-settings #responsive-menu-btn {
+#get-in-touch:target
+  ~ header
+  #header-content
+  #quick-website-settings
+  #responsive-menu-btn {
   display: grid;
   place-items: center;
 }
 
 #get-in-touch:target
   ~ header
+  #header-content
   #quick-website-settings
   #responsive-menu-btn
   #close-responsive-menu-btn {
