@@ -26,34 +26,48 @@
   <script src="https://kit.fontawesome.com/4734cbf68c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="dark-mode" id="container">
+  <div id="container" data-theme="light">
+    <!-- sections -->
+    <!-- ABOUT ME -->
     <section class="sect" id="about-me">
       <h2 class="medium-title">About Me</h2>
       <div class="sect-info"></div>
     </section>
+    <!-- PROJECTS -->
     <section class="sect" id="projects">
       <h2 class="medium-title">Projects</h2>
       <div class="sect-info"></div>
     </section>
+    <!-- EXPERIENCE -->
     <section class="sect" id="experience">
       <h2 class="medium-title">Experience</h2>
       <div class="sect-info"></div>
     </section>
+    <!-- GET IN TOUCH -->
     <section class="sect" id="get-in-touch">
       <h2 class="medium-title">Get in touch</h2>
       <div class="grid-center">
         <form action="#" method="post" class="form" id="get-in-touch-form">
-          <input type="text" name="full-name" id="full-name" placeholder="Full Name">
-          <input type="email" name="email" id="email" placeholder="Email">
-          <input type="text" name="subject" id="subject" placeholder="Subject">
-          <textarea name="message" id="message" placeholder="Message"></textarea>
+          <fieldset>
+            <label for="full-name">Full Name</label>
+            <input type="text" name="full-name" id="full-name">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" id="subject">
+            <label for="message">Message</label>
+            <textarea name="message" id="message"></textarea>
+          </fieldset>
           <button href="#" class="btn">Submit</button>
         </form>
       </div>
     </section>
+
+    <!-- header -->
     <header>
       <div id="header-content">
         <div id="quick-website-settings">
+          <!-- SELECT LANGUAGE -->
           <div id="select-language-container">
             <select name="languages" id="select-language">
               <option value="en">EN</option>
@@ -61,7 +75,9 @@
             </select>
             <a href="#select-language" id="select-language-btn"><i class="fa-solid fa-globe"></i></a>
           </div>
-          <a href="#" id="dark-mode-btn" onclick="setDarkMode()"><i class="fa-solid fa-moon"></i></a>
+          <!-- DARK MODE -->
+          <a href="#" id="dark-mode-btn"><i class="fa-solid fa-moon"></i></a>
+          <!-- RESPONSIVE MENU -->
           <div id="responsive-menu-btn">
             <a href="#responsive-menu" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a>
             <a href="#" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a>
@@ -69,7 +85,10 @@
         </div>
       </div>
     </header>
+
+    <!-- main content -->
     <main id="home">
+      <!-- PRESENTATION -->
       <section class="card">
         <div class="card-info">
           <h1 id="title">David Llamas Román</h1>
@@ -83,6 +102,7 @@
         </div>
       </section>
       <div class="flex">
+        <!-- SOCIAL NETWORKS -->
         <article class="social-networks card small-card">
           <ul>
             <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
@@ -96,6 +116,7 @@
             <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-facebook-f"></i></a></li>
           </ul>
         </article>
+        <!-- LOGIN OR CREATE ACCOUNT -->
         <section class="card card-content-centered medium-card" id="login-create-account">
           <h2 class="medium-title">Login or create an account with</h2>
           <form action="#" method="post" class="form" id="login-create-account-form">
@@ -105,9 +126,14 @@
         </section>
       </div>
     </main>
+
+    <!-- footer -->
     <footer>
       <p class="text"><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="link">GNU General Public License version 3 (GPL-3.0) only</a></small></p>
     </footer>
   </div>
+
+  <!-- scripts -->
+  <script type="module" src="./js/darkMode.js"></script>
 </body>
 </html>
