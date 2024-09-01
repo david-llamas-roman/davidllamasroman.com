@@ -188,7 +188,7 @@ header {
   display: none;
 }
 
-#responsive-menu-btn {
+#open-responsive-menu-btn {
   display: none;
 }
 
@@ -216,11 +216,13 @@ header {
   -o-border-radius: 20px;
 }
 
+#responsive-menu ul,
 .card-info ul,
 .card-content-centered,
 .social-networks {
   padding: 0.5rem 2rem 2rem 2rem;
   text-align: center;
+  list-style: none;
 }
 
 .card-info ul li,
@@ -228,6 +230,7 @@ header {
   display: inline-block;
 }
 
+#responsive-menu ul li a,
 .card-info ul li a,
 .btn,
 .form input,
@@ -253,6 +256,7 @@ header {
   color: var(--bg-color);
 }
 
+#responsive-menu ul li a:hover,
 header #header-content a:hover,
 .card-info ul li a:hover,
 .btn:hover,
@@ -344,140 +348,76 @@ footer p {
 }
 
 /* NAVIGATION */
-/* when click in 'about me' */
-#about-me:target {
-  display: block;
-  padding-top: 6.563rem;
-}
-
-#about-me:target ~ #home {
-  display: none;
-}
-
-#about-me:target ~ header {
-  top: 0;
-  left: 0;
-  position: absolute;
-}
-
-#about-me:target
-  ~ header
-  #header-content
-  #quick-website-settings
-  #responsive-menu-btn {
-  display: grid;
-  place-items: center;
-}
-
-#about-me:target
-  ~ header
-  #header-content
-  #quick-website-settings
-  #responsive-menu-btn
-  #close-responsive-menu-btn {
-  display: none;
-}
-
-/* when click in 'projects' */
-#projects:target {
-  display: block;
-  padding-top: 6.563rem;
-}
-
-#projects:target ~ #home {
-  display: none;
-}
-
-#projects:target ~ header {
-  top: 0;
-  left: 0;
-  position: absolute;
-}
-
-#projects:target
-  ~ header
-  #header-content
-  #quick-website-settings
-  #responsive-menu-btn {
-  display: grid;
-  place-items: center;
-}
-
-#projects:target
-  ~ header
-  #header-content
-  #quick-website-settings
-  #responsive-menu-btn
-  #close-responsive-menu-btn {
-  display: none;
-}
-
-/* when click in 'experience' */
-#experience:target {
-  display: block;
-  padding-top: 6.563rem;
-}
-
-#experience:target ~ #home {
-  display: none;
-}
-
-#experience:target ~ header {
-  top: 0;
-  left: 0;
-  position: absolute;
-}
-
-#experience:target
-  ~ header
-  #header-content
-  #quick-website-settings
-  #responsive-menu-btn {
-  display: grid;
-  place-items: center;
-}
-
-#experience:target
-  ~ header
-  #header-content
-  #quick-website-settings
-  #responsive-menu-btn
-  #close-responsive-menu-btn {
-  display: none;
-}
-
-/* when click in 'get in touch' */
+#about-me:target,
+#projects:target,
+#experience:target,
 #get-in-touch:target {
-  display: block;
   padding-top: 6.563rem;
 }
 
+#about-me:target,
+#projects:target,
+#experience:target,
+#get-in-touch:target,
+#about-me:target
+  ~ header
+  #header-content
+  #quick-website-settings
+  #open-responsive-menu-btn,
+#projects:target
+  ~ header
+  #header-content
+  #quick-website-settings
+  #open-responsive-menu-btn,
+#experience:target
+  ~ header
+  #header-content
+  #quick-website-settings
+  #open-responsive-menu-btn,
+#get-in-touch:target
+  ~ header
+  #header-content
+  #quick-website-settings
+  #open-responsive-menu-btn {
+  display: block;
+}
+
+#responsive-menu:target ~ #home,
+#responsive-menu:target ~ header,
+#responsive-menu:target ~ footer,
+#about-me:target ~ #home,
+#projects:target ~ #home,
+#experience:target ~ #home,
 #get-in-touch:target ~ #home {
   display: none;
 }
 
+#about-me:target ~ header,
+#projects:target ~ header,
+#experience:target ~ header,
 #get-in-touch:target ~ header {
   top: 0;
   left: 0;
   position: absolute;
 }
 
-#get-in-touch:target
-  ~ header
-  #header-content
-  #quick-website-settings
-  #responsive-menu-btn {
+#responsive-menu:target {
   display: grid;
   place-items: center;
 }
 
-#get-in-touch:target
-  ~ header
-  #header-content
-  #quick-website-settings
-  #responsive-menu-btn
-  #close-responsive-menu-btn {
+/* navbar */
+#responsive-menu {
+  background-color: var(--bg-color);
+  height: var(--max-percentage);
   display: none;
+}
+
+#close-responsive-menu-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2rem;
 }
 
 /* DESKTOP */
