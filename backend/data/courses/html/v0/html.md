@@ -349,15 +349,79 @@ Para poner una imagen en nuestra página tenemos que definir el elemento **img**
 ```html
 <img src="./imagen.png">
 ```
+Hay otro atributo que tiene bastante importancia y es que, si la imagen no puede cargar, podemos mostrar un texto 'alternativo' que únicamente se muestra en ese caso. Este es **alt** y su contenido tiene que ser algo que describa a la imagen y que te ayude a intuir cómo sería.
+```html
+<img src="./imagen.png" alt="persona saltando a la comba">
+```
 #### Vídeos
-#### Audios
+Para poner un vídeo en nuestra página tenemos que definir el elemento **video**. En este elemento tenemos un atributo **src** donde tenemos que poner la ruta del vídeo y, si este está en varios formatos, podemos definir dentro de **video** el elemento **source** que cuenta con un atributo **src** y lo podemos repetir tantas veces como formatos de archivo haya. Entonces, si hay alguna incompatibilidad con el formato de archivo default, se va a reproducir el primer source, si tampoco vale, el otro. También podemos no poner **src** en **video** y poner el video default en un **source**. Aquí ya a preferencia de cada uno. Hay más atributos que nos pueden resultar interesantes (se ponen en el elemento **video**):
+- Con **controls** activamos los controles del vídeo.
+- Con **autoplay** hacemos que el vídeo se reproduzca automáticamente, eso sí, tiene que estar silenciado para que no haya ningún problema. Para ello podemos utilizar **muted**.
+- Con **loop** hacemos que se reproduzca en bucle.
+- Con **poster** podemos hacer que el vídeo tenga una 'miniatura', para así evitar que no se vea nada mientras este carga.
+Ahora vamos a mostrar un ejemplo completo:
+```html
+<video src="./video.mp4" controls muted autoplay loop>
+  <source src="./video.mov">
+</video>
+```
+### Audios
+Para poner un audio en nuestra página vamos a tener que definir el elemento **audio**. Aquí pasa como con el elemento **video**, tenemos su atributo **src** y luego podemos definir un elemento **source** dentro de **audio** o hacerlo directamente. También nos encontramos con los atributos **controls**, **autoplay**, **muted** y **loop**.
+```html
+<audio src="./audio.mp3" controls muted autoplay loop>
+  <source src="./audio.aac">
+</audio>
+```
 ### Estructura de una web
+Hemos hablado de los elementos con los que podemos pintar contenido como tal, pero... ¿y los que nos ayudan a definir la estructura de la web donde los dejamos? A continuación vamos a hablar de aquellos elementos con los que decimos: 'aquí hay un encabezado', 'aquí hay una barra de navegación', 'un pie de página', 'una sección'...
 #### Encabezado
+Aquí, como en todas las partes donde hablemos de este tipo de elementos, nos tenemos que agarrar a la adopción de los términos 'contenedores' o 'cajas' para tener claro el funcionamiento de estas.
+
+En este caso, para poner en nuestra web un encabezado, tenemos que definir el elemento **header** y su función es simplemente agrupar una serie de elementos (título o logo, barra de navegación...). Cuando utilizamos este tipo de contenedor, el navegador sabe que lo que hemos definido es una sección de encabezado que va a contener las cosas que puedan ser relevantes en este caso. Si hubiésemos utilizado un contenedor genérico como se hacía antes de que existiesen estos elementos semánticos (lo veremos más adelante), este encabezado sería lo mismo que una sección normal y, a su vez, que un pie de página.
+```html
+<header>Encabezado</header>
+```
 #### Contenido principal
+Toda página web tiene un tema principal y el contenido que tiene relación directa con este, es el contenido principal de la web. Bien, pues para decirle eso al navegador, para decir que aquí se encuentra el contenido principal de la página, tenemos que definir el elemento **main**. Este es un contenedor, tiene la misma funcionalidad que **header**, pero bajo los ojos del navegador no va a ser lo mismo. En este estaría percibiendo que lo que hay dentro es el contenido principal, mientras que en el **header** vería que es el encabezado de la página.
+```html
+<header>Encabezado</header>
+
+<main>Contenido Principal</main>
+```
 #### Secciones laterales
+En una página podemos tener una sección lateral con contenido extra, quizás las últimas noticias del día, los artículos más relevantes de tu blog... Para poner dicha sección, ya sea a la izquierda o la derecha, en nuestra web, hay que definir el elemento **aside**.
+```html
+<header>Encabezado</header>
+
+<main>Contenido Principal</main>
+
+<aside>Sección Lateral</aside>
+```
 #### Pie de página
+¿Qué es una web sin un pie de página? Para definir un pie de página, hay que definir el elemento **footer**.
+```html
+<header>Encabezado</header>
+
+<main>Contenido Principal</main>
+
+<aside>Sección Lateral</aside>
+
+<footer>Pie de página</footer>
+```
 ### Encabezado
 #### Barra de navegación
+Este es un elemento que normalmente se encuentra dentro del **header**. Su significado semántico enmarca que lo que hay dentro del contenedor es una barra de navegación. Este se pone el nuestra web definiendo el elemento **nav** (Normalmente dentro de este elemento tenemos una lista desordenada a la que le quitamos los estilos compuesta por enlaces internos o externos).
+```html
+<header>
+  <nav>Barra de navegación</nav>
+</header>
+
+<main>Contenido Principal</main>
+
+<aside>Sección Lateral</aside>
+
+<footer>Pie de página</footer>
+```
 ### Contenido principal
 #### Secciones
 #### Artículos
