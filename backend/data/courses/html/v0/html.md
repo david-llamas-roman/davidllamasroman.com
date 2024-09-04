@@ -397,6 +397,7 @@ En una página podemos tener una sección lateral con contenido extra, quizás l
 
 <aside>Sección Lateral</aside>
 ```
+Aunque en este pequeño y simple ejemplo el **aside** está fuera de **main**, se puede dar el caso en el que esté dentro, ya ahí entramos en interpretaciones, ideas diferentes...
 #### Pie de página
 ¿Qué es una web sin un pie de página? Para definir un pie de página, hay que definir el elemento **footer**.
 ```html
@@ -423,7 +424,47 @@ Este es un elemento que normalmente se encuentra dentro del **header**. Su signi
 <footer>Pie de página</footer>
 ```
 ### Contenido principal
-#### Secciones
 #### Artículos
+Los artículos son contenedores en el que se espera un contenido independiente (ya sea texto e imagen, texto, links, listas, quizás tablas...) y no es obligatoria la existencia de un título en este tipo de contenedor que, por cierto, normalmente se encuentra dentro del contenido principal (eso no quita que pueda estar fuera, dentro de un **aside** o en cualquier otro sitio). Para crear un 'artículo' (aunque el nombre es el que es, no es obligatorio que sea un artículo de un blog, por ejemplo, al pie de la letra. De hecho, por eso menciono que el contenido esperado dentro es independiente y no confirmo un tipo exacto) tenemos que definir el elemento **article**.
+```html
+<header>
+  <nav>Barra de navegación</nav>
+</header>
+
+<main>
+  <article>Artículo</article>
+</main>
+
+<aside>Sección Lateral</aside>
+
+<footer>Pie de página</footer>
+```
+#### Secciones
+Las secciones son contenedores que agrupan, normalmente al tipo de contenedor que hemos definido antes, artículos. También pueden tener contenido 'suelto' por así decirlo, eso sí, todo el contenido que haya tiene que estar relacionado. Imaginémonos que en la sección 'Asignaturas' de un documento, se habla de una asignatura y luego de como ganó el Madrid ayer, no procede. En este caso, la existencia de un título es obligatoria / recomendada, se podría considerar una mala práctica utilizar una sección sin título en vez de un article, por ejemplo. Para crear una sección vamos a tener que definir el elemento **section**.
+```html
+<header>
+  <nav>Barra de navegación</nav>
+</header>
+
+<main>
+  <article>Artículo</article>
+  <section>
+    <h2>Título</h2>
+    <article>Artículo 1</article>
+    <article>Artículo 2</article>
+    <article>Artículo 3</article>
+  </section>
+  <section>
+    <h2>Título</h2>
+    <p>Párrafo 1</p>
+    <p>Párrafo 2</p>
+    <img src="./imagen.png" alt="imagen">
+  </section>
+</main>
+
+<aside>Sección Lateral</aside>
+
+<footer>Pie de página</footer>
+```
 ### Formularios
 
