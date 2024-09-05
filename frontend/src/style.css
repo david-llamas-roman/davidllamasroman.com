@@ -109,6 +109,7 @@
 
 .btn {
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .form textarea {
@@ -177,14 +178,6 @@ header {
   background-color: var(--bg-color);
   color: var(--fg-color);
   border: none;
-  display: none;
-}
-
-#select-language:target {
-  display: block;
-}
-
-#select-language:target + #select-language-btn {
   display: none;
 }
 
@@ -343,12 +336,18 @@ header #header-content a:hover,
 }
 
 /* footer */
+footer {
+  bottom: 0;
+  position: absolute;
+}
+
 footer p {
   text-align: center;
 }
 
 /* NAVIGATION */
 #about-me:target,
+#academy:target,
 #projects:target,
 #experience:target,
 #get-in-touch:target {
@@ -356,10 +355,16 @@ footer p {
 }
 
 #about-me:target,
+#academy:target,
 #projects:target,
 #experience:target,
 #get-in-touch:target,
 #about-me:target
+  ~ header
+  #header-content
+  #quick-website-settings
+  #open-responsive-menu-btn,
+#academy:target
   ~ header
   #header-content
   #quick-website-settings
@@ -386,6 +391,7 @@ footer p {
 #responsive-menu:target ~ header,
 #responsive-menu:target ~ footer,
 #about-me:target ~ #home,
+#academy:target ~ #home,
 #projects:target ~ #home,
 #experience:target ~ #home,
 #get-in-touch:target ~ #home {
@@ -393,6 +399,7 @@ footer p {
 }
 
 #about-me:target ~ header,
+#academy:target ~ header,
 #projects:target ~ header,
 #experience:target ~ header,
 #get-in-touch:target ~ header {
