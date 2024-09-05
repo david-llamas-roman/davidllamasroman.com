@@ -467,4 +467,4 @@ Las secciones son contenedores que agrupan, normalmente al tipo de contenedor qu
 <footer>Pie de página</footer>
 ```
 ### Formularios
-
+Ahora pasamos de todos los 'contenedores' que hemos visto antes y vamos con una parte, un componente, que encontramos mucho, un formulario. Sea cual sea el fin de este (contacto, registro, inicio de sesión...) siempre suelen tener las mismas partes, un 'contenedor
