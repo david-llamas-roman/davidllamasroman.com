@@ -358,6 +358,11 @@ header #header-content a:hover,
   overflow-y: scroll;
 }
 
+/* about me */
+#about-me .sect-info {
+  overflow-y: unset;
+}
+
 /* get in touch */
 #get-in-touch-form input,
 #get-in-touch-form .btn,
@@ -387,7 +392,8 @@ footer a {
 #academy:target,
 #projects:target,
 #experience:target,
-#get-in-touch:target {
+#get-in-touch:target,
+#license:target {
   padding-top: 6.563rem;
 }
 
@@ -396,6 +402,7 @@ footer a {
 #projects:target,
 #experience:target,
 #get-in-touch:target,
+#license:target,
 #about-me:target
   ~ header
   #header-content
@@ -420,6 +427,11 @@ footer a {
   ~ header
   #header-content
   #quick-website-settings
+  #open-responsive-menu-btn,
+#license:target
+  ~ header
+  #header-content
+  #quick-website-settings
   #open-responsive-menu-btn {
   display: block;
 }
@@ -431,7 +443,8 @@ footer a {
 #academy:target ~ #home,
 #projects:target ~ #home,
 #experience:target ~ #home,
-#get-in-touch:target ~ #home {
+#get-in-touch:target ~ #home,
+#license:target ~ #home {
   display: none;
 }
 
@@ -439,7 +452,8 @@ footer a {
 #academy:target ~ header,
 #projects:target ~ header,
 #experience:target ~ header,
-#get-in-touch:target ~ header {
+#get-in-touch:target ~ header,
+#license:target ~ header {
   top: 0;
   left: 0;
   position: absolute;
