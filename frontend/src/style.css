@@ -100,7 +100,6 @@
 
 .link {
   font-style: italic;
-  font-weight: 700;
   transition: color 0.5s;
   -webkit-transition: color 0.5s;
   -moz-transition: color 0.5s;
@@ -111,6 +110,7 @@
 .btn {
   font-size: 1rem;
   cursor: pointer;
+  border: none;
 }
 
 .form textarea {
@@ -130,7 +130,6 @@
   -ms-border-radius: 26px;
   -o-border-radius: 26px;
   margin-bottom: 1rem;
-  font-weight: 700;
 }
 
 .small-title {
@@ -319,11 +318,11 @@ header #header-content a:hover,
   margin-top: 1.2rem;
 }
 
-/* input placeholders */
-.form input::placeholder {
-  text-align: left;
-  color: var(--fg-color);
-  opacity: 80%;
+/* forms */
+.form input,
+.form textarea {
+  background-color: transparent;
+  border: 1px solid var(--fg-color);
 }
 
 /* social networks & media */
@@ -367,6 +366,23 @@ header #header-content a:hover,
   width: calc(var(--button-width) + 10vw);
 }
 
+#login-create-account-form label {
+  position: absolute;
+  top: 112.5px;
+  left: 110px;
+  padding: 0 0.5rem;
+  transition: top 0.1s;
+  -webkit-transition: top 0.1s;
+  -moz-transition: top 0.1s;
+  -ms-transition: top 0.1s;
+  -o-transition: top 0.1s;
+}
+
+#login-create-account-form input:focus + label {
+  top: 90px;
+  background-color: var(--bg-color);
+}
+
 /* sections */
 .sect {
   display: none;
@@ -392,6 +408,11 @@ header #header-content a:hover,
 #get-in-touch-form .btn,
 #get-in-touch-form textarea {
   width: calc(var(--button-width) + 20vw);
+}
+
+/* license */
+#license a {
+  color: var(--fg-color);
 }
 
 /* footer */
