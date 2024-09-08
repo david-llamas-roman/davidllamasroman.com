@@ -74,6 +74,7 @@
 
 #title,
 .medium-title,
+.small-title,
 .text,
 #first-card-title {
   color: var(--fg-color);
@@ -86,6 +87,7 @@
 
 #title,
 .medium-title,
+.small-title,
 #first-card-title {
   text-align: center;
   padding: 2rem;
@@ -131,6 +133,10 @@
   font-weight: 700;
 }
 
+.small-title {
+  padding: 0 2rem;
+}
+
 .text-container,
 .text {
   padding: 1rem;
@@ -138,7 +144,7 @@
 
 .text-container {
   max-width: 40rem;
-  margin: 0 auto 10rem auto;
+  margin: 0 auto;
 }
 
 .text {
@@ -165,7 +171,11 @@ header {
   padding: 2rem;
   display: flex;
   justify-content: space-between;
-  backdrop-filter: var(--blur-backdrop-filter);
+  background-color: var(--fg-color);
+  position: fixed;
+  top: 0;
+  box-shadow: 0px 30px 20px var(--bg-color);
+  z-index: 1;
 }
 
 #header-content {
@@ -193,9 +203,8 @@ header {
 
 #select-language-btn i,
 #dark-mode-btn i,
-#open-responsive-menu-btn i,
-#close-responsive-menu-btn i {
-  color: var(--fg-color);
+#open-responsive-menu-btn i {
+  color: var(--bg-color);
   font-size: calc(var(--small-social-networks-icons-font-size) - 5px);
 }
 
@@ -213,6 +222,11 @@ header {
 
 #open-responsive-menu-btn {
   display: none;
+}
+
+/* home */
+#home {
+  padding-top: 8rem;
 }
 
 /* card */
@@ -277,6 +291,11 @@ header {
   width: var(--button-width);
   text-align: center;
   color: var(--bg-color);
+}
+
+#responsive-menu ul li a {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
 }
 
 #responsive-menu ul li a:hover,
@@ -352,6 +371,7 @@ header #header-content a:hover,
 .sect {
   display: none;
   backdrop-filter: var(--blur-backdrop-filter);
+  padding-top: 6.563rem;
 }
 
 .sect-info {
@@ -361,6 +381,10 @@ header #header-content a:hover,
 /* about me */
 #about-me .sect-info {
   overflow-y: unset;
+}
+
+#about-me .text-container {
+  padding-bottom: 9rem;
 }
 
 /* get in touch */
@@ -388,15 +412,6 @@ footer a {
 }
 
 /* NAVIGATION */
-#about-me:target,
-#academy:target,
-#projects:target,
-#experience:target,
-#get-in-touch:target,
-#license:target {
-  padding-top: 6.563rem;
-}
-
 #about-me:target,
 #academy:target,
 #projects:target,
@@ -448,17 +463,6 @@ footer a {
   display: none;
 }
 
-#about-me:target ~ header,
-#academy:target ~ header,
-#projects:target ~ header,
-#experience:target ~ header,
-#get-in-touch:target ~ header,
-#license:target ~ header {
-  top: 0;
-  left: 0;
-  position: absolute;
-}
-
 #responsive-menu:target {
   display: grid;
   place-items: center;
@@ -466,7 +470,7 @@ footer a {
 
 /* navbar */
 #responsive-menu {
-  background-color: var(--bg-color);
+  background-color: var(--fg-color);
   height: var(--max-percentage);
   display: none;
 }
@@ -476,6 +480,10 @@ footer a {
   top: 0;
   right: 0;
   padding: 2rem;
+}
+
+#close-responsive-menu-btn i {
+  color: var(--bg-color);
 }
 
 /* DESKTOP */
