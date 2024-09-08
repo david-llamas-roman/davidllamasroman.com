@@ -18,14 +18,15 @@
 
 'use strict'
 
-// elements
 const darkModeBtn = document.getElementById('dark-mode-btn')
 const container = document.getElementById('container')
 
-darkModeBtn.addEventListener('click', () => {
-  if (container.hasAttribute('data-theme')) {
-    container.removeAttribute('data-theme')
-  }
+export default function setDarkMode() {
+  darkModeBtn.addEventListener('click', () => {
+    if (container.hasAttribute('data-theme')) {
+      container.removeAttribute('data-theme')
+    }
 
-  container.setAttribute('data-theme', 'dark')
-})
+    container.setAttribute('data-theme', 'dark')
+  })
+}
