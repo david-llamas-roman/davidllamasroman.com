@@ -46,8 +46,8 @@
     <section class="sect" id="about-me">
       <h2 class="medium-title">About Me</h2>
       <div class="sect-info">
-        <p class="message">🚀 Up to sky ✨</p>
-        <div class="text-container">
+        <p class="message"><strong>🚀 Up to sky ✨</strong></p>
+        <div class="text-container" id="about-me-text-container">
           <p class="text">I hate the pre-established. I do not want to be a 'normal' employee, I do not want to have a 'normal' salary and, of course, I do not want to stay with my arms crossed seeing as my dreams vanish. Now, I am going to mention the things that I want to. I want to work hard to learn and to get going experience quickly to get the best work position that I can imagine, I want to fight per my dreams and, why not, I want to live the life too. As you can see, I am not never satisfied with nothing and, sincerely, I have never endured that there are people who do it.</p>
           <p class="text">After this brief speech where I look like a charlatan, a daddy's boy that do not want to land in the real world and everything that you think, I am going to introduce myself.</p>
           <p class="text">Hi, I am David Llamas Román and I am a very normal man who wants to do something different which marks a before and after in the actual society. Therefore, I am hard working in my personal brand. Perhaps, everything that I have done so far has not had such an incredible and idyllic result, but Rome was not built in a day. I am sure that that day will arrive.</p>
@@ -91,7 +91,16 @@
     </section>
     <section class="sect" id="license">
       <h2 class="medium-title">License</h2>
-      <div class="sect-info"></div>
+      <div class="sect-info">
+        <h3 class="small-title">Which license is this website under?</h3>
+        <div class="text-container">
+          <p class="text">All code and files that are in the website project are licensed under <strong><a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="link">GNU General Public License version 3 (GPL-3.0) only</a></strong>. When it mention 'project', it am speaking about the website repository. In this case, it use GitHub to host all files of the website that it have mentioned before.</p>
+        </div>
+        <h3 class="small-title">What does 'only' mean in this context?</h3>
+        <div class="text-container">
+          <p class="text">When it is speaking about <strong>GPL</strong> software licenses and appear this word, it means that the software is only under the version where appear the before mentioned word. For example, <strong>GPL-3.0-only</strong>. In this case, this indicates that the software is only under <strong>GPL-3.0</strong> version and it cannot be modified or redistributed under previous or future versions.</p>
+        </div>
+      </div>
     </section>
 
     <!-- header -->
@@ -150,8 +159,9 @@
         <section class="card card-content-centered medium-card" id="login-create-account">
           <h2 class="medium-title">Login or create an account with</h2>
           <form action="#" method="post" class="form" id="login-create-account-form">
-            <input type="email" name="email" id="email" placeholder="Email">
-            <button href="#" class="btn">Continue <i class="fa-solid fa-arrow-right"></i></button>
+            <input type="email" name="email" id="email">
+            <label for="email">E-mail</label>
+            <button href="#" class="btn">Continue</button>
           </form>
         </section>
       </div>
@@ -159,12 +169,11 @@
 
     <!-- footer -->
     <footer>
-      <p><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="link">GNU General Public License version 3 (GPL-3.0) only</a></small></p>
+      <p><small>&copy; 2024 David Llamas Román. Licensed under the <strong><a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="link">GNU General Public License version 3 (GPL-3.0) only</a></strong></small></p>
     </footer>
   </div>
 
   <!-- scripts -->
-  <script type="module" src="./js/darkMode.js"></script>
-  <script type="module" src="./js/changeLanguage.js"></script>
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>
