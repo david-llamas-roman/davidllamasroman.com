@@ -21,7 +21,10 @@
 const selectLanguage = document.getElementById('select-language')
 const selectLanguageBtn = document.getElementById('select-language-btn')
 
+let hashInUrl = window.location.hash
+
 selectLanguageBtn.addEventListener('click', () => {
+  selectLanguageBtn.href = hashInUrl
   selectLanguageBtn.style.display = 'none'
   selectLanguage.style.display = 'block'
 })
