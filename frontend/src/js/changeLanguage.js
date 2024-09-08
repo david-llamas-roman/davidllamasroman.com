@@ -16,6 +16,8 @@
  * Copyright (C) 2024 David Llamas Román
  */
 
+'use strict'
+
 const selectLanguage = document.getElementById('select-language')
 const selectLanguageBtn = document.getElementById('select-language-btn')
 
