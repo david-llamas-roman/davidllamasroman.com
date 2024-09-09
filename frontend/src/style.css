@@ -225,7 +225,7 @@ header {
 
 /* home */
 #home {
-  padding-top: 8rem;
+  padding: 8rem 0 10rem 0;
 }
 
 /* card */
@@ -319,10 +319,21 @@ header #header-content a:hover,
 }
 
 /* forms */
+.form fieldset {
+  border: none;
+}
+
 .form input,
 .form textarea {
   background-color: transparent;
   border: 1px solid var(--fg-color);
+  text-align: left;
+}
+
+.form input,
+.form textarea,
+.form label {
+  color: var(--fg-color);
 }
 
 /* social networks & media */
@@ -366,23 +377,6 @@ header #header-content a:hover,
   width: calc(var(--button-width) + 10vw);
 }
 
-#login-create-account-form label {
-  position: absolute;
-  top: 112.5px;
-  left: 110px;
-  padding: 0 0.5rem;
-  transition: top 0.1s;
-  -webkit-transition: top 0.1s;
-  -moz-transition: top 0.1s;
-  -ms-transition: top 0.1s;
-  -o-transition: top 0.1s;
-}
-
-#login-create-account-form input:focus + label {
-  top: 90px;
-  background-color: var(--bg-color);
-}
-
 /* sections */
 .sect {
   display: none;
@@ -395,12 +389,14 @@ header #header-content a:hover,
 }
 
 /* about me */
-#about-me .sect-info {
+#about-me .sect-info,
+#license .sect-info {
   overflow-y: unset;
 }
 
-#about-me .text-container {
-  padding-bottom: 9rem;
+#about-me,
+#license {
+  padding-bottom: 8rem;
 }
 
 /* get in touch */
@@ -408,6 +404,21 @@ header #header-content a:hover,
 #get-in-touch-form .btn,
 #get-in-touch-form textarea {
   width: calc(var(--button-width) + 20vw);
+}
+
+#login-create-account-form label,
+#label-1,
+#label-2,
+#label-3,
+#label-4 {
+  position: absolute;
+  transition: top 0.1s;
+  -webkit-transition: top 0.1s;
+  -moz-transition: top 0.1s;
+  -ms-transition: top 0.1s;
+  -o-transition: top 0.1s;
+  background-color: var(--bg-color);
+  padding: 0 0.5rem;
 }
 
 /* license */
@@ -537,6 +548,65 @@ footer a {
   .small-card {
     margin: 0.6rem;
   }
+
+  /* login or create account form */
+  #login-create-account-form label {
+    top: 112.5px;
+    left: 110px;
+  }
+
+  #login-create-account-form input:focus + label {
+    top: 90px;
+  }
+
+  /* get in touch */
+  #get-in-touch-form input,
+  #get-in-touch-form textarea {
+    margin: 2rem 0;
+  }
+
+  #get-in-touch-form textarea {
+    height: 200px;
+  }
+
+  #label-1,
+  #label-2,
+  #label-3,
+  #label-4 {
+    left: 682px;
+  }
+
+  #label-1 {
+    top: 247px;
+  }
+
+  #full-name:focus ~ #label-1 {
+    top: calc(247px - 25px);
+  }
+
+  #label-2 {
+    top: 328px;
+  }
+
+  #email:focus ~ #label-2 {
+    top: calc(328px - 25px);
+  }
+
+  #label-3 {
+    top: 409px;
+  }
+
+  #subject:focus ~ #label-3 {
+    top: calc(409px - 25px);
+  }
+
+  #label-4 {
+    top: 490px;
+  }
+
+  #message:focus ~ #label-4 {
+    top: calc(490px - 25px);
+  }
 }
 
 /* TABLET */
@@ -563,5 +633,13 @@ footer a {
   .medium-card,
   .small-card {
     margin: 0.6rem;
+  }
+}
+
+/* BOTH */
+@media screen and (min-width: 768px) {
+  /* home */
+  #home {
+    padding-bottom: 0;
   }
 }
