@@ -44,13 +44,13 @@
 /* themes */
 /* DARK */
 [data-theme='dark'] {
-  --bg-color: #000;
+  --bg-color: #001f3f;
   --fg-color: #fff;
 }
 /* LIGHT */
 [data-theme='light'] {
   --bg-color: #fff;
-  --fg-color: #000;
+  --fg-color: #001f3f;
 }
 
 /* reset css */
@@ -141,6 +141,7 @@
   padding: 1rem;
 }
 
+#license .sect-info,
 .text-container {
   max-width: 40rem;
   margin: 0 auto;
@@ -663,6 +664,13 @@ footer a {
 
   #message:focus + #label-4 {
     top: calc(490px - 25px);
+  }
+
+  /* license */
+  #license .sect-info {
+    margin: 0 auto;
+    max-height: 66vh;
+    overflow-y: scroll;
   }
 }
 
