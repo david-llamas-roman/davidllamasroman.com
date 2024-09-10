@@ -377,6 +377,15 @@ header #header-content a:hover,
   width: calc(var(--button-width) + 10vw);
 }
 
+#login-create-account-form label {
+  top: 169px;
+  left: 60px;
+}
+
+#login-create-account-form input:focus + label {
+  top: calc(169px - 25px);
+}
+
 /* sections */
 .sect {
   display: none;
@@ -400,6 +409,10 @@ header #header-content a:hover,
 }
 
 /* get in touch */
+#get-in-touch {
+  padding-bottom: 10rem;
+}
+
 #get-in-touch-form input,
 #get-in-touch-form .btn,
 #get-in-touch-form textarea {
@@ -419,6 +432,50 @@ header #header-content a:hover,
   -o-transition: top 0.1s;
   background-color: var(--bg-color);
   padding: 0 0.5rem;
+}
+
+#get-in-touch-form input,
+#get-in-touch-form textarea {
+  margin: 1rem 0;
+}
+
+#label-1,
+#label-2,
+#label-3,
+#label-4 {
+  left: 75px;
+}
+
+#label-1 {
+  top: 228.5px;
+}
+
+#full-name:focus + #label-1 {
+  top: calc(228.5px - 25px);
+}
+
+#label-2 {
+  top: 294px;
+}
+
+#email:focus + #label-2 {
+  top: calc(294px - 25px);
+}
+
+#label-3 {
+  top: 358.5px;
+}
+
+#subject:focus + #label-3 {
+  top: calc(358.5px - 25px);
+}
+
+#label-4 {
+  top: 423.5px;
+}
+
+#message:focus + #label-4 {
+  top: calc(423.5px - 25px);
 }
 
 /* license */
@@ -580,7 +637,7 @@ footer a {
     top: 247px;
   }
 
-  #full-name:focus ~ #label-1 {
+  #full-name:focus + #label-1 {
     top: calc(247px - 25px);
   }
 
@@ -588,7 +645,7 @@ footer a {
     top: 328px;
   }
 
-  #email:focus ~ #label-2 {
+  #email:focus + #label-2 {
     top: calc(328px - 25px);
   }
 
@@ -596,7 +653,7 @@ footer a {
     top: 409px;
   }
 
-  #subject:focus ~ #label-3 {
+  #subject:focus + #label-3 {
     top: calc(409px - 25px);
   }
 
@@ -604,7 +661,7 @@ footer a {
     top: 490px;
   }
 
-  #message:focus ~ #label-4 {
+  #message:focus + #label-4 {
     top: calc(490px - 25px);
   }
 }
