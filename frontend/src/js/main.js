@@ -20,12 +20,13 @@
 
 import changeHash from './changeHash.js'
 import changeLanguage from './changeLanguage.js'
-import setDarkMode from './darkMode.js'
+import setDarkMode, { setLightMode } from './darkMode.js'
 
 function main() {
   changeHash()
   changeLanguage()
   setDarkMode()
+  setLightMode()
 }
 
 main()
