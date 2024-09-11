@@ -42,6 +42,7 @@
   /* -> change themes */
   --background-color-transition: background-color 0.5s;
   --color-transition: color 0.5s;
+  --box-shadow-transition: box-shadow 0.5s;
 }
 
 /* themes */
@@ -190,11 +191,15 @@ header {
   top: 0;
   box-shadow: 0px 30px 20px var(--bg-color);
   z-index: 1;
-  transition: var(--background-color-transition);
-  -webkit-transition: var(--background-color-transition);
-  -moz-transition: var(--background-color-transition);
-  -ms-transition: var(--background-color-transition);
-  -o-transition: var(--background-color-transition);
+  transition: var(--background-color-transition), var(--box-shadow-transition);
+  -webkit-transition: var(--background-color-transition),
+    var(--box-shadow-transition);
+  -moz-transition: var(--background-color-transition),
+    var(--box-shadow-transition);
+  -ms-transition: var(--background-color-transition),
+    var(--box-shadow-transition);
+  -o-transition: var(--background-color-transition),
+    var(--box-shadow-transition);
 }
 
 #header-content {
@@ -240,8 +245,8 @@ header {
 }
 
 #select-language {
-  background-color: var(--bg-color);
-  color: var(--fg-color);
+  background-color: var(--fg-color);
+  color: var(--bg-color);
   border: none;
   display: none;
   transition: var(--background-color-transition), var(--color-transition);
@@ -554,11 +559,15 @@ footer {
   position: fixed;
   background-color: var(--fg-color);
   box-shadow: 0px -30px 20px var(--bg-color);
-  transition: var(--background-color-transition);
-  -webkit-transition: var(--background-color-transition);
-  -moz-transition: var(--background-color-transition);
-  -ms-transition: var(--background-color-transition);
-  -o-transition: var(--background-color-transition);
+  transition: var(--background-color-transition), var(--box-shadow-transition);
+  -webkit-transition: var(--background-color-transition),
+    var(--box-shadow-transition);
+  -moz-transition: var(--background-color-transition),
+    var(--box-shadow-transition);
+  -ms-transition: var(--background-color-transition),
+    var(--box-shadow-transition);
+  -o-transition: var(--background-color-transition),
+    var(--box-shadow-transition);
 }
 
 footer p {
@@ -693,12 +702,12 @@ footer a {
 
   /* login or create account form */
   #login-create-account-form label {
-    top: 112.5px;
-    left: 110px;
+    top: 46.6%;
+    left: 19%;
   }
 
   #login-create-account-form input:focus + label {
-    top: 90px;
+    top: 37%;
   }
 
   /* get in touch */
@@ -715,39 +724,39 @@ footer a {
   #label-2,
   #label-3,
   #label-4 {
-    left: 682px;
+    left: 36%;
   }
 
   #label-1 {
-    top: 247px;
+    top: 26.6%;
   }
 
   #full-name:focus + #label-1 {
-    top: calc(247px - 25px);
+    top: calc(26.6% - 2.8%);
   }
 
   #label-2 {
-    top: 328px;
+    top: 35.25%;
   }
 
   #email:focus + #label-2 {
-    top: calc(328px - 25px);
+    top: calc(35.25% - 2.8%);
   }
 
   #label-3 {
-    top: 409px;
+    top: 44.1%;
   }
 
   #subject:focus + #label-3 {
-    top: calc(409px - 25px);
+    top: calc(44.1% - 2.8%);
   }
 
   #label-4 {
-    top: 490px;
+    top: 52.9%;
   }
 
   #message:focus + #label-4 {
-    top: calc(490px - 25px);
+    top: calc(52.9% - 2.8%);
   }
 
   /* license */
