@@ -22,7 +22,7 @@ const selectLanguageBtn = document.getElementById('select-language-btn')
 const darkModeBtn = document.getElementById('dark-mode-btn')
 
 export default function changeHash() {
-  let hash = '#'
+  let hash
 
   window.addEventListener('hashchange', () => {
     hash = window.location.hash
