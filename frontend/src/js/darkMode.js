@@ -19,6 +19,7 @@
 'use strict'
 
 const darkModeBtn = document.getElementById('dark-mode-btn')
+const lightModeBtn = document.getElementById('light-mode-btn')
 const container = document.getElementById('container')
 
 export default function setDarkMode() {
@@ -28,5 +29,21 @@ export default function setDarkMode() {
     }
 
     container.setAttribute('data-theme', 'dark')
+
+    darkModeBtn.style.display = 'none'
+    lightModeBtn.style.display = 'block'
+  })
+}
+
+export function setLightMode() {
+  lightModeBtn.addEventListener('click', () => {
+    if (container.hasAttribute('data-theme')) {
+      container.removeAttribute('data-theme')
+    }
+
+    container.setAttribute('data-theme', 'light')
+
+    lightModeBtn.style.display = 'none'
+    darkModeBtn.style.display = 'block'
   })
 }
