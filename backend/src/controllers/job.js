@@ -38,7 +38,7 @@ const jobController = {
     job.currentlyWorkingHere = params.currentlyWorkingHere
 
     try {
-      const jobAdded = await Job.save()
+      const jobAdded = await job.save()
 
       return res.status(200).send({ job: jobAdded })
     } catch (e) {
