@@ -508,39 +508,39 @@ header #header-content a:hover,
 #label-2,
 #label-3,
 #label-4 {
-  left: 75px;
+  left: 20.5%;
 }
 
 #label-1 {
-  top: 228.5px;
+  top: 32.25%;
 }
 
 #full-name:focus + #label-1 {
-  top: calc(228.5px - 25px);
+  top: calc(32.25% - 3.5%);
 }
 
 #label-2 {
-  top: 294px;
+  top: 41.5%;
 }
 
 #email:focus + #label-2 {
-  top: calc(294px - 25px);
+  top: calc(41.5% - 3.5%);
 }
 
 #label-3 {
-  top: 358.5px;
+  top: 50.7%;
 }
 
 #subject:focus + #label-3 {
-  top: calc(358.5px - 25px);
+  top: calc(50.7% - 3.5%);
 }
 
 #label-4 {
-  top: 423.5px;
+  top: 60%;
 }
 
 #message:focus + #label-4 {
-  top: calc(423.5px - 25px);
+  top: calc(60% - 3.5%);
 }
 
 /* license */
