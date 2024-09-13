@@ -21,12 +21,21 @@
 import changeHash from './changeHash.js'
 import changeLanguage from './changeLanguage.js'
 import setDarkMode, { setLightMode } from './darkMode.js'
+import getJobs from './jobs.js'
 
 function main() {
+  // anchors
   changeHash()
+
+  // languages
   changeLanguage()
+
+  // appearance
   setDarkMode()
   setLightMode()
+
+  // experience section
+  getJobs()
 }
 
 main()
