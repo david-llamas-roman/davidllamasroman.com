@@ -48,6 +48,19 @@ const jobController = {
       })
     }
   },
+  // get all job list ordered by start date
+  getAllJobs: async function (req, res) {
+    try {
+      const jobs = await Job.find().sort('startDate')
+
+      return res.status(200).send({ jobs })
+    } catch (e) {
+      return res.status(500).send({
+        message: 'Failed to return data',
+        error: e,
+      })
+    }
+  },
   // remove a specific job
   removeJob: async function (req, res) {
     try {
