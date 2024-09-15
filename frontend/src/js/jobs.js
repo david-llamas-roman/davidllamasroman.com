@@ -28,6 +28,11 @@ export default async function getJobs() {
 
     const data = await res.json()
 
+    if (data.jobs.length !== 0) {
+      const warning = document.querySelector('#experience .warning')
+      warning.style.display = 'none'
+    }
+
     for (let job of data.jobs) {
       let title = job.title
       let employmentType = job.employmentType
@@ -36,7 +41,7 @@ export default async function getJobs() {
       let locationType = job.locationType
       let startDate = job.startDate
       let endDate = job.endDate
-      let currentlyWorkingHere = job.currentlyWorkingHere
+      //let currentlyWorkingHere = job.currentlyWorkingHere
 
       const properties = [
         title,
@@ -46,16 +51,24 @@ export default async function getJobs() {
         locationType,
         startDate,
         endDate,
-        currentlyWorkingHere,
       ]
 
       const article = document.createElement('article')
       article.classList.add('art')
 
-      for (let i = 0; i < 8; i++) {
+      const h3 = document.createElement('h3')
+      h3.classList.add('small-title')
+      h3.innerText = properties[0]
+      article.appendChild(h3)
+
+      for (let i = 1; i < 7; i++) {
         const paragraph = document.createElement('p')
 
         paragraph.innerText = properties[i]
+
+        if (i <= 4) {
+          paragraph.style.display = 'inline-flex'
+        }
 
         article.appendChild(paragraph)
       }
