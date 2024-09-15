@@ -452,6 +452,29 @@ header #header-content a:hover,
   overflow-y: scroll;
 }
 
+/* articles */
+.art {
+  border-radius: 26px;
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+  -ms-border-radius: 26px;
+  -o-border-radius: 26px;
+  background-color: var(--fg-color);
+  max-width: 30rem;
+  padding: 1rem;
+  margin: 0 auto;
+  color: var(--bg-color);
+}
+
+.art h3 {
+  color: var(--bg-color);
+  padding: 1rem;
+}
+
+.art p {
+  padding: 1rem;
+}
+
 /* about me */
 #about-me .sect-info,
 #license .sect-info {
@@ -459,8 +482,14 @@ header #header-content a:hover,
 }
 
 #about-me,
+#experience,
 #license {
   padding-bottom: 8rem;
+}
+
+/* experience */
+#experience .sect-info {
+  padding: 2rem;
 }
 
 /* get in touch */
