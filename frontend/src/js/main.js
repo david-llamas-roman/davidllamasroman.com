@@ -22,6 +22,7 @@ import changeHash from './changeHash.js'
 import changeLanguage from './changeLanguage.js'
 import setDarkMode, { setLightMode } from './darkMode.js'
 import getJobs from './jobs.js'
+import getProjects from './projects.js'
 
 function main() {
   // anchors
@@ -33,6 +34,9 @@ function main() {
   // appearance
   setDarkMode()
   setLightMode()
+
+  // projects section
+  getProjects()
 
   // experience section
   getJobs()
