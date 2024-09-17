@@ -20,7 +20,7 @@
 
 import changeHash from './changeHash.js'
 import changeLanguage from './changeLanguage.js'
-import setDarkMode, { setLightMode } from './darkMode.js'
+import setDarkMode, { setLightMode, setUserThemePreferred } from './darkMode.js'
 import getJobs from './jobs.js'
 import getProjects from './projects.js'
 
@@ -34,6 +34,7 @@ function main() {
   // appearance
   setDarkMode()
   setLightMode()
+  setUserThemePreferred()
 
   // projects section
   getProjects()
