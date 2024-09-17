@@ -30,16 +30,18 @@
     <!-- NAVBAR - RESPONSIVE MENU -->
     <nav id="responsive-menu">
       <a href="#" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#about-me">About Me</a></li>
-        <li><a href="#academy">Academy</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#get-in-touch">Get in touch</a></li>
-        <li><a href="#">Account</a></li>
-        <li><a href="#license">License</a></li>
-      </ul>
+      <div id="list">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about-me">About Me</a></li>
+          <li><a href="#academy">Academy</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#get-in-touch">Get in touch</a></li>
+          <li><a href="#">Account</a></li>
+          <li><a href="#license">License</a></li>
+        </ul>
+      </div>
     </nav>
 
     <!-- sections -->
@@ -85,14 +87,14 @@
       <div class="grid-center">
         <form action="#" method="post" class="form" id="get-in-touch-form">
           <fieldset>
-            <input type="text" name="full-name" id="full-name">
             <label for="full-name" id="label-1">Full Name</label>
-            <input type="email" name="email" id="email">
+            <input type="text" name="full-name" id="full-name">
             <label for="email" id="label-2">Email</label>
-            <input type="text" name="subject" id="subject">
+            <input type="email" name="email" id="email">
             <label for="subject" id="label-3">Subject</label>
-            <textarea name="message" id="message"></textarea>
+            <input type="text" name="subject" id="subject">
             <label for="message" id="label-4">Message</label>
+            <textarea name="message" id="message"></textarea>
           </fieldset>
           <button href="#" class="btn">Submit</button>
         </form>
@@ -186,8 +188,8 @@
         <section class="card card-content-centered medium-card" id="login-create-account">
           <h2 class="medium-title">Login or create an account with</h2>
           <form action="#" method="post" class="form" id="login-create-account-form">
-            <input type="email" name="email" id="e-mail">
             <label for="e-mail">Email</label>
+            <input type="email" name="email" id="e-mail">
             <button href="#" class="btn">Continue</button>
           </form>
         </section>
