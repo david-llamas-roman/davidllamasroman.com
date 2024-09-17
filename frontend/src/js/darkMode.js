@@ -50,6 +50,15 @@ export function setLightMode() {
 
 export function setUserThemePreferred() {
   const userPreference = localStorage.getItem('theme')
-  console.log(userPreference) // null
-  localStorage.setItem('theme', userPreference)
+
+  if (container.hasAttribute('data-theme')) {
+    container.removeAttribute('data-theme')
+  }
+
+  container.setAttribute('data-theme', userPreference)
+
+  if (userPreference == 'dark') {
+    darkModeBtn.style.display = 'none'
+    lightModeBtn.style.display = 'block'
+  }
 }
