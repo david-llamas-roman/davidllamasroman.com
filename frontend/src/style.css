@@ -71,7 +71,6 @@
 /* general styles */
 #container {
   background-color: var(--bg-color);
-  height: var(--max-vh);
   transition: var(--background-color-transition);
   -webkit-transition: var(--background-color-transition);
   -moz-transition: var(--background-color-transition);
@@ -462,6 +461,19 @@ header #header-content a:hover,
   overflow-y: scroll;
 }
 
+#responsive-menu #list,
+#academy,
+#projects,
+#experience,
+#get-in-touch {
+  height: var(--max-vh);
+}
+
+#responsive-menu #list {
+  display: grid;
+  place-items: center;
+}
+
 /* articles */
 .art {
   border-radius: 26px;
@@ -513,73 +525,9 @@ header #header-content a:hover,
   width: calc(var(--button-width) + 20vw);
 }
 
-#login-create-account-form label,
-#label-1,
-#label-2,
-#label-3,
-#label-4 {
-  position: absolute;
-  transition:
-    top 0.1s,
-    var(--background-color-transition);
-  -webkit-transition:
-    top 0.1s,
-    var(--background-color-transition);
-  -moz-transition:
-    top 0.1s,
-    var(--background-color-transition);
-  -ms-transition:
-    top 0.1s,
-    var(--background-color-transition);
-  -o-transition:
-    top 0.1s,
-    var(--background-color-transition);
-  background-color: var(--bg-color);
-  padding: 0 0.5rem;
-}
-
 #get-in-touch-form input,
 #get-in-touch-form textarea {
   margin: 1rem 0;
-}
-
-#label-1,
-#label-2,
-#label-3,
-#label-4 {
-  left: 20.5%;
-}
-
-#label-1 {
-  top: 32.25%;
-}
-
-#full-name:focus + #label-1 {
-  top: calc(32.25% - 3.5%);
-}
-
-#label-2 {
-  top: 41.5%;
-}
-
-#email:focus + #label-2 {
-  top: calc(41.5% - 3.5%);
-}
-
-#label-3 {
-  top: 50.7%;
-}
-
-#subject:focus + #label-3 {
-  top: calc(50.7% - 3.5%);
-}
-
-#label-4 {
-  top: 60%;
-}
-
-#message:focus + #label-4 {
-  top: calc(60% - 3.5%);
 }
 
 /* license */
@@ -711,6 +659,10 @@ footer a {
 /* DESKTOP */
 @media screen and (min-width: 1280px) {
   /* general styles */
+  #container {
+    height: var(--max-vh);
+  }
+
   .flex {
     display: flex;
   }
@@ -739,14 +691,9 @@ footer a {
     margin: 0.6rem;
   }
 
-  /* login or create account form */
-  #login-create-account-form label {
-    top: 46.6%;
-    left: 19%;
-  }
-
-  #login-create-account-form input:focus + label {
-    top: 37%;
+  /* home */
+  #home {
+    padding-bottom: 0;
   }
 
   /* get in touch */
@@ -757,45 +704,6 @@ footer a {
 
   #get-in-touch-form textarea {
     height: 200px;
-  }
-
-  #label-1,
-  #label-2,
-  #label-3,
-  #label-4 {
-    left: 36%;
-  }
-
-  #label-1 {
-    top: 26.6%;
-  }
-
-  #full-name:focus + #label-1 {
-    top: calc(26.6% - 2.8%);
-  }
-
-  #label-2 {
-    top: 35.25%;
-  }
-
-  #email:focus + #label-2 {
-    top: calc(35.25% - 2.8%);
-  }
-
-  #label-3 {
-    top: 44.1%;
-  }
-
-  #subject:focus + #label-3 {
-    top: calc(44.1% - 2.8%);
-  }
-
-  #label-4 {
-    top: 52.9%;
-  }
-
-  #message:focus + #label-4 {
-    top: calc(52.9% - 2.8%);
   }
 
   /* license */
@@ -817,26 +725,24 @@ footer a {
     padding-top: 1rem;
   }
 
+  /* card */
   .medium-card {
-    width: calc(var(--desktop-version-card-width) + 7.5vw);
+    width: calc(var(--desktop-version-card-width) - 8vw);
     display: grid;
     place-items: center;
   }
 
   .small-card {
-    width: var(--small-card-width);
+    width: calc(var(--small-card-width) + 16vw);
   }
 
   .medium-card,
   .small-card {
     margin: 0.6rem;
   }
-}
 
-/* BOTH */
-@media screen and (min-width: 768px) {
-  /* home */
-  #home {
-    padding-bottom: 0;
+  .social-networks {
+    display: grid;
+    place-items: center;
   }
 }
