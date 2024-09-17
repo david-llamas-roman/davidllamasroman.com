@@ -29,6 +29,6 @@ export default function changeHash() {
     hash = window.location.hash
     selectLanguageBtn.href = hash
     darkModeBtn.href = hash
-    lightModeBtn.href = hash // do not work correctly
+    lightModeBtn.href = hash
   })
 }
