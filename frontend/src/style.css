@@ -18,6 +18,9 @@
 
 /* variables */
 :root {
+  /* colors */
+  --red-warning: rgba(255, 0, 0, 0.6);
+  --white: #fff;
   /* measures */
   --max-vw: 100vw;
   --max-vh: 100vh;
@@ -167,6 +170,13 @@
   -o-transition: var(--color-transition);
 }
 
+.warning {
+  background-color: var(--red-warning);
+  border: 4px double var(--white);
+  width: 20rem;
+  text-align: center;
+}
+
 .grid-center {
   display: grid;
   place-items: center;
@@ -292,7 +302,7 @@ header {
 }
 
 #responsive-menu ul,
-.card-info ul,
+.card-info nav ul,
 .card-content-centered,
 .social-networks {
   padding: 0.5rem 2rem 2rem 2rem;
@@ -300,13 +310,13 @@ header {
   list-style: none;
 }
 
-.card-info ul li,
-.social-networks ul li {
+.card-info nav ul li,
+.social-networks nav ul li {
   display: inline-block;
 }
 
 #responsive-menu ul li a,
-.card-info ul li a,
+.card-info nav ul li a,
 .btn,
 .form input,
 .form textarea {
@@ -349,9 +359,9 @@ header {
 
 #responsive-menu ul li a:hover,
 header #header-content a:hover,
-.card-info ul li a:hover,
+.card-info nav ul li a:hover,
 .btn:hover,
-.social-networks ul li a:hover {
+.social-networks nav ul li a:hover {
   transform: scale(1.05);
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
