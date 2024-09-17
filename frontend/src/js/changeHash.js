@@ -20,6 +20,7 @@
 
 const selectLanguageBtn = document.getElementById('select-language-btn')
 const darkModeBtn = document.getElementById('dark-mode-btn')
+const lightModeBtn = document.getElementById('light-mode-btn')
 
 export default function changeHash() {
   let hash
@@ -28,5 +29,6 @@ export default function changeHash() {
     hash = window.location.hash
     selectLanguageBtn.href = hash
     darkModeBtn.href = hash
+    lightModeBtn.href = hash // do not work correctly
   })
 }
