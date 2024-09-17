@@ -47,3 +47,9 @@ export function setLightMode() {
     darkModeBtn.style.display = 'block'
   })
 }
+
+export function setUserThemePreferred() {
+  const userPreference = localStorage.getItem('theme')
+  console.log(userPreference) // null
+  localStorage.setItem('theme', userPreference)
+}
