@@ -196,7 +196,7 @@ header {
   padding: 2rem;
   display: flex;
   justify-content: space-between;
-  background-color: var(--fg-color);
+  background-color: var(--bg-color);
   position: fixed;
   top: 0;
   box-shadow: 0px 30px 20px var(--bg-color);
@@ -240,7 +240,7 @@ header {
 #dark-mode-btn i,
 #light-mode-btn i,
 #open-responsive-menu-btn i {
-  color: var(--bg-color);
+  color: var(--fg-color);
   font-size: calc(var(--small-social-networks-icons-font-size) - 5px);
   transition: var(--color-transition);
   -webkit-transition: var(--color-transition);
@@ -347,8 +347,8 @@ header {
 }
 
 #responsive-menu ul li a {
-  background-color: var(--bg-color);
-  color: var(--fg-color);
+  background-color: var(--fg-color);
+  color: var(--bg-color);
   transition: var(--background-color-transition), var(--color-transition);
   -webkit-transition: var(--background-color-transition),
     var(--color-transition);
@@ -596,7 +596,7 @@ header #header-content a:hover,
 footer {
   bottom: 0;
   position: fixed;
-  background-color: var(--fg-color);
+  background-color: var(--bg-color);
   box-shadow: 0px -30px 20px var(--bg-color);
   transition: var(--background-color-transition), var(--box-shadow-transition);
   -webkit-transition: var(--background-color-transition),
@@ -615,7 +615,7 @@ footer p {
 
 footer p,
 footer a {
-  color: var(--bg-color);
+  color: var(--fg-color);
   transition: var(--color-transition);
   -webkit-transition: var(--color-transition);
   -moz-transition: var(--color-transition);
@@ -682,7 +682,7 @@ footer a {
 
 /* navbar */
 #responsive-menu {
-  background-color: var(--fg-color);
+  background-color: var(--bg-color);
   height: var(--max-percentage);
   display: none;
   transition: var(--background-color-transition);
@@ -700,7 +700,7 @@ footer a {
 }
 
 #close-responsive-menu-btn i {
-  color: var(--bg-color);
+  color: var(--fg-color);
   transition: var(--color-transition);
   -webkit-transition: var(--color-transition);
   -moz-transition: var(--color-transition);
