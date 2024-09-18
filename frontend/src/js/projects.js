@@ -18,7 +18,7 @@
 
 'use strict'
 
-const sectInfo = document.querySelector('#projects .sect-info')
+import { experienceSectInfo, projectsWarning } from './elements.js'
 
 const apiUrl = 'http://localhost:3700/api/projects'
 
@@ -29,8 +29,7 @@ export default async function getProjects() {
     const data = await res.json()
 
     if (data.projects.length !== 0) {
-      const warning = document.querySelector('#projects .warning')
-      warning.style.display = 'none'
+      projectsWarning.style.display = 'none'
     }
 
     for (let project of data.projects) {
@@ -70,7 +69,7 @@ export default async function getProjects() {
         article.appendChild(paragraph)
       }
 
-      sectInfo.appendChild(article)
+      experienceSectInfo.appendChild(article)
     }
   } catch (e) {
     console.log(e)
