@@ -20,11 +20,11 @@
 
 // imports
 import { hideElement, projectsSectInfo, projectsWarning } from './elements.js'
-import { apiUrl, getApiUrlData, convertDataToJson } from './apiUrls.js'
+import { projectsApiUrl, getApiUrlData, convertDataToJson } from './apiUrls.js'
 
 export default async function getProjects() {
   try {
-    const data = await convertDataToJson(await getApiUrlData(apiUrl))
+    const data = await convertDataToJson(await getApiUrlData(projectsApiUrl))
 
     if (data.projects.length !== 0) {
       hideElement(projectsWarning)
