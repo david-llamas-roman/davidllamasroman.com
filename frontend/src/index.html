@@ -27,7 +27,34 @@
 </head>
 <body>
   <div id="container" data-theme="light">
-    <!-- NAVBAR - RESPONSIVE MENU -->
+    
+
+    
+
+    <!-- header -->
+    <header>
+      <div id="header-content">
+        <div id="quick-website-settings">
+          <!-- SELECT LANGUAGE -->
+          <div id="select-language-container">
+            <select name="languages" id="select-language">
+              <option value="en">EN</option>
+              <option value="es">ES</option>
+            </select>
+            <a href="#" id="select-language-btn"><i class="fa-solid fa-globe"></i></a>
+          </div>
+          <!-- DARK MODE -->
+          <div class="grid-center">
+            <a href="#" id="dark-mode-btn"><i class="fa-solid fa-moon"></i></a>
+            <a href="#" id="light-mode-btn"><i class="fa-solid fa-sun"></i></a>
+          </div>
+          <!-- RESPONSIVE MENU -->
+          <a href="#responsive-menu" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a>
+        </div>
+      </div>
+    </header>
+
+<!-- NAVBAR - RESPONSIVE MENU -->
     <nav id="responsive-menu">
       <a href="#" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a>
       <div id="list">
@@ -44,6 +71,53 @@
       </div>
     </nav>
 
+    <!-- main content -->
+    <main id="home">
+      <!-- PRESENTATION -->
+      <section class="card">
+        <div class="card-info">
+          <h1 id="title">David Llamas Román</h1>
+          <h2 class="medium-title" id="first-card-medium-title">Web Developer Student</h2>
+          <nav>
+            <ul>
+              <li><a href="#about-me">About Me</a></li>
+              <li><a href="#academy">Academy</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#get-in-touch">Get in touch</a></li>
+              <li><a href="#">Account</a></li>
+              <li><a href="#license">License</a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+      <div class="flex">
+        <!-- SOCIAL NETWORKS -->
+        <article class="social-networks card small-card">
+          <nav>
+            <ul>
+              <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+            </ul>
+            <ul>
+              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-youtube"></i></a></li>
+              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-tiktok"></i></a></li>
+              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-threads"></i></a></li>
+              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-facebook-f"></i></a></li>
+            </ul>
+          </nav>
+        </article>
+        <!-- LOGIN OR CREATE ACCOUNT -->
+        <section class="card card-content-centered medium-card" id="login-create-account">
+          <h2 class="medium-title">Login or create an account with</h2>
+          <form action="#" method="post" class="form" id="login-create-account-form">
+            <label for="e-mail">Email</label>
+            <input type="email" name="email" id="e-mail">
+            <button href="#" class="btn">Continue</button>
+          </form>
+        </section>
+      </div>
     <!-- sections -->
     <!-- ABOUT ME -->
     <section class="sect" id="about-me">
@@ -123,77 +197,6 @@
         </div>
       </div>
     </section>
-
-    <!-- header -->
-    <header>
-      <div id="header-content">
-        <div id="quick-website-settings">
-          <!-- SELECT LANGUAGE -->
-          <div id="select-language-container">
-            <select name="languages" id="select-language">
-              <option value="en">EN</option>
-              <option value="es">ES</option>
-            </select>
-            <a href="#" id="select-language-btn"><i class="fa-solid fa-globe"></i></a>
-          </div>
-          <!-- DARK MODE -->
-          <div class="grid-center">
-            <a href="#" id="dark-mode-btn"><i class="fa-solid fa-moon"></i></a>
-            <a href="#" id="light-mode-btn"><i class="fa-solid fa-sun"></i></a>
-          </div>
-          <!-- RESPONSIVE MENU -->
-          <a href="#responsive-menu" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a>
-        </div>
-      </div>
-    </header>
-
-    <!-- main content -->
-    <main id="home">
-      <!-- PRESENTATION -->
-      <section class="card">
-        <div class="card-info">
-          <h1 id="title">David Llamas Román</h1>
-          <h2 class="medium-title" id="first-card-medium-title">Web Developer Student</h2>
-          <nav>
-            <ul>
-              <li><a href="#about-me">About Me</a></li>
-              <li><a href="#academy">Academy</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#experience">Experience</a></li>
-              <li><a href="#get-in-touch">Get in touch</a></li>
-              <li><a href="#">Account</a></li>
-              <li><a href="#license">License</a></li>
-            </ul>
-          </nav>
-        </div>
-      </section>
-      <div class="flex">
-        <!-- SOCIAL NETWORKS -->
-        <article class="social-networks card small-card">
-          <nav>
-            <ul>
-              <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-            </ul>
-            <ul>
-              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-youtube"></i></a></li>
-              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-instagram"></i></a></li>
-              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-tiktok"></i></a></li>
-              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-threads"></i></a></li>
-              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-facebook-f"></i></a></li>
-            </ul>
-          </nav>
-        </article>
-        <!-- LOGIN OR CREATE ACCOUNT -->
-        <section class="card card-content-centered medium-card" id="login-create-account">
-          <h2 class="medium-title">Login or create an account with</h2>
-          <form action="#" method="post" class="form" id="login-create-account-form">
-            <label for="e-mail">Email</label>
-            <input type="email" name="email" id="e-mail">
-            <button href="#" class="btn">Continue</button>
-          </form>
-        </section>
-      </div>
     </main>
 
     <!-- footer -->
