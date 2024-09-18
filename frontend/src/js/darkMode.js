@@ -61,4 +61,8 @@ export function setUserThemePreferred() {
     darkModeBtn.style.display = 'none'
     lightModeBtn.style.display = 'block'
   }
+
+  if (userPreference == undefined) {
+    container.setAttribute('data-theme', 'light')
+  }
 }
