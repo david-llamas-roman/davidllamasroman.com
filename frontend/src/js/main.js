@@ -18,23 +18,22 @@
 
 'use strict'
 
-import changeHash from './changeHash.js'
-import changeLanguage from './changeLanguage.js'
-import setDarkMode, { setLightMode, setUserThemePreferred } from './darkMode.js'
+// imports
+import updateHrefValues from './updateHrefValues.js'
+import showChangeLanguageDropdown from './changeLanguage.js'
+import setAndUpdateTheme from './setAndUpdateTheme.js'
 import getJobs from './jobs.js'
 import getProjects from './projects.js'
 
 function main() {
   // anchors
-  changeHash()
+  updateHrefValues()
 
   // languages
-  changeLanguage()
+  showChangeLanguageDropdown()
 
   // appearance
-  setDarkMode()
-  setLightMode()
-  setUserThemePreferred()
+  setAndUpdateTheme()
 
   // projects section
   getProjects()
