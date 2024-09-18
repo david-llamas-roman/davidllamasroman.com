@@ -20,9 +20,17 @@
 
 import { selectLanguage, selectLanguageBtn } from './elements.js'
 
-export default function changeLanguage() {
+export default function showChangeLanguageDropdown() {
   selectLanguageBtn.addEventListener('click', () => {
-    selectLanguageBtn.style.display = 'none'
-    selectLanguage.style.display = 'block'
+    hideSelectLanguageBtn()
+    showSelectLanguage()
   })
+}
+
+function hideSelectLanguageBtn() {
+  selectLanguageBtn.style.display = 'none'
+}
+
+function showSelectLanguage() {
+  selectLanguage.style.display = 'block'
 }
