@@ -21,7 +21,9 @@
 // CONSTANTS
 // dev
 // -> projects
-export const apiUrl = 'http://localhost:3700/api/projects'
+export const projectsApiUrl = 'http://localhost:3700/api/projects'
+// -> experience
+export const experienceApiUrl = 'http://localhost:3700/api/jobs'
 
 // FUNCTIONS
 // data management
