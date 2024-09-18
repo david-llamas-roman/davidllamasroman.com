@@ -18,18 +18,24 @@
 
 'use strict'
 
-import { experienceSectInfo, experienceWarning } from './elements.js'
-
-const apiUrl = 'http://localhost:3700/api/jobs'
+// imports
+import {
+  experienceSectInfo,
+  experienceWarning,
+  hideElement,
+} from './elements.js'
+import {
+  convertDataToJson,
+  experienceApiUrl,
+  getApiUrlData,
+} from './apiUrls.js'
 
 export default async function getJobs() {
   try {
-    const res = await fetch(apiUrl)
-
-    const data = await res.json()
+    const data = await convertDataToJson(await getApiUrlData(experienceApiUrl))
 
     if (data.jobs.length !== 0) {
-      experienceWarning.style.display = 'none'
+      hideElement(experienceWarning)
     }
 
     for (let job of data.jobs) {
