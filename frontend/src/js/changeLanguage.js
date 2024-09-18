@@ -18,8 +18,7 @@
 
 'use strict'
 
-const selectLanguage = document.getElementById('select-language')
-const selectLanguageBtn = document.getElementById('select-language-btn')
+import { selectLanguage, selectLanguageBtn } from './elements.js'
 
 export default function changeLanguage() {
   selectLanguageBtn.addEventListener('click', () => {
