@@ -18,7 +18,7 @@
 
 'use strict'
 
-const sectInfo = document.querySelector('#experience .sect-info')
+import { experienceSectInfo, experienceWarning } from './elements.js'
 
 const apiUrl = 'http://localhost:3700/api/jobs'
 
@@ -29,8 +29,7 @@ export default async function getJobs() {
     const data = await res.json()
 
     if (data.jobs.length !== 0) {
-      const warning = document.querySelector('#experience .warning')
-      warning.style.display = 'none'
+      experienceWarning.style.display = 'none'
     }
 
     for (let job of data.jobs) {
@@ -73,7 +72,7 @@ export default async function getJobs() {
         article.appendChild(paragraph)
       }
 
-      sectInfo.appendChild(article)
+      experienceSectInfo.appendChild(article)
     }
   } catch (e) {
     console.log(e)
