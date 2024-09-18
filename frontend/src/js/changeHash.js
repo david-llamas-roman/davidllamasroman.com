@@ -18,9 +18,7 @@
 
 'use strict'
 
-const selectLanguageBtn = document.getElementById('select-language-btn')
-const darkModeBtn = document.getElementById('dark-mode-btn')
-const lightModeBtn = document.getElementById('light-mode-btn')
+import { selectLanguageBtn, darkModeBtn, lightModeBtn } from './elements.js'
 
 export default function changeHash() {
   let hash
