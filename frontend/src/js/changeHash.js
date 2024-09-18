@@ -20,13 +20,18 @@
 
 import { selectLanguageBtn, darkModeBtn, lightModeBtn } from './elements.js'
 
-export default function changeHash() {
+export default function hrefValuesChange() {
   let hash
 
   window.addEventListener('hashchange', () => {
-    hash = window.location.hash
+    hash = getHash()
+
     selectLanguageBtn.href = hash
     darkModeBtn.href = hash
     lightModeBtn.href = hash
   })
+}
+
+function getHash() {
+  return window.location.hash
 }
