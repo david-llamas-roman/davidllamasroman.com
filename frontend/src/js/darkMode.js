@@ -18,9 +18,7 @@
 
 'use strict'
 
-const darkModeBtn = document.getElementById('dark-mode-btn')
-const lightModeBtn = document.getElementById('light-mode-btn')
-const container = document.getElementById('container')
+import { darkModeBtn, lightModeBtn, container } from './elements.js'
 
 export default function setDarkMode() {
   darkModeBtn.addEventListener('click', () => {
