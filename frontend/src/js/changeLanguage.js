@@ -18,19 +18,17 @@
 
 'use strict'
 
-import { selectLanguage, selectLanguageBtn } from './elements.js'
+// imports
+import {
+  hideElement,
+  selectLanguage,
+  selectLanguageBtn,
+  showElement,
+} from './elements.js'
 
 export default function showChangeLanguageDropdown() {
   selectLanguageBtn.addEventListener('click', () => {
-    hideSelectLanguageBtn()
-    showSelectLanguage()
+    hideElement(selectLanguageBtn)
+    showElement(selectLanguage)
   })
-}
-
-function hideSelectLanguageBtn() {
-  selectLanguageBtn.style.display = 'none'
-}
-
-function showSelectLanguage() {
-  selectLanguage.style.display = 'block'
 }
