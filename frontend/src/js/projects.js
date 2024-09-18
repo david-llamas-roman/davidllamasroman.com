@@ -18,18 +18,15 @@
 
 'use strict'
 
-import { experienceSectInfo, projectsWarning } from './elements.js'
-
-const apiUrl = 'http://localhost:3700/api/projects'
+import { hideElement, projectsSectInfo, projectsWarning } from './elements.js'
+import { apiUrl, getApiUrlData, convertDataToJson } from './apiUrls.js'
 
 export default async function getProjects() {
   try {
-    const res = await fetch(apiUrl)
-
-    const data = await res.json()
+    const data = await convertDataToJson(await getApiUrlData(apiUrl))
 
     if (data.projects.length !== 0) {
-      projectsWarning.style.display = 'none'
+      hideElement(projectsWarning)
     }
 
     for (let project of data.projects) {
@@ -69,7 +66,7 @@ export default async function getProjects() {
         article.appendChild(paragraph)
       }
 
-      experienceSectInfo.appendChild(article)
+      projectsSectInfo.appendChild(article)
     }
   } catch (e) {
     console.log(e)
