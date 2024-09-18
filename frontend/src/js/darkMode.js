@@ -18,49 +18,62 @@
 
 'use strict'
 
-import { darkModeBtn, lightModeBtn, container } from './elements.js'
+// imports
+import {
+  darkModeBtn,
+  lightModeBtn,
+  container,
+  hideElement,
+  showElement,
+  checkIfAttributeExists,
+  removeAttribute,
+} from './elements.js'
 
-export default function setDarkMode() {
+export default function setAndUpdateTheme() {
+  setUserThemePreferred()
+  setDarkMode()
+  setLightMode()
+}
+
+function setDarkMode() {
   darkModeBtn.addEventListener('click', () => {
-    if (container.hasAttribute('data-theme')) {
-      container.removeAttribute('data-theme')
-    }
+    checkIfAttributeExists('data-theme', () => removeAttribute('data-theme'))
 
     container.setAttribute('data-theme', 'dark')
 
-    darkModeBtn.style.display = 'none'
-    lightModeBtn.style.display = 'block'
+    hideElement(darkModeBtn)
+    showElement(lightModeBtn)
   })
 }
 
-export function setLightMode() {
+function setLightMode() {
   lightModeBtn.addEventListener('click', () => {
-    if (container.hasAttribute('data-theme')) {
-      container.removeAttribute('data-theme')
-    }
+    checkIfAttributeExists('data-theme', () => removeAttribute('data-theme'))
 
     container.setAttribute('data-theme', 'light')
 
-    lightModeBtn.style.display = 'none'
-    darkModeBtn.style.display = 'block'
+    hideElement(lightModeBtn)
+    showElement(darkModeBtn)
   })
 }
 
-export function setUserThemePreferred() {
-  const userPreference = localStorage.getItem('theme')
+function getUserPreference() {
+  return localStorage.getItem('theme')
+}
 
-  if (container.hasAttribute('data-theme')) {
-    container.removeAttribute('data-theme')
-  }
+function setUserThemePreferred() {
+  const userPreference = getUserPreference()
 
-  container.setAttribute('data-theme', userPreference)
-
-  if (userPreference == 'dark') {
-    darkModeBtn.style.display = 'none'
-    lightModeBtn.style.display = 'block'
-  }
+  checkIfAttributeExists('data-theme', () => removeAttribute('data-theme'))
 
   if (userPreference == undefined) {
     container.setAttribute('data-theme', 'light')
   }
+
+  if (userPreference == 'dark') {
+    hideElement(darkModeBtn)
+    showElement(lightModeBtn)
+  }
+
+  container.setAttribute('data-theme', userPreference)
 }
