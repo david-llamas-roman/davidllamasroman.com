@@ -18,6 +18,7 @@
 
 'use strict'
 
+// imports
 import { hideElement, projectsSectInfo, projectsWarning } from './elements.js'
 import { apiUrl, getApiUrlData, convertDataToJson } from './apiUrls.js'
 
