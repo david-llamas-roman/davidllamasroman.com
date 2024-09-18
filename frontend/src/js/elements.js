@@ -18,6 +18,7 @@
 
 'use strict'
 
+// CONSTANTS
 // languages
 export const selectLanguage = document.getElementById('select-language')
 export const selectLanguageBtn = document.getElementById('select-language-btn')
@@ -36,3 +37,24 @@ export const experienceSectInfo = document.querySelector(
   '#experience .sect-info',
 )
 export const experienceWarning = document.querySelector('#experience .warning')
+
+// FUNCTIONS
+// hide or show elements
+export function hideElement(element) {
+  element.style.display = 'none'
+}
+
+export function showElement(element) {
+  element.style.display = 'block'
+}
+
+// attributes management
+export function checkIfAttributeExists(attribute, action) {
+  if (container.hasAttribute(attribute)) {
+    action()
+  }
+}
+
+export function removeAttribute(attribute) {
+  container.removeAttribute(attribute)
+}
