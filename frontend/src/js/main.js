@@ -19,16 +19,12 @@
 'use strict'
 
 // imports
-import updateHrefValues from './updateHrefValues.js'
 import showChangeLanguageDropdown from './changeLanguage.js'
 import setAndUpdateTheme from './setAndUpdateTheme.js'
 import getJobs from './jobs.js'
 import getProjects from './projects.js'
 
 function main() {
-  // anchors
-  updateHrefValues()
-
   // languages
   showChangeLanguageDropdown()
 
