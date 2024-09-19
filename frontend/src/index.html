@@ -27,168 +27,217 @@
 </head>
 <body>
   <div id="container" data-theme="light">
-    <!-- header -->
-    <header>
+    <!-- HEADER -->
+    <header id="header">
       <div id="header-content">
         <div id="quick-website-settings">
-          <!-- SELECT LANGUAGE -->
+          <!-- -> select language -->
           <div id="select-language-container">
-            <select name="languages" id="select-language">
+            <a href="#" class="btn" id="select-language-btn"><i class="fa-solid fa-globe"></i></a> <!-- btn -->
+            <select name="languages" id="select-language"> <!-- dropdown -->
               <option value="en">EN</option>
               <option value="es">ES</option>
             </select>
-            <a href="#" id="select-language-btn"><i class="fa-solid fa-globe"></i></a>
           </div>
-          <!-- DARK MODE -->
+          <!-- -> change theme -->
           <div class="grid-center">
-            <a href="#" id="dark-mode-btn"><i class="fa-solid fa-moon"></i></a>
-            <a href="#" id="light-mode-btn"><i class="fa-solid fa-sun"></i></a>
+            <a href="#" class="btn" id="dark-mode-btn"><i class="fa-solid fa-moon"></i></a> <!-- dark mode btn -->
+            <a href="#" class="btn" id="light-mode-btn"><i class="fa-solid fa-sun"></i></a> <!-- light mode btn -->
           </div>
-          <!-- RESPONSIVE MENU -->
-          <a href="#responsive-menu" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a>
+          <!-- -> responsive menu btn -->
+          <a href="#" class="btn" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a> <!-- btn -->
         </div>
       </div>
+
+      <!-- -> responsive menu -->
+      <nav class="navbar" id="responsive-menu">
+        <a href="#" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a> <!-- close btn -->
+        <div id="list-container">
+          <ul class="list">
+            <li class="list-element"><a href="#" class="navbar-link">About Me</a></li>
+            <li class="list-element"><a href="#" class="navbar-link">Academy</a></li>
+            <li class="list-element"><a href="#" class="navbar-list">Projects</a></li>
+            <li class="list-element"><a href="#" class="navbar-link">Experience</a></li>
+            <li class="list-element"><a href="#" class="navbar-link">Get in touch</a></li>
+            <li class="list-element"><a href="#" class="navbar-link">Account</a></li>
+            <li class="list-element"><a href="#" class="navbar-list">License</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
-    <!-- NAVBAR - RESPONSIVE MENU -->
-    <nav id="responsive-menu">
-      <a href="#" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a>
-      <div id="list">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#about-me">About Me</a></li>
-          <li><a href="#academy">Academy</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#get-in-touch">Get in touch</a></li>
-          <li><a href="#">Account</a></li>
-          <li><a href="#license">License</a></li>
-        </ul>
-      </div>
-    </nav>
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+      <!-- -> home -->
+      <div id="home">
+        <!-- presentation -->
+        <section class="card">
+          <div class="card-info">
+            <!-- titles -->
+            <h1 id="title">David Llamas Román</h1>
+            <h2 class="medium-title">Web Developer Student</h2>
+            <!-- navbar -->
+            <nav class="navbar">
+              <ul class="list">
+                <li class="list-element"><a href="#" class="navbar-link">About Me</a></li>
+                <li class="list-element"><a href="#" class="navbar-link">Academy</a></li>
+                <li class="list-element"><a href="#" class="navbar-list">Projects</a></li>
+                <li class="list-element"><a href="#" class="navbar-link">Experience</a></li>
+                <li class="list-element"><a href="#" class="navbar-link">Get in touch</a></li>
+                <li class="list-element"><a href="#" class="navbar-link">Account</a></li>
+                <li class="list-element"><a href="#" class="navbar-list">License</a></li>
+              </ul>
+            </nav>
+          </div>
+        </section>
 
-    <!-- main content -->
-    <main id="home">
-      <!-- PRESENTATION -->
-      <section class="card">
-        <div class="card-info">
-          <h1 id="title">David Llamas Román</h1>
-          <h2 class="medium-title" id="first-card-medium-title">Web Developer Student</h2>
-          <nav>
-            <ul>
-              <li><a href="#about-me">About Me</a></li>
-              <li><a href="#academy">Academy</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#experience">Experience</a></li>
-              <li><a href="#get-in-touch">Get in touch</a></li>
-              <li><a href="#">Account</a></li>
-              <li><a href="#license">License</a></li>
+        <!-- social networks  -->
+        <article class="card" id="social-networks">
+          <!-- navbar -->
+          <nav class="navbar">
+            <!-- icons - most important social networks (in this context) -->
+            <ul class="list">
+              <li class="list-element"><a href="#" class="navbar-link"><i class="fa-brands fa-github"></i></a></li> <!-- github -->
+              <li class="list-element"><a href="#" class="navbar-link"><i class="fa-brands fa-linkedin"></i></a></li> <!-- linkedIn -->
             </ul>
-          </nav>
-        </div>
-      </section>
-      <div class="flex">
-        <!-- SOCIAL NETWORKS -->
-        <article class="social-networks card small-card">
-          <nav>
-            <ul>
-              <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
-              <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-            </ul>
-            <ul>
-              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-youtube"></i></a></li>
-              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-instagram"></i></a></li>
-              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-tiktok"></i></a></li>
-              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-threads"></i></a></li>
-              <li><a href="#" class="small-social-networks-btn"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <!-- smaller icons - less important social networks (in this context) -->
+            <ul class="list">
+              <li class="list-element"><a href="#" class="small-social-networks-btn navbar-link"><i class="fa-brands fa-youtube"></i></a></li> <!-- youTube -->
+              <li class="list-element"><a href="#" class="small-social-networks-btn navbar-link"><i class="fa-brands fa-instagram"></i></a></li> <!-- instagram -->
+              <li class="list-element"><a href="#" class="small-social-networks-btn navbar-link"><i class="fa-brands fa-tiktok"></i></a></li> <!-- tikTok -->
+              <li class="list-element"><a href="#" class="small-social-networks-btn navbar-link"><i class="fa-brands fa-threads"></i></a></li> <!-- threads -->
+              <li class="list-element"><a href="#" class="small-social-networks-btn navbar-link"><i class="fa-brands fa-facebook-f"></i></a></li> <!-- facebook -->
             </ul>
           </nav>
         </article>
-        <!-- LOGIN OR CREATE ACCOUNT -->
+
+        <!-- login or create account -->
         <section class="card card-content-centered medium-card" id="login-create-account">
+          <!-- title -->
           <h2 class="medium-title">Login or create an account with</h2>
-          <form action="#" method="post" class="form" id="login-create-account-form">
-            <label for="e-mail">Email</label>
-            <input type="email" name="email" id="e-mail">
-            <button href="#" class="btn">Continue</button>
+          <!-- form -->
+          <form action="#" method="post" class="form">
+            <figcaption class="figcaption">
+              <label class="label" for="e-mail">Email</label>
+              <input type="email" name="email" id="e-mail" class="input">
+            </figcaption>
+            <button href="#" class="btn form-btn">Continue</button>
           </form>
         </section>
       </div>
-      <!-- sections -->
-      <!-- ABOUT ME -->
+
+      <!-- -> about me -->
       <section class="sect" id="about-me">
+        <!-- titles -->
         <h2 class="medium-title">About Me</h2>
+        <!-- content -->
         <div class="sect-info">
-          <p class="message"><strong>🚀 Up to sky ✨</strong></p>
-          <div class="text-container" id="about-me-text-container">
+          <!-- remarkable phrase -->
+          <h3 class="remarkable-phrase">🚀 Up to sky ✨</h3>
+          <!-- paragraphs -->
+          <div class="text-container">
+            <!-- 1 -->
             <p class="text">I hate the pre-established. I do not want to be a 'normal' employee, I do not want to have a 'normal' salary and, of course, I do not want to stay with my arms crossed seeing as my dreams vanish. Now, I am going to mention the things that I want to. I want to work hard to learn and to get going experience quickly to get the best work position that I can imagine, I want to fight per my dreams and, why not, I want to live the life too. As you can see, I am not never satisfied with nothing and, sincerely, I have never endured that there are people who do it.</p>
+            <!-- 2 -->
             <p class="text">After this brief speech where I look like a charlatan, a daddy's boy that do not want to land in the real world and everything that you think, I am going to introduce myself.</p>
+            <!-- 3 -->
             <p class="text">Hi, I am David Llamas Román and I am a very normal man who wants to do something different which marks a before and after in the actual society. Therefore, I am hard working in my personal brand. Perhaps, everything that I have done so far has not had such an incredible and idyllic result, but Rome was not built in a day. I am sure that that day will arrive.</p>
+            <!-- 4 -->
             <p class="text">Meanwhile, I am in a constant and permanent learning. To finish this presentation, I will use a serie of words. Hard working, discipline and never surrender.</p>
           </div>
         </div>
       </section>
-      <!-- ACADEMY -->
+
+      <!-- -> academy -->
       <section class="sect" id="academy">
+        <!-- title -->
         <h2 class="medium-title">Academy</h2>
+        <!-- content -->
         <div class="sect-info"></div>
       </section>
-      <!-- PROJECTS -->
+
+      <!-- -> projects -->
       <section class="sect" id="projects">
+        <!-- title -->
         <h2 class="medium-title">Projects</h2>
+        <!-- content -->
         <div class="sect-info">
+          <!-- warning -->
           <div class="grid-center">
             <p class="text warning"><strong>There is not any job yet</strong></p>
           </div>
         </div>
       </section>
-      <!-- EXPERIENCE -->
+
+      <!-- -> experience -->
       <section class="sect" id="experience">
+        <!-- title -->
         <h2 class="medium-title">Experience</h2>
+        <!-- content -->
         <div class="sect-info">
+          <!-- warning -->
           <div class="grid-center">
             <p class="text warning"><strong>There is not any job yet</strong></p>
           </div>
         </div>
       </section>
-      <!-- GET IN TOUCH -->
+
+      <!-- -> get in touch -->
       <section class="sect" id="get-in-touch">
+        <!-- title -->
         <h2 class="medium-title">Get in touch</h2>
-        <div class="grid-center">
-          <form action="#" method="post" class="form" id="get-in-touch-form">
-            <fieldset>
-              <label for="full-name" id="label-1">Full Name</label>
-              <input type="text" name="full-name" id="full-name">
-              <label for="email" id="label-2">Email</label>
-              <input type="email" name="email" id="email">
-              <label for="subject" id="label-3">Subject</label>
-              <input type="text" name="subject" id="subject">
-              <label for="message" id="label-4">Message</label>
-              <textarea name="message" id="message"></textarea>
-            </fieldset>
-            <button href="#" class="btn">Submit</button>
-          </form>
-        </div>
+        <!-- content -->
+        <form action="#" method="post" class="form">
+          <fieldset class="fieldset">
+            <label class="label" for="full-name">Full Name</label>
+            <input type="text" name="full-name" id="full-name" class="input">
+            <label class="label" for="email">Email</label>
+            <input type="email" name="email" id="email" class="input">
+            <label class="label" for="subject">Subject</label>
+            <input type="text" name="subject" id="subject" class="input">
+            <label class="label" for="message">Message</label>
+            <textarea name="message" id="message" class="input"></textarea>
+          </fieldset>
+          <button href="#" class="btn btn-form">Submit</button>
+        </form>
       </section>
+
+      <!-- -> license -->
       <section class="sect" id="license">
+        <!-- title -->
         <h2 class="medium-title">License</h2>
+        <!-- content -->
         <div class="sect-info">
+          <!-- title -->
           <h3 class="small-title">Which license is this website under?</h3>
+          <!-- text -->
           <div class="text-container">
+            <!-- 1 -->
             <p class="text">All code and files that are in the website project are licensed under <strong><a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="link">GNU General Public License version 3 (GPL-3.0) only</a></strong>. When it mention 'project', it am speaking about the website repository. In this case, it use GitHub to host all files of the website that it have mentioned before.</p>
           </div>
+          <!-- title -->
           <h3 class="small-title">What does 'only' mean in this context?</h3>
+          <!-- text -->
           <div class="text-container">
+            <!-- 1 -->
             <p class="text">When it is speaking about <strong>GPL</strong> software licenses and appear this word, it means that the software is only under the version where appear the before mentioned word. For example, <strong>GPL-3.0-only</strong>. In this case, this indicates that the software is only under <strong>GPL-3.0</strong> version and it cannot be modified or redistributed under previous or future versions.</p>
           </div>
+          <!-- title -->
           <h3 class="small-title">Where can it find the license?</h3>
+          <!-- text -->
           <div class="text-container">
+            <!-- 1 -->
             <p class="text">The license can be find in the project GitHub repository, specifically, in a file called <strong>LICENSE</strong>. In some parts of the project such as the <strong>README</strong>, it can find a link to the official website of the license. Also, it can find the same link in some parts of this website such as the <strong>footer</strong>.</p>
           </div>
+          <!-- title -->
           <h3 class="small-title">License notice</h3>
+          <!-- text -->
           <div class="text-container">
+            <!-- 1 -->
             <p class="text">It can find a license notice in each one of files of the project, above all, in files that contains code. The license notice says which is the file ownership, which type of software is it and the version of the license under is it.</p>
+            <!-- 2 -->
             <p class="text">Also, it says that the software is distributed <strong>without any warranty</strong>, that is to say, the author do not take responsibility if the software do not work such as you expected. In this part, it is done reference to the <strong>MERCHANTABILITY</strong> and <strong>FITNESS FOR A PARTICULAR PURPOSE</strong> warranties. In any case, the author do not take responsibility.</p>
+            <!-- 3 -->
             <p class="text">Finally, it indicates that you must have received a license copy and, if you did not receive nothing, it appears a link to the official website of the license where you can find the full license. At the end of the license notice, it appears the <strong>copyright notice</strong>.</p>
           </div>
         </div>
@@ -196,8 +245,8 @@
     </main>
 
     <!-- footer -->
-    <footer>
-      <p><small>&copy; 2024 David Llamas Román. Licensed under the <strong><a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="link">GNU General Public License version 3 (GPL-3.0) only</a></strong></small></p>
+    <footer id="footer">
+      <p class="text"><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="link"><strong><em>GNU General Public License version 3 (GPL-3.0) only</em></strong></a></small></p>
     </footer>
   </div>
 
