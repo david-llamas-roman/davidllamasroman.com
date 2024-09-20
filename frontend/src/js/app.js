@@ -30,6 +30,18 @@ const routes = {
   '/license': 'license',
 }
 
+// page titles
+const titles = {
+  '/home': 'David Llamas Roman',
+  '/about-me': 'DLR - About me',
+  '/academy': 'DLR - Academy',
+  '/projects': 'DLR - Projects',
+  '/experience': 'DLR - Experience',
+  '/get-in-touch': 'DLR - Get in touch',
+  '/account': 'DLR - Account',
+  '/license': 'DLR - License',
+}
+
 // getters
 function getCurrentPath() {
   return window.location.pathname
@@ -39,8 +51,20 @@ function getRouteByCurrentPath(currentPath) {
   return routes[currentPath]
 }
 
-function getSectionById(sectionId) {
-  return document.getElementById(sectionId)
+function getTitleByRoute(route) {
+  return titles[route]
+}
+
+function getElementById(elementId) {
+  return document.getElementById(elementId)
+}
+
+function getElementByClassName(elementClassName) {
+  return document.getElementsByClassName(elementClassName)
+}
+
+function getElementAttribute(element, attribute) {
+  return element.getAttribute(attribute)
 }
 
 function getIfContainsClass(element, className) {
@@ -69,11 +93,47 @@ function showElement(element) {
   element.classList.add('show')
 }
 
+function addEventToElement(element, event, action) {
+  element.addEventListener(event, action)
+}
+
+// router
 function router() {
   const currentPath = getCurrentPath()
   const sectionId = getRouteByCurrentPath(currentPath)
-  const section = getSectionById(sectionId)
+  const section = getElementById(sectionId)
 
   showElement(section)
   hideElement(section)
 }
+
+// navigation
+function navigateTo(route) {
+  history.pushState(
+    null,
+    getTitleByRoute(getRouteByCurrentPath(getCurrentPath())),
+    route,
+  )
+
+  router()
+}
+
+function handleNavbarLinks(linkType) {
+  const link = linkType
+
+  addEventToElement(link, 'click', () =>
+    navigateTo(getElementAttribute(link, 'data-link')),
+  )
+}
+
+// main
+function main() {
+  // navigation
+  const navbarLinks = getElementByClassName('navbar-link')
+
+  handleNavbarLinks(navbarLinks)
+}
+
+main()
+
+//! element.addEventListener is not a function
