@@ -18,6 +18,7 @@
 
 'use strict'
 
+// routes
 const routes = {
   '/home': 'home',
   '/about-me': 'about-me',
@@ -29,6 +30,7 @@ const routes = {
   '/license': 'license',
 }
 
+// getters
 function getCurrentPath() {
   return window.location.pathname
 }
@@ -37,9 +39,41 @@ function getRouteByCurrentPath(currentPath) {
   return routes[currentPath]
 }
 
-function getSect
+function getSectionById(sectionId) {
+  return document.getElementById(sectionId)
+}
+
+function getIfContainsClass(element, className) {
+  return element.classList.contains(className)
+}
+
+// classes management
+function removeClassByClassName(element, className) {
+  element.classList.remove(className)
+}
+
+// elements management
+function hideElement(element) {
+  if (getIfContainsClass(element, 'show')) {
+    removeClassByClassName(element, 'show')
+  }
+
+  element.classList.add('hide')
+}
+
+function showElement(element) {
+  if (getIfContainsClass(element, 'hide')) {
+    removeClassByClassName(element, 'hide')
+  }
+
+  element.classList.add('show')
+}
 
 function router() {
   const currentPath = getCurrentPath()
   const sectionId = getRouteByCurrentPath(currentPath)
+  const section = getSectionById(sectionId)
+
+  showElement(section)
+  hideElement(section)
 }
