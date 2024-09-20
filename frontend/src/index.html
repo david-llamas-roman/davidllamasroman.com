@@ -50,18 +50,18 @@
       </div>
 
       <!-- -> responsive menu -->
-      <nav class="navbar" id="responsive-menu">
+      <nav class="navbar hide" id="responsive-menu">
         <a href="#" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a> <!-- close btn -->
-        <div id="list-container">
+        <div class="grid-center">
           <ul class="list">
             <li class="list-element"><a href="#" data-link="/home" class="navbar-link">Home</a></li>
             <li class="list-element"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
             <li class="list-element"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
-            <li class="list-element"><a href="#" data-link="/projects" class="navbar-list">Projects</a></li>
+            <li class="list-element"><a href="#" data-link="/projects" class="navbar-link">Projects</a></li>
             <li class="list-element"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
             <li class="list-element"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
             <li class="list-element"><a href="#" data-link="/account" class="navbar-link">Account</a></li>
-            <li class="list-element"><a href="#" data-link="/license" class="navbar-list">License</a></li>
+            <li class="list-element"><a href="#" data-link="/license" class="navbar-link">License</a></li>
           </ul>
         </div>
       </nav>
@@ -80,13 +80,13 @@
             <!-- navbar -->
             <nav class="navbar">
               <ul class="list">
-                <li class="list-element"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
-                <li class="list-element"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
-                <li class="list-element"><a href="#" data-link="/projects" class="navbar-list">Projects</a></li>
-                <li class="list-element"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
-                <li class="list-element"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
-                <li class="list-element"><a href="#" data-link="/account" class="navbar-link">Account</a></li>
-                <li class="list-element"><a href="#" data-link="/license" class="navbar-list">License</a></li>
+                <li class="list-element inline-block"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
+                <li class="list-element inline-block"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
+                <li class="list-element inline-block"><a href="#" data-link="/projects" class="navbar-link">Projects</a></li>
+                <li class="list-element inline-block"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
+                <li class="list-element inline-block"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
+                <li class="list-element inline-block"><a href="#" data-link="/account" class="navbar-link">Account</a></li>
+                <li class="list-element inline-block"><a href="#" data-link="/license" class="navbar-link">License</a></li>
               </ul>
             </nav>
           </div>
@@ -247,7 +247,9 @@
 
     <!-- FOOTER -->
     <footer id="footer">
-      <p class="text"><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="link"><strong><em>GNU General Public License version 3 (GPL-3.0) only</em></strong></a></small></p>
+      <div id="footer-content">
+        <p class="text"><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="link"><strong><em>GNU General Public License version 3 (GPL-3.0) only</em></strong></a></small></p>
+      </div>
     </footer>
   </div>
 
