@@ -1,4 +1,15 @@
 {
+  "titles": {
+    "/home": "David Llamas Roman",
+    "/about-me": "DLR - About me",
+    "/academy": "DLR - Academy",
+    "/projects": "DLR - Projects",
+    "/experience": "DLR - Experience",
+    "/get-in-touch": "DLR - Get in touch",
+    "/account": "DLR - Account",
+    "/license": "DLR - License"
+  },
+
   "responsive-menu-element-1": "Home",
   "responsive-menu-element-2": "About Me",
   "responsive-menu-element-3": "Academy",
