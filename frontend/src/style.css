@@ -16,6 +16,14 @@
  * Copyright (C) 2024 David Llamas Román
  */
 
+/* RESET CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 /* VARIABLES */
 :root {
   /* -> colors */
@@ -26,6 +34,9 @@
   --max-vw: 100vw;
   --max-vh: 100vh;
   --max-percentage: 100%;
+  /* -> filters */
+  /* backdrop */
+  --backdrop-filter: blur(10px);
 }
 
 /* THEMES */
@@ -40,10 +51,144 @@
   --fg-color: #001f3f;
 }
 
-/* RESET CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+/* LAYOUT */
+/* header */
+#header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#header-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* navbar */
+#responsive-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.list {
+  list-style: none;
+}
+
+.list-element {
+  margin: 1rem 0;
+  padding: 0 2rem;
+}
+
+.navbar-link {
+  text-decoration: none;
+  font-weight: 700;
+  width: 12rem;
+  display: block;
+}
+
+/* sections */
+.sect {
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--backdrop-filter);
+}
+
+/* footer */
+#footer {
+  position: fixed;
+  bottom: 0;
+}
+
+/* COMMON COMPONENTS */
+/* width */
+#header,
+#responsive-menu,
+#footer {
+  width: 100%;
+}
+
+#header-content,
+.sect-info,
+.form,
+#footer-content {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+/* height */
+#responsive-menu {
+  height: var(--max-vh);
+}
+
+/* padding */
+#header,
+.sect,
+#footer {
+  padding: 1rem 2rem;
+}
+
+#title,
+.medium-title,
+.small-title,
+.navbar-link,
+.remarkable-phrase,
+.text {
+  padding: 1rem;
+}
+
+/* text align */
+#title,
+.medium-title,
+.small-title,
+.list-element,
+.navbar-link {
+  text-align: center;
+}
+
+.text {
+  text-align: justify;
+}
+
+/* color */
+#title,
+.medium-title,
+.small-title,
+.text {
+  color: var(--fg-color);
+}
+
+.navbar-link,
+.remarkable-phrase {
+  color: var(--bg-color);
+}
+
+/* background color */
+#header,
+#responsive-menu,
+#footer {
+  background-color: var(--bg-color);
+}
+
+.navbar-link,
+.remarkable-phrase {
+  background-color: var(--fg-color);
+}
+
+/* UTILITIES */
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
