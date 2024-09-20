@@ -18,13 +18,28 @@
 
 'use strict'
 
-// const routes = {
-//   '/home': 'home',
-//   '/about-me': 'about-me',
-//   '/academy': 'academy',
-//   '/projects': 'projects',
-//   '/experience': 'experience',
-//   '/get-in-touch': 'get-in-touch',
-//   '/account': 'account',
-//   '/license': 'license',
-// }
+const routes = {
+  '/home': 'home',
+  '/about-me': 'about-me',
+  '/academy': 'academy',
+  '/projects': 'projects',
+  '/experience': 'experience',
+  '/get-in-touch': 'get-in-touch',
+  '/account': 'account',
+  '/license': 'license',
+}
+
+function getCurrentPath() {
+  return window.location.pathname
+}
+
+function getRouteByCurrentPath(currentPath) {
+  return routes[currentPath]
+}
+
+function getSect
+
+function router() {
+  const currentPath = getCurrentPath()
+  const sectionId = getRouteByCurrentPath(currentPath)
+}
