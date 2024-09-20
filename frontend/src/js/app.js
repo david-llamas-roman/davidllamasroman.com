@@ -97,6 +97,11 @@ function addEventToElement(element, event, action) {
   element.addEventListener(event, action)
 }
 
+// events management
+function preventDefaultEvent(event) {
+  event.preventDefault()
+}
+
 // router
 function router() {
   const currentPath = getCurrentPath()
@@ -121,8 +126,10 @@ function navigateTo(route) {
 function handleNavbarLinks(linkType) {
   const link = linkType
 
-  addEventToElement(link, 'click', () =>
-    navigateTo(getElementAttribute(link, 'data-link')),
+  preventDefaultEvent(
+    addEventToElement(link, 'click', () =>
+      navigateTo(getElementAttribute(link, 'data-link')),
+    ),
   )
 }
 
@@ -131,9 +138,9 @@ function main() {
   // navigation
   const navbarLinks = getElementByClassName('navbar-link')
 
-  handleNavbarLinks(navbarLinks)
+  for (let navbarLink of navbarLinks) {
+    handleNavbarLinks(navbarLink)
+  }
 }
 
 main()
-
-//! element.addEventListener is not a function
