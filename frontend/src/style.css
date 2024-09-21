@@ -193,6 +193,7 @@
 
 /* margin */
 #header-content,
+.m-0-auto,
 .sect-info,
 .form,
 #footer-content {
@@ -239,7 +240,7 @@
 }
 
 #header-content,
-.card,
+.m-0-auto,
 .sect-info,
 .form,
 #footer-content {
@@ -257,7 +258,8 @@
 .small-title,
 .list,
 .list-element,
-.navbar-link {
+.navbar-link,
+.m-0-auto {
   text-align: center;
 }
 
@@ -433,14 +435,15 @@
 
 /* SCREEN DIMENSIONS CHANGES */
 @media screen and (min-width: 1024px) {
+  /* LAYOUT */
   #header-content,
-  .card,
+  .m-0-auto,
   #footer-content {
     max-width: 50%;
   }
 
   .sect-info,
-  .form {
+  #get-in-touch .form {
     max-width: 30%;
   }
 }
