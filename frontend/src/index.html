@@ -74,62 +74,64 @@
 
     <!-- MAIN CONTENT -->
     <main id="main-content">
+      <div class="m-0-auto">
       <!-- -> home -->
-      <div id="home">
-        <!-- presentation -->
-        <section class="card">
-          <div class="card-info">
-            <!-- titles -->
-            <h1 id="title">David Llamas Román</h1>
-            <h2 class="medium-title">Web Developer Student</h2>
+        <div id="home">
+          <!-- presentation -->
+          <section class="card">
+            <div class="card-info">
+              <!-- titles -->
+              <h1 id="title">David Llamas Román</h1>
+              <h2 class="medium-title">Web Developer Student</h2>
+              <!-- navbar -->
+              <nav class="navbar">
+                <ul class="list">
+                  <li class="list-element inline-block"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
+                  <li class="list-element inline-block"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
+                  <li class="list-element inline-block"><a href="#" data-link="/projects" class="navbar-link">Projects</a></li>
+                  <li class="list-element inline-block"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
+                  <li class="list-element inline-block"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
+                  <li class="list-element inline-block"><a href="#" data-link="/account" class="navbar-link">Account</a></li>
+                  <li class="list-element inline-block"><a href="#" data-link="/license" class="navbar-link">License</a></li>
+                </ul>
+              </nav>
+            </div>
+          </section>
+
+          <!-- social networks  -->
+          <article class="card inline-block" id="social-networks">
             <!-- navbar -->
-            <nav class="navbar">
+            <nav class="navbar grid-center">
+              <!-- icons - most important social networks (in this context) -->
               <ul class="list">
-                <li class="list-element inline-block"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
-                <li class="list-element inline-block"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
-                <li class="list-element inline-block"><a href="#" data-link="/projects" class="navbar-link">Projects</a></li>
-                <li class="list-element inline-block"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
-                <li class="list-element inline-block"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
-                <li class="list-element inline-block"><a href="#" data-link="/account" class="navbar-link">Account</a></li>
-                <li class="list-element inline-block"><a href="#" data-link="/license" class="navbar-link">License</a></li>
+                <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-github"></i></a></li> <!-- github -->
+                <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-linkedin"></i></a></li> <!-- linkedIn -->
+              </ul>
+              <!-- smaller icons - less important social networks (in this context) -->
+              <ul class="list">
+                <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-youtube"></i></a></li> <!-- youTube -->
+                <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-instagram"></i></a></li> <!-- instagram -->
+                <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-tiktok"></i></a></li> <!-- tikTok -->
+                <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-threads"></i></a></li> <!-- threads -->
+                <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-facebook-f"></i></a></li> <!-- facebook -->
               </ul>
             </nav>
-          </div>
-        </section>
+          </article>
 
-        <!-- social networks  -->
-        <article class="card" id="social-networks">
-          <!-- navbar -->
-          <nav class="navbar grid-center">
-            <!-- icons - most important social networks (in this context) -->
-            <ul class="list">
-              <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-github"></i></a></li> <!-- github -->
-              <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-linkedin"></i></a></li> <!-- linkedIn -->
-            </ul>
-            <!-- smaller icons - less important social networks (in this context) -->
-            <ul class="list">
-              <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-youtube"></i></a></li> <!-- youTube -->
-              <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-instagram"></i></a></li> <!-- instagram -->
-              <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-tiktok"></i></a></li> <!-- tikTok -->
-              <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-threads"></i></a></li> <!-- threads -->
-              <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-facebook-f"></i></a></li> <!-- facebook -->
-            </ul>
-          </nav>
-        </article>
-
-        <!-- login or create account -->
-        <section class="card card-content-centered medium-card" id="login-create-account">
-          <!-- title -->
-          <h2 class="medium-title">Login or create an account with</h2>
-          <!-- form -->
-          <form action="#" method="post" class="form">
-            <fieldset class="fieldset">
-              <input type="email" name="email" id="e-mail" class="input">
-              <label class="label" for="e-mail">Email</label>
-            </fieldset>
-            <button href="#" class="btn form-btn">Continue</button> <!-- btn -->
-          </form>
-        </section>
+          <!-- login or create account -->
+          <section class="card inline-block" id="login-create-account">
+            <!-- title -->
+            <h2 class="medium-title">Login or create an account with</h2>
+            <!-- form -->
+            <form action="#" method="post" class="form">
+              <fieldset class="fieldset">
+                <input type="email" name="email" id="e-mail" class="input">
+                <label class="label" for="e-mail">Email</label>
+              </fieldset>
+              <button href="#" class="btn form-btn">Continue</button> <!-- btn -->
+            </form>
+          </section>
+        </div>
       </div>
 
       <!-- -> about me -->
