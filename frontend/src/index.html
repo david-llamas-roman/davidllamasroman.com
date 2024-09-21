@@ -50,21 +50,26 @@
       </div>
 
       <!-- -> responsive menu -->
-      <nav class="navbar hide" id="responsive-menu">
-        <a href="#" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a> <!-- close btn -->
-        <div class="grid-center">
-          <ul class="list">
-            <li class="list-element"><a href="#" data-link="/home" class="navbar-link">Home</a></li>
-            <li class="list-element"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
-            <li class="list-element"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
-            <li class="list-element"><a href="#" data-link="/projects" class="navbar-link">Projects</a></li>
-            <li class="list-element"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
-            <li class="list-element"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
-            <li class="list-element"><a href="#" data-link="/account" class="navbar-link">Account</a></li>
-            <li class="list-element"><a href="#" data-link="/license" class="navbar-link">License</a></li>
-          </ul>
-        </div>
-      </nav>
+      <div class="grid-center hide">
+        <div id="responsive-menu-shadow"></div> <!-- shadow -->
+
+        <nav class="navbar" id="responsive-menu"> <!-- menu -->
+          <div class="grid-center">
+            <ul class="list">
+              <li class="list-element"><a href="#" data-link="/home" class="navbar-link">Home</a></li>
+              <li class="list-element"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
+              <li class="list-element"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
+              <li class="list-element"><a href="#" data-link="/projects" class="navbar-link">Projects</a></li>
+              <li class="list-element"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
+              <li class="list-element"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
+              <li class="list-element"><a href="#" data-link="/account" class="navbar-link">Account</a></li>
+              <li class="list-element"><a href="#" data-link="/license" class="navbar-link">License</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <a href="#" class="grid-center" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a> <!-- close btn -->
+      </div>
     </header>
 
     <!-- MAIN CONTENT -->
