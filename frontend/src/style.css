@@ -56,7 +56,6 @@
 #header {
   position: sticky;
   position: -webkit-sticky;
-  top: 0;
   z-index: 1;
 }
 
@@ -66,10 +65,12 @@
 }
 
 /* navbar */
+#responsive-menu-shadow {
+  opacity: 60%;
+}
+
 #responsive-menu {
-  position: absolute;
-  top: 0;
-  left: 0;
+  box-shadow: 0 0 100px 50px var(--fg-color);
 }
 
 .list {
@@ -82,10 +83,26 @@
 }
 
 .navbar-link {
-  text-decoration: none;
   font-weight: 700;
   width: 12rem;
   display: block;
+}
+
+#close-responsive-menu-btn {
+  margin: 2rem 0;
+  width: 53px;
+  height: 53px;
+  bottom: 576px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  box-shadow: 0 0 10px var(--fg-color);
+}
+
+#close-responsive-menu-btn i {
+  font-size: 1.5rem;
 }
 
 /* sections */
@@ -95,30 +112,44 @@
 }
 
 /* footer */
+
+/* COMMON COMPONENTS */
+/* position */
+#responsive-menu-shadow {
+  position: absolute;
+}
+
+#responsive-menu,
+#close-responsive-menu-btn,
 #footer {
   position: fixed;
+}
+
+/* top */
+#header,
+#responsive-menu-shadow {
+  top: 0;
+}
+
+/* bottom */
+#responsive-menu,
+#footer {
   bottom: 0;
 }
 
-/* COMMON COMPONENTS */
-/* width */
-#header,
-#responsive-menu,
-#footer {
-  width: 100%;
+/* left */
+#responsive-menu-shadow,
+#responsive-menu {
+  left: 0;
 }
 
+/* margin */
 #header-content,
+.card,
 .sect-info,
 .form,
 #footer-content {
-  max-width: 40%;
   margin: 0 auto;
-}
-
-/* height */
-#responsive-menu {
-  height: var(--max-vh);
 }
 
 /* padding */
@@ -128,6 +159,10 @@
   padding: 1rem 2rem;
 }
 
+#close-responsive-menu-btn,
+.navbar,
+.card,
+.card-info,
 #title,
 .medium-title,
 .small-title,
@@ -135,6 +170,27 @@
 .remarkable-phrase,
 .text {
   padding: 1rem;
+}
+
+/* width */
+#header,
+#responsive-menu-shadow,
+#responsive-menu,
+#footer {
+  width: 100%;
+}
+
+#header-content,
+.card,
+.sect-info,
+.form,
+#footer-content {
+  max-width: 90%;
+}
+
+/* height */
+#responsive-menu-shadow {
+  height: var(--max-vh);
 }
 
 /* text align */
@@ -150,7 +206,14 @@
   text-align: justify;
 }
 
+/* text decoration */
+.navbar-link,
+#close-responsive-menu-btn {
+  text-decoration: none;
+}
+
 /* color */
+#close-responsive-menu-btn i,
 #title,
 .medium-title,
 .small-title,
@@ -166,13 +229,25 @@
 /* background color */
 #header,
 #responsive-menu,
+#close-responsive-menu-btn,
 #footer {
   background-color: var(--bg-color);
 }
 
+#responsive-menu-shadow,
 .navbar-link,
 .remarkable-phrase {
   background-color: var(--fg-color);
+}
+
+/* SPECIFIC SECTIONS */
+/* home */
+.card {
+  border: 1px solid var(--fg-color);
+}
+
+.card-info {
+  border: 4px solid var(--fg-color);
 }
 
 /* UTILITIES */
