@@ -30,11 +30,11 @@
     <!-- HEADER -->
     <header id="header">
       <div id="header-content">
-        <div id="quick-website-settings">
+        <div class="flex">
           <!-- -> select language -->
-          <div id="select-language-container">
+          <div class="grid-center">
             <a href="#" class="btn" id="select-language-btn"><i class="fa-solid fa-globe"></i></a> <!-- btn -->
-            <select name="languages" id="select-language"> <!-- dropdown -->
+            <select name="languages" class="hide" id="select-language"> <!-- dropdown -->
               <option value="en">EN</option>
               <option value="es">ES</option>
             </select>
@@ -42,10 +42,10 @@
           <!-- -> change theme -->
           <div class="grid-center">
             <a href="#" class="btn" id="dark-mode-btn"><i class="fa-solid fa-moon"></i></a> <!-- dark mode btn -->
-            <a href="#" class="btn" id="light-mode-btn"><i class="fa-solid fa-sun"></i></a> <!-- light mode btn -->
+            <a href="#" class="btn hide" id="light-mode-btn"><i class="fa-solid fa-sun"></i></a> <!-- light mode btn -->
           </div>
           <!-- -> responsive menu btn -->
-          <a href="#" class="btn" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a> <!-- btn -->
+          <a href="#" class="btn hide" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a> <!-- btn -->
         </div>
       </div>
 
@@ -100,19 +100,19 @@
         <!-- social networks  -->
         <article class="card" id="social-networks">
           <!-- navbar -->
-          <nav class="navbar">
+          <nav class="navbar grid-center">
             <!-- icons - most important social networks (in this context) -->
             <ul class="list">
-              <li class="list-element"><a href="#" class="navbar-link"><i class="fa-brands fa-github"></i></a></li> <!-- github -->
-              <li class="list-element"><a href="#" class="navbar-link"><i class="fa-brands fa-linkedin"></i></a></li> <!-- linkedIn -->
+              <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-github"></i></a></li> <!-- github -->
+              <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-linkedin"></i></a></li> <!-- linkedIn -->
             </ul>
             <!-- smaller icons - less important social networks (in this context) -->
             <ul class="list">
-              <li class="list-element"><a href="#" class="small-social-networks-btn navbar-link"><i class="fa-brands fa-youtube"></i></a></li> <!-- youTube -->
-              <li class="list-element"><a href="#" class="small-social-networks-btn navbar-link"><i class="fa-brands fa-instagram"></i></a></li> <!-- instagram -->
-              <li class="list-element"><a href="#" class="small-social-networks-btn navbar-link"><i class="fa-brands fa-tiktok"></i></a></li> <!-- tikTok -->
-              <li class="list-element"><a href="#" class="small-social-networks-btn navbar-link"><i class="fa-brands fa-threads"></i></a></li> <!-- threads -->
-              <li class="list-element"><a href="#" class="small-social-networks-btn navbar-link"><i class="fa-brands fa-facebook-f"></i></a></li> <!-- facebook -->
+              <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-youtube"></i></a></li> <!-- youTube -->
+              <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-instagram"></i></a></li> <!-- instagram -->
+              <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-tiktok"></i></a></li> <!-- tikTok -->
+              <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-threads"></i></a></li> <!-- threads -->
+              <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-facebook-f"></i></a></li> <!-- facebook -->
             </ul>
           </nav>
         </article>
@@ -123,10 +123,10 @@
           <h2 class="medium-title">Login or create an account with</h2>
           <!-- form -->
           <form action="#" method="post" class="form">
-            <figcaption class="figcaption">
-              <label class="label" for="e-mail">Email</label>
+            <fieldset class="fieldset">
               <input type="email" name="email" id="e-mail" class="input">
-            </figcaption>
+              <label class="label" for="e-mail">Email</label>
+            </fieldset>
             <button href="#" class="btn form-btn">Continue</button> <!-- btn -->
           </form>
         </section>
@@ -139,7 +139,7 @@
         <!-- content -->
         <div class="sect-info">
           <!-- remarkable phrase -->
-          <h3 class="remarkable-phrase">🚀 Up to sky ✨</h3>
+          <h3 class="remarkable-phrase small-title">🚀 Up to sky ✨</h3>
           <!-- paragraphs -->
           <div class="text-container">
             <!-- 1 -->
@@ -195,16 +195,16 @@
         <!-- content -->
         <form action="#" method="post" class="form">
           <fieldset class="fieldset">
-            <label class="label" for="full-name">Full Name</label>
             <input type="text" name="full-name" id="full-name" class="input">
-            <label class="label" for="email">Email</label>
+            <label class="label" for="full-name" id="full-name-label">Full Name</label>
             <input type="email" name="email" id="email" class="input">
-            <label class="label" for="subject">Subject</label>
+            <label class="label" for="email" id="email-label">Email</label>
             <input type="text" name="subject" id="subject" class="input">
-            <label class="label" for="message">Message</label>
-            <textarea name="message" id="message" class="input"></textarea>
+            <label class="label" for="subject" id="subject-label">Subject</label>
+            <textarea name="message" id="message" class="textarea"></textarea>
+            <label class="label" for="message" id="message-label">Message</label>
           </fieldset>
-          <button href="#" class="btn btn-form">Submit</button> <!-- btn -->
+          <button href="#" class="btn form-btn">Submit</button> <!-- btn -->
         </form>
       </section>
 
