@@ -19,16 +19,37 @@
 'use strict'
 
 // IMPORTS
-import { getElementByClassName } from './domManagement/elements.js'
-import { handleNavbarLinks } from './navigation/navigation.js'
+import {
+  getIfContainsClass,
+  removeClassByClassName,
+} from './stylesRelated/classes.js'
 
-function main() {
-  // navigation
-  const navbarLinks = getElementByClassName('navbar-link')
-
-  for (let navbarLink of navbarLinks) {
-    handleNavbarLinks(navbarLink)
-  }
+// GETTERS
+export function getElementById(elementId) {
+  return document.getElementById(elementId)
 }
 
-main()
+export function getElementByClassName(elementClassName) {
+  return document.getElementsByClassName(elementClassName)
+}
+
+export function getElementAttribute(element, attribute) {
+  return element.getAttribute(attribute)
+}
+
+// ACTIONS
+export function hideElement(element) {
+  if (getIfContainsClass(element, 'show')) {
+    removeClassByClassName(element, 'show')
+  }
+
+  element.classList.add('hide')
+}
+
+export function showElement(element) {
+  if (getIfContainsClass(element, 'hide')) {
+    removeClassByClassName(element, 'hide')
+  }
+
+  element.classList.add('show')
+}

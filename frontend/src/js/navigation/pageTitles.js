@@ -18,17 +18,20 @@
 
 'use strict'
 
-// IMPORTS
-import { getElementByClassName } from './domManagement/elements.js'
-import { handleNavbarLinks } from './navigation/navigation.js'
-
-function main() {
-  // navigation
-  const navbarLinks = getElementByClassName('navbar-link')
-
-  for (let navbarLink of navbarLinks) {
-    handleNavbarLinks(navbarLink)
-  }
+// CONSTANTS
+// page titles
+export const titles = {
+  '/': 'David Llamas Roman',
+  '/about-me': 'DLR - About me',
+  '/academy': 'DLR - Academy',
+  '/projects': 'DLR - Projects',
+  '/experience': 'DLR - Experience',
+  '/get-in-touch': 'DLR - Get in touch',
+  '/account': 'DLR - Account',
+  '/license': 'DLR - License',
 }
 
-main()
+// GETTERS
+export function getTitleByRoute(route) {
+  return titles[route]
+}

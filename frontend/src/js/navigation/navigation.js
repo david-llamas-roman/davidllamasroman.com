@@ -19,16 +19,27 @@
 'use strict'
 
 // IMPORTS
-import { getElementByClassName } from './domManagement/elements.js'
-import { handleNavbarLinks } from './navigation/navigation.js'
+import { getElementAttribute } from '../domManagement/elements.js'
+import addEventToElement from '../domManagement/events.js'
+import { getTitleByRoute } from './pageTitles.js'
+import { getRouteByPath, getCurrentPath, router } from './router.js'
 
-function main() {
-  // navigation
-  const navbarLinks = getElementByClassName('navbar-link')
+// ACTIONS
+export function navigateTo(route) {
+  history.pushState(
+    null,
+    () => getTitleByRoute(getRouteByPath(getCurrentPath())),
+    route,
+  )
 
-  for (let navbarLink of navbarLinks) {
-    handleNavbarLinks(navbarLink)
-  }
+  router()
 }
 
-main()
+export function handleNavbarLinks(linkType) {
+  const link = linkType
+
+  addEventToElement(link, 'click', (event) => {
+    event.preventDefault()
+    navigateTo(getElementAttribute(link, 'data-link'))
+  })
+}

@@ -18,17 +18,7 @@
 
 'use strict'
 
-// IMPORTS
-import { getElementByClassName } from './domManagement/elements.js'
-import { handleNavbarLinks } from './navigation/navigation.js'
-
-function main() {
-  // navigation
-  const navbarLinks = getElementByClassName('navbar-link')
-
-  for (let navbarLink of navbarLinks) {
-    handleNavbarLinks(navbarLink)
-  }
+// ACTIONS
+export default function addEventToElement(element, event, action) {
+  element.addEventListener(event, action)
 }
-
-main()

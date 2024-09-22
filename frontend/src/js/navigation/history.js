@@ -18,17 +18,20 @@
 
 'use strict'
 
-// IMPORTS
-import { getElementByClassName } from './domManagement/elements.js'
-import { handleNavbarLinks } from './navigation/navigation.js'
+// CONSTANTS
+const historyStack = ['/']
 
-function main() {
-  // navigation
-  const navbarLinks = getElementByClassName('navbar-link')
+// GETTERS
+export default function getPreviousPath() {
+  const positionNumberToGetPenultimateValue = 2
+  const positionNumberToGetLastValue = 1
+  let index
 
-  for (let navbarLink of navbarLinks) {
-    handleNavbarLinks(navbarLink)
+  if (history.length <= 2) {
+    index = historyStack.length - positionNumberToGetPenultimateValue
   }
-}
 
-main()
+  index = historyStack.length - positionNumberToGetLastValue
+
+  return historyStack[index]
+}

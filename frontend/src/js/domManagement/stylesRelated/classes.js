@@ -18,17 +18,12 @@
 
 'use strict'
 
-// IMPORTS
-import { getElementByClassName } from './domManagement/elements.js'
-import { handleNavbarLinks } from './navigation/navigation.js'
-
-function main() {
-  // navigation
-  const navbarLinks = getElementByClassName('navbar-link')
-
-  for (let navbarLink of navbarLinks) {
-    handleNavbarLinks(navbarLink)
-  }
+// GETTERS
+export function getIfContainsClass(element, className) {
+  return element.classList.contains(className)
 }
 
-main()
+// ACTIONS
+export function removeClassByClassName(element, className) {
+  element.classList.remove(className)
+}
