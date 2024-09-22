@@ -26,14 +26,23 @@
   <script src="https://kit.fontawesome.com/4734cbf68c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="app" data-theme="light">
+  <div class="flash" id="flash-1"></div>
+  <div class="flash" id="flash-2"></div>
+  <div class="flash" id="flash-3"></div>
+  <div class="flash" id="flash-4"></div>
+  <div class="flash" id="flash-5"></div>
+  <div class="flash" id="flash-6"></div>
+  <div class="flash" id="flash-7"></div>
+  <div class="flash" id="flash-8"></div>
+
+  <div id="app" data-theme="dark">
     <!-- HEADER -->
     <header id="header">
       <div id="header-content">
         <div class="flex">
           <!-- -> select language -->
           <div class="grid-center">
-            <a href="#" class="btn" id="select-language-btn"><i class="fa-solid fa-globe"></i></a> <!-- btn -->
+            <a href="#" class="btn header-btn" id="select-language-btn"><i class="fa-solid fa-globe"></i></a> <!-- btn -->
             <select name="languages" class="hide" id="select-language"> <!-- dropdown -->
               <option value="en">EN</option>
               <option value="es">ES</option>
@@ -41,11 +50,11 @@
           </div>
           <!-- -> change theme -->
           <div class="grid-center">
-            <a href="#" class="btn" id="dark-mode-btn"><i class="fa-solid fa-moon"></i></a> <!-- dark mode btn -->
-            <a href="#" class="btn hide" id="light-mode-btn"><i class="fa-solid fa-sun"></i></a> <!-- light mode btn -->
+            <a href="#" class="btn header-btn" id="dark-mode-btn"><i class="fa-solid fa-moon"></i></a> <!-- dark mode btn -->
+            <a href="#" class="btn hide header-btn" id="light-mode-btn"><i class="fa-solid fa-sun"></i></a> <!-- light mode btn -->
           </div>
           <!-- -> responsive menu btn -->
-          <a href="#" class="btn hide" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a> <!-- btn -->
+          <a href="#" class="btn hide header-btn" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a> <!-- btn -->
         </div>
       </div>
     </header>
@@ -65,7 +74,7 @@
         </ul>
       </nav>
 
-      <a href="#" class="grid-center" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a> <!-- close btn -->
+      <a href="#" class="grid-center btn" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a> <!-- close btn -->
     </div>
 
     <!-- MAIN CONTENT -->
