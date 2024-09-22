@@ -43,6 +43,10 @@ html {
   --max-vw: 100vw;
   --max-vh: 100vh;
   --max-percentage: 100%;
+  /* header */
+  --header-height: 93px;
+  /* footer */
+  --footer-height: 116px;
   /* -> filters */
   /* backdrop */
   --backdrop-filter: blur(10px);
@@ -290,6 +294,11 @@ html {
   margin: 0.5rem 0;
 }
 
+#home,
+.sect {
+  margin-top: 3rem;
+}
+
 /* padding */
 #header,
 .sect,
@@ -467,10 +476,6 @@ html,
 
 /* SPECIFIC SECTIONS */
 /* home */
-#home {
-  margin-top: 3rem;
-}
-
 #title {
   font-size: 3rem;
   padding: 2rem 1rem 0 1rem;
@@ -587,6 +592,12 @@ html,
   #get-in-touch .form,
   #footer-content {
     max-width: 40rem;
+  }
+
+  .sect {
+    height: calc(
+      (var(--max-vh) - (var(--header-height) + var(--footer-height)) - 3rem)
+    );
   }
 }
 
