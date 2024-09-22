@@ -48,37 +48,33 @@
           <a href="#" class="btn hide" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a> <!-- btn -->
         </div>
       </div>
-
-      <!-- -> responsive menu -->
-      <div class="grid-center hide">
-        <div id="responsive-menu-shadow"></div> <!-- shadow -->
-
-        <nav class="navbar" id="responsive-menu"> <!-- menu -->
-          <div class="grid-center">
-            <ul class="list">
-              <li class="list-element"><a href="#" data-link="/home" class="navbar-link">Home</a></li>
-              <li class="list-element"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
-              <li class="list-element"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
-              <li class="list-element"><a href="#" data-link="/projects" class="navbar-link">Projects</a></li>
-              <li class="list-element"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
-              <li class="list-element"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
-              <li class="list-element"><a href="#" data-link="/account" class="navbar-link">Account</a></li>
-              <li class="list-element"><a href="#" data-link="/license" class="navbar-link">License</a></li>
-            </ul>
-          </div>
-        </nav>
-
-        <a href="#" class="grid-center" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a> <!-- close btn -->
-      </div>
     </header>
+
+    <!-- -> responsive menu -->
+    <div class="grid-center hide" id="responsive-menu">
+      <nav class="navbar grid-center"> <!-- menu -->
+        <ul class="list">
+          <li class="list-element"><a href="#" data-link="/home" class="navbar-link">Home</a></li>
+          <li class="list-element"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
+          <li class="list-element"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
+          <li class="list-element"><a href="#" data-link="/projects" class="navbar-link">Projects</a></li>
+          <li class="list-element"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
+          <li class="list-element"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
+          <li class="list-element"><a href="#" data-link="/account" class="navbar-link">Account</a></li>
+          <li class="list-element"><a href="#" data-link="/license" class="navbar-link">License</a></li>
+        </ul>
+      </nav>
+
+      <a href="#" class="grid-center" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a> <!-- close btn -->
+    </div>
 
     <!-- MAIN CONTENT -->
     <main id="main-content">
-      <div class="m-0-auto">
-      <!-- -> home -->
+      <div class="m-0-auto text-align-center">
+        <!-- -> home -->
         <div id="home">
           <!-- presentation -->
-          <section class="card">
+          <section class="card" id="main-card">
             <div class="card-info">
               <!-- titles -->
               <h1 id="title">David Llamas Román</h1>
@@ -99,27 +95,29 @@
           </section>
 
           <!-- social networks  -->
-          <article class="card inline-block" id="social-networks">
-            <!-- navbar -->
-            <nav class="navbar grid-center">
-              <!-- icons - most important social networks (in this context) -->
-              <ul class="list">
-                <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-github"></i></a></li> <!-- github -->
-                <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-linkedin"></i></a></li> <!-- linkedIn -->
-              </ul>
-              <!-- smaller icons - less important social networks (in this context) -->
-              <ul class="list">
-                <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-youtube"></i></a></li> <!-- youTube -->
-                <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-instagram"></i></a></li> <!-- instagram -->
-                <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-tiktok"></i></a></li> <!-- tikTok -->
-                <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-threads"></i></a></li> <!-- threads -->
-                <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-facebook-f"></i></a></li> <!-- facebook -->
-              </ul>
-            </nav>
+          <article class="card medium-card inline-block vertical-align-top" id="social-networks">
+            <div class="grid-center" id="social-networks-container">
+              <!-- navbar -->
+              <nav class="navbar grid-center">
+                <!-- icons - most important social networks (in this context) -->
+                <ul class="list">
+                  <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-github"></i></a></li> <!-- github -->
+                  <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-linkedin"></i></a></li> <!-- linkedIn -->
+                </ul>
+                <!-- smaller icons - less important social networks (in this context) -->
+                <ul class="list">
+                  <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-youtube"></i></a></li> <!-- youTube -->
+                  <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-instagram"></i></a></li> <!-- instagram -->
+                  <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-tiktok"></i></a></li> <!-- tikTok -->
+                  <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-threads"></i></a></li> <!-- threads -->
+                  <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-facebook-f"></i></a></li> <!-- facebook -->
+                </ul>
+              </nav>
+            </div>
           </article>
 
           <!-- login or create account -->
-          <section class="card inline-block" id="login-create-account">
+          <section class="card medium-card inline-block vertical-align-top" id="login-create-account">
             <!-- title -->
             <h2 class="medium-title">Login or create an account with</h2>
             <!-- form -->
@@ -135,7 +133,7 @@
       </div>
 
       <!-- -> about me -->
-      <section class="sect" id="about-me">
+      <section class="sect hide" id="about-me">
         <!-- titles -->
         <h2 class="medium-title">About Me</h2>
         <!-- content -->
@@ -157,7 +155,7 @@
       </section>
 
       <!-- -> academy -->
-      <section class="sect" id="academy">
+      <section class="sect hide" id="academy">
         <!-- title -->
         <h2 class="medium-title">Academy</h2>
         <!-- content -->
@@ -165,7 +163,7 @@
       </section>
 
       <!-- -> projects -->
-      <section class="sect" id="projects">
+      <section class="sect hide" id="projects">
         <!-- title -->
         <h2 class="medium-title">Projects</h2>
         <!-- content -->
@@ -178,7 +176,7 @@
       </section>
 
       <!-- -> experience -->
-      <section class="sect" id="experience">
+      <section class="sect hide" id="experience">
         <!-- title -->
         <h2 class="medium-title">Experience</h2>
         <!-- content -->
@@ -191,7 +189,7 @@
       </section>
 
       <!-- -> get in touch -->
-      <section class="sect" id="get-in-touch">
+      <section class="sect hide" id="get-in-touch">
         <!-- title -->
         <h2 class="medium-title">Get in touch</h2>
         <!-- content -->
@@ -211,7 +209,7 @@
       </section>
 
       <!-- -> license -->
-      <section class="sect" id="license">
+      <section class="sect hide" id="license">
         <!-- title -->
         <h2 class="medium-title">License</h2>
         <!-- content -->
@@ -255,7 +253,7 @@
     <!-- FOOTER -->
     <footer id="footer">
       <div id="footer-content">
-        <p class="text"><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="link"><strong><em>GNU General Public License version 3 (GPL-3.0) only</em></strong></a></small></p>
+        <p class="text"><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="link">GNU General Public License version 3 (GPL-3.0) only</a></small></p>
       </div>
     </footer>
   </div>
