@@ -407,6 +407,7 @@ html {
 }
 
 /* background color */
+html,
 #responsive-menu .navbar,
 #close-responsive-menu-btn {
   background-color: var(--white);
