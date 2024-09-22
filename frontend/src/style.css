@@ -32,6 +32,11 @@ html {
 :root {
   /* -> colors */
   --red-warning: rgba(255, 0, 0, 0.6);
+  --navy-blue: #001f3f;
+  --translucent-navy-blue: rgba(0, 31, 63, 0.5);
+  --light-blue: #7fdbff;
+  --light-orange: #ff851b;
+  --light-green: #2ecc40;
   --white: #fff;
   /* -> measures */
   /* max */
@@ -62,13 +67,80 @@ html {
 }
 
 /* LAYOUT */
+/* under app */
+.flash {
+  position: fixed;
+  background-color: var(--light-blue);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  filter: blur(100px);
+  -webkit-filter: blur(100px);
+  z-index: 0;
+}
+
+#flash-5,
+#flash-6,
+#flash-7,
+#flash-8 {
+  filter: blur(150px);
+  -webkit-filter: blur(150px);
+}
+
+#flash-1,
+#flash-2,
+#flash-5 {
+  top: 0;
+}
+
+#flash-7,
+#flash-8 {
+  top: 40%;
+  background-color: var(--light-orange);
+  width: 30rem;
+}
+
+#flash-3,
+#flash-4,
+#flash-6 {
+  bottom: 0;
+}
+
+#flash-1,
+#flash-3,
+#flash-7 {
+  left: 0;
+}
+
+#flash-5,
+#flash-6 {
+  left: 30%;
+  background-color: var(--light-green);
+  width: 50rem;
+  height: 8rem;
+}
+
+#flash-2,
+#flash-4,
+#flash-8 {
+  right: 0;
+}
+
+/* app */
+#app {
+  background-color: var(--bg-color);
+}
+
 /* header */
 #header {
   position: sticky;
   position: -webkit-sticky;
-  z-index: 1;
+  z-index: 2;
   border-bottom: 1px solid var(--bg-color);
-  box-shadow: 0 0 20px 10px var(--bg-color);
 }
 
 #header-content {
@@ -79,16 +151,14 @@ html {
 /* navbar */
 #responsive-menu {
   left: 0;
-  z-index: 2;
+  z-index: 3;
   height: var(--max-percentage);
-  background-color: rgba(0, 31, 63, 0.5);
+  background-color: var(--translucent-navy-blue);
 }
 
 #responsive-menu .navbar {
   width: 90%;
   margin: 1rem auto;
-  border-top: 1px solid var(--fg-color);
-  box-shadow: 0 0 20px 10px var(--fg-color);
 }
 
 .list {
@@ -113,11 +183,11 @@ html {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  box-shadow: 0 0 20px 10px var(--fg-color);
 }
 
 #close-responsive-menu-btn i {
   font-size: 1.5rem;
+  color: var(--navy-blue);
 }
 
 /* remarkable phrase */
@@ -132,6 +202,10 @@ html {
 
 .fieldset {
   border: none;
+}
+
+.input {
+  background-color: transparent;
 }
 
 .textarea {
@@ -151,7 +225,7 @@ html {
 
 /* footer */
 #footer {
-  box-shadow: 0 -10px 20px 10px var(--bg-color);
+  margin-top: 1rem;
 }
 
 /* COMMON COMPONENTS */
@@ -174,6 +248,11 @@ html {
   position: fixed;
 }
 
+#main-content,
+#footer {
+  position: relative;
+}
+
 /* top */
 #header {
   top: 0;
@@ -189,6 +268,12 @@ html {
 #login-create-account .label,
 #get-in-touch .label {
   left: 5rem;
+}
+
+/* z-index */
+#main-content,
+#footer {
+  z-index: 1;
 }
 
 /* margin */
@@ -266,6 +351,11 @@ html {
 }
 
 /* border */
+#responsive-menu .navbar,
+#close-responsive-menu-btn {
+  border: 1px solid var(--navy-blue);
+}
+
 .input,
 .textarea,
 .form-btn {
@@ -299,11 +389,12 @@ html {
 }
 
 /* color */
-#close-responsive-menu-btn i,
 #title,
 .medium-title,
 .small-title,
 .text,
+.label,
+.input,
 .btn,
 .link {
   color: var(--fg-color);
@@ -318,13 +409,30 @@ html {
 /* background color */
 #responsive-menu .navbar,
 #close-responsive-menu-btn {
-  background-color: var(--bg-color);
+  background-color: var(--white);
 }
 
 .navbar-link,
 .remarkable-phrase,
 .form-btn {
   background-color: var(--fg-color);
+}
+
+/* text shadow */
+.header-btn,
+#footer-content .text {
+  text-shadow: var(--bg-color) 1px 0 10px;
+}
+
+/* box shadow */
+#header,
+.card {
+  box-shadow: 0 0 20px 10px var(--bg-color);
+}
+
+#responsive-menu .navbar,
+#close-responsive-menu-btn {
+  box-shadow: 0 0 20px 10px var(--navy-blue);
 }
 
 /* backdrop filter */
@@ -358,6 +466,10 @@ html {
 
 /* SPECIFIC SECTIONS */
 /* home */
+#home {
+  margin-top: 3rem;
+}
+
 #title {
   font-size: 3rem;
   padding: 2rem 1rem 0 1rem;
@@ -445,6 +557,11 @@ html {
 }
 
 /* OVERWRITE STYLES */
+#responsive-menu .navbar-link {
+  background-color: var(--navy-blue);
+  color: var(--white);
+}
+
 .input,
 .textarea {
   border-bottom: 1px solid var(--fg-color);
