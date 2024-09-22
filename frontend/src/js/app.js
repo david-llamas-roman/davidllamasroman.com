@@ -76,6 +76,11 @@ function removeClassByClassName(element, className) {
   element.classList.remove(className)
 }
 
+// events management
+function addEventToElement(element, event, action) {
+  element.addEventListener(event, action)
+}
+
 // elements management
 function hideElement(element) {
   if (getIfContainsClass(element, 'show')) {
@@ -91,15 +96,6 @@ function showElement(element) {
   }
 
   element.classList.add('show')
-}
-
-function addEventToElement(element, event, action) {
-  element.addEventListener(event, action)
-}
-
-// events management
-function preventDefaultEvent(event) {
-  event.preventDefault()
 }
 
 // router
@@ -126,10 +122,8 @@ function navigateTo(route) {
 function handleNavbarLinks(linkType) {
   const link = linkType
 
-  preventDefaultEvent(
-    addEventToElement(link, 'click', () =>
-      navigateTo(getElementAttribute(link, 'data-link')),
-    ),
+  addEventToElement(link, 'click', () =>
+    navigateTo(getElementAttribute(link, 'data-link')),
   )
 }
 
