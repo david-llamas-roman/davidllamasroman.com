@@ -20,7 +20,7 @@
 
 // routes
 const routes = {
-  '/home': 'home',
+  '/': 'home',
   '/about-me': 'about-me',
   '/academy': 'academy',
   '/projects': 'projects',
@@ -32,7 +32,7 @@ const routes = {
 
 // page titles
 const titles = {
-  '/home': 'David Llamas Roman',
+  '/': 'David Llamas Roman',
   '/about-me': 'DLR - About me',
   '/academy': 'DLR - Academy',
   '/projects': 'DLR - Projects',
@@ -42,13 +42,30 @@ const titles = {
   '/license': 'DLR - License',
 }
 
+// history stack
+const historyStack = ['/']
+
 // getters
+function getPreviousPath() {
+  const positionNumberToGetPenultimateValue = 2
+  const positionNumberToGetLastValue = 1
+  let index
+
+  if (history.length <= 2) {
+    index = historyStack.length - positionNumberToGetPenultimateValue
+  }
+
+  index = historyStack.length - positionNumberToGetLastValue
+
+  return historyStack[index]
+}
+
 function getCurrentPath() {
   return window.location.pathname
 }
 
-function getRouteByCurrentPath(currentPath) {
-  return routes[currentPath]
+function getRouteByPath(path) {
+  return routes[path]
 }
 
 function getTitleByRoute(route) {
@@ -70,6 +87,23 @@ function getElementAttribute(element, attribute) {
 function getIfContainsClass(element, className) {
   return element.classList.contains(className)
 }
+
+// history stack management
+// function addRouteToHistoryStack() {
+//   const positionNumberToGetLastValue = 1
+//   const currentPath = getCurrentPath()
+
+//   if (
+//     historyStack[historyStack.length - positionNumberToGetLastValue] !==
+//     currentPath
+//   ) {
+//     historyStack.push(currentPath)
+//   }
+// }
+
+// function updateHistoryStack() {
+//   addRouteToHistoryStack()
+// }
 
 // classes management
 function removeClassByClassName(element, className) {
@@ -100,19 +134,24 @@ function showElement(element) {
 
 // router
 function router() {
+  const previousPath = getPreviousPath()
+  const previousSectionId = getRouteByPath(previousPath)
+  const previousSection = getElementById(previousSectionId)
+
+  hideElement(previousSection)
+
   const currentPath = getCurrentPath()
-  const sectionId = getRouteByCurrentPath(currentPath)
+  const sectionId = getRouteByPath(currentPath)
   const section = getElementById(sectionId)
 
   showElement(section)
-  hideElement(section)
 }
 
 // navigation
 function navigateTo(route) {
   history.pushState(
     null,
-    getTitleByRoute(getRouteByCurrentPath(getCurrentPath())),
+    () => getTitleByRoute(getRouteByPath(getCurrentPath())),
     route,
   )
 
@@ -122,13 +161,17 @@ function navigateTo(route) {
 function handleNavbarLinks(linkType) {
   const link = linkType
 
-  addEventToElement(link, 'click', () =>
-    navigateTo(getElementAttribute(link, 'data-link')),
-  )
+  addEventToElement(link, 'click', (event) => {
+    event.preventDefault()
+    navigateTo(getElementAttribute(link, 'data-link'))
+  })
 }
 
 // main
 function main() {
+  // history stack
+  // updateHistoryStack()
+
   // navigation
   const navbarLinks = getElementByClassName('navbar-link')
 
