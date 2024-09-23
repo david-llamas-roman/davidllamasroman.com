@@ -22,7 +22,7 @@
 import {
   getIfContainsClass,
   removeClassByClassName,
-} from './stylesRelated/classes.js'
+} from './relatedWithStyles/classes.js'
 
 // GETTERS
 export function getElementById(elementId) {
