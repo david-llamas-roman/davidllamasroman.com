@@ -1,50 +1,79 @@
 {
-  "responsive-menu-element-1": "Inicio",
-  "responsive-menu-element-2": "Sobre Mí",
-  "responsive-menu-element-3": "Academia",
-  "responsive-menu-element-4": "Proyectos",
-  "responsive-menu-element-5": "Experiencia",
-  "responsive-menu-element-6": "Contacto",
-  "responsive-menu-element-7": "Cuenta",
-  "responsive-menu-element-8": "Licencia",
-
-  "about-me-title": "Sobre Mí",
-  "about-me-paragraph-1": "",
-  "about-me-paragraph-2": "",
-  "about-me-paragraph-3": "",
-  "about-me-paragraph-4": "",
-  "academy-title": "Academia",
-  "projects-title": "Proyecto",
-  "projects--warning": "No hay ningún proyecto todavía",
-  "experience-title": "Experiencia",
-  "experience-warning": "No hay ningún trabajo todavía",
-  "get-in-touch-title": "Contacto",
-  "full-name-label": "Nombre completo",
-  "email-label": "Correo electrónico",
-  "subject-label": "Sujeto",
-  "message-label": "Mensaje",
-  "submit-btn": "Enviar",
-  "license-title": "Licencia",
-  "license-subtitle-1": "¿Bajo qué licencia está la web?",
-  "license-paragraph-1": "",
-  "license-subtitle-2": "¿Qué significa 'only' en este contexto?",
-  "license-paragraph-2": "",
-  "license-paragraph-3": "",
-  "license-subtitle-4": "Aviso de licencia",
-  "license-paragraph-4": "",
-  "license-paragraph-5": "",
-  "license-paragraph-6": "",
-  "home-title": "David Llamas Román",
-  "home-subtitle": "Estudiante de desarrollo web",
-  "home-nav-element-1": "Sobre Mí",
-  "home-nav-element-2": "Academia",
-  "home-nav-element-3": "Proyectos",
-  "home-nav-element-4": "Experiencia",
-  "home-nav-element-5": "Contacto",
-  "home-nav-element-6": "Cuenta",
-  "home-nav-element-7": "Licencia",
-  "login-create-account-title": "Inicia sesión o crea una cuenta con",
-  "login-create-account-email": "Correo electrónico",
-  "continue-btn": "Continuar",
-  "footer-small-text": "<small>&copy; 2024 David Llamas Román. Licenciado bajo <strong><a href=\"https://www.gnu.org/licenses/gpl-3.0.en.html\" target=\"_blank\" class=\"link\">GNU General Public License version 3 (GPL-3.0) only</a></strong></small>"
+  "navbar-links": {
+    "responsive-menu": {
+      "home": "Inicio",
+      "about-me": "Sobre mí",
+      "academy": "Academia",
+      "projects": "Proyectos",
+      "experience": "Experiencia",
+      "get-in-touch": "Contacto",
+      "your-account": "Tu cuenta",
+      "license": "Licencias"
+    },
+    "main-card": {
+      "about-me": "Sobre mí",
+      "academy": "Academia",
+      "projects": "Proyectos",
+      "experience": "Experiencia",
+      "get-in-touch": "Contacto",
+      "your-account": "Tu cuenta",
+      "license": "Licencias"
+    }
+  },
+  "medium-titles": {
+    "main-card": "Estudiante de Desarrollo Web",
+    "login-create-account": "Inicia sesión o crea una cuenta con",
+    "about-me": "Sobre mí",
+    "academy": "Academia",
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "get-in-touch": "Contacto",
+    "your-account": "Tu cuenta",
+    "license": "Licencias"
+  },
+  "small-titles": {
+    "license": {
+      "first": "¿Bajo qué licencia está la web?",
+      "second": "¿Qué significa 'only' en este contexto?",
+      "third": "¿Donde se puede encontrar la licencia?",
+      "fourth": "Aviso de licencia"
+    }
+  },
+  "remarkable-phrases": {
+    "about-me": "🚀 Up to sky ✨"
+  },
+  "warnings": {
+    "projects": "No hay ningún proyecto todavía",
+    "experience": "No hay ningún trabajo todavía"
+  },
+  "paragraphs": {
+    "about-me": {
+      "first": "",
+      "second": "",
+      "third": "",
+      "fourth": ""
+    },
+    "license": {
+      "first": "",
+      "second": "",
+      "third": "",
+      "fourth": ".",
+      "fifth": "",
+      "sixth": ""
+    },
+    "footer": ""
+  },
+  "labels": {
+    "login-create-account": "Email",
+    "get-in-touch": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje"
+    }
+  },
+  "buttons": {
+    "login-create-account": "Continuar",
+    "get-in-touch": "Enviar"
+  }
 }
