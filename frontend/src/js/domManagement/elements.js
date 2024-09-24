@@ -24,6 +24,11 @@ import {
   removeClassByClassName,
 } from './relatedWithStyles/classes.js'
 
+// CONSTANTS
+export const appContainer = getElementById('app')
+const showClass = 'show'
+const hideClass = 'hide'
+
 // GETTERS
 export function getElementById(elementId) {
   return document.getElementById(elementId)
@@ -33,23 +38,43 @@ export function getElementByClassName(elementClassName) {
   return document.getElementsByClassName(elementClassName)
 }
 
-export function getElementAttribute(element, attribute) {
+export function getAttributeValue(element, attribute) {
   return element.getAttribute(attribute)
 }
 
+export function getIfContainsAttribute(element, attribute) {
+  return element.hasAttribute(attribute)
+}
+
 // ACTIONS
+export function removeAttribute(element, attribute) {
+  if (getIfContainsAttribute(element, attribute)) {
+    element.removeAttribute(attribute)
+  } else {
+    console.error('The element has not the attribute')
+  }
+}
+
+export function addAttribute(element, attribute, value) {
+  if (!getIfContainsAttribute(element, attribute)) {
+    element.setAttribute(attribute, value)
+  } else {
+    console.error('The element already has the attribute')
+  }
+}
+
 export function hideElement(element) {
-  if (getIfContainsClass(element, 'show')) {
-    removeClassByClassName(element, 'show')
+  if (getIfContainsClass(element, showClass)) {
+    removeClassByClassName(element, showClass)
   }
 
-  element.classList.add('hide')
+  element.classList.add(hideClass)
 }
 
 export function showElement(element) {
-  if (getIfContainsClass(element, 'hide')) {
-    removeClassByClassName(element, 'hide')
+  if (getIfContainsClass(element, hideClass)) {
+    removeClassByClassName(element, hideClass)
   }
 
-  element.classList.add('show')
+  element.classList.add(showClass)
 }
