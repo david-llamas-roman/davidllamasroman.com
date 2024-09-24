@@ -21,6 +21,7 @@
 // IMPORTS
 import { getElementByClassName } from './domManagement/elements.js'
 import { handleNavbarLinks } from './navigation/navigation.js'
+import setAndUpdateTheme from './setAndUpdateTheme/theme.js'
 
 function main() {
   // navigation
@@ -29,6 +30,9 @@ function main() {
   for (let navbarLink of navbarLinks) {
     handleNavbarLinks(navbarLink)
   }
+
+  // theme
+  setAndUpdateTheme()
 }
 
 main()
