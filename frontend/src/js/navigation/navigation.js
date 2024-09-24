@@ -19,7 +19,7 @@
 'use strict'
 
 // IMPORTS
-import { getElementAttribute } from '../domManagement/elements.js'
+import { getAttributeValue } from '../domManagement/elements.js'
 import addEventToElement from '../domManagement/events.js'
 import { getTitleByRoute } from './pageTitles.js'
 import { getRouteByPath, getCurrentPath, router } from './router.js'
@@ -36,10 +36,11 @@ export function navigateTo(route) {
 }
 
 export function handleNavbarLinks(linkType) {
+  const attribute = 'data-link'
   const link = linkType
 
   addEventToElement(link, 'click', (event) => {
     event.preventDefault()
-    navigateTo(getElementAttribute(link, 'data-link'))
+    navigateTo(getAttributeValue(link, attribute))
   })
 }
