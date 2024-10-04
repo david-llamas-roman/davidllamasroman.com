@@ -34,8 +34,8 @@ const routes = {
   '/projects': 'projects',
   '/experience': 'experience',
   '/get-in-touch': 'get-in-touch',
-  '/account': 'account',
-  '/license': 'license',
+  '/your-account': 'your-account',
+  '/licenses': 'licenses',
 }
 
 // GETTERS

@@ -1,0 +1,11 @@
+:root {
+  /* MEASURES */
+  /* max */
+  --max-percentage: 100%;
+  /* max-width */
+  --max-width-60: 60vw;
+
+  /* FILTERS */
+  /* backdrop */
+  --backdrop-filter-blur: blur(10px);
+}

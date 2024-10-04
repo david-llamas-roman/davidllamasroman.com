@@ -22,16 +22,16 @@
 import {
   addAttribute,
   appContainer,
+  dataThemeAttribute,
   getAttributeValue,
   getElementById,
   hideElement,
   removeAttribute,
   showElement,
 } from '../domManagement/elements.js'
-import addEventToElement from '../domManagement/events.js'
+import { addEventToElement, clickEvent } from '../domManagement/events.js'
 
 // CONSTANTS
-const attribute = 'data-theme'
 const lightModeBtn = getElementById('light-mode-btn')
 const darkModeBtn = getElementById('dark-mode-btn')
 const darkTheme = 'dark'
@@ -51,8 +51,8 @@ function setUserPreference(item, newTheme) {
 function setTheme(theme) {
   const element = appContainer
 
-  removeAttribute(element, attribute)
-  addAttribute(element, attribute, theme)
+  removeAttribute(element, dataThemeAttribute)
+  addAttribute(element, dataThemeAttribute, theme)
 }
 
 function setUserPreferredTheme() {
@@ -64,30 +64,28 @@ function setUserPreferredTheme() {
 
 // ACTIONS
 function updateThemeChangeButtons() {
-  if (getAttributeValue(appContainer, attribute) === darkTheme) {
+  if (getAttributeValue(appContainer, dataThemeAttribute) === darkTheme) {
     hideElement(darkModeBtn)
     showElement(lightModeBtn)
   }
 
-  if (getAttributeValue(appContainer, attribute) === lightTheme) {
+  if (getAttributeValue(appContainer, dataThemeAttribute) === lightTheme) {
     hideElement(lightModeBtn)
     showElement(darkModeBtn)
   }
 }
 
 function updateTheme() {
-  const event = 'click'
-
-  addEventToElement(darkModeBtn, event, () => {
-    removeAttribute(appContainer, attribute)
-    addAttribute(appContainer, attribute, darkTheme),
+  addEventToElement(darkModeBtn, clickEvent, () => {
+    removeAttribute(appContainer, dataThemeAttribute)
+    addAttribute(appContainer, dataThemeAttribute, darkTheme),
       updateThemeChangeButtons(),
       setUserPreference(localStorageItem, darkTheme)
   })
 
-  addEventToElement(lightModeBtn, event, () => {
-    removeAttribute(appContainer, attribute)
-    addAttribute(appContainer, attribute, lightTheme),
+  addEventToElement(lightModeBtn, clickEvent, () => {
+    removeAttribute(appContainer, dataThemeAttribute)
+    addAttribute(appContainer, dataThemeAttribute, lightTheme),
       updateThemeChangeButtons(),
       setUserPreference(localStorageItem, lightTheme)
   })

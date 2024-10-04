@@ -16,27 +16,27 @@
  * Copyright (C) 2024 David Llamas Román
  */
 
-'use strict'
+/* eslint-disable no-undef */
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const path = require('path')
 
-// IMPORTS
-import { getElementByClassName } from './domManagement/elements.js'
-import setAndUpdateLanguage from './languages/languages.js'
-import { handleNavbarLinks } from './navigation/navigation.js'
-import setAndUpdateTheme from './themes/themes.js'
-
-function main() {
-  // navigation
-  const navbarLinks = getElementByClassName('navbar-link')
-
-  for (let navbarLink of navbarLinks) {
-    handleNavbarLinks(navbarLink)
-  }
-
-  // theme
-  setAndUpdateTheme()
-
-  // language
-  setAndUpdateLanguage()
-}
-
-main()
+// module.exports = {
+//   entry: './src/js/app.js',
+//   output: {
+//     path: path.resolve(__dirname, 'dist'),
+//     filename: 'bundle.js',
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /.css$/i,
+//         use: ['style-loader', 'css-loader'],
+//       },
+//     ],
+//   },
+//   plugins: [
+//     new HtmlWebpackPlugin({
+//       template: './src/index.html',
+//     }),
+//   ],
+// }

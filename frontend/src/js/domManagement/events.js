@@ -18,7 +18,11 @@
 
 'use strict'
 
+// CONSTANTS
+export const clickEvent = 'click'
+export const changeEvent = 'change'
+
 // ACTIONS
-export default function addEventToElement(element, event, action) {
+export function addEventToElement(element, event, action) {
   element.addEventListener(event, action)
 }

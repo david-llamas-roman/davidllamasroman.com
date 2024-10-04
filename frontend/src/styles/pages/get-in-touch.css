@@ -16,27 +16,7 @@
  * Copyright (C) 2024 David Llamas Román
  */
 
-'use strict'
-
-// IMPORTS
-import { getElementByClassName } from './domManagement/elements.js'
-import setAndUpdateLanguage from './languages/languages.js'
-import { handleNavbarLinks } from './navigation/navigation.js'
-import setAndUpdateTheme from './themes/themes.js'
-
-function main() {
-  // navigation
-  const navbarLinks = getElementByClassName('navbar-link')
-
-  for (let navbarLink of navbarLinks) {
-    handleNavbarLinks(navbarLink)
-  }
-
-  // theme
-  setAndUpdateTheme()
-
-  // language
-  setAndUpdateLanguage()
-}
-
-main()
+@import url('../reset.css');
+@import url('../components/header.css');
+@import url('../components/main-content.css');
+@import url('../components/footer.css');

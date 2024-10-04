@@ -1,0 +1,17 @@
+@import url('../variables.css');
+
+#header {
+  width: var(--max-percentage);
+  position: sticky;
+  position: -webkit-sticky;
+  padding: 1rem 2rem;
+  backdrop-filter: var(--backdrop-filter-blur);
+}
+
+#header-content {
+  max-width: var(--max-width-60);
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}

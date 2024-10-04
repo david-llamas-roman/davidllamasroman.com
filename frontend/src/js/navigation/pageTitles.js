@@ -27,8 +27,8 @@ export const titles = {
   '/projects': 'DLR - Projects',
   '/experience': 'DLR - Experience',
   '/get-in-touch': 'DLR - Get in touch',
-  '/account': 'DLR - Account',
-  '/license': 'DLR - License',
+  '/your-account': 'DLR - Your account',
+  '/licenses': 'DLR - Licenses',
 }
 
 // GETTERS

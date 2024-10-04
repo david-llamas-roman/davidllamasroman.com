@@ -1,0 +1,13 @@
+@import url('../variables.css');
+
+#footer {
+  width: var(--max-percentage);
+  padding: 1rem 2rem;
+}
+
+#footer-content {
+  max-width: var(--max-width-60);
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}

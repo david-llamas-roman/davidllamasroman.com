@@ -1,0 +1,36 @@
+main {
+  padding: 1rem 2rem;
+}
+
+main section {
+  max-width: var(--max-width-60);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+main section h2 {
+  text-align: center;
+  padding: 1rem;
+  font-size: 2.5rem;
+}
+
+#featured-sentence {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 15vw;
+  padding: 0.5rem;
+  border-radius: 26px;
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+  -ms-border-radius: 26px;
+  -o-border-radius: 26px;
+}
+
+#text-container {
+  padding: 1rem;
+}
+
+#text-container p {
+  text-align: justify;
+  padding: 0.5rem 0;
+}

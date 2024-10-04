@@ -22,252 +22,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Llamas Román</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/4734cbf68c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-  <div class="flash" id="flash-1"></div>
-  <div class="flash" id="flash-2"></div>
-  <div class="flash" id="flash-3"></div>
-  <div class="flash" id="flash-4"></div>
-  <div class="flash" id="flash-5"></div>
-  <div class="flash" id="flash-6"></div>
-  <div class="flash" id="flash-7"></div>
-  <div class="flash" id="flash-8"></div>
-
   <div id="app" data-theme="light">
     <!-- HEADER -->
     <header id="header">
       <div id="header-content">
-        <div class="flex">
-          <!-- -> select language -->
-          <div class="grid-center">
-            <a href="#" class="btn header-btn" id="select-language-btn"><i class="fa-solid fa-globe"></i></a> <!-- btn -->
-            <select name="languages" class="hide" id="select-language"> <!-- dropdown -->
-              <option value="en">EN</option>
-              <option value="es">ES</option>
-            </select>
-          </div>
-          <!-- -> change theme -->
-          <div class="grid-center">
-            <a href="#" class="btn header-btn" id="dark-mode-btn"><i class="fa-solid fa-moon"></i></a> <!-- dark mode btn -->
-            <a href="#" class="btn hide header-btn" id="light-mode-btn"><i class="fa-solid fa-sun"></i></a> <!-- light mode btn -->
-          </div>
-          <!-- -> responsive menu btn -->
-          <a href="#" class="btn hide header-btn" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a> <!-- btn -->
+        <!-- -> select language -->
+        <div class="grid-center">
+          <a href="#" class="btn header-btn" id="select-language-btn"><i class="fa-solid fa-globe"></i></a> <!-- btn -->
+          <select name="languages" class="hide" id="select-language"> <!-- dropdown -->
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+          </select>
         </div>
+        <!-- -> change theme -->
+        <div class="grid-center">
+          <a href="#" class="btn header-btn" id="dark-mode-btn"><i class="fa-solid fa-moon"></i></a> <!-- dark mode btn -->
+          <a href="#" class="btn hide header-btn" id="light-mode-btn"><i class="fa-solid fa-sun"></i></a> <!-- light mode btn -->
+        </div>
+        <!-- -> responsive menu btn -->
+        <a href="#" class="btn hide header-btn" id="open-responsive-menu-btn"><i class="fa-solid fa-bars"></i></a> <!-- btn -->
       </div>
     </header>
 
     <!-- -> responsive menu -->
-    <div class="grid-center hide" id="responsive-menu">
-      <nav class="navbar grid-center"> <!-- menu -->
-        <ul class="list">
-          <li class="list-element"><a href="#" data-link="/" class="navbar-link">Home</a></li>
-          <li class="list-element"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
-          <li class="list-element"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
-          <li class="list-element"><a href="#" data-link="/projects" class="navbar-link">Projects</a></li>
-          <li class="list-element"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
-          <li class="list-element"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
-          <li class="list-element"><a href="#" data-link="/account" class="navbar-link">Your account</a></li>
-          <li class="list-element"><a href="#" data-link="/license" class="navbar-link">License</a></li>
+    <div id="responsive-menu">
+      <nav> <!-- menu -->
+        <ul>
+          <li><a href="index.html" data-link="/">Home</a></li>
+          <li><a href="./pages/about-me.html" data-key="aboutMe" data-link="/about-me">About Me</a></li>
+          <li><a href="./pages/academy.html" data-key="academy" data-link="/academy" class="navbar-link">Academy</a></li>
+          <li><a href="./pages/projects.html" data-key="projects" data-link="/projects" class="navbar-link">Projects</a></li>
+          <li><a href="./pages/experience.html" data-key="experience" data-link="/experience" class="navbar-link">Experience</a></li>
+          <li><a href="./pages/get-in-touch.html" data-key="getInTouch" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
+          <li><a href="./pages/your-account.html" data-key="yourAccount" data-link="/your-account" class="navbar-link">Your account</a></li>
+          <li><a href="./pages/licenses.html" data-key="licenses" data-link="/licenses" class="navbar-link">Licenses</a></li>
         </ul>
       </nav>
 
-      <a href="#" class="grid-center btn" id="close-responsive-menu-btn"><i class="fa-solid fa-x"></i></a> <!-- close btn -->
+      <a href="#" class="grid-center btn" id="close-responsive-menu-btn"><img src="" alt=""></a> <!-- close btn -->
     </div>
 
     <!-- MAIN CONTENT -->
     <main id="main-content">
-      <div class="m-0-auto text-align-center">
-        <!-- -> home -->
-        <div id="home">
-          <!-- presentation -->
-          <section class="card" id="main-card">
-            <div class="card-info">
-              <!-- titles -->
-              <h1 id="title">David Llamas Román</h1>
-              <h2 class="medium-title">Web Developer Student</h2>
-              <!-- navbar -->
-              <nav class="navbar">
-                <ul class="list">
-                  <li class="list-element inline-block"><a href="#" data-link="/about-me" class="navbar-link">About Me</a></li>
-                  <li class="list-element inline-block"><a href="#" data-link="/academy" class="navbar-link">Academy</a></li>
-                  <li class="list-element inline-block"><a href="#" data-link="/projects" class="navbar-link">Projects</a></li>
-                  <li class="list-element inline-block"><a href="#" data-link="/experience" class="navbar-link">Experience</a></li>
-                  <li class="list-element inline-block"><a href="#" data-link="/get-in-touch" class="navbar-link">Get in touch</a></li>
-                  <li class="list-element inline-block"><a href="#" data-link="/account" class="navbar-link">Account</a></li>
-                  <li class="list-element inline-block"><a href="#" data-link="/license" class="navbar-link">License</a></li>
-                </ul>
-              </nav>
-            </div>
-          </section>
-
-          <!-- social networks  -->
-          <article class="card medium-card inline-block vertical-align-top" id="social-networks">
-            <div class="grid-center" id="social-networks-container">
-              <!-- navbar -->
-              <nav class="navbar grid-center">
-                <!-- icons - most important social networks (in this context) -->
-                <ul class="list">
-                  <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-github"></i></a></li> <!-- github -->
-                  <li class="list-element inline-block"><a href="#" class="social-networks-link btn"><i class="fa-brands fa-linkedin"></i></a></li> <!-- linkedIn -->
-                </ul>
-                <!-- smaller icons - less important social networks (in this context) -->
-                <ul class="list">
-                  <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-youtube"></i></a></li> <!-- youTube -->
-                  <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-instagram"></i></a></li> <!-- instagram -->
-                  <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-tiktok"></i></a></li> <!-- tikTok -->
-                  <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-threads"></i></a></li> <!-- threads -->
-                  <li class="list-element inline-block"><a href="#" class="btn"><i class="fa-brands fa-facebook-f"></i></a></li> <!-- facebook -->
-                </ul>
-              </nav>
-            </div>
-          </article>
-
-          <!-- login or create account -->
-          <section class="card medium-card inline-block vertical-align-top" id="login-create-account">
-            <!-- title -->
-            <h2 class="medium-title">Login or create an account with</h2>
-            <!-- form -->
-            <form action="#" method="post" class="form">
-              <fieldset class="fieldset">
-                <input type="email" name="email" id="e-mail" class="input">
-                <label class="label" for="e-mail">Email</label>
-              </fieldset>
-              <button href="#" class="btn form-btn">Continue</button> <!-- btn -->
-            </form>
-          </section>
-        </div>
+      <!-- -> home -->
+      <div id="home">
+        <!-- presentation -->
+        <section>
+          <!-- titles -->
+          <h1 id="title">David Llamas Román</h1>
+          <h2>Web Developer Student</h2>
+          <!-- navbar -->
+          <nav>
+            <ul>
+              <li><a href="./pages/about-me.html" data-key="aboutMe" data-link="/about-me">About me</a></li>
+              <li><a href="./pages/academy.html" data-key="academy" data-link="/academy">Academy</a></li>
+              <li><a href="./pages/projects.html" data-key="projects" data-link="/projects">Projects</a></li>
+              <li><a href="./pages/experience.html" data-key="experience" data-link="/experience">Experience</a></li>
+              <li><a href="./pages/get-in-touch.html" data-key="getInTouch" data-link="/get-in-touch">Get in touch</a></li>
+              <li><a href="./pages/your-account.html" data-key="yourAccount" data-link="/your-account">Your account</a></li>
+              <li><a href="./pages/licenses.html" data-key="licenses" data-link="/licenses">Licenses</a></li>
+            </ul>
+          </nav>
+        </section>
       </div>
-
-      <!-- -> about me -->
-      <section class="sect hide" id="about-me">
-        <!-- titles -->
-        <h2 class="medium-title">About me</h2>
-        <!-- content -->
-        <div class="sect-info">
-          <!-- remarkable phrase -->
-          <h3 class="remarkable-phrase small-title">🚀 Up to sky ✨</h3>
-          <!-- paragraphs -->
-          <div class="text-container">
-            <!-- 1 -->
-            <p class="text">I hate the pre-established. I do not want to be a 'normal' employee, I do not want to have a 'normal' salary and, of course, I do not want to stay with my arms crossed seeing as my dreams vanish. Now, I am going to mention the things that I want to. I want to work hard to learn and to get going experience quickly to get the best work position that I can imagine, I want to fight per my dreams and, why not, I want to live the life too. As you can see, I am not never satisfied with nothing and, sincerely, I have never endured that there are people who do it.</p>
-            <!-- 2 -->
-            <p class="text">After this brief speech where I look like a charlatan, a daddy's boy that do not want to land in the real world and everything that you think, I am going to introduce myself.</p>
-            <!-- 3 -->
-            <p class="text">Hi, I am David Llamas Román and I am a very normal man who wants to do something different which marks a before and after in the actual society. Therefore, I am hard working in my personal brand. Perhaps, everything that I have done so far has not had such an incredible and idyllic result, but Rome was not built in a day. I am sure that that day will arrive.</p>
-            <!-- 4 -->
-            <p class="text">Meanwhile, I am in a constant and permanent learning. To finish this presentation, I will use a serie of words. Hard working, discipline and never surrender.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- -> academy -->
-      <section class="sect hide" id="academy">
-        <!-- title -->
-        <h2 class="medium-title">Academy</h2>
-        <!-- content -->
-        <div class="sect-info"></div>
-      </section>
-
-      <!-- -> projects -->
-      <section class="sect hide" id="projects">
-        <!-- title -->
-        <h2 class="medium-title">Projects</h2>
-        <!-- content -->
-        <div class="sect-info">
-          <!-- warning -->
-          <div class="grid-center">
-            <p class="text warning"><strong>There is not any project yet</strong></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- -> experience -->
-      <section class="sect hide" id="experience">
-        <!-- title -->
-        <h2 class="medium-title">Experience</h2>
-        <!-- content -->
-        <div class="sect-info">
-          <!-- warning -->
-          <div class="grid-center">
-            <p class="text warning"><strong>There is not any job yet</strong></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- -> get in touch -->
-      <section class="sect hide" id="get-in-touch">
-        <!-- title -->
-        <h2 class="medium-title">Get in touch</h2>
-        <!-- content -->
-        <form action="#" method="post" class="form">
-          <fieldset class="fieldset">
-            <input type="text" name="full-name" id="full-name" class="input">
-            <label class="label" for="full-name" id="full-name-label">Full name</label>
-            <input type="email" name="email" id="email" class="input">
-            <label class="label" for="email" id="email-label">Email</label>
-            <input type="text" name="subject" id="subject" class="input">
-            <label class="label" for="subject" id="subject-label">Subject</label>
-            <textarea name="message" id="message" class="textarea"></textarea>
-            <label class="label" for="message" id="message-label">Message</label>
-          </fieldset>
-          <button href="#" class="btn form-btn">Submit</button> <!-- btn -->
-        </form>
-      </section>
-
-      <!-- -> license -->
-      <section class="sect hide" id="license">
-        <!-- title -->
-        <h2 class="medium-title">License</h2>
-        <!-- content -->
-        <div class="sect-info">
-          <!-- title -->
-          <h3 class="small-title">Which license is this website under?</h3>
-          <!-- text -->
-          <div class="text-container">
-            <!-- 1 -->
-            <p class="text">All code and files that are in the website project are licensed under <strong><a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="link">GNU General Public License version 3 (GPL-3.0) only</a></strong>. When it mention 'project', it am speaking about the website repository. In this case, it use GitHub to host all files of the website that it have mentioned before.</p>
-          </div>
-          <!-- title -->
-          <h3 class="small-title">What does 'only' mean in this context?</h3>
-          <!-- text -->
-          <div class="text-container">
-            <!-- 1 -->
-            <p class="text">When it is speaking about <strong>GPL</strong> software licenses and appear this word, it means that the software is only under the version where appear the before mentioned word. For example, <strong>GPL-3.0-only</strong>. In this case, this indicates that the software is only under <strong>GPL-3.0</strong> version and it cannot be modified or redistributed under previous or future versions.</p>
-          </div>
-          <!-- title -->
-          <h3 class="small-title">Where can it find the license?</h3>
-          <!-- text -->
-          <div class="text-container">
-            <!-- 1 -->
-            <p class="text">The license can be find in the project GitHub repository, specifically, in a file called <strong>LICENSE</strong>. In some parts of the project such as the <strong>README</strong>, it can find a link to the official website of the license. Also, it can find the same link in some parts of this website such as the <strong>footer</strong>.</p>
-          </div>
-          <!-- title -->
-          <h3 class="small-title">License notice</h3>
-          <!-- text -->
-          <div class="text-container">
-            <!-- 1 -->
-            <p class="text">It can find a license notice in each one of files of the project, above all, in files that contains code. The license notice says which is the file ownership, which type of software is it and the version of the license under is it.</p>
-            <!-- 2 -->
-            <p class="text">Also, it says that the software is distributed <strong>without any warranty</strong>, that is to say, the author do not take responsibility if the software do not work such as you expected. In this part, it is done reference to the <strong>MERCHANTABILITY</strong> and <strong>FITNESS FOR A PARTICULAR PURPOSE</strong> warranties. In any case, the author do not take responsibility.</p>
-            <!-- 3 -->
-            <p class="text">Finally, it indicates that you must have received a license copy and, if you did not receive nothing, it appears a link to the official website of the license where you can find the full license. At the end of the license notice, it appears the <strong>copyright notice</strong>.</p>
-          </div>
-        </div>
-      </section>
-    </main>
 
     <!-- FOOTER -->
     <footer id="footer">
       <div id="footer-content">
-        <p class="text"><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" class="link">GNU General Public License version 3 (GPL-3.0) only</a></small></p>
+        <p><small>&copy; 2024 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU General Public License version 3 (GPL-3.0) only</a></small></p>
       </div>
     </footer>
   </div>
-
-  <!-- SCRIPTS -->
-  <script type="module" src="./js/app.js"></script>
 </body>
 </html>

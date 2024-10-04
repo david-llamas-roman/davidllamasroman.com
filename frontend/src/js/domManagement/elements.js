@@ -25,7 +25,70 @@ import {
 } from './relatedWithStyles/classes.js'
 
 // CONSTANTS
+export const dataThemeAttribute = 'data-theme'
+export const dataKeyAttribute = 'data-key'
+export const dataLinkAttribute = 'data-link'
+
 export const appContainer = getElementById('app')
+export const selectLanguageButton = getElementById('select-language-btn')
+export const selectLanguage = getElementById('select-language')
+export const responsiveMenuNavbarLinks = getElementsByQuerySelectorAll(
+  '#responsive-menu .navbar-link',
+)
+export const mainCardMediumTitle = getElementByQuerySelector(
+  '#main-card .medium-title',
+)
+export const mainCardNavbarLinks = getElementsByQuerySelectorAll(
+  '#main-card .navbar-link',
+)
+export const loginCreateAccountMediumTitle = getElementByQuerySelector(
+  '#login-create-account .medium-title',
+)
+export const loginCreateAccountLabels = getElementsByQuerySelectorAll(
+  '#login-create-account .label',
+)
+export const loginCreateAccountButton = getElementByQuerySelector(
+  '#login-create-account .form-btn',
+)
+export const aboutMeMediumTitle = getElementByQuerySelector(
+  '#about-me .medium-title',
+)
+export const aboutMeRemarkablePhrase = getElementByQuerySelector(
+  '#about-me .remarkable-phrase',
+)
+export const aboutMeParagraphs =
+  getElementsByQuerySelectorAll('#about-me .text')
+export const academyMediumTitle = getElementByQuerySelector(
+  '#academy .medium-title',
+)
+export const projectsMediumTitle = getElementByQuerySelector(
+  '#projects .medium-title',
+)
+export const projectsWarning = getElementByQuerySelector('#projects .warning')
+export const experienceMediumTitle = getElementByQuerySelector(
+  '#experience .medium-title',
+)
+export const experienceWarning = getElementByQuerySelector(
+  '#experience .warning',
+)
+export const getInTouchMediumTitle = getElementByQuerySelector(
+  '#get-in-touch .medium-title',
+)
+export const getInTouchLabels = getElementsByQuerySelectorAll(
+  '#get-in-touch .label',
+)
+export const getInTouchButton = getElementByQuerySelector(
+  '#get-in-touch .form-btn',
+)
+export const licensesMediumTitle = getElementByQuerySelector(
+  '#licenses .medium-title',
+)
+export const licensesSmallTitles = getElementsByQuerySelectorAll(
+  '#licenses .small-title',
+)
+export const licensesParagraphs =
+  getElementsByQuerySelectorAll('#licenses .text')
+
 const showClass = 'show'
 const hideClass = 'hide'
 
@@ -36,6 +99,14 @@ export function getElementById(elementId) {
 
 export function getElementByClassName(elementClassName) {
   return document.getElementsByClassName(elementClassName)
+}
+
+function getElementByQuerySelector(querySelector) {
+  return document.querySelector(querySelector)
+}
+
+function getElementsByQuerySelectorAll(querySelector) {
+  return document.querySelectorAll(querySelector)
 }
 
 export function getAttributeValue(element, attribute) {
