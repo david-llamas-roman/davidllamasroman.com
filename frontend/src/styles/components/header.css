@@ -2,14 +2,17 @@
 
 #header {
   width: var(--max-percentage);
+  top: 0;
+  left: 0;
   position: sticky;
   position: -webkit-sticky;
   padding: 1rem 2rem;
   backdrop-filter: var(--backdrop-filter-blur);
+  z-index: 2;
 }
 
 #header-content {
-  max-width: var(--max-width-60);
+  max-width: var(--max-width-976-8);
   margin: 0 auto;
   padding: 1rem;
   display: flex;

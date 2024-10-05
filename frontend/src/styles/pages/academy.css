@@ -17,6 +17,68 @@
  */
 
 @import url('../reset.css');
+@import url('../components/body.css');
 @import url('../components/header.css');
-@import url('../components/main-content.css');
+@import url('../components/responsiveMenu.css');
+@import url('../components/mainContent.css');
 @import url('../components/footer.css');
+
+#app {
+  background: radial-gradient(var(--light-blue), var(--black));
+}
+
+#clock {
+  width: 100px;
+  height: 100px;
+  background-color: var(--black);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 6px solid var(--white);
+  margin: 1rem auto 2rem auto;
+  box-shadow: 5px 2px 5px var(--black);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+#line {
+  position: relative;
+  top: 10px;
+  height: 32px;
+  border-left: 6px solid var(--white);
+}
+
+#horizontal-line {
+  position: relative;
+  left: 9px;
+  top: -8px;
+  width: 25px;
+  border-top: 6px solid var(--white);
+}
+
+#circle {
+  position: relative;
+  top: -29px;
+  width: 11px;
+  height: 11px;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 1px solid var(--black);
+}
+
+#academy {
+  background-color: var(--light-green);
+  border: 15px groove var(--yellow);
+  box-shadow: 5px 2px 5px var(--black);
+}
+
+.medium-title {
+  color: var(--white);
+}

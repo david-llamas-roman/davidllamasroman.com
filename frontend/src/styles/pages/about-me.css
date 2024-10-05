@@ -17,6 +17,54 @@
  */
 
 @import url('../reset.css');
+@import url('../components/body.css');
 @import url('../components/header.css');
-@import url('../components/main-content.css');
+@import url('../components/responsiveMenu.css');
+@import url('../components/mainContent.css');
 @import url('../components/footer.css');
+
+#app {
+  background: radial-gradient(var(--brown), var(--black));
+}
+
+.medium-title {
+  color: var(--white);
+  text-shadow: 0 0 20px var(--white);
+  margin-bottom: 1rem;
+}
+
+#display {
+  display: grid;
+  place-items: center;
+}
+
+#display h3 {
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  text-align: center;
+  width: 280px;
+  height: 150px;
+  padding: 0.5rem;
+  background-color: var(--black);
+  color: var(--white);
+  border: 6px groove var(--white);
+}
+
+#rectangle {
+  height: 40px;
+  border-left: 20px groove var(--white);
+}
+
+#line {
+  width: 80px;
+  border-top: 10px groove var(--white);
+}
+
+#text-container {
+  background: linear-gradient(var(--black), transparent);
+}
+
+#text-container p {
+  color: var(--white);
+}

@@ -1,0 +1,68 @@
+/*
+ * This file is part of davidllamasroman.com.
+ *
+ * davidllamasroman.com is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License.
+ *
+ * davidllamasroman.com is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with davidllamasroman.com. If not, see <https://www.gnu.org/licenses/gpl-3.0.en.html>.
+ *
+ * Copyright (C) 2024 David Llamas Román
+ */
+
+#responsive-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--max-percentage);
+  height: var(--max-vh);
+  display: none;
+}
+
+#responsive-menu nav {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+#responsive-menu nav ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+#responsive-menu nav ul li {
+  margin: 0.5rem;
+}
+
+#responsive-menu nav ul li a {
+  font-weight: 700;
+  text-decoration: none;
+  display: block;
+  width: 162px;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 26px;
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+  -ms-border-radius: 26px;
+  -o-border-radius: 26px;
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
+  -ms-transition: transform 0.2s;
+  -o-transition: transform 0.2s;
+}
+
+#responsive-menu nav ul li a:hover {
+  transform: scale(1.08);
+  -webkit-transform: scale(1.08);
+  -moz-transform: scale(1.08);
+  -ms-transform: scale(1.08);
+  -o-transform: scale(1.08);
+}

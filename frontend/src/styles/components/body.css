@@ -16,33 +16,14 @@
  * Copyright (C) 2024 David Llamas Román
  */
 
-'use strict'
+@import url('../variables.css');
 
-// IMPORTS
-import {
-  dataLinkAttribute,
-  getAttributeValue,
-} from '../domManagement/elements.js'
-import { addEventToElement, clickEvent } from '../domManagement/events.js'
-import { getTitleByRoute } from './pageTitles.js'
-import { getRouteByPath, getCurrentPath, router } from './router.js'
-
-// ACTIONS
-export function navigateTo(route) {
-  history.pushState(
-    null,
-    () => getTitleByRoute(getRouteByPath(getCurrentPath())),
-    route,
-  )
-
-  router()
+html,
+body {
+  width: var(--max-percentage);
 }
 
-export function handleNavbarLinks(linkType) {
-  const link = linkType
-
-  addEventToElement(link, clickEvent, (event) => {
-    event.preventDefault()
-    navigateTo(getAttributeValue(link, dataLinkAttribute))
-  })
+#app {
+  height: var(--max-percentage);
+  background-color: var(--black);
 }

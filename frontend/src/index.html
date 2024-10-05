@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-  <div id="app" data-theme="light">
+  <div id="app">
     <!-- HEADER -->
     <header id="header">
       <div id="header-content">
@@ -69,25 +69,62 @@
     <main id="main-content">
       <!-- -> home -->
       <div id="home">
+        <div id="welcome-poster">
+          <p>WELCOME</p>
+        </div>
+        <div id="lights">
+          <div id="lights-container">
+            <div class="light quick-shut-down"></div>
+            <div class="light slow-shut-down"></div>
+            <div class="light"></div>
+            <div class="light shut-down"></div>
+            <div class="light slow-shut-down"></div>
+          </div>
+        </div>
         <!-- presentation -->
         <section>
           <!-- titles -->
           <h1 id="title">David Llamas Román</h1>
-          <h2>Web Developer Student</h2>
+          <h2 class="medium-title">Web Developer Student</h2>
           <!-- navbar -->
           <nav>
             <ul>
-              <li><a href="./pages/about-me.html" data-key="aboutMe" data-link="/about-me">About me</a></li>
-              <li><a href="./pages/academy.html" data-key="academy" data-link="/academy">Academy</a></li>
-              <li><a href="./pages/projects.html" data-key="projects" data-link="/projects">Projects</a></li>
-              <li><a href="./pages/experience.html" data-key="experience" data-link="/experience">Experience</a></li>
-              <li><a href="./pages/get-in-touch.html" data-key="getInTouch" data-link="/get-in-touch">Get in touch</a></li>
-              <li><a href="./pages/your-account.html" data-key="yourAccount" data-link="/your-account">Your account</a></li>
-              <li><a href="./pages/licenses.html" data-key="licenses" data-link="/licenses">Licenses</a></li>
+              <li><a href="./pages/about-me.html" data-key="aboutMe" data-link="/about-me" class="white-nav-link">About me</a></li>
+              <li><a href="./pages/academy.html" data-key="academy" data-link="/academy" class="green-board-nav-link">Academy</a></li>
+              <li><a href="./pages/projects.html" data-key="projects" data-link="/projects" class="orange-nav-link">Projects</a></li>
+              <li><a href="./pages/experience.html" data-key="experience" data-link="/experience" class="green-nav-link">Experience</a></li>
+              <li><a href="./pages/get-in-touch.html" data-key="getInTouch" data-link="/get-in-touch" class="white-nav-link">Get in touch</a></li>
+              <li><a href="./pages/your-account.html" data-key="yourAccount" data-link="/your-account" class="light-blue-nav-link">Your account</a></li>
+              <li><a href="./pages/licenses.html" data-key="licenses" data-link="/licenses" class="navy-blue-nav-link">Licenses</a></li>
             </ul>
           </nav>
         </section>
+        <div id="building">
+          <a href="#" id="door-link">
+            <div class="rotate-element" id="door">
+              <div id="door-poster">
+                <p>Mr. DLR</p>
+              </div>
+              <div id="door-knob"></div>
+            </div>
+          </a>
+          <a href="#" id="earth-link">
+            <div class="rotate-element" id="earth-container">
+              <div id="earth">
+                <div>
+                  <div class="bg-light-green"></div>
+                  <div class="bg-white"></div>
+                  <div class="bg-light-orange"></div>
+                </div>
+              </div>
+              <div id="line"></div>
+              <div id="horizontal-line"></div>
+              <div id="table"></div>
+            </div>
+          </a>
+        </div>
       </div>
+    </main>
 
     <!-- FOOTER -->
     <footer id="footer">
@@ -96,5 +133,7 @@
       </div>
     </footer>
   </div>
+
+  <script type="module" src="./js/index.js"></script>
 </body>
 </html>

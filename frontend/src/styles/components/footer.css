@@ -1,13 +1,26 @@
 @import url('../variables.css');
+@import url('../fonts.css');
 
 #footer {
   width: var(--max-percentage);
   padding: 1rem 2rem;
+  margin-top: 4rem;
 }
 
 #footer-content {
-  max-width: var(--max-width-60);
+  max-width: var(--max-width-976-8);
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
+}
+
+#footer-content p {
+  color: var(--white);
+  font-family: 'PlayfairDisplay';
+}
+
+#footer-content a {
+  color: var(--light-blue);
+  font-weight: 700;
+  font-style: italic;
 }
