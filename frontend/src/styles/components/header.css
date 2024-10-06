@@ -18,3 +18,28 @@
   display: flex;
   justify-content: space-between;
 }
+
+#header-content a {
+  display: block;
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
+  -ms-transition: transform 0.2s;
+  -o-transition: transform 0.2s;
+  filter: drop-shadow(5px 2px 5px var(--black));
+  -webkit-filter: drop-shadow(5px 2px 5px var(--black));
+}
+
+#header-content a,
+#responsive-menu-btn svg {
+  width: 40px;
+  height: 40px;
+}
+
+#header-content a:hover {
+  transform: scale(1.08);
+  -webkit-transform: scale(1.08);
+  -moz-transform: scale(1.08);
+  -ms-transform: scale(1.08);
+  -o-transform: scale(1.08);
+}

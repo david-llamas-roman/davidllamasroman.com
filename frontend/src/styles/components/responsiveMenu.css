@@ -22,13 +22,30 @@
   left: 0;
   width: var(--max-percentage);
   height: var(--max-vh);
+  background-color: var(--black);
+  z-index: 3;
   display: none;
+}
+
+#close-responsive-menu-btn {
+  display: block;
+  transition: transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
+  -ms-transition: transform 0.2s;
+  -o-transition: transform 0.2s;
+}
+
+#close-responsive-menu-btn,
+#close-responsive-menu-btn svg {
+  width: 40px;
+  height: 40px;
 }
 
 #responsive-menu nav {
   display: grid;
   place-items: center;
-  padding: 1rem;
+  padding: 2rem 2rem 1rem 2rem;
 }
 
 #responsive-menu nav ul {
@@ -37,7 +54,7 @@
 }
 
 #responsive-menu nav ul li {
-  margin: 0.5rem;
+  margin: 1rem 0;
 }
 
 #responsive-menu nav ul li a {
@@ -47,22 +64,77 @@
   width: 162px;
   text-align: center;
   padding: 1rem;
-  border-radius: 26px;
-  -webkit-border-radius: 26px;
-  -moz-border-radius: 26px;
-  -ms-border-radius: 26px;
-  -o-border-radius: 26px;
   transition: transform 0.2s;
   -webkit-transition: transform 0.2s;
   -moz-transition: transform 0.2s;
   -ms-transition: transform 0.2s;
   -o-transition: transform 0.2s;
+  box-shadow: 5px 2px 5px var(--black);
+  font-family: 'PlayFairDisplay';
 }
 
-#responsive-menu nav ul li a:hover {
+#responsive-menu nav ul li a:hover,
+#close-responsive-menu-btn:hover {
   transform: scale(1.08);
   -webkit-transform: scale(1.08);
   -moz-transform: scale(1.08);
   -ms-transform: scale(1.08);
   -o-transform: scale(1.08);
+}
+
+.generic-nav-link {
+  color: var(--white);
+  background-color: var(--navy-blue);
+}
+
+.white-nav-link {
+  background-color: var(--white);
+}
+
+.green-board-nav-link {
+  border: 6px groove var(--light-orange);
+}
+.green-board-nav-link,
+.green-nav-link {
+  background-color: var(--light-green);
+}
+
+.orange-nav-link {
+  background-color: var(--light-orange);
+}
+
+.light-blue-nav-link {
+  background-color: var(--light-blue);
+}
+
+.navy-blue-nav-link {
+  background-color: var(--navy-blue);
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.white-nav-link,
+.green-board-nav-link,
+.green-nav-link,
+.orange-nav-link,
+.light-blue-nav-link {
+  color: var(--navy-blue);
+}
+
+.generic-nav-link,
+.white-nav-link,
+.green-nav-link,
+.orange-nav-link,
+.light-blue-nav-link,
+.navy-blue-nav-link {
+  border-radius: 26px;
+  -webkit-border-radius: 26px;
+  -moz-border-radius: 26px;
+  -ms-border-radius: 26px;
+  -o-border-radius: 26px;
+}
+
+#responsive-menu:target {
+  display: grid;
+  place-items: center;
 }

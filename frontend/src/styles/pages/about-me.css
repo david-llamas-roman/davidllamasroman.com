@@ -22,20 +22,30 @@
 @import url('../components/responsiveMenu.css');
 @import url('../components/mainContent.css');
 @import url('../components/footer.css');
+@import url('../animations.css');
 
 #app {
   background: radial-gradient(var(--brown), var(--black));
+  position: relative;
 }
 
 .medium-title {
   color: var(--white);
   text-shadow: 0 0 20px var(--white);
   margin-bottom: 1rem;
+  animation: whiteTitleShutDown 5s ease-in-out infinite alternate;
+  -webkit-animation: whiteTitleShutDown 5s ease-in-out infinite alternate;
+}
+
+#about-me {
+  position: relative;
 }
 
 #display {
   display: grid;
   place-items: center;
+  filter: drop-shadow(5px 2px 5px var(--black));
+  -webkit-filter: drop-shadow(5px 2px 5px var(--black));
 }
 
 #display h3 {
@@ -47,8 +57,8 @@
   height: 150px;
   padding: 0.5rem;
   background-color: var(--black);
-  color: var(--white);
   border: 6px groove var(--white);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 #rectangle {
@@ -67,4 +77,16 @@
 
 #text-container p {
   color: var(--white);
+}
+
+@media screen and (min-width: 714px) {
+  html,
+  body {
+    height: var(--max-vh);
+  }
+
+  #footer {
+    position: absolute;
+    bottom: 0;
+  }
 }
