@@ -16,8 +16,6 @@
  * Copyright (C) 2024 David Llamas Román
  */
 
-@import url('../variables.css');
-
 #header {
   width: var(--max-percentage);
   top: 0;

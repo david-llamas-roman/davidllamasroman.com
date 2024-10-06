@@ -16,9 +16,6 @@
  * Copyright (C) 2024 David Llamas Román
  */
 
-@import url('../variables.css');
-@import url('../fonts.css');
-
 #footer {
   width: var(--max-percentage);
   padding: 1rem 2rem;
@@ -35,6 +32,7 @@
 #footer-content p {
   color: var(--white);
   font-family: 'PlayfairDisplay';
+  text-shadow: 5px 2px 5px var(--black);
 }
 
 #footer-content a {

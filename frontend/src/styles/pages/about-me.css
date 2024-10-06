@@ -16,7 +16,9 @@
  * Copyright (C) 2024 David Llamas Román
  */
 
+@import url('../variables.css');
 @import url('../reset.css');
+@import url('../fonts.css');
 @import url('../components/body.css');
 @import url('../components/header.css');
 @import url('../components/responsiveMenu.css');
@@ -58,7 +60,7 @@
   padding: 0.5rem;
   background-color: var(--black);
   border: 6px groove var(--white);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--light-green);
 }
 
 #rectangle {
@@ -71,11 +73,11 @@
   border-top: 10px groove var(--white);
 }
 
-#text-container {
+.text-container {
   background: linear-gradient(var(--black), transparent);
 }
 
-#text-container p {
+.text-container p {
   color: var(--white);
 }
 

@@ -26,6 +26,10 @@
 @import url('./components/footer.css');
 @import url('./animations.css');
 
+#home {
+  margin-top: 1rem;
+}
+
 #welcome-poster {
   margin: 0 auto;
   width: 252px;
@@ -401,10 +405,8 @@ h1 {
   width: 80px;
   height: 80px;
   margin: 0 1rem;
-  filter: drop-shadow(0 0 20px var(--white));
-  -webkit-filter: drop-shadow(0 0 20px var(--white));
-  animation: imgSlowShutDown 0.25s ease-in-out infinite;
-  -webkit-animation: imgSlowShutDown 0.25s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px var(--black));
+  -webkit-filter: drop-shadow(0 0 20px var(--black));
   transition: transform 0.2s;
   -webkit-transition: transform 0.2s;
   -moz-transition: transform 0.2s;

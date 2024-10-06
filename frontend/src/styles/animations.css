@@ -108,17 +108,6 @@
   }
 }
 
-@keyframes imgSlowShutDown {
-  0% {
-    filter: drop-shadow(0 0 20px var(--white));
-    -webkit-filter: drop-shadow(0 0 20px var(--white));
-  }
-  100% {
-    filter: drop-shadow(0 0 20px var(--black));
-    -webkit-filter: drop-shadow(0 0 20px var(--black));
-  }
-}
-
 @keyframes rotateElement {
   0% {
     rotate: -1.5deg;
