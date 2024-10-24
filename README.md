@@ -3,12 +3,18 @@ This is my personal website where you can find my projects, my laboral experienc
 
 ## 🛠️ Technologies
 ### 💄 Frontend
-- 🟠 → HTML
-- 🔵 → CSS
-- 🟡 → Vanilla JS
+- HTML
+- CSS
+- Vanilla JS
 
 ### ⚙️ Backend
-- 🟢 → [Node.js](https://nodejs.org/), [MongoDB](https://www.mongodb.com/)
+#### API
+- [Node.js](https://nodejs.org/)
+#### ORM
+- [Sequelize](https://sequelize.org/)
+#### RDBMS
+- [SQLite](https://www.sqlite.org/)
+- [MariaDB](https://mariadb.org/)
 
 ### ✏️ Linters
 - [Prettier](https://prettier.io/)
@@ -17,19 +23,6 @@ This is my personal website where you can find my projects, my laboral experienc
   npm init @eslint/config@latest
   ```
 
-### 📦 Dependencies
-- ***[/backend](./backend/)***
-  ```
-  npm install body-parser connect-multiparty cors express mongoose --save
-  ```
-  ```
-  npm install nodemon --save-dev
-  ```
-
-- ***/***
-  ```
-  npm install eslint eslint-config-prettier prettier --save-dev
-  ```
 ## 🌐 Languages
 - English
 - Spanish
