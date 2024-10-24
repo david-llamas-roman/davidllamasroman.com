@@ -1,0 +1,14 @@
+{
+  "development": {
+    "storage": "./db/dlrInfoDev.db",
+    "dialect": "sqlite"
+  },
+  "test": {
+    "storage": "./db/dlrInfoTest.db",
+    "dialect": "sqlite"
+  },
+  "production": {
+    "storage": "./db/dlrInfoProd.db",
+    "dialect": "sqlite"
+  }
+}
