@@ -18,6 +18,44 @@
 
 # Aprende HTML desde 0
 
+- [Aprende HTML desde 0](#aprende-html-desde-0)
+  - [Introducción](#introducción)
+    - [¿Para qué sirve?](#para-qué-sirve)
+    - [¿HTML es un lenguaje de programación?](#html-es-un-lenguaje-de-programación)
+  - [Primeros Pasos](#primeros-pasos)
+    - [Crea tu primer archivo HTML](#crea-tu-primer-archivo-html)
+    - [Define la estructura de un archivo HTML](#define-la-estructura-de-un-archivo-html)
+    - [¿Qué es una etiqueta?](#qué-es-una-etiqueta)
+    - [¿Qué es un elemento HTML?](#qué-es-un-elemento-html)
+    - [Tipos de elementos HTML](#tipos-de-elementos-html)
+  - [Elementos semánticos](#elementos-semánticos)
+    - [Títulos](#títulos)
+    - [Párrafos](#párrafos)
+      - [Palabras 'Bold'](#palabras-bold)
+      - [Palabras 'Italic'](#palabras-italic)
+    - [Enlaces](#enlaces)
+    - [Listas](#listas)
+      - [Listas ordenadas](#listas-ordenadas)
+      - [Listas desordenadas](#listas-desordenadas)
+    - [Tablas](#tablas)
+    - [Multimedia](#multimedia)
+      - [Imágenes](#imágenes)
+      - [Vídeos](#vídeos)
+      - [Audios](#audios)
+    - [Estructura de una web](#estructura-de-una-web)
+      - [Encabezado](#encabezado)
+      - [Contenido principal](#contenido-principal)
+      - [Secciones laterales](#secciones-laterales)
+      - [Pie de página](#pie-de-página)
+    - [Encabezado](#encabezado-1)
+      - [Barra de navegación](#barra-de-navegación)
+    - [Contenido principal](#contenido-principal-1)
+      - [Artículos](#artículos)
+      - [Secciones](#secciones)
+    - [Formularios](#formularios)
+      - [Fieldset](#fieldset)
+      - [Inputs](#inputs)
+
 ## Introducción
 **HTML** son las siglas de **Hypertext Markup Language**, en español, lenguaje de marcado de hipertexto. Es ampliamente utilizado, ya que, directamente, sin esta tecnología no se concibe la web. **HTML** surgió prácticamente con la web (1993), de hecho, la **Web 1.0** (1995) no era nada más que código **HTML** (en algunos casos también nos podíamos encontrar la utilización de **Flash**, tecnología de **Adobe** que permitía crear webs dinámicas, o **JavaScript**), actualmente tenemos la **Web3** como la más novedosa (con 3D, basada en blockchain, quizás con una criptomoneda propia...) y en internet puedes encontrar artículos donde hacen mención a un nuevo 'tipo' o 'generación' de la web, la **4.0**.
 ### ¿Para qué sirve?
@@ -365,7 +403,7 @@ Ahora vamos a mostrar un ejemplo completo:
   <source src="./video.mov">
 </video>
 ```
-### Audios
+#### Audios
 Para poner un audio en nuestra página vamos a tener que definir el elemento **audio**. Aquí pasa como con el elemento **video**, tenemos su atributo **src** y luego podemos definir un elemento **source** dentro de **audio** o hacerlo directamente. También nos encontramos con los atributos **controls**, **autoplay**, **muted** y **loop**.
 ```html
 <audio src="./audio.mp3" controls muted autoplay loop>
@@ -467,4 +505,79 @@ Las secciones son contenedores que agrupan, normalmente al tipo de contenedor qu
 <footer>Pie de página</footer>
 ```
 ### Formularios
-Ahora pasamos de todos los 'contenedores' que hemos visto antes y vamos con una parte, un componente, que encontramos mucho, un formulario. Sea cual sea el fin de este (contacto, registro, inicio de sesión...) siempre suelen tener las mismas partes, un 'contenedor
+Ahora pasamos de todos los 'contenedores' que hemos visto antes y vamos con una parte, un componente, que encontramos mucho, un formulario. Sea cual sea el fin de este (contacto, registro, inicio de sesión...) siempre suelen tener las mismas partes, un 'contenedor' que sirve para hacer agrupaciones de elementos como es **fieldset**, una serie de **inputs**, una serie de **labels** y un **button** o algún que otro **input** un tanto especial. Para definir un formulario se utiliza **form** y este puede tener los atributos **action** y **method** (el primero recibirá una url a la que se deben enviar u obtener los datos y, el último, dice exactamente lo que va a hacer. Enviar con **post** y obtener con **get**).
+```html
+<form></form>
+
+<form action="url o #" method="get o post">
+```
+> [!WARNING]
+> El # en este caso indica que no haga nada, al igual que si se lo pasas a un anchor
+
+#### Fieldset
+Este elemento lo que nos permite es agrupar una serie de elementos, es prácticamente como un **div** (contenedor genérico), pero en una versión más semántica. Nosotros también podemos añadirle a un **fieldset** un "título" (un texto a modo de título o etiqueta) que nos de más contexto acerca el contenido del elemento, para ello está el elemento **legend**.
+```html
+<form action="url o #" method="get o post">
+  <fieldset>
+    <legend>Título</legend>
+  </fieldset>
+</form>
+```
+
+#### Inputs
+Este elemento nos permite la entrada de datos por parte del usuario y hay distintos tipos:
+- **text**
+
+  Este tipo de **input** permite al usuario introducir texto (nombres, apellidos...).
+  ```html
+  <input type="text">
+  ```
+
+- **email**
+
+  Este tipo de **input** permite al usuario introducir un email, es más, si lo que introduces no tiene esta estructura: "email@email.com", directamente se queja y te dice que lo que estás introduciendo no es válido.
+  ```html
+  <input type="email">
+  ```
+
+- **password**
+
+  Este tipo de **input** permite al usuario introducir una contraseña y la diferencia frente a uno que te permite introducir texto es que oculta lo que introduces con los típicos puntos negros.
+  ```html
+  <input type="password">
+  ```
+
+- **number**
+
+  Este tipo de **input** permite al usuario introducir únicamente números y, a la derecha, te aparecen 2 flechas para incrementar o disminuir en 1 el valor introducido. En este caso, si intentas escribir una letra, directamente no te deja (no va a pintarse en el input).
+  ```html
+  <input type="number">
+  ```
+
+- **tel**
+
+  Este tipo de **input** está pensado para introducir un número de teléfono, es igual a uno que únicamente te permite introducir texto, pero con la diferencia que en el móvil te aparece un teclado numérico.
+  ```html
+  <input type="tel">
+  ```
+
+- **url**
+
+  Este tipo de **input** está pensado para introducir una url, aunque aparentemente es igual que el que únicamente te permite introducir texto, valida que el texto introducido sea una url. Si no lo es, se queja como en el tipo **email**.
+  ```html
+  <input type="url">
+  ```
+
+- **date**
+
+  Este tipo de **input** está pensado para introducir fechas, por defecto, en el siguiente formato: "dd/mm/yyyy". A la derecha aparece un icono de calendario, al pulsarlo, te aparece un calendario con el que introducir la fecha.
+  ```html
+  <input type="date">
+  ```
+
+- **time**
+
+  Este tipo de **input** está pensado para introducir horas y minutos, a la derecha, aparece el icono de un reloj. Al pulsarlo, aparece un dropdown con 2 columnas, una para la hora y otra para los minutos.
+  ```html
+  <input type="time">
+  ```
