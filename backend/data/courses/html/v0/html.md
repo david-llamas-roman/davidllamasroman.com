@@ -581,3 +581,12 @@ Este elemento nos permite la entrada de datos por parte del usuario y hay distin
   ```html
   <input type="time">
   ```
+
+- **datetime-local**
+
+  Este tipo de **input** está pensado para introducir la fecha, la hora y los minutos (es una mezcla entre **date** y **time**). Además podemos ver que la hora que te aparece preseleccionada coincide con la hora que es en ese momento en tu región.
+  ```html
+  <input type="datetime-local">
+  ```
+
+- 

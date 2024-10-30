@@ -23,6 +23,7 @@ This is my personal website where you can find my projects, my laboral experienc
   - [💻 More details about website](#-more-details-about-website)
     - [Website Type](#website-type)
     - [Sections](#sections)
+    - [UI](#ui)
   - [🛠️ Technologies](#️-technologies)
     - [💄 Frontend](#-frontend)
     - [⚙️ Backend](#️-backend)
@@ -69,6 +70,9 @@ This is my personal website where you can find my projects, my laboral experienc
 - **Licenses**
 
   In this section, it will show all licenses under which the website and its content are licensed.
+
+### UI
+I want to create something different, I do not want to have the same design as most websites. However, the idea that I have in my mind is difficult and not implemented in one or two days. Therefore, I will implement a simple UI and update it little by little.
 
 ## 🛠️ Technologies
 ### 💄 Frontend

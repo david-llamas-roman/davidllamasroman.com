@@ -2,12 +2,3 @@ node_modules
 
 .vscode/*
 !.vscode/settings.json
-
-.env
-
-backend/data/*
-!backend/data/courses
-!backend/data/databases
-!backend/data/databases/dlrInfo/generateDB.js
-!backend/data/databases/dlrInfo/dlrInfoDev.sqlite
-!backend/data/databases/dlrInfo/dlrInfoTest.sqlite
