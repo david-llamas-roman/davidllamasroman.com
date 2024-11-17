@@ -18,7 +18,17 @@
 
 # Aprende HTML desde 0
 
+> [!IMPORTANT]
+> Para este curso no es necesario tener ningún conocimiento previo. No obstante, te pueden venir bien tener conocimientos de [**XML**](../../xml/v0/xml.md)
+
+> [!NOTE]
+> 🔴 El curso está en [**vídeo en YouTube**]()
+>
+> 💻 También lo tenemos en [**davidllamasroman.com**]()
+
 - [Aprende HTML desde 0](#aprende-html-desde-0)
+  - [Requisitos](#requisitos)
+    - [Recomendaciones](#recomendaciones)
   - [Introducción](#introducción)
     - [¿Para qué sirve?](#para-qué-sirve)
     - [¿HTML es un lenguaje de programación?](#html-es-un-lenguaje-de-programación)
@@ -54,7 +64,15 @@
       - [Secciones](#secciones)
     - [Formularios](#formularios)
       - [Fieldset](#fieldset)
+      - [Labels](#labels)
       - [Inputs](#inputs)
+      - [Button](#button)
+
+## Requisitos
+- Ordenador con un navegador y un editor de código instalado
+### Recomendaciones
+- **Navegador**: [Brave](https://brave.com/) o [Chrome](https://www.google.com/intl/es_es/chrome/)
+- **Editor de código**: [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Introducción
 **HTML** son las siglas de **Hypertext Markup Language**, en español, lenguaje de marcado de hipertexto. Es ampliamente utilizado, ya que, directamente, sin esta tecnología no se concibe la web. **HTML** surgió prácticamente con la web (1993), de hecho, la **Web 1.0** (1995) no era nada más que código **HTML** (en algunos casos también nos podíamos encontrar la utilización de **Flash**, tecnología de **Adobe** que permitía crear webs dinámicas, o **JavaScript**), actualmente tenemos la **Web3** como la más novedosa (con 3D, basada en blockchain, quizás con una criptomoneda propia...) y en internet puedes encontrar artículos donde hacen mención a un nuevo 'tipo' o 'generación' de la web, la **4.0**.
@@ -524,6 +542,50 @@ Este elemento lo que nos permite es agrupar una serie de elementos, es práctica
 </form>
 ```
 
+#### Labels
+Este elemento lo utilizamos cuando queremos poner un texto no muy extenso, normalmente, una palabra que nos dé contexto acerca de la información que hay que introducir en el input. Por ejemplo, imaginemos que estamos haciendo un formulario de registro y tenemos los campos nombre, email y contraseña. Si tu pones un **input** type **text**, un type **email** y un type **password** tal cual, sin ninguna **label**, ¿cómo sabes qué es lo que tienes que poner? Para eso está este elemento HTML del que estamos hablando, para que te de contexto acerca el contenido que tienes que introducir. Siguiendo con el ejemplo, lo que tocaría ahora es poner 3 **labels**, una antes del nombre que ponga "Nombre", otra que ponga "Email" y que vaya después del nombre y antes del email y, por último, una que vaya después del email y antes de la contraseña.
+```html
+<label>Nombre:</label>
+<input type="text"> <!-- para introducir el nombre, lo veremos más adelante -->
+
+<br> <!-- para hacer un espacio, lo veremos más adelante -->
+
+<label>Email:</label>
+<input type="email"> <!-- para introducir el email, lo veremos más adelante -->
+
+<br> <!-- espacio x2 -->
+
+<label>Contraseña:</label>
+<input type="password"> <!-- para introducir la contraseña, lo veremos más adelante >
+```
+
+Ahora puede parecer que está todo a la perfección, pero... ¡Falta algo! ¿Qué pasa si tenemos un **input** type **checkbox** o type **radio** con una etiqueta?
+```html
+<label>Checkbox</label>
+<input type="checkbox">
+
+<br>
+
+<label>Radio</label>
+<input type="radio">
+```
+
+Como puedes comprobar tú mismo es que si pulsas en "Checkbox" o en "Radio" no se selecciona el **input**. Esto se debe a que no tenemos puesto un atributo en el elemento **label** que hace que este apunte hacia el **input**. ¿Hacia cuál de los 2? Pues hacia el que tenga el **id** que ponga lo mismo que el **label**. Un id es un atributo que le podemos poner a todos los elementos HTML para identificarlo. Es único, es decir, 1 **id** lo tiene que tener únicamente 1 elemento. Por ejemplo, no puedes tener 2 elementos que tengan el **id** "hola". Esto del **id** no lo hemos explicado antes, ya que junto a class es algo que se utiliza mucho a la hora de editar o cambiar los estilos de un elemento con CSS y a la hora de llamar a los elementos para manejar el DOM con JavaScript. Esto es algo que, así de primeras, puede ser difícil, pero no te preocupes. Ahora mismo únicamente tienes que saber lo que se muestra en el siguiente ejemplo:
+```html
+<label for="checkbox">Checkbox</label>
+<input type="checkbox" id="checkbox">
+
+<br>
+
+<label for="radio">Radio</label>
+<input type="radio" id="radio">
+```
+
+Como puedes ver, ahora si pulsamos "Checkbox" o "Radio" se activa o se desactiva el **input** correspondiente.
+
+> [!WARNING]
+> Puedes poner el **id** que tú quieras, eso sí, tiene que ser lo mismo que el **label**
+
 #### Inputs
 Este elemento nos permite la entrada de datos por parte del usuario y hay distintos tipos:
 - **text**
@@ -554,6 +616,13 @@ Este elemento nos permite la entrada de datos por parte del usuario y hay distin
   <input type="number">
   ```
 
+- **range**
+
+  Este tipo de **input** permite al usuario elegir un valor entre un "rango" de valores. Esto se hace cambiando el valor que tiene una barra deslizante.
+  ```html
+  <input type="range">
+  ```
+
 - **tel**
 
   Este tipo de **input** está pensado para introducir un número de teléfono, es igual a uno que únicamente te permite introducir texto, pero con la diferencia que en el móvil te aparece un teclado numérico.
@@ -575,12 +644,18 @@ Este elemento nos permite la entrada de datos por parte del usuario y hay distin
   <input type="date">
   ```
 
+- **month**
+
+- **week**
+
 - **time**
 
   Este tipo de **input** está pensado para introducir horas y minutos, a la derecha, aparece el icono de un reloj. Al pulsarlo, aparece un dropdown con 2 columnas, una para la hora y otra para los minutos.
   ```html
   <input type="time">
   ```
+
+- **datetime**
 
 - **datetime-local**
 
@@ -589,4 +664,166 @@ Este elemento nos permite la entrada de datos por parte del usuario y hay distin
   <input type="datetime-local">
   ```
 
-- 
+- **search**
+
+  Este tipo de **input** está pensado para introducir los valores por los que queremos buscar algo. Parece que es un type **text**, pero si no fijamos bien, hay diferencias. Por defecto, este **input** tiene un autocompletado que se basa en las búsquedas que hayamos hecho en otros **input** del mismo tipo, así como te sugiere búsquedas anteriores realizadas anteriormente en el mismo **input**. Otra diferencia que podemos ver es que, por defecto, cuando escribimos algo y estamos seleccionando para escribir el **input**, nos aparece a la derecha una "x" para eliminar lo que hemos escrito.
+  ```html
+  <input type="search">
+  ```
+
+- **color**
+
+  Este tipo de **input** está pensado para seleccionar un color. Por tanto, lo que te aparece cuando lo defines es un botón con un cuadrado negro y, si lo pulsas, te aparece un color picker. Otra cosa a recalcar es abajo del color picker se te muestra el código de color en RGB o en lo que selecciones, ya que hay un botón con el que puedes donde puedes cambiar de RGB a HSL o a HEX.
+  ```html
+  <input type="color">
+  ```
+
+- **file**
+
+  Este tipo de **input** está pensado para permitir al usuario elegir y subir un archivo. Este se compone de un botón "Choose File" y a la derecha de ese botón está un texto que dice "No file chosen". Cuando presionamos el botón se nos abre el explorador de archivo, como ocurre cuando queremos descargar un archivo, y, una vez lo escogemos, se nos cambia el texto por su nombre ("ejemplo.txt").
+  ```html
+  <input type="file">
+  ```
+
+- **radio**
+
+  Este tipo de **input** es un botón de selección redondo. Esto se va a entender mejor con un ejemplo. Imaginemos que tenemos una pregunta de un test donde únicamente se puede seleccionar una opción, bien, pues todas las opciones disponibles para elegir, tienen al lado un "círculo" que tienes que presionar para que la opción quede "elegida" / "seleccionada". Ese "círculo" es este tipo de **input**.
+  ```html
+  <input type="radio">
+  ```
+
+- **checkbox**
+
+  Este tipo de **input** es un cuadro de selección múltiple. Como en el type **radio**, esto se va a entender mejor con un ejemplo. Imaginemos que tenemos una pregunta de un test, pero, en este caso, donde se puede seleccionar más de una opción. Como puedes intuir, cada opción tendrá al lado un **checkbox**, un cuadrado que te permite marcar la opción.
+  ```html
+  <input type="checkbox">
+  ```
+
+- **submit**
+
+  Este tipo de **input** es un botón que sirve para enviar la información que hemos introducido en los campos de un formulario.
+  ```html
+  <input type="submit">
+  ```
+
+- **image**
+
+  Este tipo de **input** está pensado para tener una imagen como botón. Visualmente es una imagen y, por debajo, funciona como un type **submit**.
+  ```html
+  <input type="image>
+  ```
+
+- **reset**
+
+  Este tipo de **input** sirve para "reiniciar" los campos del formulario, básicamente, borra el contenido que tengan.
+  ```html
+  <input type="reset">
+  ```
+
+- **button**
+
+  Este tipo de **input** es un botón que puede servir para enviar la información que hemos introducido en los campos de un formulario, pero no es su función principal. Este está más pensado para realizar acciones personalizadas al presionarlo, tanto es así, que por defecto no hace nada. Este necesita que se le asigne un script para realizar X acción.
+  ```html
+  <input type="button">
+  ```
+
+Puede parecer que ya hemos acabado este apartado de **inputs**, pero todavía tenemos que ver qué atributos nos encontramos en los distintos tipos de este elemento HTML. A continuación vamos a ir viendo los **inputs** y los atributos más comunes que nos podemos encontrar. Por ejemplo, X, Y y Z **inputs** suelen tener tal o tales atributos. Antes de empezar, quería mencionar que también tenemos atributos que nos podemos encontrar en todos los elementos.
+
+| **Inputs**                                                             | **Atributos**                                                                                                    |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Todos                                                                  | **type**, **name**, **id**, **value**, **readonly**, **required**, **autofocus**, **autocomplete**, **disabled** |
+| Todos menos **checkbox**, **radio**, **submit**, **button**, **reset** | **placeholder**                                                                                                  |
+| text, password, email, search, tel, url                                | **maxlength**, **pattern**, **size**, **autocapitalize**, **spellcheck**                                         |
+| number, range, date, time, datetime-local, month, week                 | **min**, **max**, **step**                                                                                       |
+| file                                                                   | **multiple**, **accept**                                                                                         |
+| checkbox, radio                                                        | **checked**                                                                                                      |
+| submit, button, reset                                                  | **formaction**, **formmethod**, **formenctype**, **formtarget**                                                  |
+| button                                                                 | **formaction**                                                                                                   |
+
+Una vez hemos visto cuáles son los atributos que nos podemos encontrar dependiendo del **input**, vamos a explicar qué se puede hacer con cada uno.
+- **type**
+
+  Este atributo lo utilizamos, como hemos podido ver ya para decir el tipo de un **input** a la hora de su definición.
+
+- **name**
+
+- **id**
+
+- **value**
+
+- **readonly**
+
+- **required**
+
+- **autofocus**
+
+- **autocomplete**
+
+- **disabled**
+
+- **placeholder**
+
+- **maxlength**
+
+- **pattern**
+
+- **size**
+
+- **autocapitalize**
+
+- **spellcheck**
+
+- **min**
+
+- **max**
+
+- **step**
+
+- **multiple**
+
+- **accept**
+
+- **checked**
+
+- **formaction**
+
+- **formmethod**
+
+- **formenctype**
+
+- **formtarget**
+
+#### Button
+
+Este es un elemento que también se puede ver bastante en los formularios, ya que es un botón. Por defecto, **button** tiene la misma acción que un **input** type **submit**, es decir, se encarga de enviar la información de los campos del formulario. Al igual que los **inputs** que son "botones" (**submit**, **button**, **reset**, **image**), hay varios tipos de **button**. Estos se definen con el atributo **type**.
+- **submit**
+
+  Hace que, como ya hemos dicho, el botón se encargue de enviar la información del formulario (lo mismo que el **input** type **submit**).
+  ```html
+  <button type="submit">Submit</button>
+  ```
+
+- **reset**
+
+  Hace que la información de los campos del formulario se "reinicie", es decir, se borran los datos (lo mismo que el **input** type **reset**).
+  ```html
+  <button type="reset">Reset</button>
+  ```
+
+- **button**
+
+  Hace que el botón no haga nada si no se le asigna un script (lo mismo que el **input** type **button**).
+  ```html
+  <button type="button">Button</button>
+  ```
+
+> [!WARNING]
+> Entre la etiqueta de apertura y de cierre tiene que haber texto, por ejemplo, "Enviar" / "Guardar" / "Buscar"... En el caso de no tener texto, no tendría mensaje, el botón estaría vacío.
+
+En este elemento, el atributo **value** no funciona como en los **inputs**. En un **input** type **submit** tú tienes por defecto de texto "Submit" y, si le pones el **value** "Hola", el texto pasa a ser "Hola". Aquí, este atributo no va a cambiar para nada el texto del **button**. El texto de **value** tendrá efecto en el servidor, ya que pasa a este en forma de parámetro, pero, en sí, lo que hace es definir el valor asociado con el **name** del botón. Esto puede ser un poco abstract, vamos a ver un ejemplo:
+```html
+<input type="submit" name="hola" value="Hola1">
+<input type="submit" name="hola" value="Hola2">
+```
+
+Aquí lo que se enviaría por defecto en el caso de tener únicamente 1 **input** sería el **name** "hola", pero, al tener un **value**, si pulsamos el primer **submit**, vamos a ver reflejado en el servidor "Hola1" y, en el caso contrario, veremos "Hola2".
