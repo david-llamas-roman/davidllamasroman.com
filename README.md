@@ -23,15 +23,27 @@ This is my personal website where you can find my projects, my laboral experienc
   - [💻 More details about website](#-more-details-about-website)
     - [Website Type](#website-type)
     - [Sections](#sections)
-    - [UI](#ui)
-  - [🛠️ Technologies](#️-technologies)
-    - [💄 Frontend](#-frontend)
-    - [⚙️ Backend](#️-backend)
+    - [📁 Database](#-database)
+      - [Conceptual design](#conceptual-design)
+      - [Logical design](#logical-design)
+      - [Physical design](#physical-design)
+    - [⚙ Backend](#-backend)
       - [API](#api)
-      - [ORM](#orm)
+    - [UI](#ui)
+      - [Logo](#logo)
+      - [Brand colors](#brand-colors)
+    - [💄 Frontend](#-frontend)
+  - [🛠️ Technologies](#️-technologies)
+    - [💄 Frontend](#-frontend-1)
+    - [⚙️ Backend](#️-backend)
       - [RDBMS](#rdbms)
+      - [ORM](#orm)
+      - [API](#api-1)
     - [✏️ Linters](#️-linters)
   - [🌐 Languages](#-languages)
+    - [Website](#website)
+    - [Documentation](#documentation)
+    - [Courses](#courses)
   - [📚 Courses in Markdown](#-courses-in-markdown)
   - [👨‍⚖️ Licenses](#️-licenses)
 
@@ -40,7 +52,7 @@ This is my personal website where you can find my projects, my laboral experienc
 ### Website Type
 - **Web App**
 
-  This is a web app, because we have 2 database in it (1 SQLite and 1 MariaDB) and we have an API with which we can access and manage databases data. After, the data that we extract through the API is showed in the frontend. If the main objective of the website will be catch clients and we will not need any database, any API (because we search, for example, redirect to an external app), the website type will be 'Landing Page'.
+  This is a web app, because we have a database in it and we have an API with which we can access and manage the database data. After, the data that we extract through the API is showed in the frontend. If the main objective of the website will be catch clients and we will not need any database, any API (because we search, for example, redirect to an external app), the website type will be 'Landing Page'.
 
 ### Sections
 - **Home**
@@ -71,8 +83,20 @@ This is my personal website where you can find my projects, my laboral experienc
 
   In this section, it will show all licenses under which the website and its content are licensed.
 
+### 📁 Database
+#### Conceptual design
+#### Logical design
+#### Physical design
+
+### ⚙ Backend
+#### API
+
 ### UI
-I want to create something different, I do not want to have the same design as most websites. However, the idea that I have in my mind is difficult and not implemented in one or two days. Therefore, I will implement a simple UI and update it little by little.
+I want to create something different, I do not want to have the same design as most websites. However, the idea that I have in my mind is difficult and not implemented in one or two days. Therefore, I will implement a simple UI and update it little by little. In this section of the README, you can find all changes that have been made in the website UI.
+#### Logo
+#### Brand colors
+
+### 💄 Frontend
 
 ## 🛠️ Technologies
 ### 💄 Frontend
@@ -81,13 +105,14 @@ I want to create something different, I do not want to have the same design as m
 - Vanilla JS
 
 ### ⚙️ Backend
-#### API
-- [Node.js](https://nodejs.org/)
+#### RDBMS
+- [MariaDB](https://mariadb.org/)
+
 #### ORM
 - [Sequelize](https://sequelize.org/)
-#### RDBMS
-- [SQLite](https://www.sqlite.org/)
-- [MariaDB](https://mariadb.org/)
+
+#### API
+- [Node.js](https://nodejs.org/)
 
 ### ✏️ Linters
 - [Prettier](https://prettier.io/)
@@ -97,12 +122,20 @@ I want to create something different, I do not want to have the same design as m
   ```
 
 ## 🌐 Languages
+### Website
 - English
 - Spanish
 
+### Documentation
+- English
+
+### Courses
+- Spanish
+
 ## 📚 Courses in Markdown
-- [**HTML (v0) - only in spanish**](./backend/data/courses/html/v0/html.md)
-- [**CSS (v0) - only in spanish**](./backend/data/courses/css/v0/css.md)
+- [**HTML (v0)**](./backend/data/courses/html/v0/html.md)
+- [**CSS (v0)**](./backend/data/courses/css/v0/css.md)
+- [**JS (v0)**](./backend/data/courses/js/v0/js.md)
 
 ## 👨‍⚖️ Licenses
 &copy; 2024 David Llamas Román. Licensed under the [GNU General Public License version 3 (GPL-3.0) only](https://www.gnu.org/licenses/gpl-3.0.en.html)
