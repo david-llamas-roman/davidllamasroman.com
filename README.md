@@ -93,7 +93,15 @@ This is my personal website where you can find my projects, my laboral experienc
 
 ### UI
 I want to create something different, I do not want to have the same design as most websites. However, the idea that I have in my mind is difficult and not implemented in one or two days. Therefore, I will implement a simple UI and update it little by little. In this section of the README, you can find all changes that have been made in the website UI.
+
 #### Logo
+<p align="center"><img src="./frontend/public/img/dlr.svg" alt="dlr logo" width=100></p>
+
+The logo reflect that I started out as a nobody and, over the time, I have evolved to become in the person that I am today. Always following a plan.
+- The squares that constitute the 3 steps stair represent the plan ("Always following a plan"). That figure is normally related with the fact of do something squarely (thinking carefully).
+- The 3 steps stair represent the grow that I have in somethings related with me like my profesional career or my content creator career. That object is normally related with the grow.
+- The fonts of the acronym (DLR - David Llamas Román) are different, because represent my personal evolution. I started, for example, with a closer mind (therefore, I chose a serif font, more classical) and, over the time, I have evolved to become in the person that I am today literally (therefore, I chose 2 san-serif fonts. One more futurist than the other).
+
 #### Brand colors
 
 ### 💄 Frontend
