@@ -39,8 +39,18 @@
     - [¿Qué es SQL?](#qué-es-sql)
       - [Dialectos SQL](#dialectos-sql)
       - [Extensiones de SQL](#extensiones-de-sql)
-    - [Primeros pasos](#primeros-pasos)
-      - [Crea tu primer archivo SQL](#crea-tu-primer-archivo-sql)
+  - [Fases de diseño de una base de datos relacional](#fases-de-diseño-de-una-base-de-datos-relacional)
+    - [Diseño conceptual](#diseño-conceptual)
+      - [Entidades](#entidades)
+      - [Atributos](#atributos)
+      - [Relaciones](#relaciones)
+    - [Diseño lógico](#diseño-lógico)
+      - [Crow's Foot Notation](#crows-foot-notation)
+    - [Diseño físico](#diseño-físico)
+  - [Primeros pasos](#primeros-pasos)
+    - [Crea tu primer archivo SQL](#crea-tu-primer-archivo-sql)
+    - [Crea tu primera base de datos](#crea-tu-primera-base-de-datos)
+  - [Operaciones CRUD](#operaciones-crud)
   - [Consultas](#consultas)
     - [¿Qué es una consulta?](#qué-es-una-consulta)
     - [SELECT](#select)
@@ -150,8 +160,27 @@ Desde diferencias en la sintaxis hasta diferencias en las funcionalidades que no
 > - Optimización de consultas
 > - Manejo de transacciones y bloqueos
 
-### Primeros pasos
-#### Crea tu primer archivo SQL
+
+## Fases de diseño de una base de datos relacional
+Antes de entrar en materia, antes de ponernos a crear una base de datos, antes de ponernos a crear tablas e insertar datos, tenemos que pasar por una serie de pasos para diseñar la base de datos. Esto no se trata de ir tirando de cabeza e ir creando lo que a uno le va pareciendo, sí, si tienes mucha experiencia, a lo mejor puedes saltarte alguna fase de diseño. Sin embargo, aún así, puedes llegar a tener ciertos fallitos que ralenticen un poco el proceso de creación de una base de datos que, recalco, comienza con el diseño de la misma.
+
+El diseño, como he mencionado anteriormente, se divide en distintas fases, en concreto, son 3. Podríamos pensar que cada fase es totalmente independiente y que hay que pasar por una para ir a la siguiente si o sí. Decirte que estás en lo cierto a medias, es decir, la primera (diseño conceptual) y la segunda fase (diseño lógico) se enfocan prácticamente en lo mismo. Se enfocan en tener sobre el papel una especie de plano de nuestra base de datos para que no haya pérdida ninguna a la hora de llevarla a la realidad. Se podría decir que el diseño lógico es un diseño conceptual con esteroides, por tanto, puede que con la experiencia puedas llegar a obviar un poco la primera fase (hacerla mentalmente) y pasar a la segunda. En cambio, la tercera fase de diseño (diseño físico) se enfoca en lo que es en sí llevar lo que está sobre el papel a la realidad. Aquí, por ejemplo, vamos a crear la base de datos, seguramente, también sus tablas y, para rematar, quizás insertamos datos. Viendo esto, como se puede intuir, el diseño físico siempre lo vamos a llevar a cabo.
+
+### Diseño conceptual
+#### Entidades
+#### Atributos
+#### Relaciones
+
+### Diseño lógico
+#### Crow's Foot Notation
+
+### Diseño físico
+
+## Primeros pasos
+### Crea tu primer archivo SQL
+### Crea tu primera base de datos
+
+## Operaciones CRUD
 
 ## Consultas
 ### ¿Qué es una consulta?
