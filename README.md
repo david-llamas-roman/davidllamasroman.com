@@ -31,6 +31,7 @@ This is my personal website where you can find my projects, my laboral experienc
       - [API](#api)
     - [UI](#ui)
       - [Logo](#logo)
+    - [Fonts](#fonts)
       - [Brand colors](#brand-colors)
     - [💄 Frontend](#-frontend)
   - [🛠️ Technologies](#️-technologies)
@@ -45,6 +46,11 @@ This is my personal website where you can find my projects, my laboral experienc
     - [Documentation](#documentation)
     - [Courses](#courses)
   - [📚 Courses in Markdown](#-courses-in-markdown)
+    - [Markup Languages](#markup-languages)
+    - [Styles](#styles)
+    - [Programming Languages](#programming-languages)
+    - [Databases](#databases)
+      - [Relational databases](#relational-databases)
   - [👨‍⚖️ Licenses](#️-licenses)
 
 
@@ -102,6 +108,8 @@ The logo reflect that I started out as a nobody and, over the time, I have evolv
 - The 3 steps stair represent the grow that I have in somethings related with me like my profesional career or my content creator career. That object is normally related with the grow.
 - The fonts of the acronym (DLR - David Llamas Román) are different, because represent my personal evolution. I started, for example, with a closer mind (therefore, I chose a serif font, more classical) and, over the time, I have evolved to become in the person that I am today literally (therefore, I chose 2 san-serif fonts. One more futurist than the other).
 
+### Fonts
+
 #### Brand colors
 
 ### 💄 Frontend
@@ -141,9 +149,20 @@ The logo reflect that I started out as a nobody and, over the time, I have evolv
 - Spanish
 
 ## 📚 Courses in Markdown
-- [**HTML (v0)**](./backend/data/courses/html/v0/html.md)
-- [**CSS (v0)**](./backend/data/courses/css/v0/css.md)
-- [**JS (v0)**](./backend/data/courses/js/v0/js.md)
+### Markup Languages
+- [**HTML (v0)**](./backend/data/courses/markupLanguages/html/v0/html.md)
+- [**XML (v0)**](./backend/data/courses/markupLanguages/xml/v0/xml.md)
+
+### Styles
+- [**CSS (v0)**](./backend/data/courses/styles/css/v0/css.md)
+
+### Programming Languages
+- [**Java (v0)**](./backend/data/courses/programmingLanguages/java/v0/java.md)
+- [**JavaScript (v0)**](./backend/data/courses/programmingLanguages/js/v0/js.md)
+
+### Databases
+#### Relational databases
+- [**SQL (v0)**](./backend/data/courses/databases/relationalDatabases/sql/v0/sql.md)
 
 ## 👨‍⚖️ Licenses
 &copy; 2024 David Llamas Román. Licensed under the [GNU General Public License version 3 (GPL-3.0) only](https://www.gnu.org/licenses/gpl-3.0.en.html)
