@@ -91,20 +91,31 @@
 
 ## Introducción
 ### ¿Qué es una base de datos?
-Una base de datos en un conjunto de datos organizados y almacenados y que pueden, o no, estar relacionados entre sí. Estas surgieron para solucionar un problema y es que, antes, cada persona podía organizar los datos que tuviese de, por ejemplo, su negocio de cualquier manera. Esto, a parte de dificultar a todo lo que es la gestión, la organización y la actualización de datos, hacía que el acceso a ellos fuese muy lento. Entonces, con el tiempo surgió ese pensamiento de crear una cosa que mitigase ciertos problemas en cuanto a infraestructura pero que, además, plantase un estándar en cuanto a todo lo que tiene que ver con los "datos".
+Una base de datos en un conjunto de datos organizados y almacenados que, normalmente, están relacionados entre sí. Estas surgieron para solucionar un problema y es que, antes, cada persona podía organizar los datos que tuviese de, por ejemplo, su negocio de cualquier manera. Esto, a parte de dificultar a todo lo que es la gestión, la organización y la actualización de datos, hacía que el acceso a ellos fuese muy lento. Entonces, con el tiempo, surgió esa cosa de querer, además de solucionar los problemas anteriormente mencionados, estandarizar de alguna manera todo esto del almacenamiento y gestión de los datos.
 
 ### ¿Qué es una base de datos relacional?
-Una vez hemos definido qué es una base de datos, vamos a ir un poquito más allá. La idea de base de datos como tal es la que hemos explicado anteriormente, pero... ¿Nadie se ha fijado en nada? Vamos a centrarnos en el concepto "relación" ("...y que pueden, o no, estar relacionados...) y es que, los datos de una base de datos pueden tener cosas en común. Esas cosas que tienen en común hacen que los datos tengan un punto por el que se unen, por el que se relacionan, por la que X organización cobra un sentido u otro.
+Una vez hemos definido qué es una base de datos, vamos a ir un poquito más allá. La idea de base de datos como tal es la que hemos explicado anteriormente, pero... ¿Nadie se ha fijado en nada? Vamos a centrarnos en el concepto "relación" ("...que, normalmente, están relacionados...) y es que, los datos de una base de datos pueden tener cosas en común. Esas cosas que tienen en común hacen que los datos tengan un punto por el que se unen, por el que se relacionan, por la que X organización de estos cobra un sentido.
 
-Los datos en las bases de datos se organizan mediante tablas, tablas que tienen una serie de columnas. Estas columnas van a ser los atributos de una entidad, algo así como las características de un ser vivo o de un objeto (esto de todas formas lo veremos más a fondo en el trascurso del curso) y, nosotros, vamos a rellenar posteriormente las tablas con una serie de datos. Estos conjuntos de datos con los que vamos a rellenar cada tabla van a ser los que van a definir las filas de estas.
+Los datos en las bases de datos relacionales se van a organizar mediante tablas, tablas que tienen una serie de columnas. Estas columnas van a ser los atributos de una entidad, algo así como las características de un ser vivo o de un objeto (esto de todas formas lo veremos más a fondo en el trascurso del curso) y, nosotros, vamos a rellenar posteriormente las tablas con una serie de datos. Estos conjuntos de datos con los que vamos a rellenar cada tabla van a ser los que van a definir las filas de estas.
 
 Ahora, vamos a presentar un pequeño ejemplo para enlazar con el final de la explicación. Tenemos una entidad (tabla) llamada "Persona" y, esta, tiene un atributo (columna) llamado "dni". Luego vamos a imaginarnos que estamos organizando una fiesta privada y tenemos que crear una lista de invitados, por tanto, vamos a tener una entidad (tabla) llamada "Lista" con un atributo llamado "dni_persona". ¿Lo ves?
 
 Ahí sale a relucir el concepto "relación", ya que la entidad (tabla) "Persona" se relaciona con la que se llama "Lista" mediante los atributos (columnas) "dni" y "dni_persona". Si no te has dado cuenta, en "Lista" vamos a tener todos los "dni" de las personas, aplicándolo al ejemplo, estamos construyendo nuestra lista de invitados para la fiesta. Claro que, ahora puedes decir que faltaría poner el nombre, pues tendríamos en "Persona" un atributo (columna) llamado "nombre" y en "Lista" quizás uno llamado "nombre_persona". Esto lo podemos hacer tan grande como queramos, prácticamente no hay límites.
 
-Bien, entonces, ¿ya sabes qué es una base de datos relacional?
+Y... ¿Hay otros tipos de bases de datos? ¿Hay bases de datos que se organicen con cosas que no sean tablas? ¿Hay bases de datos donde los datos no tienen relación?
 
-Una base de datos relacional no es otra cosa que, una base de datos, que tiene los datos interrelacionados. Esta es una de las evoluciones que hubieron en su momento de las bases de datos originales y consigo también trae una mejora en la velocidad de acceso a datos.
+Bien, vamos por partes. Contestando a la primera pregunta, sí, hay otros tipos de bases de datos. Quizás, el otro gran conocido sea la base de datos no relacional, en inglés, non-relational database. Su nombre más técnico quizás sea NoSQL, que significa, literalmente eso. Ojo, que no quiere decir que no soporte SQL, este tipo de bases de datos sí lo soportan, pero no es lo que se suele utilizar en estos casos. Para evitar confusiones y que la gente piense que directamente no lo soporta, también se ha adoptado el término "Not only SQL", en español, "No solo SQL". De esta manera, se hace referencia a que en estos casos se va más allá del SQL sin omitir que también este lenguaje es soportado.
+
+Contestando a la segunda pregunta, sí, hay bases de datos que no se organizan con tablas y es que, acabamos de ver uno de esos tipos de bases de datos. Las bases de datos NoSQL no tienen por qué organizar los datos mediante tablas, de hecho, aquí nos encontramos conceptos como "BigTable", "bases de datos documentales" y "bases de datos orientadas a grafos".
+
+Contestando a la tercera y última pregunta, sí, existen bases de datos donde los datos no tienen relación entre sí. Eso sí, no es lo normal, lo normal es que sí estén los datos relacionados, aunque esa relación se gestione de distintas formas.
+
+Antes de pasar a otra cosa, ya que no me quiero extender más con cosas que se salen de lo que es una base de datos relacional, me gustaría simplemente nombrar otros tipos de bases de datos que conviven con SQL y NoSQL:
+- Orientada a objetos
+- Cloud
+
+> [!NOTE]
+> Quizás hayan más tipos de bases de datos que no hemos mencionado, pero ya nos estaríamos saliendo demasiado del ámbito de este curso.
 
 ### ¿Qué es un sistema de gestión de bases de datos?
 Está muy bien todo esto, pero... ¿Cómo vamos a crear, a borrar o a interactuar con una base de datos? Pues para esto tenemos que acudir a los sistemas de gestión de bases de datos. Estos sistemas nos aportan una serie de reglas y una sintaxis determinada para poder interactuar con la base de datos y sus tablas. El concepto "interactuar" aquí es bastante amplio, ya que en este entra el acceso a los datos, la gestión de las tablas y sus datos y la gestión de la base de datos como tal.
@@ -167,9 +178,14 @@ Antes de entrar en materia, antes de ponernos a crear una base de datos, antes d
 El diseño, como he mencionado anteriormente, se divide en distintas fases, en concreto, son 3. Podríamos pensar que cada fase es totalmente independiente y que hay que pasar por una para ir a la siguiente si o sí. Decirte que estás en lo cierto a medias, es decir, la primera (diseño conceptual) y la segunda fase (diseño lógico) se enfocan prácticamente en lo mismo. Se enfocan en tener sobre el papel una especie de plano de nuestra base de datos para que no haya pérdida ninguna a la hora de llevarla a la realidad. Se podría decir que el diseño lógico es un diseño conceptual con esteroides, por tanto, puede que con la experiencia puedas llegar a obviar un poco la primera fase (hacerla mentalmente) y pasar a la segunda. En cambio, la tercera fase de diseño (diseño físico) se enfoca en lo que es en sí llevar lo que está sobre el papel a la realidad. Aquí, por ejemplo, vamos a crear la base de datos, seguramente, también sus tablas y, para rematar, quizás insertamos datos. Viendo esto, como se puede intuir, el diseño físico siempre lo vamos a llevar a cabo.
 
 ### Diseño conceptual
+Esta es la primera fase de diseño y es en la que vamos a hacer, por así decirlo, una vista de pájaro de la base de datos. Para llegar a tener eso a lo que llamamos una "vista de pájaro" de la base de datos que, en realidad, es un diagrama Entidad-Relación, tenemos que meternos de lleno en el modelo Entidad-Relación y entenderlo.
+
 #### Entidades
 #### Atributos
 #### Relaciones
+- **1 : 1**
+- **1 : N**
+- **N : N**
 
 ### Diseño lógico
 #### Crow's Foot Notation
