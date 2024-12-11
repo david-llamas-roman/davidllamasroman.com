@@ -49,17 +49,31 @@
       - [Var](#var)
     - [Tipos de datos](#tipos-de-datos)
       - [Primitivos](#primitivos)
-        - [string](#string)
         - [number](#number)
+        - [bigint](#bigint)
         - [boolean](#boolean)
         - [null](#null)
         - [undefined](#undefined)
         - [symbol](#symbol)
-        - [bigint](#bigint)
+        - [string](#string)
       - [Complejos](#complejos)
         - [object](#object)
         - [array](#array)
         - [function](#function)
+  - [Operaciones con Strings](#operaciones-con-strings)
+    - [Sacar la longitud de un string](#sacar-la-longitud-de-un-string)
+    - [Convertir todas las letras a minúsculas](#convertir-todas-las-letras-a-minúsculas)
+    - [Convertir todas las letras a mayúsculas](#convertir-todas-las-letras-a-mayúsculas)
+    - [Coger una parte de un string](#coger-una-parte-de-un-string)
+  - [Operaciones con Numbers](#operaciones-con-numbers)
+    - [Operaciones básicas](#operaciones-básicas)
+    - [Problemas de precisión](#problemas-de-precisión)
+      - [Redondear](#redondear)
+      - [Truncar](#truncar)
+    - [Operaciones avanzadas](#operaciones-avanzadas)
+      - [Raíz cuadrada](#raíz-cuadrada)
+      - [Valor absoluto](#valor-absoluto)
+      - [Sacar un número aleatorio](#sacar-un-número-aleatorio)
 
 ## Requisitos
 ### Recomendaciones
@@ -377,18 +391,23 @@ console.log(hola)
 
 ### Tipos de datos
 #### Primitivos
-##### string
-En JavaScript, los **strings** se pueden definir con comillas simples ('') y comillas dobles ("").
-```js
-const string = 'string'
-const string2 = "string"
-```
 ##### number
-En JavaScript, los datos numéricos (**number**) sirven para escribir tanto enteros como decimales.
+En JavaScript, los datos numéricos (**number**) sirven para escribir todo tipo de números como pueden ser los enteros y los decimales.
 ```js
 const entero = 1
 const decimal = 0.5
 ```
+
+| Tipos   | Entero | Decimal | Notación científica                   | Infinito | Not a Number (no es un número) |
+| ------- | ------ | ------- | ------------------------------------- | -------- | ------------------------------ |
+| Valores | 1      | 0.5     | 3e8 (velocidad de la luz en el vacío) | Infinity | NaN                            |
+
+##### bigint
+En JavaScript, tenemos un tipo de dato que sirve para representar un número gigante y hacer cálculos con este de una manera mucho más precisa que cuando estamos trabajando con **number**. Eso sí, hay que tener en cuenta que este tipo de dato puede tener únicamente como valor números enteros.
+```js
+const bigint = 1n
+```
+
 ##### boolean
 En Javascript, los **boolean** nos pueden indicar los 2 valores típicos de este tipo de datos, "true" y "false".
 ```js
@@ -417,13 +436,164 @@ console.log(hola === hola2)
 ```
 Cuando vemos el resultado "false", nos damos cuenta de que no son iguales, porque cada uno es único (bajo los ojos de JavaScript, son distintos entre sí) a pesar de ser el mismo tipo de dato, el mismo texto y, en definitiva, el mismo valor.
 
-##### bigint
-En JavaScript, tenemos un tipo de dato que sirve para representar un número gigante y hacer cálculos con este de una manera mucho más precisa que cuando estamos trabajando con **number**. Eso sí, hay que tener en cuenta que este tipo de dato puede tener únicamente como valor números enteros.
+##### string
+En JavaScript, los **string** se pueden definir con comillas simples ('') y comillas dobles ("").
 ```js
-const bigint = 1n
+const string = 'string'
+const string2 = "string"
 ```
+
+También hay otra forma con la que podemos llevar esto de definir un **string** todavía más allá, ya que esta nos permite utilizar variables para concatenar distintos **string**. Esto se conoce como "Template literals", sí, es una de las cosas que mencionamos que traía ES6. Antes de mostrar un ejemplo, decir que también se pueden poner variables con valores **number**, **boolean**, **null**, **undefined** y **bigint**. ¿Y **symbol**? Valores cuyo tipo de dato sea **symbol** no se permiten, ya que esto por debajo está convirtiendo todos los valores a **string** y **symbol** no se puede convertir a dicho tipo de dato.
+```js
+const nombre = 'David'
+
+console.log(`Nombre: ${nombre}`)
+```
+
+Ahora, vamos a ver un ejemplo de todo lo que se puede utilizar con un "Template literal".
+```js
+// Number
+const entero = 1
+const decimal = 0.5
+
+console.log(`Entero: ${entero}\nDecimal: ${decimal}`)
+
+// Bigint
+const bigint = 1n
+
+console.log(`Bigint: ${bigint}`)
+
+// Boolean
+const verdadero = true
+const falso = false
+
+console.log(`Verdadero: ${verdadero}\nFalso: ${falso}`)
+
+// Null
+const nulo = null
+
+console.log(`Nulo: ${null}`)
+
+// Undefined
+const sinDefinir = undefined
+
+console.log(`Sin definir: ${sinDefinir}`)
+
+// Array
+const array = ['a', 'b', 'c']
+
+console.log(`Array: ${array}`)
+
+// Object
+const object = {
+  a: 'a',
+  b: 'b',
+  c: 'c'
+}
+
+console.log(`Objeto: ${object}`) // Aquí te pinta "[Object object]", esto se debe a que, cuando llamas a un objeto, te va a pintar lo que haga el toString() que está por defecto. Por defecto, dicho método te suelta eso: [Object object].
+console.log(`A: ${object.a}\nB: ${object.b}\nC: ${object.c}`)
+
+// Function
+const funcion = function decirHola() {
+  console.log('Hola')
+}
+
+console.log(`Función: ${funcion}`) // Te va a pintar la función tal cual: "function decirHola() {[...]}" con sus indentaciones, tal cual la hayas escrito
+```
+
+Otra forma de concatenar distintos **string** es con el operador **+**.
+```js
+const saludo = 'Hola'
+const nombre = 'David'
+
+console.log(saludo + ' ' + nombre)
+```
+
+Ahora, vamos a imaginarnos que tenemos un **string** y dentro de este queremos poner algo entre comillas, ¿cómo lo hacemos? Bien, pues depende:
+1. Si el **string** está definido con comillas simples (''), tenemos que utilizar comillas dobles ("") dentro.
+   ```js
+   console.log('Hola "David"')
+   ```
+
+2. Si el **string** está definido con comillas dobles (""), tenemos que utilizar comillas simples ('') dentro.
+   ```js
+   console.log("Hola 'David'")
+   ```
+
+3. Si estamos utilizando "Template Literals", no importa qué tipo de comillas utilicemos dentro siempre u cuando no sean las comillas invertidas (``).
+   ```js
+   console.log(`Hola 'David' "Llamas"`)
+   ```
 
 #### Complejos
 ##### object
+En JavaScript, el tipo de dato **object** es un objeto.
+```js
+const persona = {
+  nombre: 'David',
+  apellidos: 'Llamas Román'
+}
+```
+
 ##### array
+En JavaScript, el tipo de dato **array** es un array.
+```js
+const frutas = ['manzana', 'melón', 'piña']
+```
+
 ##### function
+En JavaScript, el tipo de dato **function** se utiliza para definir una función.
+```js
+function decirHola() {
+  console.log('Hola')
+}
+```
+
+## Operaciones con Strings
+### Sacar la longitud de un string
+Para sacar la longitud de un **string** en Javascript, tenemos la función **length**.
+```js
+const frase = 'Soy David Llamas Román, desarrollador web, creador de contenido y emprendedor'
+
+console.log(frase.length)
+```
+
+### Convertir todas las letras a minúsculas
+Para hacer que todas las letras pasen a ser minúsculas independientemente de si estaban en mayúsculas o no, tenemos la función **toLowerCase()**.
+```js
+const frase = 'Soy David Llamas Román, desarrollador web, creador de contenido y emprendedor'
+
+console.log(frase.toLowerCase())
+```
+
+### Convertir todas las letras a mayúsculas
+Para hacer que todas las letras pasen a ser mayúsculas independientemente de si estaban en minúsculas o no, tenemos la función **toUpperCase()**.
+```js
+const frase = 'Soy David Llamas Román, desarrollador web, creador de contenido y emprendedor'
+
+console.log(frase.toUpperCase())
+```
+
+### Coger una parte de un string
+Para coger y, por ejemplo, imprimir por consola una parte de un **string** y no el **string** completo, tenemos que utilizar la función **substring**. Esta función va a tener 2 parámetros, el primero será el índice que nos indicará desde dónde queremos empezar el **string** y el segundo. Este último será el índice que nos indicará dónde queremos terminar el **string**. Si te estás preguntando que cómo sabemos qué estamos seleccionando con un índice u otro, decirte que va a haber una combinación de índices por cada letra. Por ejemplo, la primera letra la vamos a sacar con **substring(0, 1)**, la segunda letra con **substring(1, 2)**. En el caso de que tengamos una frase y queramos sacar un fragmento empezando por el principio de esta, vamos a poner como primer parámetro el 0 y como último el número de letras que va a tener el fragmento que queremos sacar.
+```js
+const frase = 'Soy David Llamas Román, desarrollador web, creador de contenido y emprendedor'
+
+console.log(frase.substring(0, 22))
+```
+
+## Operaciones con Numbers
+### Operaciones básicas
+| Operación | Suma | Resta | Multiplicación | División | Módulo (Resto división) | Elevar a |
+| --------- | ---- | ----- | -------------- | -------- | ----------------------- | -------- |
+| Operador  | +    | -     | *              | /        | %                       | **       |
+
+### Problemas de precisión
+#### Redondear
+#### Truncar
+
+### Operaciones avanzadas
+#### Raíz cuadrada
+#### Valor absoluto
+#### Sacar un número aleatorio
