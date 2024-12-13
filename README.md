@@ -29,13 +29,23 @@ This is my personal website where you can find my projects, my laboral experienc
       - [Physical design](#physical-design)
     - [⚙ Backend](#-backend)
       - [API](#api)
+        - [Login](#login)
+          - [Sign up \& Sign in](#sign-up--sign-in)
+        - [Projects](#projects)
+        - [Experience](#experience)
+        - [Blog](#blog)
+        - [Academy](#academy)
+    - [UX](#ux)
+      - [Pages structure](#pages-structure)
+        - [Header](#header)
+        - [Main content](#main-content)
+        - [Footer](#footer)
     - [UI](#ui)
       - [Logo](#logo)
       - [Fonts](#fonts)
       - [Brand colors](#brand-colors)
-    - [💄 Frontend](#-frontend)
   - [🛠️ Technologies](#️-technologies)
-    - [💄 Frontend](#-frontend-1)
+    - [💄 Frontend](#-frontend)
     - [⚙️ Backend](#️-backend)
       - [RDBMS](#rdbms)
       - [ORM](#orm)
@@ -64,37 +74,93 @@ This is my personal website where you can find my projects, my laboral experienc
 
 ### Sections
 - **Home**
-
   In this section, it will show an 'intro' and some links to see one section or other.
 
 - **About me**
-
   In this section, it will show a text that have as main objective introduce myself and help to people to meet me better.
+  
+  - **Projects**
+    In this section, it will show all my projects and relevant info about them.
 
-- **Projects**
+  - **Experience**
+    In this section, it will show all jobs and work positions that I have been.
 
-  In this section, it will show all my projects and relevant info about them.
-
-- **Experience**
-
-  In this section, it will show all jobs and work positions that I have been.
+- **Blog**
 
 - **Academy**
-
   In this section you would find some free courses about technologies in which I have a good level. The videos will be uploaded in YouTube and, here, will be the text version of course and the video embedded.
 
 - **Get in touch**
-
   In this section you would find a chat to talk with me, but do not by any reason. Only, for example, if you want to tell me something about a work issue, about a side or personal project that you have, about my content... I think that you understand the type of messages that I expect to receive.
 
 - **Licenses**
-
   In this section, it will show all licenses under which the website and its content are licensed.
 
 <p align=right><a href="#davidllamasromancom"><strong>Go up ⬆</strong></a></p>
 
 ### 📁 Database
 #### Conceptual design
+Features:
+- There are 'users' and 'account'.
+  - 1 user can only create 1 account.
+  - 1 account can only be created by 1 user.
+  - Each user can manage his account.
+    - Each user can delete his account.
+    - Each user can desactive his account.
+  - Each user has 1 role.
+    - Administrator.
+      - The account of the user whose role is this will be 'administrator account'.
+        - With the administrator account you can:
+          - Personalize the website:
+            - Change the logo.
+            - Change fonts.
+            - Change header links.
+            - Change footer text.
+          - About me:
+            - Change this section text.
+            - Projects:
+              - Create a project.
+              - Manage any project.
+                - Edit.
+                - Delete.
+            - Experience:
+              - Create a job position.
+              - Manage any job position.
+                - Edit.
+                - Delete.
+          - Blog:
+            - Create a section.
+            - Create an article.
+            - Manage any section or any article.
+              - Edit.
+              - Delete.
+            - Each article can has a unlimited number of comments.
+              - Delete any comment.
+              - Pin a comment.
+          - Academy:
+            - Create a learning path.
+            - Manage any learning path.
+              - Add or remove courses.
+            - Create a course.
+            - Manage any course.
+              - Create a course version.
+              - Manage any course version.
+                - Edit.
+                - Delete.
+              - Enable and disable any course forum.
+              - Delete any message of any course forum.
+              - Expel any user from any course forum.
+              - Create exercises.
+              - Create exams.
+          - Get in touch:
+            - Block and unblock any user.
+          - Licenses:
+            - Add a license notice.
+            - Manage any license notice.
+              - Edit.
+              - Remove.
+    - Normal.
+      - The account of the user whose role is this will be 'normal account'.
 #### Logical design
 #### Physical design
 
@@ -102,25 +168,35 @@ This is my personal website where you can find my projects, my laboral experienc
 
 ### ⚙ Backend
 #### API
+##### Login
+###### Sign up & Sign in
+##### Projects
+##### Experience
+##### Blog
+##### Academy
+
+### UX
+#### Pages structure
+##### Header
+On all pages, we can find a header with links that allow us to switch between the different sections.
+
+##### Main content
+
+##### Footer
+On all pages, we can find a footer with only a copyright notice.
 
 ### UI
-I want to create something different, I do not want to have the same design as most websites. However, the idea that I have in my mind is difficult and not implemented in one or two days. Therefore, I will implement a simple UI and update it little by little. In this section of the README, you can find all changes that have been made in the website UI.
-
 #### Logo
 <p align="center"><img src="./frontend/public/img/dlr.svg" alt="dlr logo" width=100></p>
 
 The logo reflect that I started out as a nobody and, over the time, I have evolved to become in the person that I am today. Always following a plan.
-- The squares that constitute the 3 steps stair represent the plan ("Always following a plan"). That figure is normally related with the fact of do something squarely (thinking carefully).
-- The 3 steps stair represent the grow that I have in somethings related with me like my profesional career or my content creator career. That object is normally related with the grow.
-- The fonts of the acronym (DLR - David Llamas Román) are different, because represent my personal evolution. I started, for example, with a closer mind (therefore, I chose a serif font, more classical) and, over the time, I have evolved to become in the person that I am today literally (therefore, I chose 2 san-serif fonts. One more futurist than the other).
+- The squares that constitute the 3 steps stairs represent the plan ("Always following a plan"). That figure is normally related with the fact of do something thinking carefully.
+- The 3 steps stairs represent the grow that I have in somethings related with me like my profesional career or my content creator career. That object is normally related with the grow.
+- The fonts of the acronym (DLR - David Llamas Román) are different, because represent my personal evolution. I started, for example, with a closer mind (therefore, I chose a serif font, more classical) and, over the time, I have evolved to become in the person that I am today literally (therefore, I chose 2 san-serif fonts. One more futurist than the other). Everyone evolves and I was not going to be less.
 
 #### Fonts
 
 #### Brand colors
-
-<p align=right><a href="#davidllamasromancom"><strong>Go up ⬆</strong></a></p>
-
-### 💄 Frontend
 
 <p align=right><a href="#davidllamasromancom"><strong>Go up ⬆</strong></a></p>
 
@@ -178,7 +254,7 @@ The logo reflect that I started out as a nobody and, over the time, I have evolv
 #### Relational databases
 - [**SQL (v0)**](./backend/data/courses/databases/relationalDatabases/sql/v0/sql.md)
 
-[**Go up 👆**](#davidllamasromancom)
+<p align=right><a href="#davidllamasromancom"><strong>Go up ⬆</strong></a></p>
 
 ## 👨‍⚖️ Licenses
 &copy; 2024 David Llamas Román. Licensed under the [GNU General Public License version 3 (GPL-3.0) only](https://www.gnu.org/licenses/gpl-3.0.en.html)
@@ -216,4 +292,4 @@ IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
 ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
 ```
 
-[**Go up 👆**](#davidllamasromancom)
+<p align=right><a href="#davidllamasromancom"><strong>Go up ⬆</strong></a></p>
