@@ -68,6 +68,7 @@
       - [Clases](#clases-1)
       - [Arrays](#arrays)
       - [Matrices](#matrices)
+  - [Paréntesis 1: Creación de un objeto](#paréntesis-1-creación-de-un-objeto)
   - [Operadores](#operadores)
     - [Aritméticos](#aritméticos)
     - [Asignación](#asignación)
@@ -76,11 +77,10 @@
     - [Decremento](#decremento)
     - [Relacionales](#relacionales)
     - [Lógicos](#lógicos)
-    - [Ternario](#ternario)
     - [Instanceof](#instanceof)
-  - [Paréntesis 1: Creación de un objeto](#paréntesis-1-creación-de-un-objeto)
   - [Estructuras de control](#estructuras-de-control)
     - [If](#if)
+      - [Operador Ternario](#operador-ternario)
     - [Else](#else)
     - [Else if](#else-if)
     - [Switch case](#switch-case)
@@ -228,17 +228,6 @@ Los primitivos son unos tipos de datos que únicamente contienen un valor, dicho
 #### Arrays
 #### Matrices
 
-## Operadores
-### Aritméticos
-### Asignación
-### Unarios
-### Incremento
-### Decremento
-### Relacionales
-### Lógicos
-### Ternario
-### Instanceof
-
 ## Paréntesis 1: Creación de un objeto
 Como para crear un objeto no nos bastaba con conocer su definición, también necesitábamos saber como podíamos definir una variable, conocer los tipos de datos y que no nos suene a chino el concepto "método main". Una vez ya sabemos todo esto, podemos crear un objeto.
 
@@ -259,8 +248,51 @@ public class CreacionObjeto() {
 ```
 Viendo este ejemplo te puede surgir una duda, ¿cómo le dices al objeto que las pepitas sean de chocolate negro? Esto se haría pasándole el valor que va a tener esa característica "pepitas" como parámetro (entre los paréntesis de **GalletaArbol()**), pero, para hacer esto, tenemos que entender primero otros conceptos como los "constructores" y estos los vamos a ver más adelante en el curso. Simplemente, quédate con lo que es en sí la creación de un objeto.
 
+## Operadores
+### Aritméticos
+Son aquellos operadores que vamos a utilizar para realizar cálculos matemáticos y operaciones básicas sobre primitivos, en el caso de querer hacerlas con datos cuyos tipos son de referencia, podemos perfectamente, ya que, por detrás, se convierte el tipo de dato de referencia en su equivalente en primitivo. Este proceso se denomina **unboxing** y lo va a hacer el lenguaje automáticamente sin que nosotros tengamos que hacer nada.
+
+| Operaciones | Suma | Resta | Multiplicación | División | Módulo (resto) |
+| ----------- | ---- | ----- | -------------- | -------- | -------------- |
+| Operadores  | +    | -     | *              | /        | %              |
+
+### Asignación
+### Unarios
+### Incremento
+Se forma mediante la combinación de 2 operadores aritméticos de suma (++) y se utiliza para sumar 1 a la variable a la que se lo ponemos. Si se lo ponemos a la derecha, se devuelve el valor de la variable y se incrementa una vez devuelto. En cambio, si lo ponemos a la izquierda, se va a incrementar el valor de la variable y, posteriormente, se va a devolver el valor ya incrementado.
+```java
+int a  = 0;
+
+int b = a++; // en este caso, b = 0 y a = 1 (primero se devuelve el valor de 'a' que es 0 y, luego, se incrementa. Entonces, al devolver el valor de 'a' este se asigna a la variable 'b' y, como se incrementa después y lo que se incrementa es el valor de 'a' y no de 'b', el valor de 'b' se se mantiene en 0 y 'a' pasa de 0 a 1)
+
+int b = ++a; // en este otro caso, b = 1 y a = 1 (primero se incrementa el valor de 'a', que va a pasar de 0 a 1, y, luego, este se devuelve. Como en el momento que este se devuelve es cuando se va a asignar dicho valor a 'b' y el valor ya se devuelve incrementado en 1, 'b' va a ser 1)
+```
+
+### Decremento
+Se forma mediante la combinación de 2 operadores aritméticos de resta (--) y se utiliza para restar 2 a la variable a la que se lo ponemos. El funcionamiento de este operador, va a ser el mismo que el del operador de incremento, es decir, cuando este se pone a la derecha, se devuelve el valor y se resta 1. En cambio, si este se pone a la izquierda, se resta 1 y se devuelve el valor.
+```java
+int a = 1;
+
+int b = a--; // en este caso, b = 1 y a = 0 (primero se devuelve el valor de 'a' que es 1 y, luego, se decrementa. Por lo cual, a 'b' se le asigna 1, el valor original de 'a', y, como lo que se disminuye en 1 es el valor de 'a', 'a' pasa a ser 0)
+
+int b = --a // en este otro caso, b = 0 y a = 0 (primero se le resta 1 al valor de 'a', este pasará a ser 0, y, posteriormente, se devuelve el valor ya decrementado. Entonces, 'b' es 0 y 'a' es 0)
+```
+
+### Relacionales
+### Lógicos
+### Instanceof
+
+<!--  operadores combinados -->
+<!-- .equals() -->
+
 ## Estructuras de control
 ### If
+#### Operador Ternario
+Este operador se utiliza cuando queremos hacer una comparación, pero, por lo que sea, no queremos o no podemos utilizar un [if](#if). Por ejemplo, queremos asignar a una variable booleana un texto u otro si el valor de este es 'true' o 'false'.
+```java
+// Pregunta: ¿Quieres café? (S / N)
+boolean respuesta = (pregunta.equals('S') || pregunta.equals('s')) ? 'Sí':'No'
+```
 ### Else
 ### Else if
 ### Switch case
