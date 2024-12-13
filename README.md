@@ -105,7 +105,7 @@ Features:
   - 1 user can only create 1 account.
   - 1 account can only be created by 1 user.
   - Each user can manage his account.
-    - Each user can delete his account.
+    - Each user can delete his account (less the administrators).
     - Each user can desactive his account.
   - Each user has 1 role.
     - Administrator.
@@ -141,6 +141,8 @@ Features:
             - Create a learning path.
             - Manage any learning path.
               - Add or remove courses.
+              - Edit.
+              - Delete.
             - Create a course.
             - Manage any course.
               - Create a course version.
@@ -151,16 +153,38 @@ Features:
               - Delete any message of any course forum.
               - Expel any user from any course forum.
               - Create exercises.
+              - Manage exercises.
+                - Edit.
+                - Delete.
               - Create exams.
+              - Manage exams.
+                - Edit.
+                - Delete.
           - Get in touch:
             - Block and unblock any user.
           - Licenses:
-            - Add a license notice.
+            - Create a license notice.
             - Manage any license notice.
               - Edit.
-              - Remove.
+              - Delete.
     - Normal.
       - The account of the user whose role is this will be 'normal account'.
+        - About Me:
+          - Viewer.
+          - Projects:
+            - Viewer.
+          - Experience:
+            - Viewer.
+        - Blog:
+          - Viewer.
+          - Comment in any post.
+        - Academy:
+          - Student.
+        - Get in touch:
+          - Chat with the administrator.
+        - Licenses:
+          - Viewer.
+
 #### Logical design
 #### Physical design
 
