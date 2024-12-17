@@ -100,22 +100,36 @@
 ## Requisitos
 ### Recomendaciones
 
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ## Introducción
 ### ¿Qué es Java?
 
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### ¿Qué es la JVM?
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### ¿Qué es la compilación JIT?
 
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### ¿Qué es un paradigma?
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### ¿Qué es la programación orientada a objetos?
 La programación orientada a objetos es un paradigma que se basa en llevar los objetos de la vida real a un mundo virtual. Por ejemplo, podemos hacer una aplicación de contabilidad desde donde se puedan manejar "Facturas", podemos hacer una aplicación para una empresa desde donde el responsable indicado pueda gestionar los empleados...
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ## Primeros pasos
 ### Objetos
 #### ¿Qué es un objeto?
 Un objeto es una entidad, una cosa, donde se unen los conceptos "Estado" y "Comportamiento". El estado se resume en las características que tiene un objeto y el comportamiento se resume en la relación e interacción de un objeto con otro. Por ejemplo, un coche puede tener como características la marca, el modelo y el año de fabricación y su comportamiento puede ser contar la distancia que recorre dependiendo de la ruta de un viaje (Sevilla - Madrid, Sevilla - Castellón, Sevilla - Barcelona, Sevilla - Málaga...). También podemos tener en el comportamiento algo como: "girar a la derecha", "girar a la izquierda", "seguir recto", "frenar", "aparcar", "acelerar"...
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### Clases
 #### ¿Qué es una clase?
@@ -129,6 +143,8 @@ La única característica que tienen estos son las pepitas y va a decirnos el ti
 Y, ¿dónde aparece por aquí el concepto "clase"?
 
 Pues, en este ejemplo, los moldes son las clases. Tú creas una galleta con forma de árbol, porque tienes un molde con forma de árbol.
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 #### ¿Cómo crear una clase en Java?
 Para crear una clase, tenemos que crear un archivo **.java** y, dentro, tenemos que poner las palabras reservadas **public class** y, al lado, el nombre que le queramos dar a la clase.
@@ -157,9 +173,16 @@ La diferencia, es que, antes, la clase estaba siendo creada como "pública" y, a
 > [!NOTE]
 > Desde el IDE, normalmente, también vamos a tener una opción para crear una clase. Lo que suele hacer dicha opción es crearte un **.java** con una **public class** con el nombre que tu escribas.
 
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Métodos
 #### ¿Qué es un método?
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### ¿Qué es el método main?
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ## Variables
 ### ¿Qué es una variable?
@@ -182,6 +205,8 @@ TipoDeDato nombreDeLaVariable = valor;
 - **valor**
   Se sustituirá por el valor que vamos a asignar a la variable. Este tiene que ser del mismo tipo que el tipo de dato que estamos poniéndole a la variable, si estamos diciendo que esta va a contener un texto, no podemos luego poner como valor un número.
 
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Java con tipado dinámico
 Respondiendo a la pregunta anterior, hemos hecho referencia a que Java es un lenguaje fuertemente tipado y, por ende, las variables se definen de la forma que explicamos. Bien, pues aquí me veo obligado a matizar un poco eso y, ojo, no porque lo que se haya dicho anteriormente esté mal o equivocado. En absoluto, esto se debe a que tenemos que comentar una forma relativamente nueva que tiene Java para definir las variable con un tipado dinámico, es decir, sin especificar el tipo de valor que va a contener. Si le pones, por ejemplo, un texto, tomará el texto. Por otro lado, si le pones un número, tomará el número. Se va a adaptar al tipo de valor sin nosotros tener que hacer nada. Para ello, tenemos que utilizar la palabra reservada **var**.
 ```java
@@ -190,12 +215,16 @@ var texto = "Hola";
 var letra = 'D';
 ```
 
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### ¿Qué es una constante?
 Una constante es una variable cuya reasignación de valor no está permitida y nunca va a ser efectiva, de hecho, siempre que lo intentamos nos saltará un error. En Java, las constantes se definen igual que una variable, pero con la palabra reservada **final** a la izquierda y el nombre siempre en mayúsculas.
 ```java
 final TipoDeDato CONSTANTE = valor;
 ```
 Algo que hay que tener en cuenta de las constantes es que siempre se tienen que inicializar, no se pueden declarar en un sitio sin asignarle un valor y, posteriormente, en otro sitio asignárselo.
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### ¿Definir o declarar? Diferencias
 - **Definir**
@@ -206,6 +235,8 @@ Algo que hay que tener en cuenta de las constantes es que siempre se tienen que 
 
 Como se puede intuir, las variables se pueden definir y/o declarar. En cambio, las constantes simplemente se pueden definir.
 
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ## Tipos de datos
 Los tipos de datos, como ya hemos llegado a mencionar en algún punto de este curso anterior a este, es la forma que tenemos de decirle tanto a las variables como a las constantes qué es en sí el valor que se le puede asignar, el tipo de valor.
 
@@ -213,20 +244,57 @@ Los tipos de datos, como ya hemos llegado a mencionar en algún punto de este cu
 Los primitivos son unos tipos de datos que únicamente contienen un valor, dicho valor se almacena en la RAM como cualquier tipo de dato. Eso sí, la región de la RAM en la que se almacena es una región concreta que está preparada para almacenar los datos así, en su estado más puro. Dicha región se denomina Stack. <!-- matizar -->
 
 #### byte
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### short
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### int
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### long
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### float
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### double
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### char
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### boolean
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### De referencia
 #### String
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### Clases Wrapper
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### Clases
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### Arrays
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 #### Matrices
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ## Paréntesis 1: Creación de un objeto
 Como para crear un objeto no nos bastaba con conocer su definición, también necesitábamos saber como podíamos definir una variable, conocer los tipos de datos y que no nos suene a chino el concepto "método main". Una vez ya sabemos todo esto, podemos crear un objeto.
@@ -248,6 +316,8 @@ public class CreacionObjeto() {
 ```
 Viendo este ejemplo te puede surgir una duda, ¿cómo le dices al objeto que las pepitas sean de chocolate negro? Esto se haría pasándole el valor que va a tener esa característica "pepitas" como parámetro (entre los paréntesis de **GalletaArbol()**), pero, para hacer esto, tenemos que entender primero otros conceptos como los "constructores" y estos los vamos a ver más adelante en el curso. Simplemente, quédate con lo que es en sí la creación de un objeto.
 
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ## Operadores
 ### Aritméticos
 Son aquellos operadores que vamos a utilizar para realizar cálculos matemáticos y operaciones básicas sobre primitivos, en el caso de querer hacerlas con datos cuyos tipos son de referencia, podemos perfectamente, ya que, por detrás, se convierte el tipo de dato de referencia en su equivalente en primitivo. Este proceso se denomina **unboxing** y lo va a hacer el lenguaje automáticamente sin que nosotros tengamos que hacer nada.
@@ -256,8 +326,16 @@ Son aquellos operadores que vamos a utilizar para realizar cálculos matemático
 | ----------- | ---- | ----- | -------------- | -------- | -------------- |
 | Operadores  | +    | -     | *              | /        | %              |
 
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Asignación
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Unarios
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Incremento
 Se forma mediante la combinación de 2 operadores aritméticos de suma (++) y se utiliza para sumar 1 a la variable a la que se lo ponemos. Si se lo ponemos a la derecha, se devuelve el valor de la variable y se incrementa una vez devuelto. En cambio, si lo ponemos a la izquierda, se va a incrementar el valor de la variable y, posteriormente, se va a devolver el valor ya incrementado.
 ```java
@@ -267,6 +345,8 @@ int b = a++; // en este caso, b = 0 y a = 1 (primero se devuelve el valor de 'a'
 
 int b = ++a; // en este otro caso, b = 1 y a = 1 (primero se incrementa el valor de 'a', que va a pasar de 0 a 1, y, luego, este se devuelve. Como en el momento que este se devuelve es cuando se va a asignar dicho valor a 'b' y el valor ya se devuelve incrementado en 1, 'b' va a ser 1)
 ```
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### Decremento
 Se forma mediante la combinación de 2 operadores aritméticos de resta (--) y se utiliza para restar 2 a la variable a la que se lo ponemos. El funcionamiento de este operador, va a ser el mismo que el del operador de incremento, es decir, cuando este se pone a la derecha, se devuelve el valor y se resta 1. En cambio, si este se pone a la izquierda, se resta 1 y se devuelve el valor.
@@ -278,9 +358,19 @@ int b = a--; // en este caso, b = 1 y a = 0 (primero se devuelve el valor de 'a'
 int b = --a // en este otro caso, b = 0 y a = 0 (primero se le resta 1 al valor de 'a', este pasará a ser 0, y, posteriormente, se devuelve el valor ya decrementado. Entonces, 'b' es 0 y 'a' es 0)
 ```
 
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Relacionales
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Lógicos
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Instanceof
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 <!--  operadores combinados -->
 <!-- .equals() -->
@@ -293,19 +383,62 @@ Este operador se utiliza cuando queremos hacer una comparación, pero, por lo qu
 // Pregunta: ¿Quieres café? (S / N)
 boolean respuesta = (pregunta.equals('S') || pregunta.equals('s')) ? 'Sí':'No'
 ```
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Else
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Else if
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Switch case
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### For
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### While
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Do while
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ## Programación orientada a objetos
 ### Propiedades
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Constructores
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Getters y Setters
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Encapsulamiento
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Sobrecarga
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Herencia
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Clases Abstractas
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
+
 ### Interfaces
+
+<p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
