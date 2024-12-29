@@ -3,7 +3,7 @@
  *
  * davidllamasroman.com is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License.
+ * the Free Software Foundation, version 3 of the License only.
  *
  * davidllamasroman.com is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -38,8 +38,8 @@ This is my personal website where you can find my projects, my laboral experienc
     - [UX](#ux)
       - [Pages structure](#pages-structure)
         - [Header](#header)
-        - [Main content](#main-content)
         - [Footer](#footer)
+        - [Main content](#main-content)
     - [UI](#ui)
       - [Logo](#logo)
       - [Fonts](#fonts)
@@ -68,7 +68,7 @@ This is my personal website where you can find my projects, my laboral experienc
 ### Website Type
 - **Web App**
 
-  This is a web app, because we have a database in it and we have an API with which we can access and manage the database data. After, the data that we extract through the API is showed in the frontend. If the main objective of the website will be catch clients and we will not need any database, any API (because we search, for example, redirect to an external app), the website type will be 'Landing Page'.
+  This is a web app, because we have a database in it and we have an API with which we can access and manage the database data. Then, the data we extract through the API is displayed in the frontend. If the main objective of the website is to attract clients and we do not need any database, any API (because we search, for example, redirect to an external app), the website type will be 'Landing Page'.
 
 <p align=right><a href="#davidllamasromancom"><strong>Go up ⬆</strong></a></p>
 
@@ -91,7 +91,7 @@ This is my personal website where you can find my projects, my laboral experienc
   In this section you would find some free courses about technologies in which I have a good level. The videos will be uploaded in YouTube and, here, will be the text version of course and the video embedded.
 
 - **Get in touch**
-  In this section you would find a chat to talk with me, but do not by any reason. Only, for example, if you want to tell me something about a work issue, about a side or personal project that you have, about my content... I think that you understand the type of messages that I expect to receive.
+  In this section you will find a chat to talk with me, but do not by any reason. Only, for example, if you want to tell me something about a work issue, about a side or personal project that you have, about my content... I think that you understand the type of messages that I expect to receive.
 
 - **Licenses**
   In this section, it will show all licenses under which the website and its content are licensed.
@@ -204,19 +204,19 @@ Features:
 ##### Header
 On all pages, we can find a header with links that allow us to switch between the different sections.
 
-##### Main content
-
 ##### Footer
 On all pages, we can find a footer with only a copyright notice.
+
+##### Main content
 
 ### UI
 #### Logo
 <p align="center"><img src="./frontend/public/img/dlr.svg" alt="dlr logo" width=100></p>
 
-The logo reflect that I started out as a nobody and, over the time, I have evolved to become in the person that I am today. Always following a plan.
-- The squares that constitute the 3 steps stairs represent the plan ("Always following a plan"). That figure is normally related with the fact of do something thinking carefully.
-- The 3 steps stairs represent the grow that I have in somethings related with me like my profesional career or my content creator career. That object is normally related with the grow.
-- The fonts of the acronym (DLR - David Llamas Román) are different, because represent my personal evolution. I started, for example, with a closer mind (therefore, I chose a serif font, more classical) and, over the time, I have evolved to become in the person that I am today literally (therefore, I chose 2 san-serif fonts. One more futurist than the other). Everyone evolves and I was not going to be less.
+The logo reflects my evolution both professionally and personally.
+- The squares that form the 3 steps of the staircase represent the plan I have always followed to become who I am today. This figure is typically associated with acting thoughtfully and analyzing the situation carefully.
+- The staircase symbolizes my growth in the profesional field. It is normally related with the progress and development.
+- The fonts used for the acronym (DLR - David Llamas Román) are different to represent my personal evolution and the changes in my mindset over time.
 
 #### Fonts
 
@@ -288,7 +288,7 @@ The logo reflect that I started out as a nobody and, over the time, I have evolv
 >
 > davidllamasroman.com is free software: you can redistribute it and/or modify
 > it under the terms of the GNU General Public License as published by
-> the Free Software Foundation, either version 3 of the License.
+> the Free Software Foundation, version 3 of the License only.
 >
 > davidllamasroman.com is distributed in the hope that it will be useful,
 > but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -300,9 +300,9 @@ The logo reflect that I started out as a nobody and, over the time, I have evolv
 >
 > Copyright (C) 2024 David Llamas Román
 
-This is the warning that you can find in all files of davidllamasroman.com project that contains code. This warning are not in JSON files, because this type of files do not support comments.
+This warning appears in all files of the davidllamasroman.com project that contain code. JSON files are exempt from this warning because they do not support comments.
 
-In the second paragraph (line 7-10 of the WARNING) we refer to point 15 of the [GPL-3.0 license (GPL-3.0-only)](LICENSE):
+In the second paragraph (lines 7–10 of the WARNING), we explicitly state that the project is licensed under the terms of **version 3 of the GNU General Public License only**, as defined in point 15 of the [GPL-3.0-only license](./LICENSE):
 ```
 15. Disclaimer of Warranty.
 
