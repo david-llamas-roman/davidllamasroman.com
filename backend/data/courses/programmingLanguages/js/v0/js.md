@@ -87,7 +87,7 @@
     - [Operadores de comparación](#operadores-de-comparación)
     - [Operadores lógicos](#operadores-lógicos)
   - [Estructuras de control](#estructuras-de-control)
-    - [If](#if)
+    - [If, else y else if](#if-else-y-else-if)
     - [Switch](#switch)
     - [For](#for)
     - [For of](#for-of)
@@ -856,35 +856,124 @@ console.log(1 + false) // devuelve 1 | (1 + 0)
 ## Otros tipos de de operadores
 ### Operadores de comparación
 
+| Operador | Función                                                                                                  |
+| -------- | -------------------------------------------------------------------------------------------------------- |
+| ==       | Se utiliza para comparar 2 valores y ver si son iguales o no                                             |
+| ===      | Se utiliza para comparar 2 valores y ver si son iguales o no, también tiene en cuenta los tipos de datos |
+| !=       | Se utiliza para ver si 2 valores son distintos o no                                                      |
+| !==      | Se utiliza para ver si 2 valores son distintos o no, también tiene en cuenta los tipos de datos          |
+| >        | Se utiliza para ver si 1 valor es mayor que otro                                                         |
+| <        | Se utiliza para ver si 1 valor es menor que otro                                                         |
+| >=       | Se utiliza para ver si 1 valor es mayor o igual que otro                                                 |
+| <=       | Se utiliza para ver si 1 valor es menor o igual que otro                                                 |
+
 <p align=right><a href="#aprende-javascript-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### Operadores lógicos
 
+| Operador | Significado | Función                                                                                                                                         |
+| -------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| &&       | AND         | Se utiliza para unir comparaciones realizadas con operadores de comparación, en este caso, las 2 comparaciones que unimos se tienen que cumplir |
+| \|\|     | OR          | Se utiliza para unir comparaciones con operadores de comparación, en este caso, únicamente se tiene que cumplir 1 comparación                   |
+| !        | NOT         | Se utiliza para invertir el resultado de una comparación realizada con operadores de comparación                                                |
+
 <p align=right><a href="#aprende-javascript-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ## Estructuras de control
-### If
+### If, else y else if
+
+- **if**
+  ```js
+  if (condición) {
+    // código
+  }
+  ```
+
+- **else**
+  ```js
+  if (condición) {
+    // código
+  } else {
+    // código
+  }
+  ```
+
+- **else if**
+  ```js
+  if (condición) {
+    // código
+  } else if (condición) {
+    // código
+  } else (condición) {
+    // código
+  }
+  ```
 
 <p align=right><a href="#aprende-javascript-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### Switch
+```js
+let number = Number(prompt("MENU\n    1. Hola mundo\n    2. Adiós"))
+
+switch (number) {
+  case 1:
+    console.log("Hola mundo")
+    break
+  case 2:
+    console.log("Adiós")
+    break
+  default:
+    console.log("Introduce un valor correcto la próxima vez")
+    break
+}
+```
 
 <p align=right><a href="#aprende-javascript-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### For
+```js
+for (let i = 0; i < 11; i++) {
+  console.log(i)
+}
+```
 
 <p align=right><a href="#aprende-javascript-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### For of
+```js
+const frutas = ['Fresa', 'Coco', 'Piña']
+
+for (let fruta of frutas) {
+  console.log(fruta + "\n")
+}
+```
 
 <p align=right><a href="#aprende-javascript-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### For in
+```js
+const persona = { nombre: 'David', apellidos: 'Llamas Román', edad: 19 }
+
+for (let dato in persona) {
+  console.log(dato)
+}
+
+for (let dato in persona) {
+  console.log(persona[dato])
+}
+```
 
 <p align=right><a href="#aprende-javascript-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### While
+```js
+let i = 0;
 
+while (i < 10) {
+  console.log(i)
+  i++
+}
+```
 <p align=right><a href="#aprende-javascript-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### Do while

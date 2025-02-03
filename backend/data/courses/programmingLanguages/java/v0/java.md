@@ -105,13 +105,19 @@
 ## Introducción
 ### ¿Qué es Java?
 
+Java es un lenguaje de programación multiplataforma compilado e interpretado, además, fuertemente tipado. El código fuente de Java (el código que nosotros escribimos) es compilado (traducido) a un código intermedio conocido como bytecode. Dicho bytecode es un código de más bajo nivel que el código fuente, pero no es código máquina (código binario, únicamente 0 y 1). Este es interpretado por la [JVM](#qué-es-la-jvm) (lee y ejecuta cada instrucción del bytecode sin convertirlo a código máquina) y, durante este proceso, ocurre otra compilación conocida como [Compilación JIT](#qué-es-la-compilación-jit).
+
 <p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### ¿Qué es la JVM?
 
+JVM está formado por las siglas de Java Virtual Machine y, como su propio nombre indica, es la máquina virtual de Java. Esta, como ya hemos visto anteriormente, se encarga de interpretar el bytecode.
+
 <p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
 ### ¿Qué es la compilación JIT?
+
+JIT son las siglas de Just-In-Time, la traducción que se le da en español a este término es "Justo a Tiempo". Este se relaciona con el tiempo de ejecución del bytecode, ya que el proceso de compilación a código máquina ocurre precisamente ahí.
 
 <p align=right><a href="#aprende-java-desde-0"><strong>Go up ⬆</strong></a></p>
 
