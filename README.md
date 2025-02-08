@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with davidllamasroman.com. If not, see <https://www.gnu.org/licenses/gpl-3.0.en.html>.
  *
- * Copyright (C) 2024 David Llamas Román
+ * Copyright (C) 2025 David Llamas Román
 -->
 
 # davidllamasroman.com
@@ -24,48 +24,52 @@ This is my personal website, here, you can find the information I consider relev
   - [📃 Implementations](#-implementations)
   - [🛠️ Technologies](#️-technologies)
   - [⚙️ Installation](#️-installation)
+    - [Prerequisites](#prerequisites)
   - [👨‍⚖️ Licenses](#️-licenses)
 
 ## 📃 Implementations
-- Static info:
+- **Static info:**
   - About me.
   - Branding.
   - Licenses.
 
-- User auth:
+- **User auth:**
   - Register.
   - Log in.
   - Password recovery.
 
-- Academy:
+- **Academy:**
   - Courses.
   - Task.
   - Exams.
 
-- Chat with me:
+- **Chat with me:**
   - Real time chat.
 
 <p align=right><a href="#davidllamasromancom"><strong>Go up ⬆</strong></a></p>
 
 ## 🛠️ Technologies
-- Frontend:
-  - HTML.
-  - CSS.
-  - Vanilla JS.
+- **Frontend:**
+  - HTML
+  - CSS
+  - Vanilla JS
 
-- Backend:
-  - Node.js.
-    - Express.js.
-  - MariaDB.
+- **Backend:**
+  - [Node.js](https://nodejs.org/)
+    - [Express.js](https://expressjs.com/)
+  - [MariaDB](https://mariadb.org/)
 
 <p align=right><a href="#davidllamasromancom"><strong>Go up ⬆</strong></a></p>
 
 ## ⚙️ Installation
+### Prerequisites
+- **Node.js** v22.11.0 or higher
+- **npm** v10.9.0 or higher
 
 <p align=right><a href="#davidllamasromancom"><strong>Go up ⬆</strong></a></p>
 
 ## 👨‍⚖️ Licenses
-&copy; 2024 David Llamas Román. Licensed under the [GNU General Public License version 3 (GPL-3.0) only](https://www.gnu.org/licenses/gpl-3.0.en.html)
+&copy; 2025 David Llamas Román. Licensed under the [GNU General Public License version 3 (GPL-3.0) only](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 > [!WARNING]
 > This file is part of davidllamasroman.com.
@@ -82,7 +86,7 @@ This is my personal website, here, you can find the information I consider relev
 > You should have received a copy of the GNU General Public License
 > along with davidllamasroman.com. If not, see <https://www.gnu.org/licenses/gpl-3.0.en.html>.
 >
-> Copyright (C) 2024 David Llamas Román
+> Copyright (C) 2025 David Llamas Román
 
 This warning appears in all files of the davidllamasroman.com project that contain code. JSON files are exempt from this warning because they do not support comments.
 
