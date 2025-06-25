@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Llamas Román</title>
+  <link rel="stylesheet" href="./assets/styles/style.css">
+</head>
+
+<body>
+  <!-- windows -->
+  <div class="windows">
+    <!-- windows desktop -->
+    <main class="windows__desktop">
+
+      <!-- windows menu -->
+      <article class="windows__menu" data-windows-menu>
+        <input type="search" name="windows_search" id="windows__search">
+        <!-- summary view (apps) -->
+        <article class="summary__view" data-summary-view>
+          <article class="pinned">
+            <div class="pinned__header">
+              <h5>Pinned</h5>
+              <div class="all__button">
+                <div>
+                  All <span>&gt;</span>
+                </div>
+                <input type="checkbox" name="all_checkbox" id="all__checkbox">
+              </div>
+            </div>
+          </article>
+          <article class="recommended">
+            <h5>Recommended</h5>
+          </article>
+        </article>
+        <!-- full view (apps) -->
+        <article class="full__view" data-full-view>
+          <div class="view__header">
+            <h5>All</h5>
+            <div class="back__button">
+              <div>
+                <span>&lt;</span> Back 
+              </div>
+              <input type="checkbox" name="back_checkbox" id="back__checkbox">
+            </div>
+          </div>
+        </article>
+        <article class="user__bar">
+          <div class="user">
+            <div class="user__content">
+              <div class="user__icon">
+                <div class="user__figure">
+                  <div class="user__head"></div>
+                  <div class="user__body"></div>
+                </div>
+              </div>
+              <h5>Sign In | Sign Up</h5>
+            </div>
+            <input type="checkbox" name="user_checkbox" id="user__checkbox">
+          </div>
+        </article>
+      </article>
+
+      <!-- sign in | sign up -->
+      <article class="windows__sign" data-windows-sign>
+        <div class="microsoft">
+          <div class="windows__mini">
+            <div class="red__mini"></div>
+            <div class="green__mini"></div>
+            <div class="blue__mini"></div>
+            <div class="yellow__mini"></div>
+          </div>
+          <span>Microsoft</span>
+        </div>
+        <!-- sign in -->
+        <article class="sign__in" data-sign-in>
+          <form action="#" method="post">
+            <fieldset>
+              <fieldset>
+                <input type="email" name="email" id="email" placeholder=" ">
+                <label for="email">Email</label>
+              </fieldset>
+              <div class="password__container">
+                <fieldset>
+                  <input type="password" name="password" id="password" placeholder=" ">
+                  <label for="password">Password</label>
+                </fieldset>
+                <button class="eye" type="button">
+                  <div class="iris"></div>
+                  <div class="pupil"></div>
+                </button>
+              </div>
+            </fieldset>
+            <button type="submit" class="sign__in__button">Sign In</button>
+          </form>
+          <div class="register__warning">
+            <p class="warning__p1"><small>Don't have an account yet?</small></p>
+            <p class="warning__p2"><small>Click Here!</small><input type="checkbox" name="click_here_button" id="click__here__button"></p>
+          </div>
+        </article>
+        <!-- sign up -->
+        <article class="sign__up" data-sign-up>
+          <div class="sign__up__header">
+            <div class="back__sign__in">
+              <div>
+                <p>&lt;</p>
+                <p>Back</p>
+              </div>
+              <input type="checkbox" name="back_sign_in" id="back__sign__in__checkbox">
+            </div>
+          </div>
+        </article>
+      </article>
+
+      <!-- file explorer -->
+      <article class="file__explorer" data-file-explorer></article>
+    </main>
+
+    <!-- windows taskbar -->
+    <footer class="windows__taskbar">
+      <nav class="navbar">
+        <ul class="navbar__list">
+          <li class="list__element">
+            <div class="windows__button">
+              <div class="square__container">
+                <div class="red"></div>
+                <div class="green"></div>
+                <div class="blue"></div>
+                <div class="yellow"></div>
+              </div>
+              <input type="checkbox" name="windows_button_checkbox" id="windows__checkbox">
+            </div>
+          </li>
+          <li class="list__element">
+            <div class="file__explorer__button">
+              <div class="explorer__container">
+                <div class="explorer__header">
+                  <div class="part__1">
+                    <div class="green__square"></div>
+                  </div>
+                  <div class="part__2">
+                    <div class="red__square"></div>
+                  </div>
+                  <div class="part__3">
+                    <div class="blue__square"></div>
+                  </div>
+                </div>
+                <div class="first__part">
+                  <div class="blue__part">
+                    <div class="yellow__part"></div>
+                  </div>
+                </div>
+              </div>
+              <input type="checkbox" name="explorer_checkbox" id="explorer__checkbox">
+            </div>
+          </li>
+          <li class="list__element"><button></button></li>
+          <li class="list__element"><button></button></li>
+        </ul>
+      </nav>
+    </footer>
+  </div>
+</body>
+
+</html>
