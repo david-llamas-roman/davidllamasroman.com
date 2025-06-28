@@ -40,7 +40,7 @@
             <h5>All</h5>
             <div class="back__button">
               <div>
-                <span>&lt;</span> Back 
+                <span>&lt;</span> Back
               </div>
               <input type="checkbox" name="back_checkbox" id="back__checkbox">
             </div>
@@ -96,7 +96,8 @@
           </form>
           <div class="register__warning">
             <p class="warning__p1"><small>Don't have an account yet?</small></p>
-            <p class="warning__p2"><small>Click Here!</small><input type="checkbox" name="click_here_button" id="click__here__button"></p>
+            <p class="warning__p2"><small>Click Here!</small><input type="checkbox" name="click_here_button"
+                id="click__here__button"></p>
           </div>
         </article>
         <!-- sign up -->
@@ -115,8 +116,10 @@
 
       <!-- file explorer -->
       <article class="file__explorer" data-file-explorer>
-        <article class="explorer__header">
-          <div class="tabs">
+        <!-- explorer header -->
+        <header class="explorer__header">
+          <!-- explorer tabs -->
+          <article class="tabs">
             <div class="home__tab">
               <input type="checkbox" name="home_tab_checkbox" id="home__tab__checkbox">
               <p>Home</p>
@@ -125,117 +128,167 @@
               <input type="checkbox" name="gallery_tab_checkbox" id="gallery__tab__checkbox">
               <p>Gallery</p>
             </div>
-          </div>
-          <div class="header__controls">
-            <div class="new__button__container">
-              <input type="checkbox" name="new_button_checkbox" id="new__button__checkbox">
-              <div class="new__button">
-                <p class="new__button__icon">+</p>
-                <div class="new__button__text__container">
-                  <p class="new__button__text">New</p>
-                  <p class="new__button__symbol">&lt;</p>
-                </div>
+          </article>
+          <!-- header content -->
+          <article class="explorer__header__content">
+            <div class="content__arrows__container">
+              <div class="arrow__container">
+                <input type="checkbox" name="arrow_left_checkbox" id="arrow__left__checkbox">
+                <p></p>
+              </div>
+              <div class="arrow__container">
+                <input type="checkbox" name="arrow_right_checkbox" id="arrow__right__checkbox">
+                <p></p>
+              </div>
+              <div class="arrow__container">
+                <input type="checkbox" name="arrow_up_checkbox" id="arrow__up__checkbox">
+                <p></p>
+              </div>
+              <div class="arrow__container">
+                <input type="checkbox" name="reload_symbol_checkbox" id="reload__symbol__checkbox">
+                <!-- reload -->
               </div>
             </div>
-            <div class="tools__container">
-              <div class="tools__first__level">
-                <!-- scissors -->
-                <div class="scissors__container">
-                  <input type="checkbox" name="scissors_checkbox" id="scissors__checkbox">
-                  <div class="scissors">
-                    <div class="scissors__part1">
-                      <div class="part1__line"></div>
-                      <div class="part1__circle"></div>
-                    </div>
-                    <div class="scissors__part2">
-                      <div class="part2__line"></div>
-                      <div class="part2__circle"></div>
-                    </div>
-                  </div>
-                </div>
-                <!-- copy -->
-                <div class="copy__button__container">
-                  <input type="checkbox" name="copy_checkbox" id="copy__checkbox">
-                  <div class="copy__button">
-                    <div class="part1__square"></div>
-                    <div class="part2__square"></div>
-                  </div>
-                </div>
-                <!-- clipboard -->
-                <div class="clipboard__container">
-                  <input type="checkbox" name="clipboard_checkbox" id="clipboard__checkbox">
-                  <div class="clipboard">
-                    <div class="clipboard__part1">
-                      <div class="clipboard__part1__square"></div>
-                    </div>
-                    <div class="clipboard__part2"></div>
-                  </div>
-                </div>
-                <!-- rename -->
-                <div class="rename__button__container">
-                  <input type="checkbox" name="rename_checkbox" id="rename__checkbox">
-                  <div class="rename__button">
-                    <p class="rename__button__letter">A</p>
-                    <div class="rename__button__bar">
-                      <div class="rename__button__bar__h1"></div>
-                      <div class="rename__button__bar__v1"></div>
-                      <div class="rename__button__bar__h2"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="tools__second__level">
-                <!-- sort -->
-                <div class="sort__button__container">
-                  <input type="checkbox" name="sort_checkbox" id="sort__checkbox">
-                  <div class="sort__button">
-                    <div class="arrows__container">
-                      <p class="arrow__up">&uarr;</p>
-                      <p class="arrow__down">&darr;</p>
-                    </div>
-                    <div class="sort__button__text__container">
-                      <p class="sort__button__text">Sort</p>
-                      <p class="sort__button__symbol">&lt;</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- view -->
-                <div class="view__button__container">
-                  <input type="checkbox" name="view_button_checkbox" id="view__button__checkbox">
-                  <div class="view__button">
-                    <div class="list__icon">
-                      <div class="list__element1">
-                        <div class="element1__circle"></div>
-                        <div class="element1__line"></div>
-                      </div>
-                      <div class="list__element2">
-                        <div class="element2__circle"></div>
-                        <div class="element2__line"></div>
-                      </div>
-                    </div>
-                    <div class="view__button__text__container">
-                      <p class="view__button__text">View</p>
-                      <p class="view__button__symbol">&lt;</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- 3 points (...) -->
-              <div class="points__container">
-                <input type="checkbox" name="points_checkbox" id="points__checkbox">
-                <div class="points">
-                  <div class="point"></div>
-                  <div class="point"></div>
-                  <div class="point"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
+            <article class="url"></article>
+            <article class="explorer__search__container">
+              <input type="search" name="explorer_search" id="explorer__search">
+            </article>
+          </article>
+        </header>
+        <!-- explorer content -->
         <article class="explorer__content">
+          <!-- content header -->
           <header class="content__header">
+            <div class="header__controls">
+              <div class="new__button__container">
+                <input type="checkbox" name="new_button_checkbox" id="new__button__checkbox">
+                <div class="new__button">
+                  <p class="new__button__icon">+</p>
+                  <div class="new__button__text__container">
+                    <p class="new__button__text">New</p>
+                    <p class="new__button__symbol">&lt;</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tools__container">
+                <div class="tools__first__level">
+                  <!-- scissors -->
+                  <div class="scissors__container">
+                    <input type="checkbox" name="scissors_checkbox" id="scissors__checkbox">
+                    <div class="scissors">
+                      <div class="scissors__part1">
+                        <div class="part1__line"></div>
+                        <div class="part1__circle"></div>
+                      </div>
+                      <div class="scissors__part2">
+                        <div class="part2__line"></div>
+                        <div class="part2__circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- copy -->
+                  <div class="copy__button__container">
+                    <input type="checkbox" name="copy_checkbox" id="copy__checkbox">
+                    <div class="copy__button">
+                      <div class="part1__square"></div>
+                      <div class="part2__square"></div>
+                    </div>
+                  </div>
+                  <!-- clipboard -->
+                  <div class="clipboard__container">
+                    <input type="checkbox" name="clipboard_checkbox" id="clipboard__checkbox">
+                    <div class="clipboard">
+                      <div class="clipboard__part1">
+                        <div class="clipboard__part1__square"></div>
+                      </div>
+                      <div class="clipboard__part2"></div>
+                    </div>
+                  </div>
+                  <!-- rename -->
+                  <div class="rename__button__container">
+                    <input type="checkbox" name="rename_checkbox" id="rename__checkbox">
+                    <div class="rename__button">
+                      <p class="rename__button__letter">A</p>
+                      <div class="rename__button__bar">
+                        <div class="rename__button__bar__h1"></div>
+                        <div class="rename__button__bar__v1"></div>
+                        <div class="rename__button__bar__h2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tools__second__level">
+                  <!-- sort -->
+                  <div class="sort__button__container">
+                    <input type="checkbox" name="sort_checkbox" id="sort__checkbox">
+                    <div class="sort__button">
+                      <div class="arrows__container">
+                        <p class="arrow__up">&uarr;</p>
+                        <p class="arrow__down">&darr;</p>
+                      </div>
+                      <div class="sort__button__text__container">
+                        <p class="sort__button__text">Sort</p>
+                        <p class="sort__button__symbol">&lt;</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- view -->
+                  <div class="view__button__container">
+                    <input type="checkbox" name="view_button_checkbox" id="view__button__checkbox">
+                    <div class="view__button">
+                      <div class="list__icon">
+                        <div class="list__element1">
+                          <div class="element1__circle"></div>
+                          <div class="element1__line"></div>
+                        </div>
+                        <div class="list__element2">
+                          <div class="element2__circle"></div>
+                          <div class="element2__line"></div>
+                        </div>
+                      </div>
+                      <div class="view__button__text__container">
+                        <p class="view__button__text">View</p>
+                        <p class="view__button__symbol">&lt;</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 3 points (...) -->
+                <div class="points__container">
+                  <input type="checkbox" name="points_checkbox" id="points__checkbox">
+                  <div class="points">
+                    <div class="point"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </header>
-          <aside class="content__aside"></aside>
+          <!-- content aside -->
+          <aside class="content__aside">
+            <nav class="aside__navbar">
+              <ul class="navbar__list">
+                <li class="list__element">
+                  <div class="home__container">
+                    <p>Home</p>
+                  </div>
+                </li>
+                <li class="list__element">
+                  <div class="gallery__container">
+                    <p>Blog</p>
+                  </div>
+                </li>
+              </ul>
+              <ul class="navbar__list">
+                <li class="list__element">
+                  <div class="this__pc__container">
+                    <p>This PC</p>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </aside>
         </article>
       </article>
     </main>
