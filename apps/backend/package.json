@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "./src/app.js",
+  "scripts": {
+    "start:dev": "NODE_ENV=development node --watch ./src/app.js",
+    "start:staging": "NODE_ENV=staging node ./src/app.js",
+    "start:prod": "NODE_ENV=production node ./src/app.js",
+    "start:dev:db": "COMPOSE_PROJECT_NAME=dlr-dev docker compose --env-file ./.development.env up -d",
+    "stop:dev:db": "COMPOSE_PROJECT_NAME=dlr-dev docker compose --env-file ./.development.env down",
+    "migrations:generate": "sequelize-cli migration:generate --name",
+    "migrations:run:dev": "NODE_ENV=development sequelize-cli db:migrate",
+    "migrations:revert:dev": "NODE_ENV=development sequelize-cli db:migrate:undo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "David Llamas Román",
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "mariadb": "^3.4.4",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.3"
+  }
+}

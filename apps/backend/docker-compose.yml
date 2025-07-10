@@ -1,0 +1,13 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: ${COMPOSE_PROJECT_NAME}-mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mariadb/${COMPOSE_PROJECT_NAME}:/var/lib/mysql:Z
