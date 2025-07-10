@@ -1,0 +1,5 @@
+node_modules
+
+*.env
+
+apps/backend/docker/mariadb/dlr-dev
