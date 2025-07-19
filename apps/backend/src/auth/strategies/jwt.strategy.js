@@ -16,27 +16,32 @@
  * Copyright (C) 2025 David Llamas Román
  */
 
-/* eslint-disable no-undef */
-
 'use strict'
 
-import dotenv from 'dotenv'
+import { Strategy, ExtractJwt } from 'passport-jwt'
+import boom from '@hapi/boom'
+import config from '../../../config/config'
+import UsersService from '../../users/services/users.service'
 
-const env = process.env.NODE_ENV || 'development'
-
-dotenv.config({ path: `.${env}.env` })
-
-const config = {
-  env,
-  port: process.env.PORT || 3000,
-  dbName: process.env.MARIADB_DATABASE,
-  dbUser: process.env.MARIADB_USER,
-  dbPassword: process.env.MARIADB_PASSWORD,
-  dbHost: process.env.MARIADB_HOST,
-  dbPort: process.env.MARIADB_PORT,
-  apiKey: process.env.API_KEY,
-  jwtSecret: process.env.JWT_SECRET,
-  jwtExpiresIn: process.env.JWT_EXPIRES_IN,
+const options = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: config.jwtSecret,
 }
 
-export default config
+const JwtStrategy = new Strategy(options, async (payload, done) => {
+  try {
+    const user = await UsersService.findOneByUuid(payload.sub)
+    if (!user) {
+      done(boom.unauthorized(), false)
+    }
+
+    // eslint-disable-next-line no-unused-vars
+    const { password: _, ...userSafe } = user.toJSON()
+
+    done(null, userSafe)
+  } catch (error) {
+    done(error, false)
+  }
+})
+
+export default JwtStrategy

@@ -18,23 +18,30 @@
 
 'use strict'
 
-import { Router } from 'express'
-import UserController from '../controllers/user'
+import { User } from '../../db/models/user.model.cjs'
 
-import validateSchema from '../middlewares/validateSchema'
-import { CreateUserDto, UpdateUserDto } from '../dtos/user.dtos'
-import { UuidParamDto } from '../dtos/params.dtos'
+const UserRepository = {
+  async findOneByEmail(email) {
+    return await User.findOne({ email })
+  },
+  async findOneByUuid(uuid) {
+    return await User.findOne({ uuid })
+  },
+  async create({ fullName, email, password }) {
+    return await User.create({ fullName, email, password })
+  },
+  async update(uuid, updateData) {
+    const [affectedRows, [updatedUser]] = await User.update(updateData, {
+      where: { uuid },
+      returning: true,
+    })
 
-const router = Router()
-const ROOT = '/users'
+    if (affectedRows === 0) {
+      return null
+    }
 
-router.post(ROOT, validateSchema(CreateUserDto, 'body'), UserController.create)
+    return updatedUser
+  },
+}
 
-router.put(
-  `${ROOT}/:uuid`,
-  validateSchema(UuidParamDto, 'params'),
-  validateSchema(UpdateUserDto, 'body'),
-  UserController.update,
-)
-
-export default router
+export default UserRepository

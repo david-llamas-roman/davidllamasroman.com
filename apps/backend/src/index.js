@@ -16,27 +16,23 @@
  * Copyright (C) 2025 David Llamas Román
  */
 
-/* eslint-disable no-undef */
-
 'use strict'
 
+import express from 'express'
+
 import dotenv from 'dotenv'
+dotenv.config()
 
-const env = process.env.NODE_ENV || 'development'
+import passport from 'passport'
+import './auth/index.js'
 
-dotenv.config({ path: `.${env}.env` })
+import usersRouter from './routes/users.routes.js'
 
-const config = {
-  env,
-  port: process.env.PORT || 3000,
-  dbName: process.env.MARIADB_DATABASE,
-  dbUser: process.env.MARIADB_USER,
-  dbPassword: process.env.MARIADB_PASSWORD,
-  dbHost: process.env.MARIADB_HOST,
-  dbPort: process.env.MARIADB_PORT,
-  apiKey: process.env.API_KEY,
-  jwtSecret: process.env.JWT_SECRET,
-  jwtExpiresIn: process.env.JWT_EXPIRES_IN,
-}
+const app = express()
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-export default config
+app.use(passport.initialize())
+app.use('/api', usersRouter)
+
+export default app

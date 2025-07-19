@@ -16,27 +16,13 @@
  * Copyright (C) 2025 David Llamas Román
  */
 
-/* eslint-disable no-undef */
-
 'use strict'
 
-import dotenv from 'dotenv'
+import app from './index.js'
 
-const env = process.env.NODE_ENV || 'development'
+// eslint-disable-next-line no-undef
+const PORT = process.env.PORT || 3000
 
-dotenv.config({ path: `.${env}.env` })
-
-const config = {
-  env,
-  port: process.env.PORT || 3000,
-  dbName: process.env.MARIADB_DATABASE,
-  dbUser: process.env.MARIADB_USER,
-  dbPassword: process.env.MARIADB_PASSWORD,
-  dbHost: process.env.MARIADB_HOST,
-  dbPort: process.env.MARIADB_PORT,
-  apiKey: process.env.API_KEY,
-  jwtSecret: process.env.JWT_SECRET,
-  jwtExpiresIn: process.env.JWT_EXPIRES_IN,
-}
-
-export default config
+app.listen(PORT, () => {
+  console.log(`\nServer: http://localhost:${PORT}`)
+})

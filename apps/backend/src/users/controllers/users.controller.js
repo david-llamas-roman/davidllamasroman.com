@@ -19,13 +19,13 @@
 'use strict'
 
 import { CreateUserDto, UpdateUserDto } from '../dtos/user.dtos'
-import UserService from '../services/users.service'
+import UsersService from '../services/users.service'
 
 const UsersController = {
   async create(req, res) {
     try {
       const validatedData = CreateUserDto.parse(req.body)
-      const user = await UserService.create(validatedData)
+      const user = await UsersService.create(validatedData)
       return res.status(201).json({ user })
     } catch (error) {
       const status = error.status || 500
@@ -35,12 +35,11 @@ const UsersController = {
       })
     }
   },
-
   async update(req, res) {
     try {
       const uuid = req.params.uuid
       const validatedData = UpdateUserDto.parse(req.body)
-      const user = await UserService.update(uuid, validatedData)
+      const user = await UsersService.update(uuid, validatedData)
       return res.status(200).json({ user })
     } catch (error) {
       const status = error.status || 500

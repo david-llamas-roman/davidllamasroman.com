@@ -16,27 +16,32 @@
  * Copyright (C) 2025 David Llamas Román
  */
 
-/* eslint-disable no-undef */
-
 'use strict'
 
-import dotenv from 'dotenv'
+import { Router } from 'express'
+import UserController from '../controllers/user'
 
-const env = process.env.NODE_ENV || 'development'
+import validateSchema from '../middlewares/validateSchema'
+import { CreateUserDto, UpdateUserDto } from '../dtos/user.dtos'
+import { UuidParamDto } from '../dtos/params.dtos'
+import { checkApiKey } from '../../auth/middlewares/auth.handler'
 
-dotenv.config({ path: `.${env}.env` })
+const router = Router()
+const ROOT = '/users'
 
-const config = {
-  env,
-  port: process.env.PORT || 3000,
-  dbName: process.env.MARIADB_DATABASE,
-  dbUser: process.env.MARIADB_USER,
-  dbPassword: process.env.MARIADB_PASSWORD,
-  dbHost: process.env.MARIADB_HOST,
-  dbPort: process.env.MARIADB_PORT,
-  apiKey: process.env.API_KEY,
-  jwtSecret: process.env.JWT_SECRET,
-  jwtExpiresIn: process.env.JWT_EXPIRES_IN,
-}
+router.post(
+  ROOT,
+  checkApiKey,
+  validateSchema(CreateUserDto, 'body'),
+  UserController.create,
+)
 
-export default config
+router.put(
+  `${ROOT}/:uuid`,
+  checkApiKey,
+  validateSchema(UuidParamDto, 'params'),
+  validateSchema(UpdateUserDto, 'body'),
+  UserController.update,
+)
+
+export default router

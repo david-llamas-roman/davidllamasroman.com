@@ -18,17 +18,24 @@
 
 'use strict'
 
-import { User } from '../../db/models/user.model.cjs'
-
 import bcrypt from 'bcrypt'
-import UserDao from '../daos/user.dao'
+import UserRepository from '../repositories/user.repository'
 
-const UserService = {
+const UsersService = {
   async _findOneByEmail(email) {
-    return await UserDao.findOneByEmail(email)
+    return await UserRepository.findOneByEmail(email)
+  },
+  async _findOneByUuid(uuid) {
+    return await UserRepository.findOneByUuid(uuid)
   },
   async _exists(email) {
     return !!(await this._findOneByEmail(email))
+  },
+  async findOneByEmail(email) {
+    return await this._findOneByEmail(email)
+  },
+  async findOneByUuid(uuid) {
+    return await this._findOneByUuid(uuid)
   },
   async create(createUserDto) {
     const { fullName, email, password } = createUserDto
@@ -50,7 +57,7 @@ const UserService = {
 
     const hashedPassword = await bcrypt.hash(password, 12)
 
-    const newUser = await User.create({
+    const newUser = await UserRepository.create({
       fullName,
       email,
       password: hashedPassword,
@@ -76,7 +83,7 @@ const UserService = {
       throw error
     }
 
-    const user = await UserDao.findOneByUuid(uuid)
+    const user = await this._findOneByUuid(uuid)
     if (!user) {
       const error = new Error(`User with 'uuid' (${uuid}) not found.`)
       error.status = 404
@@ -114,7 +121,7 @@ const UserService = {
       throw error
     }
 
-    const updatedUser = await UserDao.update(uuid, updates)
+    const updatedUser = await UserRepository.update(uuid, updates)
     if (!updatedUser) {
       const error = new Error(`Failed to update user with 'uuid' (${uuid}).`)
       error.status = 500
@@ -130,4 +137,4 @@ const UserService = {
   },
 }
 
-export default UserService
+export default UsersService

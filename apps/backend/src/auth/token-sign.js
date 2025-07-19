@@ -16,27 +16,20 @@
  * Copyright (C) 2025 David Llamas Román
  */
 
-/* eslint-disable no-undef */
-
 'use strict'
 
-import dotenv from 'dotenv'
+import jwt from 'jsonwebtoken'
+import config from '../../config/config'
 
-const env = process.env.NODE_ENV || 'development'
+const JWT_SECRET = config.jwtSecret
+const JWT_EXPIRES_IN = config.jwtExpiresIn
 
-dotenv.config({ path: `.${env}.env` })
-
-const config = {
-  env,
-  port: process.env.PORT || 3000,
-  dbName: process.env.MARIADB_DATABASE,
-  dbUser: process.env.MARIADB_USER,
-  dbPassword: process.env.MARIADB_PASSWORD,
-  dbHost: process.env.MARIADB_HOST,
-  dbPort: process.env.MARIADB_PORT,
-  apiKey: process.env.API_KEY,
-  jwtSecret: process.env.JWT_SECRET,
-  jwtExpiresIn: process.env.JWT_EXPIRES_IN,
+const signToken = (payload) => {
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN })
 }
 
-export default config
+const verifyToken = (token) => {
+  return jwt.verify(token, JWT_SECRET)
+}
+
+export { signToken, verifyToken }

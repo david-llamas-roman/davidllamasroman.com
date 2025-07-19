@@ -18,22 +18,29 @@
 
 'use strict'
 
-import express from 'express'
+import { Router } from 'express'
+import passport from 'passport'
+import { signToken } from '../token-sign'
 
-import dotenv from 'dotenv'
-dotenv.config()
+const router = Router()
+const ROOT = '/auth'
 
-import usersRouter from './routes/users.routes'
+router.post(
+  `${ROOT}/login`,
+  passport.authenticate('local', { session: false }, async (req, res, next) => {
+    try {
+      const user = req.user
+      const payload = {
+        sub: user.uuid,
+      }
+      const token = signToken(payload)
 
-const app = express()
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-
-app.use('/api', usersRouter)
-
-// eslint-disable-next-line no-undef
-const PORT = process.env.PORT || 3000
-
-app.listen(PORT, () => {
-  console.log(`\nServer: http://localhost:${PORT}`)
-})
+      res.json({
+        user,
+        token,
+      })
+    } catch (error) {
+      next(error)
+    }
+  }),
+)

@@ -18,30 +18,9 @@
 
 'use strict'
 
-import { User } from '../../db/models/user.model.cjs'
+import passport from 'passport'
+import LocalStrategy from './strategies/local.strategy'
+import JwtStrategy from './strategies/jwt.strategy'
 
-const UserDao = {
-  async findOneByEmail(email) {
-    return await User.findOne({ email })
-  },
-  async findOneByUuid(uuid) {
-    return await User.findOne({ uuid })
-  },
-  async create({ fullName, email, password }) {
-    return await User.create({ fullName, email, password })
-  },
-  async update(uuid, updateData) {
-    const [affectedRows, [updatedUser]] = await User.update(updateData, {
-      where: { uuid },
-      returning: true,
-    })
-
-    if (affectedRows === 0) {
-      return null
-    }
-
-    return updatedUser
-  },
-}
-
-export default UserDao
+passport.use(LocalStrategy)
+passport.use(JwtStrategy)
