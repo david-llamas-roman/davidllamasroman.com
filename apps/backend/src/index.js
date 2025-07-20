@@ -25,6 +25,7 @@ dotenv.config()
 
 import passport from 'passport'
 import './auth/index.js'
+import cookieParser from 'cookie-parser'
 
 import usersRouter from './routes/users.routes.js'
 
@@ -33,6 +34,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use(passport.initialize())
+app.use(cookieParser())
 app.use('/api', usersRouter)
 
 export default app

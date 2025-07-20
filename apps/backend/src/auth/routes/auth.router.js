@@ -20,27 +20,69 @@
 
 import { Router } from 'express'
 import passport from 'passport'
-import { signToken } from '../token-sign'
+import checkApiKey from '../../common/middlewares/checkApiKey.middleware.js'
+import config from '../../../config/config.js'
+import {
+  signAccessToken,
+  signRefreshToken,
+  verifyToken,
+} from '../token-sign.js'
 
 const router = Router()
 const ROOT = '/auth'
 
 router.post(
   `${ROOT}/login`,
+  checkApiKey,
   passport.authenticate('local', { session: false }, async (req, res, next) => {
     try {
       const user = req.user
       const payload = {
         sub: user.uuid,
       }
-      const token = signToken(payload)
 
-      res.json({
-        user,
-        token,
-      })
+      const accessToken = signAccessToken(payload)
+      const refreshToken = signRefreshToken(payload)
+
+      res
+        .cookie('auth-access-token', accessToken, {
+          httpOnly: true,
+          secure: config.env === 'production' || config.env === 'staging',
+          sameSite: 'strict',
+          maxAge: 15 * 60 * 1000 /* 15m */,
+        })
+        .cookie('auth-refresh-token', refreshToken, {
+          httpOnly: true,
+          secure: config.env === 'production' || config.env === 'staging',
+          sameSite: 'strict',
+          maxAge: 7 * 24 * 60 * 60 * 1000 /* 7d */,
+        })
+        .json({ user })
     } catch (error) {
       next(error)
     }
   }),
 )
+
+router.post(`${ROOT}/refresh`, checkApiKey, (req, res, next) => {
+  const refreshToken = req.cookies['auth-refresh-token']
+  if (!refreshToken) {
+    return res.status(401).json({ message: 'No refresh token' })
+  }
+
+  try {
+    const payload = verifyToken(refreshToken)
+    const newAccessToken = signAccessToken(payload)
+
+    res
+      .cookie('auth-access-token', newAccessToken, {
+        httpOnly: true,
+        secure: config.env === 'production' || config.env === 'staging',
+        sameSite: 'strict',
+        maxAge: 15 * 60 * 1000 /* 15m */,
+      })
+      .json({ ok: true })
+  } catch (error) {
+    next(error)
+  }
+})

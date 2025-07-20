@@ -24,7 +24,8 @@ import UserController from '../controllers/user'
 import validateSchema from '../middlewares/validateSchema'
 import { CreateUserDto, UpdateUserDto } from '../dtos/user.dtos'
 import { UuidParamDto } from '../dtos/params.dtos'
-import { checkApiKey } from '../../auth/middlewares/auth.handler'
+import checkApiKey from '../../common/middlewares/checkApiKey.middleware'
+import passport from 'passport'
 
 const router = Router()
 const ROOT = '/users'
@@ -32,6 +33,7 @@ const ROOT = '/users'
 router.post(
   ROOT,
   checkApiKey,
+  passport.authenticate('jwt', { session: false }),
   validateSchema(CreateUserDto, 'body'),
   UserController.create,
 )
@@ -39,6 +41,7 @@ router.post(
 router.put(
   `${ROOT}/:uuid`,
   checkApiKey,
+  passport.authenticate('jwt', { session: false }),
   validateSchema(UuidParamDto, 'params'),
   validateSchema(UpdateUserDto, 'body'),
   UserController.update,

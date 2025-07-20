@@ -18,13 +18,13 @@
 
 'use strict'
 
-import { Strategy, ExtractJwt } from 'passport-jwt'
+import { Strategy } from 'passport-jwt'
 import boom from '@hapi/boom'
 import config from '../../../config/config'
 import UsersService from '../../users/services/users.service'
 
 const options = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  jwtFromRequest: (req) => req.cookies?.['auth-access-token'],
   secretOrKey: config.jwtSecret,
 }
 

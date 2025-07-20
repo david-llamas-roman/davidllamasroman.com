@@ -22,14 +22,19 @@ import jwt from 'jsonwebtoken'
 import config from '../../config/config'
 
 const JWT_SECRET = config.jwtSecret
-const JWT_EXPIRES_IN = config.jwtExpiresIn
+const JWT_ACCESS_EXPIRES_IN = config.jwtAccessExpiresIn
+const JWT_REFRESH_EXPIRES_IN = config.jwtRefreshExpiresIn
 
-const signToken = (payload) => {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN })
+const signAccessToken = (payload) => {
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_ACCESS_EXPIRES_IN })
+}
+
+const signRefreshToken = (payload) => {
+  jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_REFRESH_EXPIRES_IN })
 }
 
 const verifyToken = (token) => {
   return jwt.verify(token, JWT_SECRET)
 }
 
-export { signToken, verifyToken }
+export { signAccessToken, signRefreshToken, verifyToken }

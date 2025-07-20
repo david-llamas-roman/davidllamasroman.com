@@ -31,4 +31,4 @@ const checkApiKey = (req, res, next) => {
   }
 }
 
-export { checkApiKey }
+export default checkApiKey
