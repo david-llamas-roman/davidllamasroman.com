@@ -16,13 +16,25 @@
  * Copyright (C) 2025 David Llamas Román
  */
 
+/* eslint-disable no-undef */
+
 'use strict'
 
+import http from 'http'
+import config from '../config/config.js'
 import app from './index.js'
+import logger from './logger.js'
+import { WebSocketServer } from 'ws'
+import WebSocketRouter from './ws/index.js'
 
-// eslint-disable-next-line no-undef
-const PORT = process.env.PORT || 3000
+const PORT = config.port || 3000
+const NODE_ENV = config.env || 'development'
 
-app.listen(PORT, () => {
-  console.log(`\nServer: http://localhost:${PORT}`)
+const server = http.createServer(app)
+
+const wss = new WebSocketServer({ server })
+WebSocketRouter.setup(wss)
+
+server.listen(PORT, () => {
+  logger.info(`Server running on http://localhost:${PORT} [${NODE_ENV}]`)
 })

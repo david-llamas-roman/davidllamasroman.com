@@ -20,21 +20,18 @@
 
 import express from 'express'
 
-import dotenv from 'dotenv'
-dotenv.config()
-
 import passport from 'passport'
 import './auth/index.js'
 import cookieParser from 'cookie-parser'
 
-import usersRouter from './routes/users.routes.js'
+import usersRouter from './users/routes/users.router.js'
 
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
-app.use(passport.initialize())
 app.use(cookieParser())
+app.use(passport.initialize())
+
 app.use('/api', usersRouter)
 
 export default app
