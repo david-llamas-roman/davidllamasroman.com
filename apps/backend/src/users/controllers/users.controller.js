@@ -18,8 +18,8 @@
 
 'use strict'
 
-import { CreateUserDto, UpdateUserDto } from '../dtos/user.dtos'
-import UsersService from '../services/users.service'
+import { CreateUserDto, UpdateUserDto } from '../dtos/user.dtos.js'
+import UsersService from '../services/users.service.js'
 
 const UsersController = {
   async create(req, res) {

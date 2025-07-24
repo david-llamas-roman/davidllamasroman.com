@@ -19,7 +19,7 @@
 'use strict'
 
 import bcrypt from 'bcrypt'
-import UserRepository from '../repositories/user.repository'
+import UserRepository from '../repositories/user.repository.js'
 
 const UsersService = {
   async _findOneByEmail(email) {

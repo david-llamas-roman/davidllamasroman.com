@@ -19,12 +19,11 @@
 'use strict'
 
 import { Router } from 'express'
-import UserController from '../controllers/user'
-
-import validateSchema from '../middlewares/validateSchema'
-import { CreateUserDto, UpdateUserDto } from '../dtos/user.dtos'
-import { UuidParamDto } from '../dtos/params.dtos'
-import checkApiKey from '../../common/middlewares/checkApiKey.middleware'
+import UserController from '../controllers/users.controller.js'
+import validateSchema from '../../common/middlewares/validateSchema.middleware.js'
+import { CreateUserDto, UpdateUserDto } from '../dtos/user.dtos.js'
+import { UuidParamDto } from '../../common/dtos/params.dtos.js'
+import checkApiKey from '../../common/middlewares/checkApiKey.middleware.js'
 import passport from 'passport'
 
 const router = Router()
@@ -33,7 +32,6 @@ const ROOT = '/users'
 router.post(
   ROOT,
   checkApiKey,
-  passport.authenticate('jwt', { session: false }),
   validateSchema(CreateUserDto, 'body'),
   UserController.create,
 )

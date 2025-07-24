@@ -18,7 +18,7 @@
 
 'use strict'
 
-import { User } from '../../db/models/user.model.cjs'
+import { User } from '../../../db/models/user.model.cjs'
 
 const UserRepository = {
   async findOneByEmail(email) {
