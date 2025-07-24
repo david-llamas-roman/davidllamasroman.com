@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "main": "./src/app.js",
+  "main": "./src/server.js",
   "scripts": {
-    "start:dev": "NODE_ENV=development node --watch ./src/app.js",
-    "start:staging": "NODE_ENV=staging node ./src/app.js",
-    "start:prod": "NODE_ENV=production node ./src/app.js",
+    "start:dev": "NODE_ENV=development node --watch ./src/server.js",
+    "start:staging": "NODE_ENV=staging node ./src/server.js",
+    "start:prod": "NODE_ENV=production node ./src/server.js",
     "start:dev:db": "COMPOSE_PROJECT_NAME=dlr-dev docker compose --env-file ./.development.env up -d",
     "stop:dev:db": "COMPOSE_PROJECT_NAME=dlr-dev docker compose --env-file ./.development.env down",
     "migrations:generate": "sequelize-cli migration:generate --name",
@@ -31,6 +31,9 @@
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "sequelize": "^6.37.7",
+    "systeminformation": "^5.27.7",
+    "winston": "^3.17.0",
+    "ws": "^8.18.3",
     "zod": "^4.0.5"
   },
   "devDependencies": {
