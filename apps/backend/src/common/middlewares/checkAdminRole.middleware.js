@@ -18,30 +18,15 @@
 
 'use strict'
 
-import { Strategy } from 'passport-jwt'
 import boom from '@hapi/boom'
-import config from '../../../config/config.js'
-import UsersService from '../../users/services/users.service.js'
 
-const options = {
-  jwtFromRequest: (req) => req.cookies?.['auth-access-token'],
-  secretOrKey: config.jwtSecret,
+const checkAdminRole = (req, res, next) => {
+  const user = req.user
+  if (user.role === 'admin') {
+    next()
+  } else {
+    next(boom.unauthorized())
+  }
 }
 
-const JwtStrategy = new Strategy(options, async (payload, done) => {
-  try {
-    const user = await UsersService.findOneByUuid(payload.sub)
-    if (!user) {
-      done(boom.unauthorized(), false)
-    }
-
-    // eslint-disable-next-line no-unused-vars
-    const { password: _, ...userSafe } = user.toJSON()
-
-    done(null, userSafe)
-  } catch (error) {
-    done(error, false)
-  }
-})
-
-export default JwtStrategy
+export default checkAdminRole

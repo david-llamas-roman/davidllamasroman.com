@@ -27,6 +27,7 @@ import {
   signRefreshToken,
   verifyToken,
 } from '../token-sign.js'
+import boom from '@hapi/boom'
 
 const router = Router()
 const ROOT = '/auth'
@@ -39,6 +40,7 @@ router.post(
       const user = req.user
       const payload = {
         sub: user.uuid,
+        role: user.role,
       }
 
       const accessToken = signAccessToken(payload)
@@ -67,7 +69,7 @@ router.post(
 router.post(`${ROOT}/refresh`, checkApiKey, (req, res, next) => {
   const refreshToken = req.cookies['auth-refresh-token']
   if (!refreshToken) {
-    return res.status(401).json({ message: 'No refresh token' })
+    next(boom.unauthorized())
   }
 
   try {

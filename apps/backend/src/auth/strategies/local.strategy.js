@@ -19,7 +19,7 @@
 'use strict'
 
 import { Strategy } from 'passport-local'
-import UsersService from '../../users/services/users.service'
+import UsersService from '../../users/services/users.service.js'
 import boom from '@hapi/boom'
 import bcrypt from 'bcrypt'
 

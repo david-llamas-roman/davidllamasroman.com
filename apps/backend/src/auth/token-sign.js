@@ -19,7 +19,7 @@
 'use strict'
 
 import jwt from 'jsonwebtoken'
-import config from '../../config/config'
+import config from '../../config/config.js'
 
 const JWT_SECRET = config.jwtSecret
 const JWT_ACCESS_EXPIRES_IN = config.jwtAccessExpiresIn
