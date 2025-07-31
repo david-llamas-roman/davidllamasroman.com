@@ -45,7 +45,6 @@ const SystemService = {
         usage: load.currentLoad.toFixed(2),
       },
       wifi: net.map((wifi) => ({
-        ssid: wifi.ssid,
         signalLevel: wifi.signalLevel,
         quality: wifi.quality,
         channel: wifi.channel,
