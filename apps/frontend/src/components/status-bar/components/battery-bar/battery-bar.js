@@ -18,8 +18,8 @@
 
 'use strict '
 
-import { getBatteryPercent } from '../../../../../utils/formatters.js'
-import logger from '../../../../../utils/logger.js'
+import { getBatteryPercent } from '../../../../services/systemDataService.js'
+import logger from '../../../../utils/logger.js'
 
 class batteryBar extends HTMLElement {
   constructor() {
@@ -35,10 +35,11 @@ class batteryBar extends HTMLElement {
     template.innerHTML = `
       ${this.getStyles()}
       <article class="battery">
-        <input class="battery__bar" type="range" min=0 max=100 value=0 disabled />
-        ${showPercentage ? `<label class="percentage">${level}%</label>` : ''}
+        <input id="battery__bar" type="range" min=0 max=100 value=0 disabled />
+        ${showPercentage ? `<label class="percentage" for="battery__bar">${level}%</label>` : ''}
       </article>
     `
+
     return template
   }
 
@@ -50,7 +51,7 @@ class batteryBar extends HTMLElement {
           align-items: center;
           gap: 0.25rem;
 
-          .battery__bar {
+          #battery__bar {
               -webkit-appearance: none;
               -moz-appearance: none;
 
@@ -115,7 +116,7 @@ class batteryBar extends HTMLElement {
   }
 
   updateLevel(level) {
-    const bar = this.shadowRoot.querySelector('.battery__bar')
+    const bar = this.shadowRoot.querySelector('#battery__bar')
     const label = this.shadowRoot.querySelector('.percentage')
 
     if (bar) {
