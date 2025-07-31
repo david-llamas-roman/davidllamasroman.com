@@ -18,8 +18,6 @@
 
 'use strict'
 
-import logger from './logger.js'
-
 const getFormattedDate = (date = new Date()) => {
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   const months = [
@@ -46,49 +44,11 @@ const getFormattedDate = (date = new Date()) => {
   return `${dayName} ${dayNumber} ${monthName} ${hours}:${minutes}`
 }
 
-const subscribeSystemData = (onData) => {
-  const wsUrl = import.meta.env.VITE_WS_URL
+const getHoursMinutes = (date = new Date()) => {
+  const hours = date.getHours().toString().padStart(2, '0')
+  const minutes = date.getMinutes().toString().padStart(2, '0')
 
-  if (!wsUrl) {
-    logger.error('[getBattery] WebSocket url not defined (VITE_WS_URL)')
-    return
-  }
-
-  const socket = new WebSocket(wsUrl)
-
-  socket.addEventListener('open', () => {
-    logger.log('[getBattery] WebSocket connected')
-    socket.send(JSON.stringify({ type: 'system:subscribe' }))
-  })
-
-  socket.addEventListener('message', (event) => {
-    try {
-      const { type, payload } = JSON.parse(event.data)
-
-      if (type === 'system:update') {
-        onData(payload)
-      }
-    } catch (error) {
-      logger.error('[getBattery] Failed to parse message:', error)
-    }
-  })
-
-  socket.addEventListener('error', (event) => {
-    logger.error('[getBattery] WebSocket error:', event)
-  })
-
-  socket.addEventListener('close', () => {
-    logger.warn('[getBattery] WebSocket closed')
-  })
-
-  return socket
+  return `${hours}:${minutes}`
 }
 
-const getBatteryPercent = (onUpdate) => {
-  return subscribeSystemData((payload) => {
-    const level = payload?.battery?.percent ?? 0
-    onUpdate?.(Math.round(level))
-  })
-}
-
-export { getFormattedDate, getBatteryPercent }
+export { getFormattedDate, getHoursMinutes }
