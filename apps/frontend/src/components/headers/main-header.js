@@ -18,17 +18,17 @@
 
 'use strict'
 
-class mainHeader extends HTMLElement {
+import BaseComponent from '../base-component.js'
+
+class MainHeader extends BaseComponent {
   constructor() {
     super()
 
-    this.attachShadow({ mode: 'open' })
-
     this.mediaQuery = window.matchMedia('(max-width: 1024px)')
-    this.handleResize = this.handleResize.bind(this)
+    this._handleResize = () => this.#handleResize()
   }
 
-  getTemplate() {
+  #getTemplate() {
     const template = document.createElement('template')
     const isMobile = this.mediaQuery.matches
 
@@ -40,22 +40,27 @@ class mainHeader extends HTMLElement {
   }
 
   render() {
-    this.shadowRoot.innerHTML = ''
-    this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true))
+    const sheets = this.shadowRoot.adoptedStyleSheets
+
+    this.shadowRoot.replaceChildren()
+
+    this.shadowRoot.adoptedStyleSheets = sheets
+
+    this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
   }
 
   connectedCallback() {
     this.render()
-    this.mediaQuery.addEventListener('change', this.handleResize)
+    this.mediaQuery.addEventListener('change', this._handleResize)
   }
 
   disconnectedCallback() {
-    this.mediaQuery.removeEventListener('change', this.handleResize)
+    this.mediaQuery.removeEventListener('change', this._handleResize)
   }
 
-  handleResize() {
+  #handleResize() {
     this.render()
   }
 }
 
-customElements.define('main-header', mainHeader)
+customElements.define('main-header', MainHeader)

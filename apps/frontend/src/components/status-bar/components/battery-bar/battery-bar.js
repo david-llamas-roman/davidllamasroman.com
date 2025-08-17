@@ -20,20 +20,19 @@
 
 import { getBatteryPercent } from '../../../../services/systemDataService.js'
 import logger from '../../../../utils/logger.js'
+import BaseComponent from '../../../base-component.js'
 
-class batteryBar extends HTMLElement {
+class BatteryBar extends BaseComponent {
   constructor() {
     super()
-
-    this.attachShadow({ mode: 'open' })
   }
 
-  getTemplate(level) {
+  #getTemplate(level) {
     const template = document.createElement('template')
     const showPercentage = this.hasAttribute('percentage')
 
     template.innerHTML = `
-      ${this.getStyles()}
+      ${this.#getStyles()}
       <article class="battery">
         <input id="battery__bar" type="range" min=0 max=100 value=0 disabled />
         ${showPercentage ? `<label class="percentage" for="battery__bar">${level}%</label>` : ''}
@@ -43,24 +42,25 @@ class batteryBar extends HTMLElement {
     return template
   }
 
-  getStyles() {
+  #getStyles() {
     return `
       <style>
         .battery {
           display: flex;
           align-items: center;
-          gap: 0.25rem;
+          gap: 0.5rem;
 
           #battery__bar {
               -webkit-appearance: none;
               -moz-appearance: none;
 
-              width: 30px;
-              height: 15px;
-              
-              background: lightgray;
+              width: 20px;
+              height: 11.5px;
+
+              background: transparent;
               
               outline: none;
+              border: 2px solid var(--light-blue, #6b79a4);
               border-radius: 4px;
               
               cursor: default;
@@ -104,6 +104,10 @@ class batteryBar extends HTMLElement {
               pointer-events: none;
             }
           }
+
+          & label {
+            font-size: 0.9rem;
+          }
         }
       </style>
     `
@@ -111,17 +115,25 @@ class batteryBar extends HTMLElement {
 
   async render(level = 0) {
     logger.debug('[battery-bar] Rendering initial markup...')
-    this.shadowRoot.innerHTML = ''
-    this.shadowRoot.appendChild(this.getTemplate(level).content.cloneNode(true))
+
+    const sheets = this.shadowRoot.adoptedStyleSheets
+
+    this.shadowRoot.replaceChildren()
+
+    this.shadowRoot.adoptedStyleSheets = sheets
+
+    this.shadowRoot.appendChild(
+      this.#getTemplate(level).content.cloneNode(true),
+    )
   }
 
-  updateLevel(level) {
+  #updateLevel(level) {
     const bar = this.shadowRoot.querySelector('#battery__bar')
     const label = this.shadowRoot.querySelector('.percentage')
 
     if (bar) {
-      const color = 'limegreen'
-      bar.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${level}%, lightgray ${level}%, lightgray 100%)`
+      const color = 'var(--light-blue, #6b79a4)'
+      bar.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${level}%, transparent ${level}%, transparent 100%)`
     }
 
     if (label) {
@@ -134,9 +146,9 @@ class batteryBar extends HTMLElement {
     this.render(0)
     getBatteryPercent((level) => {
       logger.info(`[battery-bar] Battery update: ${level}%`)
-      this.updateLevel(level)
+      this.#updateLevel(level)
     })
   }
 }
 
-customElements.define('battery-bar', batteryBar)
+customElements.define('battery-bar', BatteryBar)

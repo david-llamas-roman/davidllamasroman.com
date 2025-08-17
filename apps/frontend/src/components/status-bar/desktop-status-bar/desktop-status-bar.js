@@ -18,17 +18,17 @@
 
 'use strict'
 
-class desktopStatusBar extends HTMLElement {
+import BaseComponent from '../../base-component'
+
+class DesktopStatusBar extends BaseComponent {
   constructor() {
     super()
-
-    this.attachShadow({ mode: 'open' })
   }
 
-  getTemplate() {
+  #getTemplate() {
     const template = document.createElement('template')
     template.innerHTML = `
-      ${this.getStyles()}
+      ${this.#getStyles()}
       <article class="bar">
         <ram-usage></ram-usage>
         <cpu-usage></cpu-usage>
@@ -38,7 +38,7 @@ class desktopStatusBar extends HTMLElement {
     return template
   }
 
-  getStyles() {
+  #getStyles() {
     return `
       <style>
         .bar {
@@ -51,7 +51,13 @@ class desktopStatusBar extends HTMLElement {
   }
 
   render() {
-    this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true))
+    const sheets = this.shadowRoot.adoptedStyleSheets
+
+    this.shadowRoot.replaceChildren()
+
+    this.shadowRoot.adoptedStyleSheets = sheets
+
+    this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
   }
 
   connectedCallback() {
@@ -59,4 +65,4 @@ class desktopStatusBar extends HTMLElement {
   }
 }
 
-customElements.define('desktop-status-bar', desktopStatusBar)
+customElements.define('desktop-status-bar', DesktopStatusBar)

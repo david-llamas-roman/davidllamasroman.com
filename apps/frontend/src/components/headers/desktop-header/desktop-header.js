@@ -20,20 +20,21 @@
 
 import clock from '../../../utils/clock.js'
 import { getFormattedDate } from '../../../utils/formatters.js'
+import BaseComponent from '../../base-component.js'
 
-class desktopHeader extends HTMLElement {
+class DesktopHeader extends BaseComponent {
   constructor() {
     super()
 
-    this.attachShadow({ mode: 'open' })
-    this._onTick = this._onTick.bind(this)
+    this._onTick = (event) => this.#onTick(event)
   }
 
-  getTemplate() {
+  #getTemplate() {
     const template = document.createElement('template')
     template.innerHTML = `
-      ${this.getStyles()}
+      ${this.#getStyles()}
       <header class="header">
+        <twm-workspaces></twm-workspaces>
         <p class="header__text">${getFormattedDate()}</p>
         <status-bar desktop></status-bar>
       </header>
@@ -41,20 +42,43 @@ class desktopHeader extends HTMLElement {
     return template
   }
 
-  getStyles() {
+  #getStyles() {
     return `
       <style>
         .header {
+          position: relative;
+
           display: flex;
           justify-content: space-between;
           align-items: center;
+
+          padding: 0.5rem 1.5rem;
+
+          background-image: linear-gradient(var(--black, #000), var(--dark-blue, #020109));
+          color: var(--white, #fff);
+
+          border-bottom: 1px solid var(--light-white, rgba(255, 255, 255, 0.05));
+
+          .header__text {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+
+            font-size: 0.9rem;
+          }
         }
       </style>
     `
   }
 
   render() {
-    this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true))
+    const sheets = this.shadowRoot.adoptedStyleSheets
+
+    this.shadowRoot.replaceChildren()
+
+    this.shadowRoot.adoptedStyleSheets = sheets
+
+    this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
 
     this.p = this.shadowRoot.querySelector('p')
   }
@@ -68,7 +92,7 @@ class desktopHeader extends HTMLElement {
     clock.removeEventListener('tick', this._onTick)
   }
 
-  _onTick(event) {
+  #onTick(event) {
     const date = event?.detail ?? new Date()
     if (this.p) {
       this.p.textContent = getFormattedDate(date)
@@ -76,4 +100,4 @@ class desktopHeader extends HTMLElement {
   }
 }
 
-customElements.define('desktop-header', desktopHeader)
+customElements.define('desktop-header', DesktopHeader)

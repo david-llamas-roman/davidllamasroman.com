@@ -18,43 +18,15 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import globalStyles from '../styles/globalStyles.js'
 
-class MobileStatusBar extends BaseComponent {
+class BaseComponent extends HTMLElement {
   constructor() {
     super()
-  }
 
-  #getTemplate() {
-    const template = document.createElement('template')
-    template.innerHTML = `
-      ${this.#getStyles()}
-      <article class="bar">
-        <battery-bar></battery-bar>
-      </article>
-    `
-    return template
-  }
-
-  #getStyles() {
-    return `
-      <style></style>
-    `
-  }
-
-  render() {
-    const sheets = this.shadowRoot.adoptedStyleSheets
-
-    this.shadowRoot.replaceChildren()
-
-    this.shadowRoot.adoptedStyleSheets = sheets
-
-    this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
-  }
-
-  connectedCallback() {
-    this.render()
+    this.attachShadow({ mode: 'open' })
+    this.shadowRoot.adoptedStyleSheets = [globalStyles]
   }
 }
 
-customElements.define('mobile-status-bar', MobileStatusBar)
+export default BaseComponent

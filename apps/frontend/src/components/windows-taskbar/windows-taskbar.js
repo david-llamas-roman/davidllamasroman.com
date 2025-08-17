@@ -18,43 +18,58 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../base-component'
 
-class MobileStatusBar extends BaseComponent {
+class windowsTaskbar extends BaseComponent {
   constructor() {
     super()
+
+    this.mediaQuery = window.matchMedia('(max-width: 1024px)')
+    this._handleResize = () => this.#handleResize()
   }
 
   #getTemplate() {
     const template = document.createElement('template')
+
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="bar">
-        <battery-bar></battery-bar>
-      </article>
     `
+
     return template
   }
 
   #getStyles() {
-    return `
-      <style></style>
-    `
+    return `<style></style>`
   }
 
   render() {
-    const sheets = this.shadowRoot.adoptedStyleSheets
+    if (this.mediaQuery.matches) {
+      this.style.display = 'block'
 
-    this.shadowRoot.replaceChildren()
+      const sheets = this.shadowRoot.adoptedStyleSheets
 
-    this.shadowRoot.adoptedStyleSheets = sheets
+      this.shadowRoot.replaceChildren()
 
-    this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
+      this.shadowRoot.adoptedStyleSheets = sheets
+
+      this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
+    } else {
+      this.style.display = 'none'
+    }
   }
 
   connectedCallback() {
     this.render()
+    this.mediaQuery.addEventListener('change', this._handleResize)
+  }
+
+  disconnectedCallback() {
+    this.mediaQuery.removeEventListener('change', this._handleResize)
+  }
+
+  #handleResize() {
+    this.render()
   }
 }
 
-customElements.define('mobile-status-bar', MobileStatusBar)
+customElements.define('windows-taskbar', windowsTaskbar)

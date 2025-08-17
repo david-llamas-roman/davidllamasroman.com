@@ -18,43 +18,24 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseApp from '../base-app'
 
-class MobileStatusBar extends BaseComponent {
+class VsCode extends BaseApp {
   constructor() {
     super()
   }
 
-  #getTemplate() {
-    const template = document.createElement('template')
-    template.innerHTML = `
-      ${this.#getStyles()}
-      <article class="bar">
-        <battery-bar></battery-bar>
-      </article>
-    `
-    return template
-  }
-
-  #getStyles() {
-    return `
-      <style></style>
-    `
-  }
-
-  render() {
-    const sheets = this.shadowRoot.adoptedStyleSheets
-
-    this.shadowRoot.replaceChildren()
-
-    this.shadowRoot.adoptedStyleSheets = sheets
-
-    this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
-  }
-
   connectedCallback() {
-    this.render()
+    super.connectedCallback()
+    this.#setupCodeEditor()
+  }
+
+  #setupCodeEditor() {
+    const app = this.getAppContainer()
+
+    app.innerHTML = `
+    `
   }
 }
 
-customElements.define('mobile-status-bar', MobileStatusBar)
+customElements.define('vs-code', VsCode)

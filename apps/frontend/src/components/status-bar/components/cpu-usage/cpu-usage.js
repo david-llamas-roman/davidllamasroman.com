@@ -20,20 +20,19 @@
 
 import { getCpuUsagePercentage } from '../../../../services/systemDataService.js'
 import logger from '../../../../utils/logger.js'
+import BaseComponent from '../../../base-component.js'
 
-class cpuUsage extends HTMLElement {
+class CpuUsage extends BaseComponent {
   constructor() {
     super()
-
-    this.attachShadow({ mode: 'open' })
   }
 
-  getTemplate(percentage) {
+  #getTemplate(percentage) {
     const template = document.createElement('template')
 
     template.innerHTML = `
-      ${this.getStyles()}
-      <article>
+      ${this.#getStyles()}
+      <article class="cpu">
         <label class="percentage">${percentage}%</label>
       </article>
     `
@@ -41,19 +40,33 @@ class cpuUsage extends HTMLElement {
     return template
   }
 
-  getStyles() {
-    return `<style></style>`
+  #getStyles() {
+    return `
+      <style>
+        .cpu {
+          .percentage {
+            font-size: 0.9rem;
+          }
+        }
+      </style>
+    `
   }
 
   async render(percentage = 0) {
     logger.debug('[cpu-usage] Rendering initial markup...')
-    this.shadowRoot.innerHTML = ''
+
+    const sheets = this.shadowRoot.adoptedStyleSheets
+
+    this.shadowRoot.replaceChildren()
+
+    this.shadowRoot.adoptedStyleSheets = sheets
+
     this.shadowRoot.appendChild(
-      this.getTemplate(percentage).content.cloneNode(true),
+      this.#getTemplate(percentage).content.cloneNode(true),
     )
   }
 
-  updatePercentage(percentage) {
+  #updatePercentage(percentage) {
     const label = this.shadowRoot.querySelector('.percentage')
 
     if (label) {
@@ -66,9 +79,9 @@ class cpuUsage extends HTMLElement {
     this.render(0)
     getCpuUsagePercentage((percentage) => {
       logger.info(`[cpu-usage] Cpu usage update: ${percentage}`)
-      this.updatePercentage(percentage)
+      this.#updatePercentage(percentage)
     })
   }
 }
 
-customElements.define('cpu-usage', cpuUsage)
+customElements.define('cpu-usage', CpuUsage)

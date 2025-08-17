@@ -35,7 +35,7 @@ const getFormattedDate = (date = new Date()) => {
     'Dec',
   ]
 
-  const dayName = days[date.getDay() - 1]
+  const dayName = days[(date.getDay() + 6) % 7]
   const dayNumber = date.getDate().toString().padStart(2, '0')
   const monthName = months[date.getMonth()]
   const hours = date.getHours().toString().padStart(2, '0')

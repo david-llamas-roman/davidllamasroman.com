@@ -18,34 +18,33 @@
 
 'use strict'
 
-class statusBar extends HTMLElement {
+import BaseComponent from '../base-component'
+
+class StatusBar extends BaseComponent {
   constructor() {
     super()
-
-    this.attachShadow({ mode: 'open' })
   }
 
-  getTemplate() {
+  #getTemplate() {
     const template = document.createElement('template')
     const isDesktop = this.hasAttribute('desktop')
     const isMobile = this.hasAttribute('mobile')
 
     template.innerHTML = `
-      ${this.getStyles()}
       ${isDesktop ? '<desktop-status-bar></desktop-status-bar>' : ''}
       ${isMobile ? '<mobile-status-bar></mobile-status-bar>' : ''}
     `
     return template
   }
 
-  getStyles() {
-    return `
-      <style></style>
-    `
-  }
-
   render() {
-    this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true))
+    const sheets = this.shadowRoot.adoptedStyleSheets
+
+    this.shadowRoot.replaceChildren()
+
+    this.shadowRoot.adoptedStyleSheets = sheets
+
+    this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
   }
 
   connectedCallback() {
@@ -53,4 +52,4 @@ class statusBar extends HTMLElement {
   }
 }
 
-customElements.define('status-bar', statusBar)
+customElements.define('status-bar', StatusBar)

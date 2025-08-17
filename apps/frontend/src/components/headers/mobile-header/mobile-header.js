@@ -20,19 +20,20 @@
 
 import clock from '../../../utils/clock.js'
 import { getHoursMinutes } from '../../../utils/formatters.js'
+import BaseComponent from '../../base-component.js'
 
-class mobileHeader extends HTMLElement {
+class MobileHeader extends BaseComponent {
   constructor() {
     super()
 
-    this.attachShadow({ mode: 'open' })
+    this._onTick = (event) => this.#onTick(event)
   }
 
-  getTemplate() {
+  #getTemplate() {
     const template = document.createElement('template')
 
     template.innerHTML = `
-      ${this.getStyles()}
+      ${this.#getStyles()}
       <header class="header">
         <p class="header__text">${getHoursMinutes()}</p>
         <status-bar mobile></status-bar>
@@ -42,14 +43,20 @@ class mobileHeader extends HTMLElement {
     return template
   }
 
-  getStyles() {
+  #getStyles() {
     return `
       <style></style>
     `
   }
 
   render() {
-    this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true))
+    const sheets = this.shadowRoot.adoptedStyleSheets
+
+    this.shadowRoot.replaceChildren()
+
+    this.shadowRoot.adoptedStyleSheets = sheets
+
+    this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
 
     this.p = this.shadowRoot.querySelector('p')
   }
@@ -63,7 +70,7 @@ class mobileHeader extends HTMLElement {
     clock.removeEventListener('tick', this._onTick)
   }
 
-  _onTick(event) {
+  #onTick(event) {
     const date = event?.detail ?? new Date()
 
     if (this.p) {
@@ -72,4 +79,4 @@ class mobileHeader extends HTMLElement {
   }
 }
 
-customElements.define('mobile-header', mobileHeader)
+customElements.define('mobile-header', MobileHeader)

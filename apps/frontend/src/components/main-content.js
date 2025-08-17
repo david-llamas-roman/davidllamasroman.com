@@ -18,28 +18,25 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from './base-component.js'
 
-class MobileStatusBar extends BaseComponent {
+class MainContent extends BaseComponent {
   constructor() {
     super()
+
+    this.mediaQuery = window.matchMedia('(max-width: 1024px)')
+    this._handleResize = () => this.#handleResize()
   }
 
   #getTemplate() {
     const template = document.createElement('template')
-    template.innerHTML = `
-      ${this.#getStyles()}
-      <article class="bar">
-        <battery-bar></battery-bar>
-      </article>
-    `
-    return template
-  }
+    const isMobile = this.mediaQuery.matches
 
-  #getStyles() {
-    return `
-      <style></style>
+    template.innerHTML = `
+      ${isMobile ? '' : '<tiling-window-manager></tiling-window-manager>'}
     `
+
+    return template
   }
 
   render() {
@@ -54,7 +51,16 @@ class MobileStatusBar extends BaseComponent {
 
   connectedCallback() {
     this.render()
+    this.mediaQuery.addEventListener('change', this._handleResize)
+  }
+
+  disconnectedCallback() {
+    this.mediaQuery.removeEventListener('change', this._handleResize)
+  }
+
+  #handleResize() {
+    this.render()
   }
 }
 
-customElements.define('mobile-status-bar', MobileStatusBar)
+customElements.define('main-content', MainContent)

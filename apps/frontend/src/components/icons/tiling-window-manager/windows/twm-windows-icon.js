@@ -18,27 +18,50 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../../../base-component.js'
 
-class MobileStatusBar extends BaseComponent {
+class TwmWindowsIcon extends BaseComponent {
   constructor() {
     super()
   }
 
   #getTemplate() {
     const template = document.createElement('template')
+
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="bar">
-        <battery-bar></battery-bar>
+      <article class="windows">
+        <div class="windows__part"></div>
+        <div class="windows__part"></div>
+        <div class="windows__part"></div>
+        <div class="windows__part"></div>
       </article>
     `
+
     return template
   }
 
   #getStyles() {
     return `
-      <style></style>
+      <style>
+        .windows {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gris-template-rows: repeat(2, 1fr);
+          gap: 0.05rem;
+
+          width: 0.95rem;
+          aspect-ratio: 1/1;
+
+          background-color: transparent;
+
+          transform: perspective(20px) rotateY(-15deg);
+
+          .windows__part {
+            background-color: var(--light-blue, #6b79a4);
+          }
+        }
+      </style>
     `
   }
 
@@ -57,4 +80,4 @@ class MobileStatusBar extends BaseComponent {
   }
 }
 
-customElements.define('mobile-status-bar', MobileStatusBar)
+customElements.define('twm-windows-icon', TwmWindowsIcon)

@@ -20,20 +20,19 @@
 
 import { getRamUsagePercentage } from '../../../../services/systemDataService.js'
 import logger from '../../../../utils/logger.js'
+import BaseComponent from '../../../base-component.js'
 
-class ramUsage extends HTMLElement {
+class RamUsage extends BaseComponent {
   constructor() {
     super()
-
-    this.attachShadow({ mode: 'open' })
   }
 
-  getTemplate(percentage) {
+  #getTemplate(percentage) {
     const template = document.createElement('template')
 
     template.innerHTML = `
-      ${this.getStyles()}
-      <article>
+      ${this.#getStyles()}
+      <article class="ram">
         <label class="percentage">${percentage}%</label>
       </article>
     `
@@ -41,19 +40,33 @@ class ramUsage extends HTMLElement {
     return template
   }
 
-  getStyles() {
-    return `<style></style>`
+  #getStyles() {
+    return `
+      <style>
+        .ram {
+          .percentage {
+            font-size: 0.9rem;
+          }
+        }
+      </style>
+    `
   }
 
   async render(percentage = 0) {
     logger.debug('[ram-usage] Rendering initial markup...')
-    this.shadowRoot.innerHTML = ''
+
+    const sheets = this.shadowRoot.adoptedStyleSheets
+
+    this.shadowRoot.replaceChildren()
+
+    this.shadowRoot.adoptedStyleSheets = sheets
+
     this.shadowRoot.appendChild(
-      this.getTemplate(percentage).content.cloneNode(true),
+      this.#getTemplate(percentage).content.cloneNode(true),
     )
   }
 
-  updatePercentage(percentage) {
+  #updatePercentage(percentage) {
     const label = this.shadowRoot.querySelector('.percentage')
     percentage
     if (label) {
@@ -66,9 +79,9 @@ class ramUsage extends HTMLElement {
     this.render(0)
     getRamUsagePercentage((percentage) => {
       logger.info(`[ram-usage] Ram usage update: ${percentage}`)
-      this.updatePercentage(percentage)
+      this.#updatePercentage(percentage)
     })
   }
 }
 
-customElements.define('ram-usage', ramUsage)
+customElements.define('ram-usage', RamUsage)

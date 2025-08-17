@@ -15,30 +15,37 @@
  *
  * Copyright (C) 2025 David Llamas Román
  */
-
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../../../../base-component'
 
-class MobileStatusBar extends BaseComponent {
+class TerminalEmulatorContent extends BaseComponent {
   constructor() {
     super()
   }
 
   #getTemplate() {
     const template = document.createElement('template')
+
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="bar">
-        <battery-bar></battery-bar>
-      </article>
+      <article class="terminal"></article>
     `
+
     return template
   }
 
   #getStyles() {
     return `
-      <style></style>
+      <style>
+        .terminal {
+          width: var(--max-percentage, 100%);
+          height: var(--max-percentage, 100%);
+
+          background-color: var(--dark-grey-rgba, rgba(31, 31, 35, 0.8));
+          backdrop-filter: var(--app-backdrop-blur, blur(10px));
+        }
+      </style>
     `
   }
 
@@ -57,4 +64,4 @@ class MobileStatusBar extends BaseComponent {
   }
 }
 
-customElements.define('mobile-status-bar', MobileStatusBar)
+customElements.define('terminal-emulator-content', TerminalEmulatorContent)
