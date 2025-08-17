@@ -1,0 +1,69 @@
+/*
+ * This file is part of davidllamasroman.com.
+ *
+ * davidllamasroman.com is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 3 of the License only.
+ *
+ * davidllamasroman.com is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with davidllamasroman.com. If not, see <https://www.gnu.org/licenses/gpl-3.0.en.html>.
+ *
+ * Copyright (C) 2025 David Llamas Román
+ */
+
+/* FONTS */
+@font-face {
+  font-family: 'Open Sans';
+  src:
+    url('../../public/fonts/open-sans/open-sans-variable.woff2') format('woff2'),
+    url('../../public/fonts/open-sans/open-sans-variable.woff') format('woff'),
+    url('../../public/fonts/open-sans/open-sans-variable.ttf')
+      format('truetype');
+  font-display: swap;
+}
+
+/* VARIABLES */
+:root {
+  /* colors */
+  --black: #000;
+  --dark-grey: #1f1f23;
+  --dark-grey-rgba: rgba(31, 31, 35, 0.25);
+  --white: #fff;
+  --light-white: rgba(255, 255, 255, 0.05);
+  --light-white-2: rgba(255, 255, 255, 0.25);
+  --dark-blue: #020109;
+  --blue: #273a83;
+  --light-blue: #6b79a4;
+  /* measures */
+  --max-percentage: 100%;
+  --max-dvw: 100dvw;
+  --max-dvh: 100dvh;
+  /* backdrop filter */
+  --app-backdrop-blur: blur(10px);
+}
+
+/* RESET CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+}
+
+body {
+  background-color: var(--black, #000);
+
+  #app {
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    @media (width >= 1024px) {
+      height: var(--max-dvh);
+    }
+  }
+}
