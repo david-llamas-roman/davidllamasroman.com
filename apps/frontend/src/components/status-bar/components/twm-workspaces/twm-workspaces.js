@@ -18,6 +18,7 @@
 
 'use strict'
 
+import { findWorkspaceIdFromPath } from '../../../../routes/router.js'
 import { t } from '../../../../utils/i18n.js'
 import BaseComponent from '../../../base-component.js'
 
@@ -26,6 +27,9 @@ class TwmWorkspaces extends BaseComponent {
     super()
 
     document.addEventListener('languageChanged', () => this.render())
+    document.addEventListener('workspace:switch', (event) =>
+      this.#setActiveWorkspace(event?.detail?.id),
+    )
   }
 
   #getTemplate() {
@@ -37,25 +41,25 @@ class TwmWorkspaces extends BaseComponent {
         <twm-windows-icon></twm-windows-icon>
         <ul class="workspaces__list">
           <li class="list__element">
-            <a href="#" class="element__link">${t('about-me')}</a>
+            <a href="#" class="element__link" data-ws="about-me">${t('about-me')}</a>
           </li>
           <li class="list__element">
-            <a href="#" class="element__link">${t('projects')}</a>
+            <a href="#" class="element__link" data-ws="projects">${t('projects')}</a>
           </li>
           <li class="list__element">
-            <a href="#" class="element__link">${t('experience')}</a>
+            <a href="#" class="element__link" data-ws="experience">${t('experience')}</a>
           </li>
           <li class="list__element">
-            <a href="#" class="element__link">${t('certifications')}</a>
+            <a href="#" class="element__link" data-ws="certifications">${t('certifications')}</a>
           </li>
           <li class="list__element">
-            <a href="#" class="element__link">${t('blog')}</a>
+            <a href="#" class="element__link" data-ws="blog">${t('blog')}</a>
           </li>
           <li class="list__element">
-            <a href="#" class="element__link">${t('academy')}</a>
+            <a href="#" class="element__link" data-ws="academy">${t('academy')}</a>
           </li>
           <li class="list__element">
-            <a href="#" class="element__link">${t('contact')}</a>
+            <a href="#" class="element__link" data-ws="contact">${t('contact')}</a>
           </li>
         </ul>
       </nav>
@@ -105,6 +109,10 @@ class TwmWorkspaces extends BaseComponent {
               }
             }
           }
+
+          .list__element.active {
+            background-color: var(--blue, #273a83);
+          }
         }
       </style>
     `
@@ -118,10 +126,51 @@ class TwmWorkspaces extends BaseComponent {
     this.shadowRoot.adoptedStyleSheets = sheets
 
     this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
+
+    this.shadowRoot.querySelectorAll('.element__link').forEach((anchor) =>
+      anchor.addEventListener('click', (event) => {
+        event.preventDefault()
+        const id = anchor.dataset.ws
+        if (!id) return
+
+        window.dispatchEvent(
+          new CustomEvent('workspace:navigate', { detail: { id } }),
+        )
+
+        this.#setActiveWorkspace(id)
+      }),
+    )
+
+    const workspaceId = findWorkspaceIdFromPath()
+    if (workspaceId) this.#setActiveWorkspace(workspaceId)
   }
 
   connectedCallback() {
     this.render()
+
+    window.addEventListener('workspace:switch', (event) => {
+      const id = event?.detail?.id
+      if (id) this.#setActiveWorkspace(id)
+    })
+
+    window.addEventListener('popstate', () => {
+      const workspaceId = findWorkspaceIdFromPath()
+      if (workspaceId) this.#setActiveWorkspace(workspaceId)
+    })
+  }
+
+  #setActiveWorkspace(id) {
+    if (!this.shadowRoot) return
+
+    this.shadowRoot.querySelectorAll('.list__element').forEach((li) => {
+      li.classList.remove('active')
+
+      const link = li.querySelector('.element__link')
+
+      if (link && link.dataset.ws === id) {
+        li.classList.add('active')
+      }
+    })
   }
 }
 

@@ -21,14 +21,26 @@
 import BaseComponent from '../base-component.js'
 
 class TilingWM extends BaseComponent {
+  static INITIAL_APPS = {
+    'about-me': ['web-browser'],
+    projects: ['terminal-emulator', 'vs-code'],
+    experience: [],
+    certifications: [],
+    blog: [],
+    academy: ['web-browser'],
+    contact: [],
+  }
+
   constructor() {
     super()
-    this.apps = []
-    this.focusedIndex = -1
-    this.spacePressed = false
-    this.appRows = new Map()
+
+    this.workspaces = new Map()
+    this.activeWorkspaceId = null
+    this.workspaceOrder = Object.keys(this.constructor.INITIAL_APPS)
+
     this._onKeyDown = null
     this._onKeyUp = null
+    this._onWorkspaceSwitch = null
   }
 
   #getTemplate() {
@@ -36,7 +48,7 @@ class TilingWM extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="canvas"></article>
+      <article class="canvases"></article>
     `
 
     return template
@@ -45,11 +57,25 @@ class TilingWM extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .canvas {
+        .canvases {
           position: relative;
 
           width: var(--max-dvw, 100dvw);
           height: var(--max-percentage, 100%);
+        }
+
+        .canvas {
+          position: absolute;
+          inset: 0;
+
+          width: var(--max-percentage, 100%);
+          height: var(--max-percentage, 100%);
+
+          display: none;
+        }
+
+        .canvas.active {
+          display: block;
         }
       </style>
     `
@@ -68,88 +94,159 @@ class TilingWM extends BaseComponent {
   connectedCallback() {
     this.render()
     this.#initShortcuts()
+
+    this._onWorkspaceSwitch = (event) => {
+      const id = event?.detail?.id
+      if (id) this.#switchWorkspace(id)
+    }
+
+    window.addEventListener('workspace:switch', this._onWorkspaceSwitch)
   }
 
-  #isTyping() {
-    const activeElement = document.activeElement
+  disconnectedCallback() {
+    if (this._onKeyDown)
+      document.removeEventListener('keydown', this._onKeyDown)
+    if (this._onKeyUp) document.removeEventListener('keyup', this._onKeyUp)
+    if (this._onWorkspaceSwitch)
+      window.removeEventListener('workspace:switch', this._onWorkspaceSwitch)
 
-    return (
-      activeElement &&
-      (activeElement.tagName === 'INPUT' ||
-        activeElement.tagName === 'TEXTAREA' ||
-        activeElement.isContentEditable)
-    )
+    this._onKeyDown = null
+    this._onKeyUp = null
+    this._onWorkspaceSwitch = null
+  }
+
+  // workspaces
+  #getCanvasesContainer() {
+    return this.shadowRoot.querySelector('.canvases')
+  }
+
+  #ensureWorkspace(id) {
+    if (this.workspaces.has(id)) return this.workspaces.get(id)
+
+    const canvas = document.createElement('article')
+    canvas.className = 'canvas'
+    canvas.dataset.ws = id
+    this.#getCanvasesContainer().appendChild(canvas)
+
+    const state = {
+      id,
+      canvas,
+      apps: [],
+      focusedIndex: -1,
+      initialized: false,
+    }
+
+    this.workspaces.set(id, state)
+
+    return state
+  }
+
+  #switchWorkspace(id) {
+    const next = this.#ensureWorkspace(id)
+    if (this.activeWorkspaceId === id) return
+
+    if (this.activeWorkspaceId && this.workspaces.has(this.activeWorkspaceId)) {
+      const prev = this.workspaces.get(this.activeWorkspaceId)
+      prev.canvas.classList.remove('active')
+    }
+
+    next.canvas.classList.add('active')
+    this.activeWorkspaceId = id
+
+    if (!next.initialized) {
+      const initial = this.constructor.INITIAL_APPS[id] || []
+      initial.forEach((tag) => this.#openAppIn(next, tag))
+      next.initialized = true
+      this.#retile(next)
+    }
+  }
+
+  #getActiveState() {
+    if (!this.activeWorkspaceId) return null
+    return this.workspaces.get(this.activeWorkspaceId) || null
+  }
+
+  #openAppIn(state, tagName) {
+    const app = document.createElement(tagName)
+    state.canvas.appendChild(app)
+    state.apps.push(app)
+    this.#focusAppIn(state, state.apps.length - 1)
   }
 
   #openAppByTagName(tagName) {
-    const app = document.createElement(tagName)
+    const state = this.#getActiveState()
+    if (!state) return
 
-    const canvas = this.shadowRoot.querySelector('.canvas')
-    canvas.appendChild(app)
-
-    this.apps.push(app)
-    this.#focusApp(this.apps.length - 1)
-    this.#retile()
+    this.#openAppIn(state, tagName)
+    this.#retile(state)
   }
 
   #closeApp(index) {
-    const app = this.apps[index]
+    const state = this.#getActiveState()
+    if (!state) return
 
+    const app = state.apps[index]
     if (!app) return
 
     app.remove()
-    this.apps.splice(index, 1)
-    this.focusedIndex = Math.min(this.apps.length - 1, index)
-    this.#retile()
+    state.apps.splice(index, 1)
+    state.focusedIndex = Math.min(state.apps.length - 1, index)
+    this.#retile(state)
+    this.#focusAppIn(state, state.focusedIndex)
   }
 
   #focusApp(index) {
-    if (index < 0 || index >= this.apps.length) return
+    const state = this.#getActiveState()
+    if (!state) return
 
-    this.focusedIndex = index
-    this.apps.forEach((app, i) => {
+    this.#focusAppIn(state, index)
+  }
+
+  #focusAppIn(state, index) {
+    if (index < 0 || index >= state.apps.length) return
+
+    state.focusedIndex = index
+
+    state.apps.forEach((app, i) => {
       if (typeof app.setFocused === 'function') {
         app.setFocused(i === index)
       }
-
       app.style.zIndex = i === index ? '2' : '1'
     })
   }
 
   #moveAppLeft() {
-    if (this.focusedIndex <= 0) return
-    ;[this.apps[this.focusedIndex - 1], this.apps[this.focusedIndex]] = [
-      this.apps[this.focusedIndex],
-      this.apps[this.focusedIndex - 1],
-    ]
+    const state = this.#getActiveState()
+    if (!state || state.focusedIndex <= 0) return
 
-    this.focusedIndex--
+    const i = state?.focusedIndex
 
-    const canvas = this.shadowRoot.querySelector('.canvas')
+    ;[state.apps[i - 1], state.apps[i]] = [state.apps[i], state.apps[i - 1]]
 
-    this.apps.forEach((element) => canvas.appendChild(element))
-    this.#retile()
-    this.#focusApp(this.focusedIndex)
+    state.focusedIndex--
+    state.apps.forEach((element) => state.canvas.appendChild(element))
+
+    this.#retile(state)
+    this.#focusAppIn(state, state.focusedIndex)
   }
 
   #moveAppRight() {
-    if (this.focusedIndex >= this.apps.length - 1) return
-    ;[this.apps[this.focusedIndex + 1], this.apps[this.focusedIndex]] = [
-      this.apps[this.focusedIndex],
-      this.apps[this.focusedIndex + 1],
-    ]
+    const state = this.#getActiveState()
+    if (!state || state.focusedIndex >= state.apps.length - 1) return
 
-    this.focusedIndex++
+    const i = state?.focusedIndex
 
-    const canvas = this.shadowRoot.querySelector('.canvas')
+    ;[state.apps[i + 1], state.apps[i]] = [state.apps[i], state.apps[i + 1]]
 
-    this.apps.forEach((element) => canvas.appendChild(element))
-    this.#retile()
-    this.#focusApp(this.focusedIndex)
+    state.focusedIndex++
+    state.apps.forEach((element) => state.canvas.appendChild(element))
+
+    this.#retile(state)
+    this.#focusAppIn(state, state.focusedIndex)
   }
 
-  #retile() {
-    const n = this.apps.length
+  #retile(state) {
+    const n = state.apps.length
     if (n === 0) return
 
     const paddingX = 0.5
@@ -161,7 +258,7 @@ class TilingWM extends BaseComponent {
     const width = (100 - paddingX * 2 - totalGap) / n
     const height = 100 - paddingTop - paddingBottom
 
-    this.apps.forEach((app, i) => {
+    state.apps.forEach((app, i) => {
       app.style.removeProperty('width')
       app.style.removeProperty('left')
       app.style.setProperty('--app-width', `${width}%`)
@@ -177,6 +274,17 @@ class TilingWM extends BaseComponent {
     })
   }
 
+  #isTyping() {
+    const element = document.activeElement
+
+    return (
+      element &&
+      (element.tagName === 'INPUT' ||
+        element.tagName === 'TEXTAREA' ||
+        element.isContentEditable)
+    )
+  }
+
   #initShortcuts() {
     const shortcuts = {
       // open terminal
@@ -186,16 +294,25 @@ class TilingWM extends BaseComponent {
       // open visual studio code
       'Space+KeyC': () => this.#openAppByTagName('vs-code'),
       // close app
-      'Space+F4': () => this.#closeApp(this.focusedIndex),
+      'Space+F4': () =>
+        this.#closeApp(this.#getActiveState()?.focusedIndex ?? -1),
       // change focus to left
-      'Space+ArrowLeft': () => this.#focusApp(this.focusedIndex - 1),
+      'Space+ArrowLeft': () =>
+        this.#focusApp((this.#getActiveState()?.focusedIndex ?? 0) - 1),
       // change focus to right
-      'Space+ArrowRight': () => this.#focusApp(this.focusedIndex + 1),
+      'Space+ArrowRight': () =>
+        this.#focusApp((this.#getActiveState()?.focusedIndex ?? -1) + 1),
       // move app to left
       'Space+Shift+ArrowLeft': () => this.#moveAppLeft(),
       // move app to right
       'Space+Shift+ArrowRight': () => this.#moveAppRight(),
+      // move to workspace on the left
+      'Space+KeyA': () => this.#goWorkspaceRelative(-1),
+      // move to workspace on the right
+      'Space+KeyS': () => this.#goWorkspaceRelative(1),
     }
+
+    this.spacePressed = false
 
     this._onKeyDown = (event) => {
       console.log('Tecla presionada:', event.code, 'Combo:', this.spacePressed)
@@ -234,13 +351,25 @@ class TilingWM extends BaseComponent {
     document.addEventListener('keyup', this._onKeyUp)
   }
 
-  disconnectedCallback() {
-    if (this._onKeyDown)
-      document.removeEventListener('keydown', this._onKeyDown)
-    if (this._onKeyUp) document.removeEventListener('keyup', this._onKeyUp)
+  #goWorkspaceIndex(index) {
+    const id = this.workspaceOrder[index]
+    if (!id) return
 
-    this._onKeyDown = null
-    this._onKeyUp = null
+    window.dispatchEvent(
+      new CustomEvent('workspace:navigate', { detail: { id } }),
+    )
+
+    window.dispatchEvent(
+      new CustomEvent('workspace:switch', { detail: { id } }),
+    )
+  }
+
+  #goWorkspaceRelative(delta) {
+    const current = this.activeWorkspaceId
+    const i = Math.max(0, this.workspaceOrder.indexOf(current))
+    const j =
+      (i + delta + this.workspaceOrder.length) % this.workspaceOrder.length
+    this.#goWorkspaceIndex(j)
   }
 }
 

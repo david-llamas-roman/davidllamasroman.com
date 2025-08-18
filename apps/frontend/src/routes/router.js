@@ -18,24 +18,29 @@
 
 'use strict'
 
-const routes = {
-  en: {
-    '/about-me': renderAboutMe,
-    '/projects': renderProjects,
-    '/experience': renderExperience,
-    '/certifications': renderCertifications,
-    '/blog': renderBlog,
-    '/academy': renderAcademy,
-    '/contact': renderContact,
-  },
-  es: {
-    '/sobre-mi': renderAboutMe,
-    '/proyectos': renderProjects,
-    '/certificaciones': renderCertifications,
-    '/blog': renderBlog,
-    '/academia': renderAcademy,
-    '/contact': renderContact,
-  },
+import { getLanguage } from '../utils/i18n.js'
+
+const workspacesMap = {
+  'about-me': ['en/about-me', 'es/sobre-mi'],
+  projects: ['en/projects', 'es/proyectos'],
+  experience: ['en/experience', 'es/experiencia'],
+  certifications: ['en/certifications', 'es/certificaciones'],
+  blog: ['en/blog', 'es/blog'],
+  academy: ['en/academy', 'es/academia'],
+  contact: ['en/contact', 'es/contacto'],
+}
+
+const getLangFromUrl = () => {
+  const seg = (window.location.pathname.split('/')[1] || '').toLowerCase()
+  return seg === 'en' || seg === 'es' ? seg : 'en'
+}
+
+const findWorkspaceIdFromPath = () => {
+  const fullPath = window.location.pathname.replace(/^\/+/, '')
+
+  return Object.keys(workspacesMap).find(
+    (id) => workspacesMap[id].some((route) => fullPath.endsWith(route)) || null,
+  )
 }
 
 const navigate = (path) => {
@@ -44,17 +49,41 @@ const navigate = (path) => {
 }
 
 const handleRoute = () => {
-  const fullPath = window.location.pathname
-  const [, lang, ...rest] = fullPath.split('/')
-  const path = '/' + rest.join('/')
+  const fullPath = window.location.pathname.replace(/^\/+/, '')
 
-  const language = routes[lang] ? lang : 'en'
-  const viewFn = routes[language][path] || renderNotFound
+  if (!fullPath) {
+    const lang = getLanguage()
+    const defaultRoute = workspacesMap['about-me'].find(
+      (route) => route.startsWith(`${lang}/`) || workspacesMap['about-me'][0],
+    )
 
-  const appContent = document.getElementById('app__content')
-  appContent.innerHTML = ''
+    navigate(`/${defaultRoute}`)
+    return
+  }
 
-  viewFn(appContent)
+  const workspaceId = findWorkspaceIdFromPath()
+  if (!workspaceId) return
+
+  window.dispatchEvent(
+    new CustomEvent('workspace:switch', { detail: { id: workspaceId } }),
+  )
 }
 
-export { navigate, handleRoute }
+window.addEventListener('workspace:navigate', (event) => {
+  const id = event?.detail?.id
+  if (!id || !workspacesMap[id]) return
+
+  const lang = getLangFromUrl()
+  const target =
+    workspacesMap[id].find((route) => route.startsWith(`${lang}/`)) ||
+    workspacesMap[id][0]
+  const path = `/${target}`
+
+  history.pushState({}, '', path)
+  handleRoute()
+})
+
+window.addEventListener('popstate', handleRoute)
+window.addEventListener('DOMContentLoaded', handleRoute)
+
+export { findWorkspaceIdFromPath }
