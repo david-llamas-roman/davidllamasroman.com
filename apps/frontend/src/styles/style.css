@@ -20,10 +20,9 @@
 @font-face {
   font-family: 'Open Sans';
   src:
-    url('../../public/fonts/open-sans/open-sans-variable.woff2') format('woff2'),
-    url('../../public/fonts/open-sans/open-sans-variable.woff') format('woff'),
-    url('../../public/fonts/open-sans/open-sans-variable.ttf')
-      format('truetype');
+    url('/fonts/open-sans/open-sans-variable.woff2') format('woff2'),
+    url('/fonts/open-sans/open-sans-variable.woff') format('woff'),
+    url('/fonts/open-sans/open-sans-variable.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -39,6 +38,9 @@
   --dark-blue: #020109;
   --blue: #273a83;
   --light-blue: #6b79a4;
+  --windows-dark-blue: #057fd9;
+  --windows-blue: #56c1f6;
+  --windows-light-blue: #6dd4ff;
   /* measures */
   --max-percentage: 100%;
   --max-dvw: 100dvw;
