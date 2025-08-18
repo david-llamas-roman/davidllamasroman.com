@@ -18,7 +18,5 @@
 
 'use strict'
 
-import { handleRoute } from './routes/router.js'
-
-window.addEventListener('popstate', handleRoute)
-window.addEventListener('DOMContentLoaded', handleRoute)
+import './components/components.js' // components
+import './routes/router.js' // router
