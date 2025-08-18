@@ -26,6 +26,10 @@ let currentLanguage =
     ? navigator.language.split('-')[0]
     : 'en')
 
+if (!localStorage.getItem('lang')) {
+  localStorage.setItem('lang', currentLanguage)
+}
+
 const translations = {
   en: {
     'about-me': 'About Me',
