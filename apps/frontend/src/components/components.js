@@ -20,6 +20,7 @@
 
 // icons
 import './icons/tiling-window-manager/windows/twm-windows-icon.js' // tiling window manager windows icon
+import './icons/windows/windows-icon.js' // windows
 
 // header
 import './headers/main-header.js'
@@ -51,5 +52,6 @@ import './tiling-window-manager/apps/vs-code/vs-code.js' // visual studio code
 // terminal emulator components
 import './tiling-window-manager/apps/terminal-emulator/content/terminal-emulator-content.js' // content
 
-// taskbar
-import './windows-taskbar/windows-taskbar.js'
+// footer
+import './footers/main-footer.js'
+import './footers/windows-taskbar/windows-taskbar.js'

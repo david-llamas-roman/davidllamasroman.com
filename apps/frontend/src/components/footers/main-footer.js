@@ -20,7 +20,7 @@
 
 import BaseComponent from '../base-component'
 
-class windowsTaskbar extends BaseComponent {
+class MainFooter extends BaseComponent {
   constructor() {
     super()
 
@@ -30,32 +30,23 @@ class windowsTaskbar extends BaseComponent {
 
   #getTemplate() {
     const template = document.createElement('template')
+    const isMobile = this.mediaQuery.matches
 
     template.innerHTML = `
-      ${this.#getStyles()}
+      ${isMobile ? '' : '<windows-taskbar></windows-taskbar>'}
     `
 
     return template
   }
 
-  #getStyles() {
-    return `<style></style>`
-  }
-
   render() {
-    if (this.mediaQuery.matches) {
-      this.style.display = 'block'
+    const sheets = this.shadowRoot.adoptedStyleSheets
 
-      const sheets = this.shadowRoot.adoptedStyleSheets
+    this.shadowRoot.replaceChildren()
 
-      this.shadowRoot.replaceChildren()
+    this.shadowRoot.adoptedStyleSheets = sheets
 
-      this.shadowRoot.adoptedStyleSheets = sheets
-
-      this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
-    } else {
-      this.style.display = 'none'
-    }
+    this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
   }
 
   connectedCallback() {
@@ -72,4 +63,4 @@ class windowsTaskbar extends BaseComponent {
   }
 }
 
-customElements.define('windows-taskbar', windowsTaskbar)
+customElements.define('main-footer', MainFooter)
