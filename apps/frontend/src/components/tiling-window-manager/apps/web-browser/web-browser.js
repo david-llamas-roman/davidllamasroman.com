@@ -33,8 +33,15 @@ class WebBrowser extends BaseApp {
   #setupBrowser() {
     const app = this.getAppContainer()
 
-    app.innerHTML = `
-    `
+    const content = document.createElement('web-browser-content')
+
+    for (const { name, value } of this.attributes) {
+      if (name !== 'style') {
+        content.setAttribute(name, value ?? '')
+      }
+    }
+
+    app.appendChild(content)
   }
 }
 
