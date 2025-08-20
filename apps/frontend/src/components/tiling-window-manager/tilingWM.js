@@ -22,7 +22,7 @@ import BaseComponent from '../base-component.js'
 
 class TilingWM extends BaseComponent {
   static INITIAL_APPS = {
-    'about-me': ['web-browser'],
+    'about-me': [{ tag: 'web-browser', attributes: { wikipedia: '' } }],
     projects: ['terminal-emulator', 'vs-code'],
     experience: [],
     certifications: [],
@@ -155,7 +155,13 @@ class TilingWM extends BaseComponent {
 
     if (!next.initialized) {
       const initial = this.constructor.INITIAL_APPS[id] || []
-      initial.forEach((tag) => this.#openAppIn(next, tag))
+      initial.forEach((entry) => {
+        if (typeof entry === 'string') {
+          this.#openAppIn(next, entry)
+        } else if (typeof entry === 'object') {
+          this.#openAppIn(next, entry.tag, entry.attributes || {})
+        }
+      })
       next.initialized = true
       this.#retile(next)
     }
@@ -166,18 +172,24 @@ class TilingWM extends BaseComponent {
     return this.workspaces.get(this.activeWorkspaceId) || null
   }
 
-  #openAppIn(state, tagName) {
+  #openAppIn(state, tagName, attributes = {}) {
     const app = document.createElement(tagName)
+
+    Object.entries(attributes).forEach(([key, value]) => {
+      app.setAttribute(key, value)
+    })
+
     state.canvas.appendChild(app)
     state.apps.push(app)
+
     this.#focusAppIn(state, state.apps.length - 1)
   }
 
-  #openAppByTagName(tagName) {
+  #openAppByTagName(tagName, attributes = {}) {
     const state = this.#getActiveState()
     if (!state) return
 
-    this.#openAppIn(state, tagName)
+    this.#openAppIn(state, tagName, attributes)
     this.#retile(state)
   }
 
