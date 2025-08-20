@@ -20,7 +20,7 @@
 
 import BaseComponent from '../../base-component'
 
-class windowsTaskbar extends BaseComponent {
+class WindowsTaskbar extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,13 +30,14 @@ class windowsTaskbar extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="taskbar">
+      <footer class="taskbar">
+        <p class="copyright">&copy; 2025 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU General Public License version 3 (GPL-3.0) only</a>.</p>
         <ul class="taskbar__list">
           <li class="list__element">
             <windows-icon></windows-icon>
           </li>
         </ul>
-      </article>
+      </footer>
     `
 
     return template
@@ -66,6 +67,8 @@ class windowsTaskbar extends BaseComponent {
         }
 
         .taskbar {
+          position: relative;
+
           display: grid;
           place-items: center;
 
@@ -84,6 +87,32 @@ class windowsTaskbar extends BaseComponent {
 
             .list__element {
               filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.6));
+
+              cursor: pointer;
+
+              &:hover {
+                filter: brightness(1.5);
+              }
+            }
+          }
+
+          .copyright {
+            position: absolute;
+            left: 0;
+
+            padding: 0 1rem;
+
+            color: var(--white, #fff);
+
+            font-size: max(13px, 0.65vmax);
+            text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.6);
+
+            & a {
+              color: var(--white, #fff);
+
+              font-style: italic;
+
+              text-shadow: 0 0 0.15rem var(--white, #fff);
             }
           }
         }
@@ -105,23 +134,62 @@ class windowsTaskbar extends BaseComponent {
     this.render()
 
     const showDistance = 50
+    let menu = null
+
+    const ensureMenu = () => {
+      const app = document.getElementById('app')
+      const existingWindowsMenu = document.querySelector('windows-menu')
+
+      if (window.matchMedia('(min-width: 1025px)').matches) {
+        if (!existingWindowsMenu) {
+          menu = document.createElement('windows-menu')
+          app.appendChild(menu)
+        } else {
+          menu = existingWindowsMenu
+        }
+      } else {
+        if (existingWindowsMenu) {
+          existingWindowsMenu.remove()
+          menu = null
+        }
+      }
+    }
+
+    ensureMenu()
+    window.addEventListener('resize', ensureMenu)
 
     const toggleVisibility = (event) => {
       const fromBottom = window.innerHeight - event.clientY
 
       if (fromBottom <= showDistance) {
         this.classList.add('visible')
-      } else if (!this.matches(':hover')) {
+      } else if (!this.matches(':hover') && !(menu && menu.matches(':hover'))) {
         this.classList.remove('visible')
+
+        if (menu) {
+          menu.classList.remove('visible')
+        }
       }
     }
 
     document.addEventListener('mousemove', toggleVisibility)
 
     this.addEventListener('mouseleave', () => {
-      this.classList.remove('visible')
+      if (!menu.matches(':hover')) {
+        this.classList.remove('visible')
+      }
     })
+
+    this.shadowRoot
+      .querySelector('.list__element')
+      .addEventListener('click', () => {
+        if (!menu) return
+
+        if (this.classList.contains('visible')) {
+          menu.classList.toggle('visible')
+        }
+      })
   }
 }
 
-customElements.define('windows-taskbar', windowsTaskbar)
+customElements.define('windows-taskbar', WindowsTaskbar)
