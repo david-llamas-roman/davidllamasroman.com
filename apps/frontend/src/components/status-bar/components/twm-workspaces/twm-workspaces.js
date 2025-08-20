@@ -101,7 +101,7 @@ class TwmWorkspaces extends BaseComponent {
 
                 color: var(--white, #fff);
 
-                font-size: 0.9rem;
+                font-size: max(14px, 0.75vmax);
 
                 text-decoration: none;
                 text-align: center;

@@ -54,8 +54,8 @@ class BatteryBar extends BaseComponent {
               -webkit-appearance: none;
               -moz-appearance: none;
 
-              width: 20px;
-              height: 11.5px;
+              width: max(20px, 1.15vw);
+              height: max(11.5px, 1.15vh);
 
               background: transparent;
               
@@ -106,7 +106,7 @@ class BatteryBar extends BaseComponent {
           }
 
           & label {
-            font-size: 0.9rem;
+            font-size: max(14px, 0.75vmax);
           }
         }
       </style>

@@ -45,7 +45,7 @@ class RamUsage extends BaseComponent {
       <style>
         .ram {
           .percentage {
-            font-size: 0.9rem;
+            font-size: max(14px, 0.75vmax);
           }
         }
       </style>

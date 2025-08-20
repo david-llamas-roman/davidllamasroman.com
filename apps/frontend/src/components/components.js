@@ -52,6 +52,13 @@ import './tiling-window-manager/apps/vs-code/vs-code.js' // visual studio code
 // terminal emulator components
 import './tiling-window-manager/apps/terminal-emulator/content/terminal-emulator-content.js' // content
 
+// web browser components
+import './tiling-window-manager/apps/web-browser/content/web-browser-content.js' // content
+import './tiling-window-manager/apps/web-browser/content/wikipedia-web.js' // wikipedia
+
+// windows menu
+import './windows-menu/windows-menu.js'
+
 // footer
 import './footers/main-footer.js'
 import './footers/windows-taskbar/windows-taskbar.js'

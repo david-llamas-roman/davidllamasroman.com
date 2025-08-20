@@ -51,7 +51,7 @@ class BaseApp extends BaseComponent {
           width: var(--app-width, 100%);
           height: var(--app-height, 100%);
 
-          border: 2px solid var(--light-white-2, rgba(255, 255, 255, 0.25));
+          border: 2px solid var(--light-grey-2, rgba(255, 255, 255, 0.25));
           border-radius: 10px;
         }
 

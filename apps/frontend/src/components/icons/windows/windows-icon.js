@@ -50,7 +50,7 @@ class WindowsIcon extends BaseComponent {
           gris-template-rows: repeat(2, 1fr);
           gap: 0.0625rem;
 
-          width: 1.6rem;
+          width: max(26px, 1.5vw);
           aspect-ratio: 1/1;
 
           background-color: transparent;

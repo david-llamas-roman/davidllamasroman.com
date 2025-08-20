@@ -48,9 +48,9 @@ class TwmWindowsIcon extends BaseComponent {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gris-template-rows: repeat(2, 1fr);
-          gap: 0.05rem;
+          gap: 0.063rem;
 
-          width: 0.95rem;
+          width: max(16px, 0.75vmax);
           aspect-ratio: 1/1;
 
           background-color: transparent;

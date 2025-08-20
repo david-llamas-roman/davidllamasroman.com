@@ -26,21 +26,44 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'EB Garamond';
+  src:
+    url('/fonts/eb-garamond/eb-garamond-variable.woff2') format('woff2'),
+    url('/fonts/eb-garamond/eb-garamond-variable.woff') format('woff'),
+    url('/fonts/eb-garamond/eb-garamond-variable.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src:
+    url('/fonts/montserrat/montserrat-variable.woff2') format('woff2'),
+    url('/fonts/montserrat/montserrat-variable.woff') format('woff'),
+    url('/fonts/montserrat/montserrat-variable.ttf') format('truetype');
+  font-display: swap;
+}
+
 /* VARIABLES */
 :root {
   /* colors */
   --black: #000;
   --dark-grey: #1f1f23;
   --dark-grey-rgba: rgba(31, 31, 35, 0.25);
+  --dark-grey-rgba-2: rgba(31, 31, 35, 0.4);
+  --light-grey: rgba(255, 255, 255, 0.05);
+  --light-grey-2: rgba(255, 255, 255, 0.25);
+  --light-grey-3: rgba(255, 255, 255, 0.5);
   --white: #fff;
-  --light-white: rgba(255, 255, 255, 0.05);
-  --light-white-2: rgba(255, 255, 255, 0.25);
   --dark-blue: #020109;
   --blue: #273a83;
   --light-blue: #6b79a4;
   --windows-dark-blue: #057fd9;
   --windows-blue: #56c1f6;
   --windows-light-blue: #6dd4ff;
+  --wikipedia-dark-blue: #111218;
+  --wikipedia-light-blue: #7f99dd;
+  --wikipedia-white: #fcfffe;
   /* measures */
   --max-percentage: 100%;
   --max-dvw: 100dvw;

@@ -57,14 +57,14 @@ class DesktopHeader extends BaseComponent {
           background-image: linear-gradient(var(--black, #000), var(--dark-blue, #020109));
           color: var(--white, #fff);
 
-          border-bottom: 1px solid var(--light-white, rgba(255, 255, 255, 0.05));
+          border-bottom: 1px solid var(--light-grey, rgba(255, 255, 255, 0.05));
 
           .header__text {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
 
-            font-size: 0.9rem;
+            font-size: max(14px, 0.75vmax);
           }
         }
       </style>
