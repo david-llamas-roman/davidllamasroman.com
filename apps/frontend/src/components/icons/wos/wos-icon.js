@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component.js'
+import BaseComponent from '../../base-component'
 
-class BaseApp extends BaseComponent {
+class WosIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,7 +30,12 @@ class BaseApp extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="app"></article>
+      <article class="wos">
+        <div class="wos__part1"></div>
+        <div class="wos__part"></div>
+        <div class="wos__part"></div>
+        <div class="wos__part4"></div>
+      </article>
     `
 
     return template
@@ -39,29 +44,33 @@ class BaseApp extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .app {
-          position: absolute;
-          top: var(--app-top, 0);
-          left: var(--app-left, 0);
-
+        .wos {
           display: grid;
-          grid-template-rows: 1fr;
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, 1fr);
+          gris-template-rows: repeat(2, 1fr);
+          gap: 0.0625rem;
 
-          width: var(--app-width, 100%);
-          height: var(--app-height, 100%);
+          width: max(26px, 1.5vw);
+          aspect-ratio: 1/1;
 
-          border: 2px solid var(--light-grey-2, rgba(255, 255, 255, 0.28));
-          border-radius: 10px;
-        }
+          background-color: transparent;
+          filter: brightness(1.25);
 
-        .app.focused {
-          border-color: var(--white, #fff);
-        }
+          .wos__part1, .wos__part, .wos__part4 {
+            border-radius: 2.5px;
+          }
 
-        .app.no-border {
-          border: none;
-          border-radius: 0;
+          .wos__part1 {
+            background-image: linear-gradient(125deg, var(--wos-light-blue, #70d8ff), var(--wos-blue, #59c5f9));
+          }
+
+          .wos__part {
+            background-image: linear-gradient(125deg, var(--wos-blue, #59c5f9), var(--wos-dark-blue, #0682e0));
+          }
+
+          .wos__part4 {
+            background-color: var(--wos-dark-blue, #0682e0);
+          }
         }
       </style>
     `
@@ -80,18 +89,6 @@ class BaseApp extends BaseComponent {
   connectedCallback() {
     this.render()
   }
-
-  getAppContainer() {
-    return this.shadowRoot.querySelector('.app')
-  }
-
-  setFocused(isFocused) {
-    this.getAppContainer().classList.toggle('focused', isFocused)
-  }
-
-  setNoBorder() {
-    this.getAppContainer().classList.add('no-border')
-  }
 }
 
-export default BaseApp
+customElements.define('wos-icon', WosIcon)

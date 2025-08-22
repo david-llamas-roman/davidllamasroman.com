@@ -22,12 +22,12 @@ import BaseComponent from '../base-component.js'
 
 class TilingWM extends BaseComponent {
   static INITIAL_APPS = {
-    'about-me': [{ tag: 'web-browser', attributes: { wikipedia: '' } }],
+    'about-me': [{ tag: 'web-browser', attributes: { creatidevpedia: '' } }],
     projects: ['terminal-emulator', 'vs-code'],
     experience: [],
     certifications: [],
     blog: [],
-    academy: ['web-browser'],
+    academy: [{ tag: 'web-browser', attributes: { dlrdevacademy: '' } }],
     contact: [],
   }
 

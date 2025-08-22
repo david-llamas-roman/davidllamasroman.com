@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../../base-component.js'
+import BaseComponent from '../../base-component'
 
-class TwmWindowsIcon extends BaseComponent {
+class CreatiDevpediaIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,11 +30,8 @@ class TwmWindowsIcon extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="windows">
-        <div class="windows__part"></div>
-        <div class="windows__part"></div>
-        <div class="windows__part"></div>
-        <div class="windows__part"></div>
+      <article class="creatidevpedia">
+        <p class="creatidevpedia__text">C</p>
       </article>
     `
 
@@ -44,21 +41,28 @@ class TwmWindowsIcon extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .windows {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gris-template-rows: repeat(2, 1fr);
-          gap: 0.063rem;
+        .creatidevpedia {
+          position: relative;
 
-          width: max(16px, 0.75vmax);
-          aspect-ratio: 1/1;
+          width: max(18.5px, 1.125vmax);
+          height: max(18.5px, 1.125vmax);
 
-          background-color: transparent;
+          background-color: var(--creatidevpedia-dark-blue, #121420);
 
-          transform: perspective(20px) rotateY(-15deg);
+          border-radius: 4px;
 
-          .windows__part {
-            background-color: var(--light-blue, #6b79a4);
+          .creatidevpedia__text {
+            position: absolute;
+            bottom: 1px;
+            right: 3px;
+
+            color: var(--creatidevpedia-white, #f8fdfa);
+
+            font-family: 'EB Garamond';
+            font-size: max(10px, 0.625vmax);
+            font-weight: 600;
+
+            text-shadow: none;
           }
         }
       </style>
@@ -80,4 +84,4 @@ class TwmWindowsIcon extends BaseComponent {
   }
 }
 
-customElements.define('twm-windows-icon', TwmWindowsIcon)
+customElements.define('creatidevpedia-icon', CreatiDevpediaIcon)

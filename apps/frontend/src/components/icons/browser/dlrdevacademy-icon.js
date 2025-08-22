@@ -20,7 +20,7 @@
 
 import BaseComponent from '../../base-component'
 
-class WindowsIcon extends BaseComponent {
+class DlrDevAcademyIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,11 +30,8 @@ class WindowsIcon extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="windows">
-        <div class="windows__part1"></div>
-        <div class="windows__part"></div>
-        <div class="windows__part"></div>
-        <div class="windows__part4"></div>
+      <article class="dlrdevacademy">
+        <p class="dlrdevacademy__text">DlrDA</p>
       </article>
     `
 
@@ -44,28 +41,22 @@ class WindowsIcon extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .windows {
+        .dlrdevacademy {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gris-template-rows: repeat(2, 1fr);
-          gap: 0.0625rem;
+          place-items: center;
 
-          width: max(26px, 1.5vw);
-          aspect-ratio: 1/1;
+          padding: 0.25rem;
 
-          background-color: transparent;
-          filter: brightness(1.25);
+          background-color: var(--dlrdevacademy-dark-blue, #0f0e17);
 
-          .windows__part1 {
-            background-image: linear-gradient(125deg, var(--windows-light-blue, #6DD4FF), var(--windows-blue, #56c1f6));
-          }
+          border-radius: 4px;
 
-          .windows__part {
-            background-image: linear-gradient(125deg, var(--windows-blue, #56c1f6), var(--windows-dark-blue, #057fd9));
-          }
+          .dlrdevacademy__text {
+            color: var(--dlrdevacademy-purple, #6f2fdc);
 
-          .windows__part4 {
-            background-color: var(--windows-dark-blue, #057fd9);
+            font-family: 'Montserrat';
+            font-weight: 600;
+            font-size: max(10px, 0.65vmax);
           }
         }
       </style>
@@ -87,4 +78,4 @@ class WindowsIcon extends BaseComponent {
   }
 }
 
-customElements.define('windows-icon', WindowsIcon)
+customElements.define('dlrdevacademy-icon', DlrDevAcademyIcon)

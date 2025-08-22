@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component.js'
+import BaseComponent from '../../../base-component.js'
 
-class BaseApp extends BaseComponent {
+class TwmWosIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,7 +30,12 @@ class BaseApp extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="app"></article>
+      <article class="wos">
+        <div class="wos__part"></div>
+        <div class="wos__part"></div>
+        <div class="wos__part"></div>
+        <div class="wos__part"></div>
+      </article>
     `
 
     return template
@@ -39,29 +44,24 @@ class BaseApp extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .app {
-          position: absolute;
-          top: var(--app-top, 0);
-          left: var(--app-left, 0);
-
+        .wos {
           display: grid;
-          grid-template-rows: 1fr;
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, 1fr);
+          gris-template-rows: repeat(2, 1fr);
+          gap: 0.0423rem;
 
-          width: var(--app-width, 100%);
-          height: var(--app-height, 100%);
+          width: max(16px, 0.75vmax);
+          aspect-ratio: 1/1;
 
-          border: 2px solid var(--light-grey-2, rgba(255, 255, 255, 0.28));
-          border-radius: 10px;
-        }
+          background-color: transparent;
 
-        .app.focused {
-          border-color: var(--white, #fff);
-        }
+          transform: perspective(20px) rotateY(-15deg);
 
-        .app.no-border {
-          border: none;
-          border-radius: 0;
+          .wos__part {
+            border-radius: 1.5px;
+
+            background-color: var(--light-blue, #7080b1);
+          }
         }
       </style>
     `
@@ -80,18 +80,6 @@ class BaseApp extends BaseComponent {
   connectedCallback() {
     this.render()
   }
-
-  getAppContainer() {
-    return this.shadowRoot.querySelector('.app')
-  }
-
-  setFocused(isFocused) {
-    this.getAppContainer().classList.toggle('focused', isFocused)
-  }
-
-  setNoBorder() {
-    this.getAppContainer().classList.add('no-border')
-  }
 }
 
-export default BaseApp
+customElements.define('twm-wos-icon', TwmWosIcon)

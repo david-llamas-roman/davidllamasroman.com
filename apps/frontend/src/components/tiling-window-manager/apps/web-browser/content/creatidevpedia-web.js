@@ -21,29 +21,33 @@
 import { t } from '../../../../../utils/i18n.js'
 import BaseComponent from '../../../../base-component.js'
 
-class WikipediaWeb extends BaseComponent {
+class CreatidevpediaWeb extends BaseComponent {
+  constructor() {
+    super()
+  }
+
   #getTemplate() {
     const template = document.createElement('template')
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="wikipedia">
-        <header class="wikipedia__header">
+      <article class="creatidevpedia">
+        <header class="creatidevpedia__header">
           <article class="logo">
             <article class="logo__text">
-              <h2><span>W</span>IKIPEDI<span>A</span></h2>
-              <p>${t('wikipedia-logo')}</p>
+              <h2><span>C</span>REATI<span>D</span>EVPEDIA</h2>
+              <p>${t('creatidevpedia-logo')}</p>
             </article>
           </article>
         </header>
-        <main class="wikipedia__content">
+        <main class="creatidevpedia__content">
           <header class="content__header">
             <h1 class="title">David Llamas Román</h1>
             <h2 class="subtitle">${t('full-stack-developer')}</h2>
           </header>
           <article class="content">
             <article class="content__text">
-              ${t('wikipedia-about-me')}
+              ${t('creatidevpedia-about-me')}
             </article>
             <article class="info__container">
               <h3>HTML Engineer</h3>
@@ -81,7 +85,7 @@ class WikipediaWeb extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .wikipedia {
+        .creatidevpedia {
           display: grid;
           grid-template-rows: auto 1fr;
           grid-template-columns: 1fr;
@@ -91,7 +95,7 @@ class WikipediaWeb extends BaseComponent {
 
           padding: 1rem 2rem;
 
-          background-color: var(--wikipedia-dark-blue, #111218);
+          background-color: var(--creatidevpedia-dark-blue, #121420);
 
           font-family: 'Montserrat';
 
@@ -99,7 +103,7 @@ class WikipediaWeb extends BaseComponent {
 
           text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
 
-          .wikipedia__header {
+          .creatidevpedia__header {
             display: grid;
             place-items: center;
 
@@ -108,7 +112,7 @@ class WikipediaWeb extends BaseComponent {
                 display: grid;
                 place-items: center;
 
-                color: var(--wikipedia-white, #fcfffe);
+                color: var(--creatidevpedia-white, #f8fdfa);
 
                 font-family: 'EB Garamond';
 
@@ -128,7 +132,7 @@ class WikipediaWeb extends BaseComponent {
             }
           }
 
-          .wikipedia__content {
+          .creatidevpedia__content {
             display: grid;
             grid-template-rows: auto 1fr;
             grid-template-columns: 1fr;
@@ -143,10 +147,10 @@ class WikipediaWeb extends BaseComponent {
 
               padding: 0.5rem 0;
 
-              border-bottom: 1px solid var(--light-grey-3, rgba(255, 255, 255, 0.5));
+              border-bottom: 1px solid var(--light-grey-3, rgba(255, 255, 255, 0.52));
 
               .title {
-                color: var(--wikipedia-white, #fcfffe);
+                color: var(--creatidevpedia-white, #f8fdfa);
 
                 font-size: max(40px, 2.5vmax);
                 font-family: 'EB Garamond';
@@ -154,7 +158,7 @@ class WikipediaWeb extends BaseComponent {
               }
 
               .subtitle {
-                color: var(--light-grey-3, rgba(255, 255, 255, 0.5));
+                color: var(--light-grey-3, rgba(255, 255, 255, 0.52));
 
                 font-size: max(20px, 1.25vmax);
                 font-weight: 300;
@@ -172,13 +176,13 @@ class WikipediaWeb extends BaseComponent {
                 & p {
                   padding: 0.25rem 0;
 
-                  color: var(--wikipedia-white, #fcfffe);
+                  color: var(--creatidevpedia-white, #f8fdfa);
 
                   text-align: justify;
                   font-size: max(16px, 0.9vmax);
 
                   & span {
-                    color: var(--wikipedia-light-blue, #7f99dd);
+                    color: var(--creatidevpedia-light-blue, #879fe5);
 
                     font-style: italic;
                   }
@@ -197,7 +201,7 @@ class WikipediaWeb extends BaseComponent {
                 & h3 {
                   padding: 0.35rem;
 
-                  color: var(--wikipedia-white, #fcfffe);
+                  color: var(--creatidevpedia-white, #f8fdfa);
 
                   text-align: center;
                   font-size: max(18px, 1.25vmax);
@@ -211,17 +215,17 @@ class WikipediaWeb extends BaseComponent {
 
                   padding: 1rem;
 
-                  border: 1px solid var(--wikipedia-white, #fcfffe);
+                  border: 1px solid var(--creatidevpedia-white, #f8fdfa);
 
                   & h4 {
                     padding: 0.5rem;
 
-                    color: var(--wikipedia-white, #fcfffe);
+                    color: var(--creatidevpedia-white, #f8fdfa);
 
                     text-align: center;
 
-                    border-top: 1px solid var(--light-grey-3, rgba(255, 255, 255, 0.5));
-                    border-bottom: 1px solid var(--light-grey-3, rgba(255, 255, 255, 0.5));
+                    border-top: 1px solid var(--light-grey-3, rgba(255, 255, 255, 0.52));
+                    border-bottom: 1px solid var(--light-grey-3, rgba(255, 255, 255, 0.52));
 
                     font-size: max(16px, 0.9vmax);
                   }
@@ -231,9 +235,9 @@ class WikipediaWeb extends BaseComponent {
                     justify-content: space-between;
                     align-items: center;
 
-                    color: var(--wikipedia-white, #fcfffe);
+                    color: var(--creatidevpedia-white, #f8fdfa);
 
-                    border-bottom: 1px solid var(--light-grey-3, rgba(255, 255, 255, 0.5));
+                    border-bottom: 1px solid var(--light-grey-3, rgba(255, 255, 255, 0.52));
 
                     & h4 {
                       border-top: none;
@@ -268,4 +272,4 @@ class WikipediaWeb extends BaseComponent {
   }
 }
 
-customElements.define('wikipedia-web', WikipediaWeb)
+customElements.define('creatidevpedia-web', CreatidevpediaWeb)

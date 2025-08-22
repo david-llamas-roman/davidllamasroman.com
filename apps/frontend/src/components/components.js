@@ -19,8 +19,13 @@
 'use strict'
 
 // icons
-import './icons/tiling-window-manager/windows/twm-windows-icon.js' // tiling window manager windows icon
-import './icons/windows/windows-icon.js' // windows
+import './icons/tiling-window-manager/wos/twm-wos-icon.js' // tiling window manager wos icon
+import './icons/wos/wos-icon.js' // wos
+import './icons/browser/arrows-icon.js' // arrows
+import './icons/browser/bookmarks-icon.js' // bookmarks
+import './icons/browser/creatidevpedia-icon.js' // creatidevpedia
+import './icons/browser/dlrdevacademy-icon.js' // DlrDevAcademy
+import './icons/browser/addition-icon.js' // addition
 
 // header
 import './headers/main-header.js'
@@ -54,11 +59,12 @@ import './tiling-window-manager/apps/terminal-emulator/content/terminal-emulator
 
 // web browser components
 import './tiling-window-manager/apps/web-browser/content/web-browser-content.js' // content
-import './tiling-window-manager/apps/web-browser/content/wikipedia-web.js' // wikipedia
+import './tiling-window-manager/apps/web-browser/content/creatidevpedia-web.js' // creatidevpedia
+import './tiling-window-manager/apps/web-browser/content/dlrdevacademy-web.js' // DlrDevAcademy
 
-// windows menu
-import './windows-menu/windows-menu.js'
+// wos menu
+import './wos-menu/wos-menu.js'
 
 // footer
 import './footers/main-footer.js'
-import './footers/windows-taskbar/windows-taskbar.js'
+import './footers/wos-taskbar/wos-taskbar.js'

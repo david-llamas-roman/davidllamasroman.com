@@ -20,7 +20,7 @@
 
 import BaseComponent from '../../base-component'
 
-class WindowsTaskbar extends BaseComponent {
+class WosTaskbar extends BaseComponent {
   constructor() {
     super()
   }
@@ -34,7 +34,7 @@ class WindowsTaskbar extends BaseComponent {
         <p class="copyright">&copy; 2025 David Llamas Román. Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU General Public License version 3 (GPL-3.0) only</a>.</p>
         <ul class="taskbar__list">
           <li class="list__element">
-            <windows-icon></windows-icon>
+            <wos-icon></wos-icon>
           </li>
         </ul>
       </footer>
@@ -138,18 +138,18 @@ class WindowsTaskbar extends BaseComponent {
 
     const ensureMenu = () => {
       const app = document.getElementById('app')
-      const existingWindowsMenu = document.querySelector('windows-menu')
+      const existingWosMenu = document.querySelector('wos-menu')
 
       if (window.matchMedia('(min-width: 1025px)').matches) {
-        if (!existingWindowsMenu) {
-          menu = document.createElement('windows-menu')
+        if (!existingWosMenu) {
+          menu = document.createElement('wos-menu')
           app.appendChild(menu)
         } else {
-          menu = existingWindowsMenu
+          menu = existingWosMenu
         }
       } else {
-        if (existingWindowsMenu) {
-          existingWindowsMenu.remove()
+        if (existingWosMenu) {
+          existingWosMenu.remove()
           menu = null
         }
       }
@@ -192,4 +192,4 @@ class WindowsTaskbar extends BaseComponent {
   }
 }
 
-customElements.define('windows-taskbar', WindowsTaskbar)
+customElements.define('wos-taskbar', WosTaskbar)

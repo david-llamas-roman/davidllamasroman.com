@@ -54,10 +54,10 @@ class DesktopHeader extends BaseComponent {
 
           padding: 0.5rem 1.5rem;
 
-          background-image: linear-gradient(var(--black, #000), var(--dark-blue, #020109));
+          background-image: linear-gradient(var(--black, #000), var(--dark-blue, #05020e));
           color: var(--white, #fff);
 
-          border-bottom: 1px solid var(--light-grey, rgba(255, 255, 255, 0.05));
+          border-bottom: 1px solid var(--light-grey, rgba(255, 255, 255, 0.06));
 
           .header__text {
             position: absolute;

@@ -33,7 +33,7 @@ class MainFooter extends BaseComponent {
     const isMobile = this.mediaQuery.matches
 
     template.innerHTML = `
-      ${isMobile ? '' : '<windows-taskbar></windows-taskbar>'}
+      ${isMobile ? '' : '<wos-taskbar></wos-taskbar>'}
     `
 
     return template

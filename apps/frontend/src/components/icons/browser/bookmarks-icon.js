@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component.js'
+import BaseComponent from '../../base-component'
 
-class BaseApp extends BaseComponent {
+class BookmarksIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,7 +30,12 @@ class BaseApp extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="app"></article>
+      <button class="button" type="button">
+        <div class="button__part"></div>
+        <div class="button__part"></div>
+        <div class="button__part"></div>
+        <div class="button__part"></div>
+      </button>
     `
 
     return template
@@ -39,29 +44,36 @@ class BaseApp extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .app {
-          position: absolute;
-          top: var(--app-top, 0);
-          left: var(--app-left, 0);
-
+        .button {
           display: grid;
-          grid-template-rows: 1fr;
-          grid-template-columns: 1fr;
+          grid-template-rows: repeat(2, 1fr);
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.1rem;
 
-          width: var(--app-width, 100%);
-          height: var(--app-height, 100%);
+          width: max(34px, 1.5vw);
+          aspect-ratio: 1/1;
 
-          border: 2px solid var(--light-grey-2, rgba(255, 255, 255, 0.28));
-          border-radius: 10px;
-        }
+          padding: 0.5rem;
 
-        .app.focused {
-          border-color: var(--white, #fff);
-        }
-
-        .app.no-border {
+          background-color: transparent;
+          
+          border-radius: 8px;
           border: none;
-          border-radius: 0;
+
+          cursor: pointer;
+
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: var(--dark-grey-rgba-2, rgba(35, 35, 40, 0.4));
+          }
+
+          .button__part {
+            border-radius: 3px;
+            border: 1.5px solid var(--white, #fff);
+
+            box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+          }
         }
       </style>
     `
@@ -80,18 +92,6 @@ class BaseApp extends BaseComponent {
   connectedCallback() {
     this.render()
   }
-
-  getAppContainer() {
-    return this.shadowRoot.querySelector('.app')
-  }
-
-  setFocused(isFocused) {
-    this.getAppContainer().classList.toggle('focused', isFocused)
-  }
-
-  setNoBorder() {
-    this.getAppContainer().classList.add('no-border')
-  }
 }
 
-export default BaseApp
+customElements.define('bookmarks-icon', BookmarksIcon)

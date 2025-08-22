@@ -60,7 +60,7 @@ class BatteryBar extends BaseComponent {
               background: transparent;
               
               outline: none;
-              border: 2px solid var(--light-blue, #6b79a4);
+              border: 2px solid var(--light-blue, #7080b1);
               border-radius: 4px;
               
               cursor: default;
@@ -132,7 +132,7 @@ class BatteryBar extends BaseComponent {
     const label = this.shadowRoot.querySelector('.percentage')
 
     if (bar) {
-      const color = 'var(--light-blue, #6b79a4)'
+      const color = 'var(--light-blue, #7080b1)'
       bar.style.background = `linear-gradient(to right, ${color} 0%, ${color} ${level}%, transparent ${level}%, transparent 100%)`
     }
 

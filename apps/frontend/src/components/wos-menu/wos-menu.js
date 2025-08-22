@@ -20,7 +20,7 @@
 
 import BaseComponent from '../base-component'
 
-class WindowsMenu extends BaseComponent {
+class WosMenu extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,9 +30,9 @@ class WindowsMenu extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="windows__menu">
+      <article class="wos__menu">
         <article class="search__container">
-          <input type="search" name="windows_search" id="windows__search">
+          <input type="search" name="wos_search" id="wos__search">
         </article>
 
         <article class="summary__view" data-summary-view>
@@ -106,7 +106,7 @@ class WindowsMenu extends BaseComponent {
           opacity: 1;
         }
 
-        .windows__menu {
+        .wos__menu {
           position: relative;
 
           display: grid;
@@ -130,7 +130,7 @@ class WindowsMenu extends BaseComponent {
           box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
 
           .search__container {
-            #windows__search {
+            #wos__search {
               padding: 0.35rem 0.8rem;
               margin: 1.9rem 1.5rem 0.85rem 1.5rem;
 
@@ -422,4 +422,4 @@ class WindowsMenu extends BaseComponent {
   }
 }
 
-customElements.define('windows-menu', WindowsMenu)
+customElements.define('wos-menu', WosMenu)

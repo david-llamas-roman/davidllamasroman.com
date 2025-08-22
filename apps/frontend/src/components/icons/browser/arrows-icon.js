@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component.js'
+import BaseComponent from '../../base-component'
 
-class BaseApp extends BaseComponent {
+class ArrowsIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -28,9 +28,14 @@ class BaseApp extends BaseComponent {
   #getTemplate() {
     const template = document.createElement('template')
 
+    const isLeft = this.hasAttribute('left')
+    const isRight = this.hasAttribute('right')
+
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="app"></article>
+      <button class="button" type="button">
+        <p class="arrow">${isLeft ? '&lt;' : isRight ? '&gt;' : ''}</p>
+      </button>
     `
 
     return template
@@ -39,29 +44,34 @@ class BaseApp extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .app {
-          position: absolute;
-          top: var(--app-top, 0);
-          left: var(--app-left, 0);
+        .button {
+          margin: 0.5rem 0 0.5rem 0.5rem;
 
-          display: grid;
-          grid-template-rows: 1fr;
-          grid-template-columns: 1fr;
-
-          width: var(--app-width, 100%);
-          height: var(--app-height, 100%);
-
-          border: 2px solid var(--light-grey-2, rgba(255, 255, 255, 0.28));
-          border-radius: 10px;
-        }
-
-        .app.focused {
-          border-color: var(--white, #fff);
-        }
-
-        .app.no-border {
+          background-color: transparent;
+          
           border: none;
-          border-radius: 0;
+
+          .arrow {
+            padding: 0 0.4rem;
+
+            color: var(--light-grey-3, rgba(255, 255, 255, 0.52));
+
+            font-size: max(18px, 1.05vmax);
+            font-family: 'Open Sans';
+            font-weight: 100;
+
+            text-shadow: 0 0 0.15rem rgba(0, 0, 0.6);
+
+            cursor: pointer;
+
+            transform: scaleY(2);
+
+            transition: color 0.2s;
+
+            &:hover {
+              color: var(--white, #fff);
+            }
+          }
         }
       </style>
     `
@@ -80,18 +90,6 @@ class BaseApp extends BaseComponent {
   connectedCallback() {
     this.render()
   }
-
-  getAppContainer() {
-    return this.shadowRoot.querySelector('.app')
-  }
-
-  setFocused(isFocused) {
-    this.getAppContainer().classList.toggle('focused', isFocused)
-  }
-
-  setNoBorder() {
-    this.getAppContainer().classList.add('no-border')
-  }
 }
 
-export default BaseApp
+customElements.define('arrows-icon', ArrowsIcon)

@@ -18,8 +18,8 @@
 
 'use strict'
 
-import { getLanguage } from '../../../../../utils/i18n.js'
 import BaseComponent from '../../../../base-component.js'
+import { getLanguage } from '../../../../../utils/i18n.js'
 
 class WebBrowserContent extends BaseComponent {
   constructor() {
@@ -29,28 +29,43 @@ class WebBrowserContent extends BaseComponent {
   #getTemplate() {
     const template = document.createElement('template')
 
-    const isWikipedia = this.hasAttribute('wikipedia')
+    const isCreatidevpedia = this.hasAttribute('creatidevpedia')
+    const isDlrdevacademy = this.hasAttribute('dlrdevacademy')
 
     template.innerHTML = `
       ${this.#getStyles()}
       <article class="browser">
         <header class="browser__header">
           <article class="website__title">
-            <p class="title">${isWikipedia ? 'David Llamas Román - Wikipedia' : ''}</p>
+            <p class="title">${isCreatidevpedia ? 'David Llamas Román - CreatiDevpedia' : isDlrdevacademy ? 'Home | DlrDevAcademy' : ''}</p>
           </article>
-          <article class="website__url">
-            <input type="search" class="url" value="${isWikipedia ? `https://${getLanguage() === 'en' ? 'en' : 'es'}.wikipedia.org/wiki/David_Llamas_Román` : ''}" disabled />
+          <article class="browser__controls">
+            <arrows-icon left></arrows-icon>
+            <arrows-icon right></arrows-icon>
+            <article class="website__url">
+              <input type="search" class="url" value="${isCreatidevpedia ? `https://davidllamasroman.com/${getLanguage() === 'en' ? 'en' : 'es'}/creatidevpedia/dev/David_Llamas_Román` : isDlrdevacademy ? `https://davidllamasroman.com/${getLanguage() === 'en' ? 'en' : 'es'}/dlrdevacademy` : ''}" disabled />
+            </article>
+          </article>
+          <article class="browser__bookmarks">
+            <bookmarks-icon></bookmarks-icon>
+            <nav class="bookmarks">
+              <ul class="bookmarks__list">
+                <li><button type="button"><creatidevpedia-icon></creatidevpedia-icon> CreatiDevpedia</button></li>
+                <li><button type="button"><dlrdevacademy-icon></dlrdevacademy-icon> DlrDevAcademy</button></li>
+              </ul>
+            </nav>
           </article>
         </header>
         <article class="browser__content">
           <aside class="content__aside">
             <nav class="aside__navbar">
               <ul class="navbar__list">
-                ${isWikipedia ? '<li class="list__element">DLR - Wikipedia</li>' : ''}
+                ${isCreatidevpedia ? '<li class="list__element"><button type="button"><creatidevpedia-icon></creatidevpedia-icon> DLR - CreatiDevpedia</button></li>' : isDlrdevacademy ? `<li class="list__element"><button type="button"><dlrdevacademy-icon></dlrdevacademy-icon> Home | DlrDevAcademy</button></li>` : ''}
+                <li class="list__element border-top"><button type="button"><addition-icon></addition-icon> New Tab <div><span>Space</span><span>T</span></div></button></li>
               </ul>
             </nav>
           </aside>
-          ${isWikipedia ? '<wikipedia-web></wikipedia-web>' : ''}
+          ${isCreatidevpedia ? '<creatidevpedia-web></creatidevpedia-web>' : isDlrdevacademy ? '<dlrdevacademy-web></-web>' : ''}
         </article>
       </article>
     `
@@ -73,18 +88,18 @@ class WebBrowserContent extends BaseComponent {
             grid-template-rows: auto 1fr;
             grid-template-columns: 1fr;
 
-            background-color: var(--light-grey-2, rgba(255, 255, 255, 0.25));
+            background-color: var(--light-grey-2, rgba(255, 255, 255, 0.28));
 
-            border-bottom: 1px solid var(--dark-grey-rgba-2, rgba(31, 31, 35, 0.4));
+            border-bottom: 1px solid var(--dark-grey-rgba-2, rgba(35, 35, 40, 0.4));
 
             .website__title {
               padding: 0.35rem 0.75rem;
 
-              background-color: var(--dark-grey, #1f1f23);
+              background-color: var(--dark-grey, #232327);
 
               border-top-left-radius: 10px;
               border-top-right-radius: 10px;
-              border-bottom: 1px solid var(--dark-grey-rgba-2, rgba(31, 31, 35, 0.4));
+              border-bottom: 1px solid var(--dark-grey-rgba-2, rgba(35, 35, 40, 0.4));
 
               .title {
                 color: var(--white, #fff);
@@ -95,27 +110,83 @@ class WebBrowserContent extends BaseComponent {
               }
             }
 
-            .website__url {
+            .browser__controls {
               display: grid;
               grid-template-rows: 1fr;
-              grid-template-columns: 1fr;
+              grid-template-columns: auto auto 1fr;
+              align-items: center;
 
-              margin: 0.35rem 1rem;
-              padding: 0.5rem;
+              .website__url {
+                display: grid;
+                grid-template-rows: 1fr;
+                grid-template-columns: 1fr;
 
-              background-color: var(--dark-grey, #1f1f23);
+                margin: 0.35rem 1rem;
+                padding: 0.5rem;
 
-              border-radius: 10px;
+                background-color: var(--dark-grey, #232327);
 
-              .url {
-                background-color: transparent;
-                color: var(--white, #fff);
+                border-radius: 10px;
 
-                font-size: max(14px, 0.75vmax);
+                .url {
+                  background-color: transparent;
+                  color: var(--white, #fff);
 
-                border: none;
+                  font-size: max(14px, 0.75vmax);
 
-                text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+                  border: none;
+
+                  text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+                }
+              }
+            }
+
+            .browser__bookmarks {
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+
+              padding: 0 0.6rem 0.3rem 0.6rem;
+
+              .bookmarks {
+                padding-left: 0.75rem;
+
+                border-left: 1px solid var(--black, #000);
+
+                .bookmarks__list {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  
+                  list-style: none;
+
+                  & li {
+                    border-radius: 8px;
+
+                    transition: background-color 0.2s;
+
+                    &:hover {
+                        background-color: var(--dark-grey-rgba-2, rgba(35, 35, 40, 0.4));
+                    }
+
+                    & button {
+                      display: flex;
+                      align-items: center;
+                      gap: 0.5rem;
+
+                      padding: 0.5rem;
+
+                      background-color: transparent;
+                      color: var(--white, #fff);
+
+                      border: none;
+
+                      text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+
+                      cursor: pointer;
+                    }
+                  }
+                }
               }
             }
           }
@@ -126,38 +197,83 @@ class WebBrowserContent extends BaseComponent {
             grid-template-columns: auto 1fr;
 
             .content__aside {
+              width: max(38px, 1.75vmax);
+
               padding: 0.75rem 0;
 
-              background-color: var(--light-grey-2, rgba(255, 255, 255, 0.25));
+              background-color: var(--light-grey-2, rgba(255, 255, 255, 0.28));
 
-              border-right: 1px solid var(--light-grey-2, rgba(255, 255, 255, 0.25));
+              border-right: 1px solid var(--light-grey-2, rgba(255, 255, 255, 0.28));
+
+              transition: width 0.2s ease;
+              overflow: hidden;
 
               .aside__navbar {
                 margin: 0 0.25rem;
 
                 .navbar__list {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0.25rem;
+
                   list-style: none;
 
                   .list__element {
-                    padding: 0.25rem 1.5rem;
+                    display: grid;
+                    grid-template-columns: 1fr;
 
-                    color: var(--white, #fff);
+                    white-space: nowrap;
 
-                    font-size: max(14px, 0.75vmax);
+                    & button {
+                      display: flex;
+                      align-items: center;
+                      gap: 0.5rem;
 
-                    border-radius: 8px;
+                      padding: 0.25rem 0.3rem;
 
-                    text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+                      background-color: transparent;
+                      color: var(--white, #fff);
 
-                    cursor: pointer;
+                      font-size: max(14px, 0.75vmax);
+                      font-family: 'Open Sans';
 
-                    transition: background-color 0.2s;
+                      border-radius: 4px;
+                      border: none;
 
-                    &:hover {
-                      background-color: var(--light-grey-2);
+                      text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+
+                      cursor: pointer;
+
+                      transition: background-color 0.2s;
+
+                      &:hover {
+                        background-color: var(--light-grey-2, rgba(255, 255, 255, 0.28));
+                      }
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+
+        .list__element.border-top {
+          margin-top: 0.25rem;
+          border-top: 1px solid var(--light-grey-2, rgba(255, 255, 255, 0.28));
+
+          & button {
+            margin-top: 0.25rem;
+
+            & div {
+              display: flex;
+              align-items: center;
+              gap: 0.25rem;
+
+              & span {
+                padding: 0 0.25rem;
+
+                border-radius: 4px;
+                border: 1px solid var(--light-grey-5, rgba(255, 255, 255, 0.18));
               }
             }
           }
@@ -178,6 +294,51 @@ class WebBrowserContent extends BaseComponent {
 
   connectedCallback() {
     this.render()
+
+    const aside = this.shadowRoot.querySelector('.content__aside')
+    if (!aside) return
+
+    const collapsedWidthPx = getComputedStyle(aside).width
+    aside.style.width = collapsedWidthPx
+
+    const expand = () => {
+      const fullWidth = Math.ceil(aside.scrollWidth)
+      const extra = 4.5
+      aside.style.width = `${fullWidth + extra}px`
+    }
+
+    const collapse = () => {
+      aside.style.width = collapsedWidthPx
+    }
+
+    const onEnter = () => expand()
+    const onLeave = () => collapse()
+
+    aside.addEventListener('pointerenter', onEnter)
+    aside.addEventListener('pointerleave', onLeave)
+
+    const onResize = () => {
+      if (!aside.matches(':hover')) {
+        collapse()
+      }
+    }
+    window.addEventListener('resize', onResize)
+
+    this._aside = aside
+    this._onEnter = onEnter
+    this._onLeave = onLeave
+    this._onResize = onResize
+  }
+
+  disconnectedCallback() {
+    if (this._aside) {
+      this._aside.removeEventListener('pointerenter', this._onEnter)
+      this._aside.removeEventListener('pointerleave', this._onLeave)
+    }
+
+    if (this._onResize) {
+      window.removeEventListener('resize', this._onResize)
+    }
   }
 }
 

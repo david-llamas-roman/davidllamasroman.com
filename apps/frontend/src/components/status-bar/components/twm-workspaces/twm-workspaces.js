@@ -38,7 +38,7 @@ class TwmWorkspaces extends BaseComponent {
     template.innerHTML = `
       ${this.#getStyles()}
       <nav class="workspaces">
-        <twm-windows-icon></twm-windows-icon>
+        <twm-wos-icon></twm-wos-icon>
         <ul class="workspaces__list">
           <li class="list__element">
             <a href="#" class="element__link" data-ws="about-me">${t('about-me')}</a>
@@ -84,14 +84,14 @@ class TwmWorkspaces extends BaseComponent {
             list-style: none;
 
             .list__element {
-              background-color: var(--dark-grey, #1f1f23);
+              background-color: var(--dark-grey, #232327);
 
               border-radius: 4px;
 
               transition: background-color 0.2s;
 
               &:hover {
-                background-color: var(--blue, #273a83);
+                background-color: var(--blue, #2c428e);
               }
 
               .element__link {
@@ -111,7 +111,7 @@ class TwmWorkspaces extends BaseComponent {
           }
 
           .list__element.active {
-            background-color: var(--blue, #273a83);
+            background-color: var(--blue, #2c428e);
           }
         }
       </style>

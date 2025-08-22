@@ -39,7 +39,7 @@ const translations = {
     blog: 'Blog',
     academy: 'Academy',
     contact: 'Contact',
-    'wikipedia-logo': 'The Free Encyclopedia',
+    'creatidevpedia-logo': 'The Creative Dev Encyclopedia',
     'full-stack-developer': 'Full-stack Developer',
     biography: 'Biography',
     born: 'Born',
@@ -49,7 +49,7 @@ const translations = {
     unicorn: 'Operation Unicorn',
     'spouse-title': 'Spouse',
     spouse: 'JavaScript',
-    'wikipedia-about-me': `
+    'creatidevpedia-about-me': `
       <p>
         <strong>At 11</strong>, I was <span>making mini-games with Scratch</span>.
       </p>
@@ -78,6 +78,7 @@ const translations = {
         <strong>At 20</strong>, <span>here I am, writing this</span>, <span>learning about personal branding</span>, about social media, <span>continuing on this long-distance journey</span>, and <strong>starting to build projects that go beyond just learning</strong>. Web apps that can actually be used and have a real-world application.
       </p>
     `,
+    'web-development': 'Web Development',
   },
   es: {
     'about-me': 'Sobre Mí',
@@ -87,7 +88,7 @@ const translations = {
     blog: 'Blog',
     academy: 'Academia',
     contact: 'Contacto',
-    'wikipedia-logo': 'La enciclopedia libre',
+    'creatidevpedia-logo': 'La Enciclopedia Creativa para Devs',
     'full-stack-developer': 'Desarrollador Full-stack',
     biography: 'Biografía',
     born: 'Nacimiento',
@@ -97,7 +98,7 @@ const translations = {
     unicorn: 'Operación Unicornio',
     'spouse-title': 'Pareja',
     spouse: 'JavaScript',
-    'wikipedia-about-me': `
+    'creatidevpedia-about-me': `
       <p>
         A los 11, hacía minijuegos con Scratch.
       </p>
@@ -126,6 +127,7 @@ const translations = {
         A los 20, aquí estoy, escribiendo esto, aprendiendo de marca personal, de redes, continuando en esta carrera de fondo y empezando a hacer proyectos que no se limiten únicamente al ámbito del aprendizaje. Aplicaciones web que puedan ser utilizadas y tengan una aplicación en el mundo real.
       </p>
     `,
+    'web-development': 'Desarrollo Web',
   },
 }
 

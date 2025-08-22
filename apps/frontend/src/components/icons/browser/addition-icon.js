@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component.js'
+import BaseComponent from '../../base-component'
 
-class BaseApp extends BaseComponent {
+class AdditionIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,7 +30,9 @@ class BaseApp extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="app"></article>
+      <article class="addition">
+        <p class="addition__text">+</p>
+      </article>
     `
 
     return template
@@ -39,29 +41,26 @@ class BaseApp extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .app {
-          position: absolute;
-          top: var(--app-top, 0);
-          left: var(--app-left, 0);
+        .addition {
+          position: relative;
 
           display: grid;
-          grid-template-rows: 1fr;
-          grid-template-columns: 1fr;
+          place-items: center;
 
-          width: var(--app-width, 100%);
-          height: var(--app-height, 100%);
+          width: max(17px, 1.05vmax);
+          height: max(16px, 1vmax);
 
-          border: 2px solid var(--light-grey-2, rgba(255, 255, 255, 0.28));
-          border-radius: 10px;
-        }
+          .addition__text {
+            position: absolute;
 
-        .app.focused {
-          border-color: var(--white, #fff);
-        }
+            color: var(--light-grey-4, rgba(255, 255, 255, 0.78));
 
-        .app.no-border {
-          border: none;
-          border-radius: 0;
+            font-family: 'Open Sans';
+            font-size: max(20px, 1.25vmax);
+            font-weight: 600;
+
+            text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+          }
         }
       </style>
     `
@@ -80,18 +79,6 @@ class BaseApp extends BaseComponent {
   connectedCallback() {
     this.render()
   }
-
-  getAppContainer() {
-    return this.shadowRoot.querySelector('.app')
-  }
-
-  setFocused(isFocused) {
-    this.getAppContainer().classList.toggle('focused', isFocused)
-  }
-
-  setNoBorder() {
-    this.getAppContainer().classList.add('no-border')
-  }
 }
 
-export default BaseApp
+customElements.define('addition-icon', AdditionIcon)

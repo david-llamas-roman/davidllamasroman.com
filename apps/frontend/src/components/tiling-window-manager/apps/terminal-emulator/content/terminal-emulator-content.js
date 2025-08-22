@@ -42,7 +42,7 @@ class TerminalEmulatorContent extends BaseComponent {
           width: var(--max-percentage, 100%);
           height: var(--max-percentage, 100%);
 
-          background-color: var(--dark-grey-rgba, rgba(31, 31, 35, 0.8));
+          background-color: var(--dark-grey-rgba, rgba(35, 35, 40, 0.25));
           backdrop-filter: var(--app-backdrop-blur, blur(10px));
         }
       </style>
