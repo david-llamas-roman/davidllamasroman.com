@@ -23,12 +23,15 @@ import BaseComponent from '../base-component.js'
 class TilingWM extends BaseComponent {
   static INITIAL_APPS = {
     'about-me': [{ tag: 'web-browser', attributes: { creatidevpedia: '' } }],
-    projects: ['terminal-emulator', 'vs-code'],
-    experience: [],
-    certifications: [],
-    blog: [],
+    projects: [
+      { tag: 'terminal-emulator', attributes: { projects: '' } },
+      { tag: 'vs-code', attributes: { projects: '' } },
+    ],
+    experience: [{ tag: 'web-browser', attributes: {} }],
+    certifications: [{ tag: 'web-browser', attributes: {} }],
+    blog: [{ tag: 'web-browser', attributes: {} }],
     academy: [{ tag: 'web-browser', attributes: { dlrdevacademy: '' } }],
-    contact: [],
+    contact: [{ tag: 'web-browser', attributes: {} }],
   }
 
   constructor() {
@@ -287,14 +290,51 @@ class TilingWM extends BaseComponent {
   }
 
   #isTyping() {
-    const element = document.activeElement
+    const isEditable = (element) => {
+      if (!element || element === document || element === window) return false
 
-    return (
-      element &&
-      (element.tagName === 'INPUT' ||
-        element.tagName === 'TEXTAREA' ||
-        element.isContentEditable)
-    )
+      const tag = (element.tagName || '').toUpperCase()
+
+      if (tag === 'INPUT' || tag === 'TEXTAREA') {
+        return !element.disabled && !element.readOnly
+      }
+
+      if (element.isContentEditable) return true
+      if (
+        element.closest &&
+        element.closest('[contenteditable=""], [contenteditable="true"]')
+      )
+        return true
+      if (element.getAttribute && element.getAttribute('role') === 'textbox')
+        return true
+
+      return false
+    }
+
+    const path =
+      event && typeof event.composedPath === 'function'
+        ? event.composedPath()
+        : []
+
+    for (const node of path) {
+      if (isEditable(node)) return true
+
+      if (
+        node &&
+        node.shadowRoot &&
+        node.shadowRoot.activeElement &&
+        isEditable(node.shadowRoot.activeElement)
+      )
+        return true
+    }
+
+    let element = document.activeElement
+    while (element && element.shadowRoot && element.shadowRoot.activeElement) {
+      element = element.shadowRoot.activeElement
+    }
+    if (isEditable(element)) return true
+
+    return false
   }
 
   #initShortcuts() {
@@ -329,7 +369,7 @@ class TilingWM extends BaseComponent {
     this._onKeyDown = (event) => {
       console.log('Tecla presionada:', event.code, 'Combo:', this.spacePressed)
 
-      if (this.#isTyping()) return
+      if (event.isComposing) return
       if (event.repeat) return
 
       if (event.code === 'Space') {
@@ -359,8 +399,29 @@ class TilingWM extends BaseComponent {
       }
     }
 
-    document.addEventListener('keydown', this._onKeyDown)
-    document.addEventListener('keyup', this._onKeyUp)
+    const attachKeyListeners = () => {
+      document.addEventListener('keydown', this._onKeyDown)
+      document.addEventListener('keyup', this._onKeyUp)
+    }
+
+    const detachKeyListeners = () => {
+      document.removeEventListener('keydown', this._onKeyDown)
+      document.removeEventListener('keyup', this._onKeyUp)
+    }
+
+    attachKeyListeners()
+
+    document.addEventListener('focusin', (event) => {
+      if (this.#isTyping(event.target)) detachKeyListeners()
+    })
+
+    document.addEventListener('focusout', () => {
+      setTimeout(() => {
+        if (!this.#isTyping()) {
+          attachKeyListeners()
+        }
+      }, 0)
+    })
   }
 
   #goWorkspaceIndex(index) {
