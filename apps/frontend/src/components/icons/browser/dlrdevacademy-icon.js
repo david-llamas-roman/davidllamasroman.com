@@ -55,7 +55,7 @@ class DlrDevAcademyIcon extends BaseComponent {
             color: var(--dlrdevacademy-purple, #6f2fdc);
 
             font-family: 'Montserrat';
-            font-weight: 600;
+            font-weight: 900;
             font-size: max(10px, 0.65vmax);
           }
         }
