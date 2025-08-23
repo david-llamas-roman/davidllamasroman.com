@@ -20,6 +20,8 @@
 
 import { getLanguage } from '../utils/i18n.js'
 
+import './static-routes-renderer.js'
+
 const workspacesMap = {
   'about-me': ['en/about-me', 'es/sobre-mi'],
   projects: ['en/projects', 'es/proyectos'],
@@ -28,6 +30,14 @@ const workspacesMap = {
   blog: ['en/blog', 'es/blog'],
   academy: ['en/academy', 'es/academia'],
   contact: ['en/contact', 'es/contacto'],
+}
+
+const staticRoutesMap = {
+  creatidevpedia: [
+    'en/creatidevpedia/dev/David_Llamas_Román',
+    'es/creatidevpedia/dev/David_Llamas_Román',
+  ],
+  dlrdevacademy: ['en/dlrdevacademy', 'es/dlrdevacademy'],
 }
 
 const getLangFromUrl = () => {
@@ -40,6 +50,17 @@ const findWorkspaceIdFromPath = () => {
 
   return Object.keys(workspacesMap).find(
     (id) => workspacesMap[id].some((route) => fullPath.endsWith(route)) || null,
+  )
+}
+
+const findStaticRouteIdFromPath = () => {
+  const fullPath = decodeURIComponent(
+    window.location.pathname.replace(/^\/+/, ''),
+  )
+
+  return Object.keys(staticRoutesMap).find(
+    (id) =>
+      staticRoutesMap[id].some((route) => fullPath.endsWith(route)) || null,
   )
 }
 
@@ -62,11 +83,20 @@ const handleRoute = () => {
   }
 
   const workspaceId = findWorkspaceIdFromPath()
-  if (!workspaceId) return
+  if (workspaceId) {
+    window.dispatchEvent(
+      new CustomEvent('workspace:switch', { detail: { id: workspaceId } }),
+    )
+    return
+  }
 
-  window.dispatchEvent(
-    new CustomEvent('workspace:switch', { detail: { id: workspaceId } }),
-  )
+  const staticRouteId = findStaticRouteIdFromPath()
+  if (staticRouteId) {
+    window.dispatchEvent(
+      new CustomEvent('static:switch', { detail: { id: staticRouteId } }),
+    )
+    return
+  }
 }
 
 window.addEventListener('workspace:navigate', (event) => {
@@ -77,6 +107,20 @@ window.addEventListener('workspace:navigate', (event) => {
   const target =
     workspacesMap[id].find((route) => route.startsWith(`${lang}/`)) ||
     workspacesMap[id][0]
+  const path = `/${target}`
+
+  history.pushState({}, '', path)
+  handleRoute()
+})
+
+window.addEventListener('static:navigate', (event) => {
+  const id = event?.detail?.id
+  if (!id || !staticRoutesMap[id]) return
+
+  const lang = getLangFromUrl()
+  const target =
+    staticRoutesMap[id].find((route) => route.startsWith(`${lang}/`)) ||
+    staticRoutesMap[id][0]
   const path = `/${target}`
 
   history.pushState({}, '', path)
