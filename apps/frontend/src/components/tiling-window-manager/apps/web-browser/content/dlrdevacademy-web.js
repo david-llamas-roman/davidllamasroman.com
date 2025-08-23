@@ -74,7 +74,7 @@ class DlrDevAcademy extends BaseComponent {
             grid-template-rows: 1fr auto;
             grid-template-columns: 1fr;
 
-            background-color: var(--dlrdevacademy-purple, #6f2fdc);
+            background-color: var(--dlrdevacademy-purple, #7c3aed);
 
             .header__content {
               display: grid;
@@ -91,7 +91,7 @@ class DlrDevAcademy extends BaseComponent {
                 padding: 0.5rem;
 
                 .logo__text {
-                  color: var(--dlrdevacademy-purple, #0f0e17);
+                  color: var(--dlrdevacademy-purple, #7c3aed);
 
                   font-weight: 900;
                   font-size: max(40px, 2.5vmax);
@@ -106,7 +106,7 @@ class DlrDevAcademy extends BaseComponent {
                 background-color: var(--dlrdevacademy-dark-blue);
 
                 border-radius: 8px;
-                border: 2px solid var(--dlrdevacademy-purple);
+                border: 2px solid var(--dlrdevacademy-purple, #7c3aed);
 
                 #search {
                   padding: 0.3rem 0.5rem;
@@ -120,7 +120,7 @@ class DlrDevAcademy extends BaseComponent {
                   border: none;
 
                   &::placeholder {
-                    color: var(--dlrdevacademy-purple);
+                    color: var(--dlrdevacademy-purple, #7c3aed);
 
                     font-weight: 550;
                   }
@@ -159,7 +159,7 @@ class DlrDevAcademy extends BaseComponent {
 
                     &:hover {
                       background-color: var(--dlrdevacademy-dark-blue);
-                      color: var(--dlrdevacademy-purple);
+                      color: var(--dlrdevacademy-purple, #7c3aed);
                     }
                   }
                 }
