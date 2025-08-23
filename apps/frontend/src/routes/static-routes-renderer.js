@@ -27,9 +27,15 @@ window.addEventListener('static:switch', (event) => {
   switch (id) {
     case 'creatidevpedia':
       element = document.createElement('creatidevpedia-web')
+      element.setAttribute('static-route', '')
+      document.body.style.backgroundColor =
+        'var(--creatidevpedia-dark-blue, #121420)'
       break
     case 'dlrdevacademy':
       element = document.createElement('dlrdevacademy-web')
+      element.setAttribute('static-route', '')
+      document.body.style.backgroundColor =
+        'var(--dlrdevacademy-dark-blue, #0f0e17)'
       break
     default:
       break

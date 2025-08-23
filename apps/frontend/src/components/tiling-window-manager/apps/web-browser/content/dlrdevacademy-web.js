@@ -34,7 +34,7 @@ class DlrDevAcademy extends BaseComponent {
               <p class="logo__text">DlrDA</p>
             </article>
             <article class="search__container">
-              <input type="search" name="search" id="search" />
+              <input type="search" name="search" id="search" placeholder="${t('search-courses')}" autocomplete="off" />
             </article>
             <button type="button" class="user">
               <img src="" alt="" />
@@ -70,12 +70,98 @@ class DlrDevAcademy extends BaseComponent {
           border-bottom-right-radius: 10px;
 
           .dlrdevacademy__header {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            grid-template-columns: 1fr;
+
             background-color: var(--dlrdevacademy-purple, #6f2fdc);
 
             .header__content {
+              display: grid;
+              grid-template-rows: 1fr;
+              grid-template-columns: auto 1fr auto;
+              align-items: center;
+              gap: 1rem;
+
+              padding: 0 1rem;
+
+              background-color: var(--dlrdevacademy-dark-blue);
+
               .logo {
+                padding: 0.5rem;
+
                 .logo__text {
-                  color: var(--dlrdevacademy-dark-blue, #0f0e17);
+                  color: var(--dlrdevacademy-purple, #0f0e17);
+
+                  font-weight: 900;
+                  font-size: max(40px, 2.5vmax);
+                }
+              }
+
+              .search__container {
+                display: grid;
+                grid-template-rows: 1fr;
+                grid-template-columns: 1fr;
+
+                background-color: var(--dlrdevacademy-dark-blue);
+
+                border-radius: 8px;
+                border: 2px solid var(--dlrdevacademy-purple);
+
+                #search {
+                  padding: 0.3rem 0.5rem;
+
+                  color: var(--white, #fff);
+                  background-color: transparent;
+
+                  font-size: max(16px, 1vmax);
+
+                  outline: none;
+                  border: none;
+
+                  &::placeholder {
+                    color: var(--dlrdevacademy-purple);
+
+                    font-weight: 550;
+                  }
+                }
+              }
+            }
+
+            .header__navbar {
+              display: grid;
+              place-items: center;
+
+              .navbar__list {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                list-style: none;
+
+                .list__element {
+                  padding: 0.25rem;
+
+                  & button {
+                    padding: 0.25rem 0.5rem;
+
+                    background-color: transparent;
+
+                    font-weight: 600;
+                    font-size: max(16px, 1vmax);
+
+                    border-radius: 4px;
+                    border: none;
+
+                    transition: background-color 0.2s, color 0.2s;
+
+                    cursor: pointer;
+
+                    &:hover {
+                      background-color: var(--dlrdevacademy-dark-blue);
+                      color: var(--dlrdevacademy-purple);
+                    }
+                  }
                 }
               }
             }

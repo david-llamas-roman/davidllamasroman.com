@@ -53,6 +53,8 @@ class BaseApp extends BaseComponent {
 
           border: 2px solid var(--light-grey-2, rgba(255, 255, 255, 0.28));
           border-radius: 10px;
+
+          overflow: hidden;
         }
 
         .app.focused {

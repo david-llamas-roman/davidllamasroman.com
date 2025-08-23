@@ -24,6 +24,9 @@ import BaseComponent from '../../../../base-component.js'
 class CreatidevpediaWeb extends BaseComponent {
   constructor() {
     super()
+
+    this._resizeObserver = null
+    this.isStaticRoute = false
   }
 
   #getTemplate() {
@@ -91,7 +94,7 @@ class CreatidevpediaWeb extends BaseComponent {
           grid-template-columns: 1fr;
 
           width: var(--max-percentage, 100%);
-          height: var(--max-percentage, 100%);
+          ${this.isStaticRoute ? 'height: var(--max-percentage, 100%);' : ''}
 
           padding: 1rem 2rem;
 
@@ -102,6 +105,8 @@ class CreatidevpediaWeb extends BaseComponent {
           border-bottom-right-radius: 10px;
 
           text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+
+          ${this.isStaticRoute ? '' : 'overflow-y: scroll;'}
 
           .creatidevpedia__header {
             display: grid;
@@ -245,6 +250,8 @@ class CreatidevpediaWeb extends BaseComponent {
                     }
 
                     & p {
+                      white-space: nowrap;
+
                       font-size: max(16px, 0.75vmax);
                     }
                   }
@@ -267,8 +274,52 @@ class CreatidevpediaWeb extends BaseComponent {
     this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
   }
 
+  static get observedAttributes() {
+    return ['static-route']
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'static-route') {
+      this.isStaticRoute = newValue !== null
+    }
+  }
+
   connectedCallback() {
     this.render()
+
+    if (this.isStaticRoute) return
+
+    const updateHeight = () => this.setHeightToParent()
+
+    requestAnimationFrame(updateHeight)
+
+    const container = this.shadowRoot.querySelector('.creatidevpedia')
+    const parent = this.parentElement
+    if (container && parent) {
+      this._resizeObserver = new ResizeObserver(updateHeight)
+      this._resizeObserver.observe(parent)
+    }
+
+    window.addEventListener('resize', updateHeight)
+  }
+
+  disconnectedCallback() {
+    if (this._resizeObserver) {
+      this._resizeObserver.disconnect()
+    }
+    window.removeEventListener('resize', this.setHeightToParent)
+  }
+
+  setHeightToParent() {
+    if (this.isStaticRoute) return
+
+    const container = this.shadowRoot.querySelector('.creatidevpedia')
+    if (!container) return
+
+    const parent = this.parentElement
+    if (!parent) return
+
+    container.style.height = `${parent.clientHeight}px`
   }
 }
 

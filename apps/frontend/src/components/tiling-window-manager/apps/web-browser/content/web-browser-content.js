@@ -199,7 +199,7 @@ class WebBrowserContent extends BaseComponent {
             .content__aside {
               width: max(38px, 1.75vmax);
 
-              padding: 0.75rem 0;
+              padding: 0.5rem 0;
 
               background-color: var(--light-grey-2, rgba(255, 255, 255, 0.28));
 
