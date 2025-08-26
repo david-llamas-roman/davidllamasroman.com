@@ -48,8 +48,12 @@ class ArrowsIcon extends BaseComponent {
           margin: 0.5rem 0 0.5rem 0.5rem;
 
           background-color: transparent;
-          
+
           border: none;
+
+          &:not([disabled]) .arrow {
+            color: var(--white, #fff);
+          }
 
           .arrow {
             padding: 0 0.4rem;
@@ -65,12 +69,6 @@ class ArrowsIcon extends BaseComponent {
             cursor: pointer;
 
             transform: scaleY(2);
-
-            transition: color 0.2s;
-
-            &:hover {
-              color: var(--white, #fff);
-            }
           }
         }
       </style>
@@ -89,6 +87,28 @@ class ArrowsIcon extends BaseComponent {
 
   connectedCallback() {
     this.render()
+
+    const button = this.shadowRoot.querySelector('button')
+
+    if (this.hasAttribute('disabled')) {
+      button.setAttribute('disabled', '')
+    } else {
+      button.removeAttribute('disabled')
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === 'attributes' &&
+          mutation.attributeName === 'disabled'
+        ) {
+          if (this.hasAttribute('disabled')) button.setAttribute('disabled', '')
+          else button.removeAttribute('disabled')
+        }
+      })
+    })
+
+    observer.observe(this, { attributes: true })
   }
 }
 

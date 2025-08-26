@@ -28,6 +28,10 @@ class WebBrowser extends BaseApp {
   connectedCallback() {
     super.connectedCallback()
     this.#setupBrowser()
+
+    this.addEventListener('empty-browser', () => {
+      this.remove()
+    })
   }
 
   #setupBrowser() {

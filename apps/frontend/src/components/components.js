@@ -22,8 +22,11 @@
 import './icons/tiling-window-manager/wos/twm-wos-icon.js' // tiling window manager wos icon
 import './icons/wos/wos-icon.js' // wos
 import './icons/browser/arrows-icon.js' // arrows
+import './icons/browser/url-info-icon.js' // url info
 import './icons/browser/bookmarks-icon.js' // bookmarks
-import './icons/browser/creatidevpedia-icon.js' // creatidevpedia
+import './icons/browser/close-tab-icon.js' // close tab
+import './icons/browser/new-tab-icon.js' // new tab
+import './icons/browser/creatidevpedia-icon.js' // CreatiDevPedia
 import './icons/browser/dlrdevacademy-icon.js' // DlrDevAcademy
 import './icons/browser/addition-icon.js' // addition
 
@@ -59,7 +62,8 @@ import './tiling-window-manager/apps/terminal-emulator/content/terminal-emulator
 
 // web browser components
 import './tiling-window-manager/apps/web-browser/content/web-browser-content.js' // content
-import './tiling-window-manager/apps/web-browser/content/creatidevpedia-web.js' // creatidevpedia
+import './tiling-window-manager/apps/web-browser/content/new-tab.js' // new tab
+import './tiling-window-manager/apps/web-browser/content/creatidevpedia-web.js' // CreatiDevPedia
 import './tiling-window-manager/apps/web-browser/content/dlrdevacademy-web.js' // DlrDevAcademy
 
 // wos menu
