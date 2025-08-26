@@ -79,6 +79,7 @@ const translations = {
       </p>
     `,
     'web-development': 'Web Development',
+    'search-courses': 'What do you want to learn today?',
   },
   es: {
     'about-me': 'Sobre Mí',
@@ -128,6 +129,7 @@ const translations = {
       </p>
     `,
     'web-development': 'Desarrollo Web',
+    'search-courses': '¿Qué quieres aprender hoy?',
   },
 }
 
