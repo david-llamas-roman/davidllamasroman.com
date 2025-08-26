@@ -28,10 +28,12 @@ class DlrDevAcademyIcon extends BaseComponent {
   #getTemplate() {
     const template = document.createElement('template')
 
+    const isSimplified = this.hasAttribute('simplified')
+
     template.innerHTML = `
       ${this.#getStyles()}
       <article class="dlrdevacademy">
-        <p class="dlrdevacademy__text">DlrDA</p>
+        <${isSimplified ? 'div' : 'p'} class="dlrdevacademy__text">${isSimplified ? '' : 'DlrDA'}</${isSimplified ? 'div' : 'p'}>
       </article>
     `
 
@@ -39,6 +41,8 @@ class DlrDevAcademyIcon extends BaseComponent {
   }
 
   #getStyles() {
+    const isSimplified = this.hasAttribute('simplified')
+
     return `
       <style>
         .dlrdevacademy {
@@ -51,12 +55,33 @@ class DlrDevAcademyIcon extends BaseComponent {
 
           border-radius: 4px;
 
-          .dlrdevacademy__text {
-            color: var(--dlrdevacademy-purple, #7c3aed);
+          ${
+            isSimplified
+              ? `
+                width: max(18.5px, 1.125vmax);
+                height: max(18.5px, 1.125vmax);
+              `
+              : ''
+          }
 
-            font-family: 'Montserrat';
-            font-weight: 900;
-            font-size: max(10px, 0.65vmax);
+          .dlrdevacademy__text {
+            ${
+              isSimplified
+                ? `
+                  padding: 0.4rem;
+
+                  background-color: var(--dlrdevacademy-purple, #7c3aed);
+
+                  border-radius: 50%;
+                `
+                : `
+                  color: var(--dlrdevacademy-purple, #7c3aed);
+
+                  font-family: 'Montserrat';
+                  font-weight: 900;
+                  font-size: max(10px, 0.65vmax);
+                `
+            }
           }
         }
       </style>
