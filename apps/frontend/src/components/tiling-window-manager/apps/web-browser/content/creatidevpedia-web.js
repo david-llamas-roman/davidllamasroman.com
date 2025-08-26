@@ -106,7 +106,7 @@ class CreatidevpediaWeb extends BaseComponent {
 
           text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
 
-          ${this.isStaticRoute ? '' : 'overflow-y: scroll;'}
+          ${this.isStaticRoute ? '' : 'overflow-y: auto;'}
 
           .creatidevpedia__header {
             display: grid;
