@@ -30,7 +30,9 @@ class WebBrowser extends BaseApp {
     this.#setupBrowser()
 
     this.addEventListener('empty-browser', () => {
-      this.remove()
+      this.dispatchEvent(
+        new CustomEvent('app:close', { bubbles: true, composed: true }),
+      )
     })
   }
 

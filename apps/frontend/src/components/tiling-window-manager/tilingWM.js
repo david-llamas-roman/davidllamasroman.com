@@ -182,6 +182,11 @@ class TilingWM extends BaseComponent {
       app.setAttribute(key, value)
     })
 
+    app.addEventListener('app:close', () => {
+      const index = state.apps.indexOf(app)
+      if (index >= 0) this.#closeApp(index)
+    })
+
     state.canvas.appendChild(app)
     state.apps.push(app)
 
