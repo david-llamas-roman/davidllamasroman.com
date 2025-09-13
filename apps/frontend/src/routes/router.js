@@ -22,6 +22,8 @@ import { getLanguage } from '../utils/i18n.js'
 
 import './static-routes-renderer.js'
 
+let spaContent = null
+
 const workspacesMap = {
   'about-me': ['en/about-me', 'es/sobre-mi'],
   projects: ['en/projects', 'es/proyectos'],
@@ -84,6 +86,12 @@ const handleRoute = () => {
 
   const workspaceId = findWorkspaceIdFromPath()
   if (workspaceId) {
+    if (spaContent) {
+      document.body.innerHTML = spaContent
+      spaContent = null
+      document.body.removeAttribute('style')
+    }
+
     window.dispatchEvent(
       new CustomEvent('workspace:switch', { detail: { id: workspaceId } }),
     )
@@ -92,6 +100,8 @@ const handleRoute = () => {
 
   const staticRouteId = findStaticRouteIdFromPath()
   if (staticRouteId) {
+    if (!spaContent) spaContent = document.body.innerHTML
+
     window.dispatchEvent(
       new CustomEvent('static:switch', { detail: { id: staticRouteId } }),
     )
