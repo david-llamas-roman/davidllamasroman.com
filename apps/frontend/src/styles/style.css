@@ -63,11 +63,23 @@
   --wos-dark-blue: #0682e0;
   --wos-blue: #59c5f9;
   --wos-light-blue: #70d8ff;
+  --close-app-red: #e81123;
   --creatidevpedia-dark-blue: #121420;
   --creatidevpedia-light-blue: #879fe5;
   --creatidevpedia-white: #f8fdfa;
   --dlrdevacademy-purple: #7c3aed;
   --dlrdevacademy-dark-blue: #0f0e17;
+  --code-editor-sop-bg: #0f0e17;
+  --code-editor-sop-fg: #f5f5f5;
+  --code-editor-sop-background: #0f0e17;
+  --code-editor-sop-foreground: #f5f5f5;
+  --code-editor-sop-purple-primary: #9a77cf;
+  --code-editor-sop-purple-accent: #c792ea;
+  --code-editor-sop-cyan-electric: #89ddff;
+  --code-editor-sop-green-acid: #80ffea;
+  --code-editor-sop-yellow-bright: #fede5d;
+  --code-editor-sop-red-rose: #ff5370;
+  --code-editor-sop-gray-comment: #7f849c;
   /* measures */
   --max-percentage: 100%;
   --max-dvw: 100dvw;

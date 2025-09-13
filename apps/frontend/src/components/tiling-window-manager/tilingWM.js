@@ -25,7 +25,7 @@ class TilingWM extends BaseComponent {
     'about-me': [{ tag: 'web-browser', attributes: { creatidevpedia: '' } }],
     projects: [
       { tag: 'terminal-emulator', attributes: { projects: '' } },
-      { tag: 'vs-code', attributes: { projects: '' } },
+      { tag: 'code-editor', attributes: { projects: '' } },
     ],
     experience: [{ tag: 'web-browser', attributes: {} }],
     certifications: [{ tag: 'web-browser', attributes: {} }],

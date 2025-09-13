@@ -57,7 +57,7 @@ import './tiling-window-manager/tilingWM.js' // desktop
 import './tiling-window-manager/apps/base-app.js' // base
 import './tiling-window-manager/apps/terminal-emulator/terminal-emulator.js' // terminal emulator
 import './tiling-window-manager/apps/web-browser/web-browser.js' // browser
-import './tiling-window-manager/apps/vs-code/vs-code.js' // visual studio code
+import './tiling-window-manager/apps/code-editor/code-editor.js' // visual studio code
 
 // terminal emulator components
 import './tiling-window-manager/apps/terminal-emulator/content/terminal-emulator-content.js' // content
@@ -68,8 +68,8 @@ import './tiling-window-manager/apps/web-browser/content/new-tab.js' // new tab
 import './tiling-window-manager/apps/web-browser/content/creatidevpedia-web.js' // CreatiDevPedia
 import './tiling-window-manager/apps/web-browser/content/dlrdevacademy-web.js' // DlrDevAcademy
 
-// vscode components
-import './tiling-window-manager/apps/vs-code/content/vscode-content.js' // content
+// code editor components
+import './tiling-window-manager/apps/code-editor/content/code-editor-content.js' // content
 
 // wos menu
 import './wos-menu/wos-menu.js'

@@ -20,7 +20,7 @@
 
 import BaseComponent from '../../../../base-component'
 
-class VsCodeContent extends BaseComponent {
+class CodeEditorContent extends BaseComponent {
   constructor() {
     super()
   }
@@ -43,7 +43,7 @@ class VsCodeContent extends BaseComponent {
           width: var(--max-percentage, 100%);
           height: var(--max-percentage, 100%);
 
-          background-color: var(--vscode-sop-background, #0f0e17);
+          background-color: var(--code-editor-sop-background, #0f0e17);
         }
       </style>
     `
@@ -64,4 +64,4 @@ class VsCodeContent extends BaseComponent {
   }
 }
 
-customElements.define('vscode-content', VsCodeContent)
+customElements.define('code-editor-content', CodeEditorContent)

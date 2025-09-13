@@ -20,7 +20,7 @@
 
 import BaseApp from '../base-app'
 
-class VsCode extends BaseApp {
+class CodeEditor extends BaseApp {
   constructor() {
     super()
   }
@@ -33,7 +33,7 @@ class VsCode extends BaseApp {
   #setupCodeEditor() {
     const app = this.getAppContainer()
 
-    const content = document.createElement('vscode-content')
+    const content = document.createElement('code-editor-content')
 
     for (const { name, value } of this.attributes) {
       if (name !== 'style') {
@@ -45,4 +45,4 @@ class VsCode extends BaseApp {
   }
 }
 
-customElements.define('vs-code', VsCode)
+customElements.define('code-editor', CodeEditor)
