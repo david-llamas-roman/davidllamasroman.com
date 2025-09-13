@@ -64,8 +64,8 @@ const findStaticRouteIdFromPath = () => {
   )
 }
 
-const navigate = (path) => {
-  history.pushState({}, '', path)
+const navigate = (path, state = {}) => {
+  history.pushState(state, '', path)
   handleRoute()
 }
 
@@ -130,4 +130,4 @@ window.addEventListener('static:navigate', (event) => {
 window.addEventListener('popstate', handleRoute)
 window.addEventListener('DOMContentLoaded', handleRoute)
 
-export { findWorkspaceIdFromPath }
+export { findWorkspaceIdFromPath, getLangFromUrl, staticRoutesMap, navigate }
