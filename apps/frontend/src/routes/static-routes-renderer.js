@@ -18,6 +18,8 @@
 
 'use strict'
 
+import { getLangFromUrl, navigate, staticRoutesMap } from './router.js'
+
 window.addEventListener('static:switch', (event) => {
   const { id } = event.detail
 
@@ -42,4 +44,19 @@ window.addEventListener('static:switch', (event) => {
   }
 
   document.body.appendChild(element)
+})
+
+window.addEventListener('app:open-static', (event) => {
+  const { id } = event.detail
+  if (!id) return
+
+  const lang = getLangFromUrl()
+  const target =
+    staticRoutesMap[id].find((route) => route.startsWith(`${lang}/`)) ||
+    staticRoutesMap[id][0]
+
+  const prevRoute = window.location.pathname
+  const path = `/${target}`
+
+  navigate(path, { prevRoute })
 })
