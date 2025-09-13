@@ -30,7 +30,16 @@ class BaseApp extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="app"></article>
+      <article class="app">
+        <ul>
+          <li>
+            <full-screen-icon></full-screen-icon>
+          </li>
+          <li>
+            <close-app-icon></close-app-icon>
+          </li>
+        </ul>
+      </article>
     `
 
     return template
@@ -55,6 +64,24 @@ class BaseApp extends BaseComponent {
           border-radius: 10px;
 
           overflow: hidden;
+
+          & ul {
+            position: absolute;
+            top: 0;
+            right: 5px;
+
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            list-style: none;
+
+            & li {
+              & close-app-icon {
+                
+              }
+            }
+          }
         }
 
         .app.focused {
@@ -81,6 +108,15 @@ class BaseApp extends BaseComponent {
 
   connectedCallback() {
     this.render()
+
+    const staticId = Array.from(this.attributes)
+      .map((attr) => attr.name)
+      .find((name) => name !== 'class' && name !== 'id')
+
+    if (staticId) {
+      const fullScreenBtn = this.shadowRoot.querySelector('full-screen-icon')
+      if (fullScreenBtn) fullScreenBtn.setAttribute('static-id', staticId)
+    }
   }
 
   getAppContainer() {
