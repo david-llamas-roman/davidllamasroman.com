@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../../../base-component'
 
-class WosIcon extends BaseComponent {
+class FullScreenIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,12 +30,9 @@ class WosIcon extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="wos">
-        <div class="wos__part1"></div>
-        <div class="wos__part"></div>
-        <div class="wos__part"></div>
-        <div class="wos__part4"></div>
-      </article>
+      <button class="fullscreen" type="button">
+        <article class="square"></article>
+      </button>
     `
 
     return template
@@ -44,32 +41,30 @@ class WosIcon extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .wos {
+        .fullscreen {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gris-template-rows: repeat(2, 1fr);
-          gap: 0.0625rem;
+          place-items: center;
 
-          width: max(26px, 1.5vw);
-          aspect-ratio: 1/1;
+          padding: 0.5rem 0.9rem;
 
           background-color: transparent;
-          filter: brightness(1.25);
 
-          .wos__part1, .wos__part, .wos__part4 {
-            border-radius: 2.5px;
+          border: none;
+
+          text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+
+          transition: background-color 0.2s;
+
+          cursor: pointer;
+
+          &:hover {
+            background-color: var(--light-grey-2, rgba(255, 255, 255, 0.28));
           }
 
-          .wos__part1 {
-            background-image: linear-gradient(125deg, var(--wos-light-blue, #70d8ff), var(--wos-blue, #59c5f9));
-          }
+          .square {
+            padding: 0.35rem;
 
-          .wos__part {
-            background-image: linear-gradient(125deg, var(--wos-blue, #59c5f9), var(--wos-dark-blue, #0682e0));
-          }
-
-          .wos__part4 {
-            background-color: var(--wos-dark-blue, #0682e0);
+            border: 1px solid var(--white, #fff);
           }
         }
       </style>
@@ -88,7 +83,18 @@ class WosIcon extends BaseComponent {
 
   connectedCallback() {
     this.render()
+
+    const btn = this.shadowRoot.querySelector('.fullscreen')
+    btn.addEventListener('click', () => {
+      this.dispatchEvent(
+        new CustomEvent('app:open-static', {
+          bubbles: true,
+          composed: true,
+          detail: { id: this.getAttribute('static-id') },
+        }),
+      )
+    })
   }
 }
 
-customElements.define('wos-icon', WosIcon)
+customElements.define('full-screen-icon', FullScreenIcon)

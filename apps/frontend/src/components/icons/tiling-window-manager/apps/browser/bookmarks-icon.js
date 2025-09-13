@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../../../../base-component.js'
 
-class DlrDevAcademyIcon extends BaseComponent {
+class BookmarksIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -28,60 +28,51 @@ class DlrDevAcademyIcon extends BaseComponent {
   #getTemplate() {
     const template = document.createElement('template')
 
-    const isSimplified = this.hasAttribute('simplified')
-
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="dlrdevacademy">
-        <${isSimplified ? 'div' : 'p'} class="dlrdevacademy__text">${isSimplified ? '' : 'DlrDA'}</${isSimplified ? 'div' : 'p'}>
-      </article>
+      <button class="button" type="button">
+        <div class="button__part"></div>
+        <div class="button__part"></div>
+        <div class="button__part"></div>
+        <div class="button__part"></div>
+      </button>
     `
 
     return template
   }
 
   #getStyles() {
-    const isSimplified = this.hasAttribute('simplified')
-
     return `
       <style>
-        .dlrdevacademy {
+        .button {
           display: grid;
-          place-items: center;
+          grid-template-rows: repeat(2, 1fr);
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.1rem;
 
-          padding: 0.25rem;
+          width: max(34px, 1.5vw);
+          aspect-ratio: 1/1;
 
-          background-color: var(--dlrdevacademy-dark-blue, #0f0e17);
+          padding: 0.5rem;
 
-          border-radius: 4px;
+          background-color: transparent;
+          
+          border-radius: 8px;
+          border: none;
 
-          ${
-            isSimplified
-              ? `
-                width: max(18.5px, 1.125vmax);
-                height: max(18.5px, 1.125vmax);
-              `
-              : ''
+          cursor: pointer;
+
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: var(--dark-grey-rgba-2, rgba(35, 35, 40, 0.4));
           }
 
-          .dlrdevacademy__text {
-            ${
-              isSimplified
-                ? `
-                  padding: 0.4rem;
+          .button__part {
+            border-radius: 3px;
+            border: 1.5px solid var(--white, #fff);
 
-                  background-color: var(--dlrdevacademy-purple, #7c3aed);
-
-                  border-radius: 50%;
-                `
-                : `
-                  color: var(--dlrdevacademy-purple, #7c3aed);
-
-                  font-family: 'Montserrat';
-                  font-weight: 900;
-                  font-size: max(10px, 0.65vmax);
-                `
-            }
+            box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
           }
         }
       </style>
@@ -103,4 +94,4 @@ class DlrDevAcademyIcon extends BaseComponent {
   }
 }
 
-customElements.define('dlrdevacademy-icon', DlrDevAcademyIcon)
+customElements.define('bookmarks-icon', BookmarksIcon)

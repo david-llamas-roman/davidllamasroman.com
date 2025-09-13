@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../../../../base-component.js'
 
-class BookmarksIcon extends BaseComponent {
+class CreatiDevpediaIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,12 +30,9 @@ class BookmarksIcon extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <button class="button" type="button">
-        <div class="button__part"></div>
-        <div class="button__part"></div>
-        <div class="button__part"></div>
-        <div class="button__part"></div>
-      </button>
+      <article class="creatidevpedia">
+        <p class="creatidevpedia__text">C</p>
+      </article>
     `
 
     return template
@@ -44,35 +41,28 @@ class BookmarksIcon extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .button {
-          display: grid;
-          grid-template-rows: repeat(2, 1fr);
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.1rem;
+        .creatidevpedia {
+          position: relative;
 
-          width: max(34px, 1.5vw);
-          aspect-ratio: 1/1;
+          width: max(18.5px, 1.125vmax);
+          height: max(18.5px, 1.125vmax);
 
-          padding: 0.5rem;
+          background-color: var(--creatidevpedia-dark-blue, #121420);
 
-          background-color: transparent;
-          
-          border-radius: 8px;
-          border: none;
+          border-radius: 4px;
 
-          cursor: pointer;
+          .creatidevpedia__text {
+            position: absolute;
+            bottom: 1px;
+            right: 3px;
 
-          transition: background-color 0.2s;
+            color: var(--creatidevpedia-white, #f8fdfa);
 
-          &:hover {
-            background-color: var(--dark-grey-rgba-2, rgba(35, 35, 40, 0.4));
-          }
+            font-family: 'EB Garamond';
+            font-size: max(10px, 0.625vmax);
+            font-weight: 600;
 
-          .button__part {
-            border-radius: 3px;
-            border: 1.5px solid var(--white, #fff);
-
-            box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+            text-shadow: none;
           }
         }
       </style>
@@ -94,4 +84,4 @@ class BookmarksIcon extends BaseComponent {
   }
 }
 
-customElements.define('bookmarks-icon', BookmarksIcon)
+customElements.define('creatidevpedia-icon', CreatiDevpediaIcon)

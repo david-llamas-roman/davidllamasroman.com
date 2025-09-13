@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../../../../base-component.js'
 
-class CreatiDevpediaIcon extends BaseComponent {
+class UrlInfoIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,8 +30,10 @@ class CreatiDevpediaIcon extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="creatidevpedia">
-        <p class="creatidevpedia__text">C</p>
+      <article class="info__container">
+        <button class="info">
+          <p class="info__text">i</p>
+        </button>
       </article>
     `
 
@@ -41,28 +43,44 @@ class CreatiDevpediaIcon extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .creatidevpedia {
-          position: relative;
+        .info__container {
+          padding: 0.25rem;
 
-          width: max(18.5px, 1.125vmax);
-          height: max(18.5px, 1.125vmax);
+          cursor: pointer;
 
-          background-color: var(--creatidevpedia-dark-blue, #121420);
+          border-radius: 50%;
 
-          border-radius: 4px;
+          transition: background-color 0.2s;
 
-          .creatidevpedia__text {
-            position: absolute;
-            bottom: 1px;
-            right: 3px;
+          &:hover {
+            background-color: var(--light-grey-2, rgba(255, 255, 255, 0.28));
+          }
 
-            color: var(--creatidevpedia-white, #f8fdfa);
+          .info {
+            position: relative;
 
-            font-family: 'EB Garamond';
-            font-size: max(10px, 0.625vmax);
-            font-weight: 600;
+            display: grid;
+            place-items: center;
 
-            text-shadow: none;
+            width: max(14px, 0.75vmax);
+            height: max(14px, 0.75vmax);
+
+            background-color: var(--light-grey-4, rgba(255, 255, 255, 0.78));
+
+            border-radius: 50%;
+            border: none;
+
+            cursor: pointer;
+
+            .info__text {
+              position: absolute;
+
+              color: var(--dark-grey, #232327);
+
+              font-family: 'Open Sans';
+              font-size: max(10px, 0.5vmax);
+              font-weight: 600;
+            }
           }
         }
       </style>
@@ -84,4 +102,4 @@ class CreatiDevpediaIcon extends BaseComponent {
   }
 }
 
-customElements.define('creatidevpedia-icon', CreatiDevpediaIcon)
+customElements.define('url-info-icon', UrlInfoIcon)

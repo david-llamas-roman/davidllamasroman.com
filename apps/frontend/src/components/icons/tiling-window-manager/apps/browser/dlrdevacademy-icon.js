@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../../../../base-component.js'
 
-class AdditionIcon extends BaseComponent {
+class DlrDevAcademyIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -28,10 +28,12 @@ class AdditionIcon extends BaseComponent {
   #getTemplate() {
     const template = document.createElement('template')
 
+    const isSimplified = this.hasAttribute('simplified')
+
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="addition">
-        <p class="addition__text">+</p>
+      <article class="dlrdevacademy">
+        <${isSimplified ? 'div' : 'p'} class="dlrdevacademy__text">${isSimplified ? '' : 'DlrDA'}</${isSimplified ? 'div' : 'p'}>
       </article>
     `
 
@@ -39,27 +41,47 @@ class AdditionIcon extends BaseComponent {
   }
 
   #getStyles() {
+    const isSimplified = this.hasAttribute('simplified')
+
     return `
       <style>
-        .addition {
-          position: relative;
-
+        .dlrdevacademy {
           display: grid;
           place-items: center;
 
-          width: max(17px, 1.05vmax);
-          height: max(16px, 1vmax);
+          padding: 0.25rem;
 
-          .addition__text {
-            position: absolute;
+          background-color: var(--dlrdevacademy-dark-blue, #0f0e17);
 
-            color: var(--light-grey-4, rgba(255, 255, 255, 0.78));
+          border-radius: 4px;
 
-            font-family: 'Open Sans';
-            font-size: max(20px, 1.25vmax);
-            font-weight: 600;
+          ${
+            isSimplified
+              ? `
+                width: max(18.5px, 1.125vmax);
+                height: max(18.5px, 1.125vmax);
+              `
+              : ''
+          }
 
-            text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+          .dlrdevacademy__text {
+            ${
+              isSimplified
+                ? `
+                  padding: 0.4rem;
+
+                  background-color: var(--dlrdevacademy-purple, #7c3aed);
+
+                  border-radius: 50%;
+                `
+                : `
+                  color: var(--dlrdevacademy-purple, #7c3aed);
+
+                  font-family: 'Montserrat';
+                  font-weight: 900;
+                  font-size: max(10px, 0.65vmax);
+                `
+            }
           }
         }
       </style>
@@ -81,4 +103,4 @@ class AdditionIcon extends BaseComponent {
   }
 }
 
-customElements.define('addition-icon', AdditionIcon)
+customElements.define('dlrdevacademy-icon', DlrDevAcademyIcon)

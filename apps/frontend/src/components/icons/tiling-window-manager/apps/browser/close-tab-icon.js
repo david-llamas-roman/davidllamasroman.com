@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../../../../base-component.js'
 
-class NewTabIcon extends BaseComponent {
+class CloseTabIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,7 +30,11 @@ class NewTabIcon extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="circle"></article>
+      <article class="x__container">
+        <button class="x">
+          <p class="x__text">X</p>
+        </button>
+      </article>
     `
 
     return template
@@ -39,13 +43,45 @@ class NewTabIcon extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .circle {
-          width: max(18.5px, 1.125vmax);
-          height: max(18.5px, 1.125vmax);
+        .x__container {
+          padding: 0.25rem;
 
-          background-color: var(--dark-grey, #232327);
+          cursor: pointer;
 
           border-radius: 50%;
+
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: var(--light-grey-2, rgba(255, 255, 255, 0.28));
+          }
+
+          .x {
+            position: relative;
+
+            display: grid;
+            place-items: center;
+
+            width: max(14px, 0.75vmax);
+            height: max(14px, 0.75vmax);
+
+            background-color: var(--dark-grey, #232327);
+
+            border-radius: 50%;
+            border: none;
+
+            cursor: pointer;
+
+            .x__text {
+              position: absolute;
+
+              color: var(--light-grey-4, rgba(255, 255, 255, 0.78));
+
+              font-family: 'Open Sans';
+              font-size: max(10px, 0.5vmax);
+              font-weight: 600;
+            }
+          }
         }
       </style>
     `
@@ -66,4 +102,4 @@ class NewTabIcon extends BaseComponent {
   }
 }
 
-customElements.define('new-tab-icon', NewTabIcon)
+customElements.define('close-tab-icon', CloseTabIcon)

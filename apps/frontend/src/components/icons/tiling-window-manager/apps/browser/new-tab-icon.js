@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../../base-component.js'
+import BaseComponent from '../../../../base-component.js'
 
-class TwmWosIcon extends BaseComponent {
+class NewTabIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,12 +30,7 @@ class TwmWosIcon extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="wos">
-        <div class="wos__part"></div>
-        <div class="wos__part"></div>
-        <div class="wos__part"></div>
-        <div class="wos__part"></div>
-      </article>
+      <article class="circle"></article>
     `
 
     return template
@@ -44,24 +39,13 @@ class TwmWosIcon extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .wos {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gris-template-rows: repeat(2, 1fr);
-          gap: 0.054vmax;
+        .circle {
+          width: max(18.5px, 1.125vmax);
+          height: max(18.5px, 1.125vmax);
 
-          width: max(16px, 0.75vmax);
-          aspect-ratio: 1/1;
+          background-color: var(--dark-grey, #232327);
 
-          background-color: transparent;
-
-          transform: perspective(20px) rotateY(-15deg);
-
-          .wos__part {
-            border-radius: 1.5px;
-
-            background-color: var(--light-blue, #7080b1);
-          }
+          border-radius: 50%;
         }
       </style>
     `
@@ -82,4 +66,4 @@ class TwmWosIcon extends BaseComponent {
   }
 }
 
-customElements.define('twm-wos-icon', TwmWosIcon)
+customElements.define('new-tab-icon', NewTabIcon)

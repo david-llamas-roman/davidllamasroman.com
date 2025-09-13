@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../../base-component.js'
+import BaseComponent from '../../../../base-component.js'
 
-class TwmWosIcon extends BaseComponent {
+class AdditionIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,11 +30,8 @@ class TwmWosIcon extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="wos">
-        <div class="wos__part"></div>
-        <div class="wos__part"></div>
-        <div class="wos__part"></div>
-        <div class="wos__part"></div>
+      <article class="addition">
+        <p class="addition__text">+</p>
       </article>
     `
 
@@ -44,23 +41,25 @@ class TwmWosIcon extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .wos {
+        .addition {
+          position: relative;
+
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gris-template-rows: repeat(2, 1fr);
-          gap: 0.054vmax;
+          place-items: center;
 
-          width: max(16px, 0.75vmax);
-          aspect-ratio: 1/1;
+          width: max(17px, 1.05vmax);
+          height: max(16px, 1vmax);
 
-          background-color: transparent;
+          .addition__text {
+            position: absolute;
 
-          transform: perspective(20px) rotateY(-15deg);
+            color: var(--light-grey-4, rgba(255, 255, 255, 0.78));
 
-          .wos__part {
-            border-radius: 1.5px;
+            font-family: 'Open Sans';
+            font-size: max(20px, 1.25vmax);
+            font-weight: 600;
 
-            background-color: var(--light-blue, #7080b1);
+            text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
           }
         }
       </style>
@@ -82,4 +81,4 @@ class TwmWosIcon extends BaseComponent {
   }
 }
 
-customElements.define('twm-wos-icon', TwmWosIcon)
+customElements.define('addition-icon', AdditionIcon)

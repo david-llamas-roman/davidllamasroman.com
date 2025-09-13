@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../../../base-component.js'
 
-class CloseTabIcon extends BaseComponent {
+class WosIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,10 +30,11 @@ class CloseTabIcon extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="x__container">
-        <button class="x">
-          <p class="x__text">X</p>
-        </button>
+      <article class="wos">
+        <div class="wos__part1"></div>
+        <div class="wos__part"></div>
+        <div class="wos__part"></div>
+        <div class="wos__part4"></div>
       </article>
     `
 
@@ -43,44 +44,32 @@ class CloseTabIcon extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .x__container {
-          padding: 0.25rem;
+        .wos {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gris-template-rows: repeat(2, 1fr);
+          gap: 0.0625rem;
 
-          cursor: pointer;
+          width: max(26px, 1.5vw);
+          aspect-ratio: 1/1;
 
-          border-radius: 50%;
+          background-color: transparent;
+          filter: brightness(1.25);
 
-          transition: background-color 0.2s;
-
-          &:hover {
-            background-color: var(--light-grey-2, rgba(255, 255, 255, 0.28));
+          .wos__part1, .wos__part, .wos__part4 {
+            border-radius: 2.5px;
           }
 
-          .x {
-            position: relative;
+          .wos__part1 {
+            background-image: linear-gradient(125deg, var(--wos-light-blue, #70d8ff), var(--wos-blue, #59c5f9));
+          }
 
-            display: grid;
-            place-items: center;
+          .wos__part {
+            background-image: linear-gradient(125deg, var(--wos-blue, #59c5f9), var(--wos-dark-blue, #0682e0));
+          }
 
-            width: max(14px, 0.75vmax);
-            height: max(14px, 0.75vmax);
-
-            background-color: var(--dark-grey, #232327);
-
-            border-radius: 50%;
-            border: none;
-
-            cursor: pointer;
-
-            .x__text {
-              position: absolute;
-
-              color: var(--light-grey-4, rgba(255, 255, 255, 0.78));
-
-              font-family: 'Open Sans';
-              font-size: max(10px, 0.5vmax);
-              font-weight: 600;
-            }
+          .wos__part4 {
+            background-color: var(--wos-dark-blue, #0682e0);
           }
         }
       </style>
@@ -102,4 +91,4 @@ class CloseTabIcon extends BaseComponent {
   }
 }
 
-customElements.define('close-tab-icon', CloseTabIcon)
+customElements.define('wos-icon', WosIcon)

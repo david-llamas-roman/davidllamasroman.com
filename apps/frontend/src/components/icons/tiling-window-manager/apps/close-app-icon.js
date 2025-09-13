@@ -18,9 +18,9 @@
 
 'use strict'
 
-import BaseComponent from '../../base-component'
+import BaseComponent from '../../../base-component.js'
 
-class UrlInfoIcon extends BaseComponent {
+class CloseAppIcon extends BaseComponent {
   constructor() {
     super()
   }
@@ -30,11 +30,7 @@ class UrlInfoIcon extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="info__container">
-        <button class="info">
-          <p class="info__text">i</p>
-        </button>
-      </article>
+      <button class="x" type="button">X</button>
     `
 
     return template
@@ -43,44 +39,28 @@ class UrlInfoIcon extends BaseComponent {
   #getStyles() {
     return `
       <style>
-        .info__container {
-          padding: 0.25rem;
+        .x {
+          padding: 0.2rem 0.75rem 0.2rem 0.59rem;
+
+          color: var(--white, #fff);
+          background-color: transparent;
+
+          font-size: max(16px, 1vmax);
+          font-family: 'Open Sans';
+          font-weight: 100;
+
+          border: none;
+          border-top-right-radius: 6px;
+
+          text-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.6);
+
+          transform: scaleX(1.5);
+          transition: background-color 0.2s;
 
           cursor: pointer;
 
-          border-radius: 50%;
-
-          transition: background-color 0.2s;
-
           &:hover {
-            background-color: var(--light-grey-2, rgba(255, 255, 255, 0.28));
-          }
-
-          .info {
-            position: relative;
-
-            display: grid;
-            place-items: center;
-
-            width: max(14px, 0.75vmax);
-            height: max(14px, 0.75vmax);
-
-            background-color: var(--light-grey-4, rgba(255, 255, 255, 0.78));
-
-            border-radius: 50%;
-            border: none;
-
-            cursor: pointer;
-
-            .info__text {
-              position: absolute;
-
-              color: var(--dark-grey, #232327);
-
-              font-family: 'Open Sans';
-              font-size: max(10px, 0.5vmax);
-              font-weight: 600;
-            }
+            background-color: var(--close-app-red, #e81123);
           }
         }
       </style>
@@ -99,7 +79,14 @@ class UrlInfoIcon extends BaseComponent {
 
   connectedCallback() {
     this.render()
+
+    const btn = this.shadowRoot.querySelector('.x')
+    btn.addEventListener('click', () => {
+      this.dispatchEvent(
+        new CustomEvent('app:close', { bubbles: true, composed: true }),
+      )
+    })
   }
 }
 
-customElements.define('url-info-icon', UrlInfoIcon)
+customElements.define('close-app-icon', CloseAppIcon)
