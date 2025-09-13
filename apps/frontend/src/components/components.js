@@ -20,15 +20,17 @@
 
 // icons
 import './icons/tiling-window-manager/wos/twm-wos-icon.js' // tiling window manager wos icon
-import './icons/wos/wos-icon.js' // wos
-import './icons/browser/arrows-icon.js' // arrows
-import './icons/browser/url-info-icon.js' // url info
-import './icons/browser/bookmarks-icon.js' // bookmarks
-import './icons/browser/close-tab-icon.js' // close tab
-import './icons/browser/new-tab-icon.js' // new tab
-import './icons/browser/creatidevpedia-icon.js' // CreatiDevPedia
-import './icons/browser/dlrdevacademy-icon.js' // DlrDevAcademy
-import './icons/browser/addition-icon.js' // addition
+import './icons/tiling-window-manager/wos/wos-icon.js' // wos
+import './icons/tiling-window-manager/apps/full-screen-icon.js' // full screen
+import './icons/tiling-window-manager/apps/close-app-icon.js' // close app
+import './icons/tiling-window-manager/apps/browser/arrows-icon.js' // arrows
+import './icons/tiling-window-manager/apps/browser/url-info-icon.js' // url info
+import './icons/tiling-window-manager/apps/browser/bookmarks-icon.js' // bookmarks
+import './icons/tiling-window-manager/apps/browser/close-tab-icon.js' // close tab
+import './icons/tiling-window-manager/apps/browser/new-tab-icon.js' // new tab
+import './icons/tiling-window-manager/apps/browser/creatidevpedia-icon.js' // CreatiDevPedia
+import './icons/tiling-window-manager/apps/browser/dlrdevacademy-icon.js' // DlrDevAcademy
+import './icons/tiling-window-manager/apps/browser/addition-icon.js' // addition
 
 // header
 import './headers/main-header.js'
@@ -65,6 +67,9 @@ import './tiling-window-manager/apps/web-browser/content/web-browser-content.js'
 import './tiling-window-manager/apps/web-browser/content/new-tab.js' // new tab
 import './tiling-window-manager/apps/web-browser/content/creatidevpedia-web.js' // CreatiDevPedia
 import './tiling-window-manager/apps/web-browser/content/dlrdevacademy-web.js' // DlrDevAcademy
+
+// vscode components
+import './tiling-window-manager/apps/vs-code/content/vscode-content.js' // content
 
 // wos menu
 import './wos-menu/wos-menu.js'
