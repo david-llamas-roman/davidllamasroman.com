@@ -1,19 +1,318 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>David Llamas Román</title>
-    <link rel="stylesheet" href="./src/styles/style.css">
-  </head>
-  <body>
-    <div id="app">
-      <main-header></main-header>
-      <main id="app__content">
-        <main-content></main-content>
-      </main>
-      <main-footer></main-footer>
-    </div>
-    <script type="module" src="./src/index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Llamas Román</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="stylesheet" href="./src/styles/style.css">
+</head>
+
+<body>
+  <div id="home">
+    <header class="home__header">
+      <article class="id__container">
+        <article class="id">
+          <img src="/img/dlr/dlr.png" loading="lazy" alt="David Llamas Román" class="id__photo">
+          <article class="id__text">
+            <h1>David Llamas Román</h1>
+            <h2>Full-Stack Developer</h2>
+          </article>
+        </article>
+      </article>
+      <article class="theme">
+        <h3>Choose your reality...</h3>
+        <nav class="theme__navbar">
+          <ul>
+            <li><a href="#about-me">The Surface</a></li>
+            <li class="disabled"><a href="#" id="the-system" class="disabled">The System</a></li>
+          </ul>
+        </nav>
+      </article>
+    </header>
+    <main class="home__main">
+      <header class="main__header">
+        <article class="header__content">
+          <label class="menu" for="open__menu">
+            <img src="/img/google-fonts-icons/menu.svg" loading="lazy" alt="Google Fonts Menu Icon">
+          </label>
+        </article>
+        <input type="radio" name="menu__toggle" id="open__menu" hidden>
+        <input type="radio" name="menu__toggle" id="close__menu" hidden>
+        <nav class="header__navbar">
+          <ul>
+            <li><a href="#about-me">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Academy</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <article>
+              <article>
+                <li><a href=""><img src="/img/google-fonts-icons/home.svg" loading="lazy"
+                      alt="Google Fonts Home Icon"></a></li>
+                <li><label for="close__menu"><img src="/img/google-fonts-icons/close.svg" loading="lazy"
+                      alt="Google Fonts Close Icon"></label></li>
+              </article>
+            </article>
+          </ul>
+        </nav>
+      </header>
+      <section class="section" id="about-me">
+        <h2 class="section__title">Debugging Life</h2>
+        <article class="section__content">
+          <article class="article carrousel">
+            <article class="slides">
+              <article class="slide">
+                <p>
+                  <strong>At 11</strong>, I was <span>making mini-games with Scratch</span>.
+                </p>
+                <img src="/img/unDraw/scratch.svg" loading="lazy" alt="Game Development Illustration">
+              </article>
+              <article class="slide">
+                <p>
+                  <strong>At 13</strong>, I already knew <span>my path wasn't going to be like everyone else's</span>, I
+                  <strong>created my first YouTube channel</strong>.
+                </p>
+                <img src="/img/unDraw/youtube.svg" loading="lazy" alt="Content Creation for YouTube Illustration">
+              </article>
+              <article class="slide">
+                <p>
+                  <strong>At 14</strong>, I <strong>wrote my first line of code</strong>, in <span>C++</span>.
+                </p>
+                <img src="/img/unDraw/coding.svg" loading="lazy" alt="Coding Illustration">
+              </article>
+              <article class="slide">
+                <p>
+                  <strong>At 15</strong>, I deleted my first YouTube channel after getting a strike, I <span>fell into
+                    an endless loop of making bad decisions</span>.
+                </p>
+                <img src="/img/unDraw/delete.svg" loading="lazy" alt="Delete YouTube Channel Illustration">
+              </article>
+              <article class="slide">
+                <p>
+                  <strong>At 16</strong>, I <strong>started learning Python</strong> and restarted on YouTube.
+                </p>
+                <img src="/img/unDraw/python-youtube.svg" loading="lazy" alt="Learning Python Illustration">
+              </article>
+              <article class="slide">
+                <p>
+                  <strong>At 17</strong>, I quit YouTube again, left Python behind, <span>discovered web
+                    development</span>, and began <strong>creating vertical content</strong> for Instagram and TikTok.
+                </p>
+                <img src="/img/unDraw/web-development.svg" loading="lazy" alt="Web Development Illustration">
+              </article>
+              <article class="slide">
+                <p>
+                  <strong>At 18</strong>, I continued with <strong>web development</strong> and kept making
+                  <span>vertical programming content</span>.
+                </p>
+                <img src="/img/unDraw/vertical-content.svg" loading="lazy" alt="Vertical Content Illustration">
+              </article>
+              <article class="slide">
+                <p>
+                  <strong>At 19</strong>, after yet another attempt at creating content for YouTube, I deleted all my
+                  social media accounts and, of course, <strong>kept working on web development</strong>.
+                </p>
+                <img src="/img/unDraw/delete.svg" loading="lazy" alt="Delete Social Media Illustration">
+              </article>
+              <article class="slide">
+                <p>
+                  <strong>At 20</strong>, <span>here I am, writing this</span>, <span>learning about personal
+                    branding</span>, about social media, <span>continuing on this long-distance journey</span>, and
+                  <strong>starting to build projects that go beyond just learning</strong>. Web apps that can actually
+                  be used and have a real-world application.
+                </p>
+                <img src="/img/unDraw/up-to-sky.svg" loading="lazy" alt="Up to sky Illustration">
+              </article>
+            </article>
+          </article>
+          <article class="article">
+            <p>I've always felt different. I was never into football. I was that "nerd" who stayed in his room creating
+              content, learning to code, or playing videogames.</p>
+            <img src="/img/unDraw/videogames.svg" loading="lazy" alt="Videogames Illustration">
+          </article>
+          <article class="article">
+            <p>Being 18 was a turning point in my life. I wanted to quit all this intense learning. I wanted to be more
+              social, go out, have fun. After all, isn't that what someone my age is supposed to be doing?</p>
+            <img src="/img/unDraw/party.svg" loading="lazy" alt="Marshmello Illustration">
+            <img src="/img/unDraw/party-drinks.svg" loading="lazy" alt="Beer Illustration">
+          </article>
+          <article class="article">
+            <p>A few months later, I realized I'm not that kind of person. Besides, none of that matched my life
+              philosophy, my goals, my ambitions. At what age can someone take a risk? At what age can you place a bet
+              on something and it's still "okay" if you lose?</p>
+            <img src="/img/unDraw/entrepreneur.svg" loading="lazy" alt="Businessman Illustration">
+          </article>
+          <article class="article">
+            <p>There's a quote that really stuck with me:
+              "From 20 to 30, learn. From 30 to 40, make money. From 40 onward, help others."</p>
+            <p>That's why, right now, I'm trying to give my all every single day. Another quote that marked me:
+              "...I don't want to grow old and regret not having tried..."</p>
+          </article>
+          <article class="article">
+            <img src="/img/unDraw/execute-time.svg" loading="lazy" alt="Man in the office Illustration">
+            <p>Today, I'm starting a trial period, a time when I'm going to give it my all, and most of all, a time when
+              I won't stop learning. If you look at all this through a developer's eyes, I now know how to move forward,
+              where to go, and now it's time to execute.</p>
+          </article>
+          <article class="article">
+            <p>I don't care how many times I've changed my perssonal brand over the past year. I don't care how many
+              times I've fallen. Change is part of the process, and sometimes, you have to hit rock bottom to bounce
+              back and rise, all the way up to the sky, "up to sky".</p>
+          </article>
+          <p class="last-updated">Last updated: November 7, 2025</p>
+        </article>
+      </section>
+      <section class="section" id="projects">
+        <h2 class="section__title">Deploying Dreams</h2>
+        <article class="section__content"></article>
+      </section>
+      <section class="section" id="experience">
+        <h2 class="section__title">Professional Growth</h2>
+        <article class="section__content">
+          <ul class="card__list">
+            <li class="list__element">
+              <article class="card">
+                <input type="checkbox" id="flip-konecta" class="card__toggle" hidden>
+                <article class="card__inner">
+                  <article class="card__front">
+                    <article class="front__header">
+                      <article>
+                        <h3>Konecta</h3>
+                        <h4>Seville, Andalusia, Spain</h4>
+                      </article>
+                      <label for="flip-konecta">View More</label>
+                    </article>
+                    <article class="carrousel">
+                      <article class="slides">
+                        <article class="slide">
+                          <div class="slide__text">
+                            <h4>Teleoperator</h4>
+                            <h5>Oct 2025 - Oct 2025</h5>
+                            <h5>Part-time</h5>
+                          </div>
+                        </article>
+                      </article>
+                    </article>
+                  </article>
+                  <article class="card__back">
+                    <label for="flip-konecta">Go Back</label>
+                    <p>I made calls with the aim of selling all kinds of devices (smartphones, headphones, smartwatches,
+                      etc.) to existing clients.</p>
+                  </article>
+                </article>
+              </article>
+            </li>
+            <li class="list__element">
+              <article class="card">
+                <input type="checkbox" id="flip-ayesa" class="card__toggle" hidden>
+                <article class="card__inner">
+                  <article class="card__front">
+                    <article class="front__header">
+                      <article>
+                        <h3>Ayesa</h3>
+                        <h4>Seville, Andalusia, Spain</h4>
+                      </article>
+                      <label for="flip-ayesa">View More</label>
+                    </article>
+                    <article class="carrousel">
+                      <article class="slides">
+                        <article class="slide">
+                          <article class="slide__text">
+                            <h4>Full-Stack Developer</h4>
+                            <h5>Mar 2025 - Jun 2025</h5>
+                            <h5>Internship</h5>
+                          </article>
+                        </article>
+                        <article class="slide">
+                          <article class="slide__text">
+                            <h4>Web Developer</h4>
+                            <h5>Apr 2024 - Mar 2025</h5>
+                            <h5>Co-op</h5>
+                          </article>
+                        </article>
+                      </article>
+                    </article>
+                  </article>
+                  <article class="card__back">
+                    <label for="flip-ayesa">Go Back</label>
+                    <p>I participated in the migration of a web project for project cost estimations from Spring 2010
+                      and JSF to the latest version of the framework and Angular. I also carried out various
+                      implementations (tables, views, filters, etc.) in a web project related to the energy sector."</p>
+                  </article>
+                </article>
+              </article>
+            </li>
+            <li class="list__element">
+              <article class="card">
+                <input type="checkbox" id="flip-private-tutoring" class="card__toggle" hidden>
+                <article class="card__inner">
+                  <article class="card__front">
+                    <header class="front__header">
+                      <h3>Private Tutoring</h3>
+                      <label for="flip-private-tutoring">View More</label>
+                    </header>
+                    <article class="carrousel">
+                      <article class="slides">
+                        <article class="slide">
+                          <article class="slide__text">
+                            <h4>Private Java Teacher</h4>
+                            <h5>Jun 2025 - Jul 2025</h5>
+                          </article>
+                        </article>
+                        <article class="slide">
+                          <article class="slide__text">
+                            <h4>Private Java Teacher</h4>
+                            <h5>Feb 2024 - Mar 2025</h5>
+                          </article>
+                        </article>
+                      </article>
+                    </article>
+                  </article>
+                  <article class="card__back">
+                    <label for="flip-private-tutoring">Go Back</label>
+                    <p>I taught online Java from scratch and Java 8 streams classes to a health engineering student.</p>
+                  </article>
+                </article>
+              </article>
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section class="section" id="certifications">
+        <h2 class="section__title">Training</h2>
+        <article class="section__content">
+          <nav class="filters">
+            <ul class="filters__list">
+              <li><label for="formal__training">Formal</label></li>
+              <li><label for="non-formal__training">Non-Formal</label></li>
+            </ul>
+          </nav>
+          <input type="radio" name="training__filters" id="formal__training" hidden>
+          <input type="radio" name="training__filters" id="non-formal__training" hidden>
+          <article class="article" id="ft__content"></article>
+          <article class="article" id="nft__content"></article>
+        </article>
+      </section>
+      <section class="section" id="contact">
+        <h2 class="section__title">Get in touch with me</h2>
+        <article class="section__content"></article>
+      </section>
+    </main>
+    <footer class="home__footer">
+      <p class="copyright">&copy; 2025 David Llamas Román. Licensed under the <a
+          href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU General Public License version 3
+          (GPL-3.0) only</a>.</p>
+    </footer>
+  </div>
+
+  <script type="module" src="./src/index.js"></script>
+</body>
+
 </html>
