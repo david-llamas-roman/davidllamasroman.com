@@ -18,9 +18,9 @@
 
 'use strict'
 
-import clock from '../../../utils/clock.js'
-import { getHoursMinutes } from '../../../utils/formatters.js'
-import BaseComponent from '../../base-component.js'
+import clock from '@/utils/the-system/clock.js'
+import { getHoursMinutes } from '@/utils/the-system/formatters.js'
+import BaseComponent from '@/components/base-component.js'
 
 class MobileHeader extends BaseComponent {
   constructor() {

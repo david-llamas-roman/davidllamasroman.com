@@ -18,8 +18,8 @@
 
 'use strict'
 
-import { t } from '../../../../../utils/i18n.js'
-import BaseComponent from '../../../../base-component.js'
+import { t } from '@/utils/the-system/i18n.js'
+import BaseComponent from '@/components/base-component.js'
 
 class DlrDevAcademy extends BaseComponent {
   #getTemplate() {

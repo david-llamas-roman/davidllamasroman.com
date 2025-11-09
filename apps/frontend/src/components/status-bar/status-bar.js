@@ -18,7 +18,7 @@
 
 'use strict'
 
-import BaseComponent from '../base-component'
+import BaseComponent from '@/components/base-component.js'
 
 class StatusBar extends BaseComponent {
   constructor() {

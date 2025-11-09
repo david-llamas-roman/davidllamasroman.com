@@ -18,8 +18,8 @@
 
 'use strict'
 
-import BaseComponent from '../../../../base-component.js'
-import { getLanguage } from '../../../../../utils/i18n.js'
+import BaseComponent from '@/components/base-component.js'
+import { getLanguage } from '@/utils/the-system/i18n.js'
 
 class WebBrowserContent extends BaseComponent {
   constructor() {

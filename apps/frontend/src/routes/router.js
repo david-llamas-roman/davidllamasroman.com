@@ -18,9 +18,7 @@
 
 'use strict'
 
-import { getLanguage } from '../utils/i18n.js'
-
-import './static-routes-renderer.js'
+import '@/routes/static-routes-renderer.js'
 
 let spaContent = null
 
@@ -75,12 +73,6 @@ const handleRoute = () => {
   const fullPath = window.location.pathname.replace(/^\/+/, '')
 
   if (!fullPath) {
-    const lang = getLanguage()
-    const defaultRoute = workspacesMap['about-me'].find(
-      (route) => route.startsWith(`${lang}/`) || workspacesMap['about-me'][0],
-    )
-
-    navigate(`/${defaultRoute}`)
     return
   }
 

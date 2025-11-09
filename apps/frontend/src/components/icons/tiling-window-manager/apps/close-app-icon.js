@@ -18,7 +18,7 @@
 
 'use strict'
 
-import BaseComponent from '../../../base-component.js'
+import BaseComponent from '@/components/base-component.js'
 
 class CloseAppIcon extends BaseComponent {
   constructor() {

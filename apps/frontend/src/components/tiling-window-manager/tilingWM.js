@@ -18,7 +18,7 @@
 
 'use strict'
 
-import BaseComponent from '../base-component.js'
+import BaseComponent from '@/components/base-component.js'
 
 class TilingWM extends BaseComponent {
   static INITIAL_APPS = {

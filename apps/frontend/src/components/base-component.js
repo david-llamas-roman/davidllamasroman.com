@@ -18,7 +18,7 @@
 
 'use strict'
 
-import globalStyles from '../styles/globalStyles.js'
+import globalStyles from '@/styles/globalStyles.js'
 
 class BaseComponent extends HTMLElement {
   constructor() {

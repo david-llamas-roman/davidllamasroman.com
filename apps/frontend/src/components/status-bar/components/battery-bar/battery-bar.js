@@ -18,9 +18,9 @@
 
 'use strict '
 
-import { getBatteryPercent } from '../../../../services/systemDataService.js'
-import logger from '../../../../utils/logger.js'
-import BaseComponent from '../../../base-component.js'
+import { getBatteryPercent } from '@/services/system-data.service.js'
+import logger from '@/utils/logger.js'
+import BaseComponent from '@/components/base-component.js'
 
 class BatteryBar extends BaseComponent {
   constructor() {

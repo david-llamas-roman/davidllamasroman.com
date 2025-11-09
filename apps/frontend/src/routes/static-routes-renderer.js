@@ -18,7 +18,7 @@
 
 'use strict'
 
-import { getLangFromUrl, navigate, staticRoutesMap } from './router.js'
+import { getLangFromUrl, navigate, staticRoutesMap } from '@/routes/router.js'
 
 window.addEventListener('static:switch', (event) => {
   const { id } = event.detail

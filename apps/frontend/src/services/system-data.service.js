@@ -18,7 +18,7 @@
 
 'use strict'
 
-import { subscribeSystemData } from '../utils/websocketClient'
+import { subscribeSystemData } from '@/utils/the-system/websocketClient.js'
 
 const getBatteryPercent = (onUpdate) => {
   return subscribeSystemData((payload) => {

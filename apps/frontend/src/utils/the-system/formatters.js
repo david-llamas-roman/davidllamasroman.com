@@ -18,7 +18,7 @@
 
 'use strict'
 
-import { getLanguage } from './i18n.js'
+import { getLanguage } from '@/utils/the-system/i18n.js'
 
 const getFormattedDate = (date = new Date()) => {
   const lang = getLanguage()

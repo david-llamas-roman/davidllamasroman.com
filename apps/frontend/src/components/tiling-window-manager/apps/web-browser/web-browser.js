@@ -18,7 +18,7 @@
 
 'use strict'
 
-import BaseApp from '../base-app'
+import BaseApp from '@/components/tiling-window-manager/apps/base-app.js'
 
 class WebBrowser extends BaseApp {
   constructor() {

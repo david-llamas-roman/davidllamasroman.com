@@ -18,26 +18,24 @@
 
 'use strict'
 
-import BaseApp from '@/components/tiling-window-manager/apps/base-app.js'
-
-class TerminalEmulator extends BaseApp {
-  constructor() {
-    super()
-  }
-
-  connectedCallback() {
-    super.connectedCallback()
-    this.#setupTerminal()
-  }
-
-  #setupTerminal() {
-    this.setNoBorder()
-
-    const app = this.getAppContainer()
-    app.innerHTML = `
-      <terminal-emulator-content></terminal-emulator-content>
-    `
-  }
+function initNavbar() {
+  closeNavbar()
 }
 
-customElements.define('terminal-emulator', TerminalEmulator)
+// close navbar when we click in the anchor - 'main__header' navbar
+function closeNavbar() {
+  const mainHeaderNavbar = document.querySelector(
+    '#home .home__main .main__header .header__navbar',
+  )
+
+  mainHeaderNavbar
+    .querySelector('ul')
+    .querySelectorAll('li a')
+    .forEach((anchor) => {
+      anchor.addEventListener('click', () => {
+        mainHeaderNavbar.querySelector('ul article li label').click()
+      })
+    })
+}
+
+export { initNavbar }

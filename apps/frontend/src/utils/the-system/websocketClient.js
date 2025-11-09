@@ -18,7 +18,7 @@
 
 'use strict'
 
-import logger from './logger'
+import logger from '@/utils/logger.js'
 
 const subscribeSystemData = (onData) => {
   const wsUrl = import.meta.env.VITE_WS_URL
