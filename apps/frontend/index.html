@@ -15,16 +15,16 @@
 <body>
   <div id="home">
     <header class="home__header">
-      <article class="id__container">
-        <article class="id">
+      <div class="id__container">
+        <div class="id">
           <img src="/img/dlr/dlr.png" loading="lazy" alt="David Llamas Román" class="id__photo">
-          <article class="id__text">
+          <div class="id__text">
             <h1>David Llamas Román</h1>
             <h2>Full-Stack Developer</h2>
-          </article>
-        </article>
-      </article>
-      <article class="theme">
+          </div>
+        </div>
+      </div>
+      <div class="theme">
         <h3>Choose your reality...</h3>
         <nav class="theme__navbar">
           <ul>
@@ -32,15 +32,16 @@
             <li class="disabled"><a href="#" id="the-system" class="disabled">The System</a></li>
           </ul>
         </nav>
-      </article>
+      </div>
     </header>
+
     <main class="home__main">
       <header class="main__header">
-        <article class="header__content">
+        <div class="header__content">
           <label class="menu" for="open__menu">
             <img src="/img/google-fonts-icons/menu.svg" loading="lazy" alt="Google Fonts Menu Icon">
           </label>
-        </article>
+        </div>
         <input type="radio" name="menu__toggle" id="open__menu" hidden>
         <input type="radio" name="menu__toggle" id="close__menu" hidden>
         <nav class="header__navbar">
@@ -52,22 +53,21 @@
             <li><a href="#">Blog</a></li>
             <li><a href="#">Academy</a></li>
             <li><a href="#contact">Contact</a></li>
-            <article>
-              <article>
-                <li><a href=""><img src="/img/google-fonts-icons/home.svg" loading="lazy"
-                      alt="Google Fonts Home Icon"></a></li>
-                <li><label for="close__menu"><img src="/img/google-fonts-icons/close.svg" loading="lazy"
-                      alt="Google Fonts Close Icon"></label></li>
-              </article>
-            </article>
+            <ul>
+              <li><a href=""><img src="/img/google-fonts-icons/home.svg" loading="lazy"
+                    alt="Google Fonts Home Icon"></a></li>
+              <li><label for="close__menu"><img src="/img/google-fonts-icons/close.svg" loading="lazy"
+                    alt="Google Fonts Close Icon"></label></li>
+            </ul>
           </ul>
         </nav>
       </header>
+
       <section class="section" id="about-me">
         <h2 class="section__title">Debugging Life</h2>
-        <article class="section__content">
+        <div class="section__content">
           <article class="article carrousel">
-            <article class="slides">
+            <div class="slides">
               <article class="slide">
                 <p>
                   <strong>At 11</strong>, I was <span>making mini-games with Scratch</span>.
@@ -130,67 +130,76 @@
                 </p>
                 <img src="/img/unDraw/up-to-sky.svg" loading="lazy" alt="Up to sky Illustration">
               </article>
-            </article>
+            </div>
           </article>
+
           <article class="article">
             <p>I've always felt different. I was never into football. I was that "nerd" who stayed in his room creating
               content, learning to code, or playing videogames.</p>
             <img src="/img/unDraw/videogames.svg" loading="lazy" alt="Videogames Illustration">
           </article>
+
           <article class="article">
             <p>Being 18 was a turning point in my life. I wanted to quit all this intense learning. I wanted to be more
               social, go out, have fun. After all, isn't that what someone my age is supposed to be doing?</p>
             <img src="/img/unDraw/party.svg" loading="lazy" alt="Marshmello Illustration">
             <img src="/img/unDraw/party-drinks.svg" loading="lazy" alt="Beer Illustration">
           </article>
+
           <article class="article">
             <p>A few months later, I realized I'm not that kind of person. Besides, none of that matched my life
               philosophy, my goals, my ambitions. At what age can someone take a risk? At what age can you place a bet
               on something and it's still "okay" if you lose?</p>
             <img src="/img/unDraw/entrepreneur.svg" loading="lazy" alt="Businessman Illustration">
           </article>
+
           <article class="article">
             <p>There's a quote that really stuck with me:
               "From 20 to 30, learn. From 30 to 40, make money. From 40 onward, help others."</p>
             <p>That's why, right now, I'm trying to give my all every single day. Another quote that marked me:
               "...I don't want to grow old and regret not having tried..."</p>
           </article>
+
           <article class="article">
             <img src="/img/unDraw/execute-time.svg" loading="lazy" alt="Man in the office Illustration">
             <p>Today, I'm starting a trial period, a time when I'm going to give it my all, and most of all, a time when
               I won't stop learning. If you look at all this through a developer's eyes, I now know how to move forward,
               where to go, and now it's time to execute.</p>
           </article>
+
           <article class="article">
             <p>I don't care how many times I've changed my perssonal brand over the past year. I don't care how many
               times I've fallen. Change is part of the process, and sometimes, you have to hit rock bottom to bounce
               back and rise, all the way up to the sky, "up to sky".</p>
           </article>
+
           <p class="last-updated">Last updated: November 7, 2025</p>
-        </article>
+        </div>
       </section>
+
       <section class="section" id="projects">
         <h2 class="section__title">Deploying Dreams</h2>
-        <article class="section__content"></article>
+        <div class="section__content"></div>
       </section>
+
       <section class="section" id="experience">
         <h2 class="section__title">Professional Growth</h2>
-        <article class="section__content">
+        <div class="section__content">
           <ul class="card__list">
             <li class="list__element">
               <article class="card">
                 <input type="checkbox" id="flip-konecta" class="card__toggle" hidden>
-                <article class="card__inner">
-                  <article class="card__front">
-                    <article class="front__header">
-                      <article>
+                <div class="card__inner">
+                  <div class="card__front">
+                    <header class="front__header">
+                      <div>
                         <h3>Konecta</h3>
                         <h4>Seville, Andalusia, Spain</h4>
-                      </article>
+                      </div>
                       <label for="flip-konecta">View More</label>
-                    </article>
+                    </header>
                     <article class="carrousel">
-                      <article class="slides">
+                      <div class="slides">
                         <article class="slide">
                           <div class="slide__text">
                             <h4>Teleoperator</h4>
@@ -198,113 +207,565 @@
                             <h5>Part-time</h5>
                           </div>
                         </article>
-                      </article>
+                      </div>
                     </article>
-                  </article>
-                  <article class="card__back">
+                  </div>
+                  <div class="card__back">
                     <label for="flip-konecta">Go Back</label>
                     <p>I made calls with the aim of selling all kinds of devices (smartphones, headphones, smartwatches,
                       etc.) to existing clients.</p>
-                  </article>
-                </article>
+                  </div>
+                </div>
               </article>
             </li>
+
             <li class="list__element">
               <article class="card">
                 <input type="checkbox" id="flip-ayesa" class="card__toggle" hidden>
-                <article class="card__inner">
-                  <article class="card__front">
-                    <article class="front__header">
-                      <article>
+                <div class="card__inner">
+                  <div class="card__front">
+                    <header class="front__header">
+                      <div>
                         <h3>Ayesa</h3>
                         <h4>Seville, Andalusia, Spain</h4>
-                      </article>
+                      </div>
                       <label for="flip-ayesa">View More</label>
-                    </article>
+                    </header>
                     <article class="carrousel">
-                      <article class="slides">
+                      <div class="slides">
                         <article class="slide">
-                          <article class="slide__text">
+                          <div class="slide__text">
                             <h4>Full-Stack Developer</h4>
                             <h5>Mar 2025 - Jun 2025</h5>
                             <h5>Internship</h5>
-                          </article>
+                          </div>
                         </article>
                         <article class="slide">
-                          <article class="slide__text">
+                          <div class="slide__text">
                             <h4>Web Developer</h4>
                             <h5>Apr 2024 - Mar 2025</h5>
                             <h5>Co-op</h5>
-                          </article>
+                          </div>
                         </article>
-                      </article>
+                      </div>
                     </article>
-                  </article>
-                  <article class="card__back">
+                  </div>
+                  <div class="card__back">
                     <label for="flip-ayesa">Go Back</label>
                     <p>I participated in the migration of a web project for project cost estimations from Spring 2010
                       and JSF to the latest version of the framework and Angular. I also carried out various
                       implementations (tables, views, filters, etc.) in a web project related to the energy sector."</p>
-                  </article>
-                </article>
+                  </div>
+                </div>
               </article>
             </li>
+
             <li class="list__element">
               <article class="card">
                 <input type="checkbox" id="flip-private-tutoring" class="card__toggle" hidden>
-                <article class="card__inner">
-                  <article class="card__front">
+                <div class="card__inner">
+                  <div class="card__front">
                     <header class="front__header">
                       <h3>Private Tutoring</h3>
                       <label for="flip-private-tutoring">View More</label>
                     </header>
                     <article class="carrousel">
-                      <article class="slides">
+                      <div class="slides">
                         <article class="slide">
-                          <article class="slide__text">
+                          <div class="slide__text">
                             <h4>Private Java Teacher</h4>
                             <h5>Jun 2025 - Jul 2025</h5>
-                          </article>
+                          </div>
                         </article>
                         <article class="slide">
-                          <article class="slide__text">
+                          <div class="slide__text">
                             <h4>Private Java Teacher</h4>
                             <h5>Feb 2024 - Mar 2025</h5>
-                          </article>
+                          </div>
                         </article>
-                      </article>
+                      </div>
                     </article>
-                  </article>
-                  <article class="card__back">
+                  </div>
+                  <div class="card__back">
                     <label for="flip-private-tutoring">Go Back</label>
                     <p>I taught online Java from scratch and Java 8 streams classes to a health engineering student.</p>
-                  </article>
-                </article>
+                  </div>
+                </div>
               </article>
             </li>
           </ul>
-        </article>
+
+          <p class="last-updated">Last updated: November 7, 2025</p>
+        </div>
       </section>
+
       <section class="section" id="certifications">
         <h2 class="section__title">Training</h2>
-        <article class="section__content">
+        <div class="section__content">
           <nav class="filters">
             <ul class="filters__list">
               <li><label for="formal__training">Formal</label></li>
               <li><label for="non-formal__training">Non-Formal</label></li>
             </ul>
+            <ul class="filters__list-2">
+              <li><label for="">Cambridge</label></li>
+              <li><label for="">Platzi</label></li>
+              <li><label for="">Udemy</label></li>
+              <li><label for="">Mastermind</label></li>
+              <li><label for="">OpenWebinars</label></li>
+            </ul>
           </nav>
           <input type="radio" name="training__filters" id="formal__training" hidden>
           <input type="radio" name="training__filters" id="non-formal__training" hidden>
-          <article class="article" id="ft__content"></article>
-          <article class="article" id="nft__content"></article>
-        </article>
+          <div class="certifications__grid">
+            <article class="card">
+              <input type="checkbox" id="flip-cambridge-1" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Cambridge B1 Preliminary</h3>
+                  <h4>Score 142</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-cambridge-1">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-cambridge-1">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>Listening</p>
+                    </li>
+                    <li>
+                      <p>Reading</p>
+                    </li>
+                    <li>
+                      <p>Writing</p>
+                    </li>
+                    <li>
+                      <p>Speaking</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-platzi-1" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de Fundamentos de JavaScript</h3>
+                  <h4>Platzi</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-platzi-1">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-platzi-1">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>JavaScript</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-platzi-2" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de JavaScript: Web Components</h3>
+                  <h4>Platzi</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-platzi-2">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-platzi-2">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>JavaScript</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-udemy-1" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Diseña tu Estrategia de Marca Personal paso a paso</h3>
+                  <h4>Udemy</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-udemy-1">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-udemy-1">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>Personal Branding</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-platzi-3" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de NestJS: Autenticación con Passport y JWT</h3>
+                  <h4>Platzi</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-platzi-3">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-platzi-3">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>JWT</p>
+                    </li>
+                    <li>
+                      <p>Passport.js</p>
+                    </li>
+                    <li>
+                      <p>NestJS</p>
+                    </li>
+                    <li>
+                      <p>TypeScript</p>
+                    </li>
+                    <li>
+                      <p>REST APIs</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-platzi-4" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de NestJS: Persistencia de Datos con TypeORM</h3>
+                  <h4>Platzi</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-platzi-4">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-platzi-4">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>NestJS</p>
+                    </li>
+                    <li>
+                      <p>TypeScript</p>
+                    </li>
+                    <li>
+                      <p>TypeORM</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-platzi-5" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de NestJS: Programación Modular, Documentación con Swagger y Deploy</h3>
+                  <h4>Platzi</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-platzi-5">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-platzi-5">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>NestJS</p>
+                    </li>
+                    <li>
+                      <p>TypeScript</p>
+                    </li>
+                    <li>
+                      <p>REST APIs</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-platzi-6" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de Backend con NestJS</h3>
+                  <h4>Platzi</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-platzi-6">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-platzi-6">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>NestJS</p>
+                    </li>
+                    <li>
+                      <p>TypeScript</p>
+                    </li>
+                    <li>
+                      <p>REST APIs</p>
+                    </li>
+                    <li>
+                      <p>DTO</p>
+                    </li>
+                    <li>
+                      <p>Service Layer</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-platzi-7" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de Arquitecturas CSS</h3>
+                  <h4>Platzi</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-platzi-7">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-platzi-7">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>SOLID</p>
+                    </li>
+                    <li>
+                      <p>BEM</p>
+                    </li>
+                    <li>
+                      <p>Atomic Design</p>
+                    </li>
+                    <li>
+                      <p>OOCSS</p>
+                    </li>
+                    <li>
+                      <p>SMACSS</p>
+                    </li>
+                    <li>
+                      <p>ITCSS</p>
+                    </li>
+                    <li>
+                      <p>Tailwind CSS</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-platzi-8" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de Responsive Design: Maquetación Mobile First</h3>
+                  <h4>Platzi</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-platzi-8">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-platzi-8">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>Mobile First</p>
+                    </li>
+                    <li>
+                      <p>BEM</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-platzi-9" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso para Desarrollar tu Creatividad: Técnicas y Hábitos</h3>
+                  <h4>Platzi</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-platzi-9">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-platzi-9">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>Branding</p>
+                    </li>
+                    <li>
+                      <p>Requirements Engineering</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-udemy-2" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Ingeniería de Requisitos</h3>
+                  <h4>Udemy</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-udemy-2">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-udemy-2">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>Requirements Engineering</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-openwebinars-1" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de Flexbox y CSS Grid</h3>
+                  <h4>OpenWebinars</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-openwebinars-1">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-openwebinars-1">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>CSS</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-udemy-3" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de Branding - Marca, Logotipo, Naming, Marketing, Logo</h3>
+                  <h4>Udemy</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-udemy-3">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-udemy-3">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>Branding</p>
+                    </li>
+                    <li>
+                      <p>Brand Architecture</p>
+                    </li>
+                    <li>
+                      <p>Brand Naming</p>
+                    </li>
+                    <li>
+                      <p>Rebranding</p>
+                    </li>
+                    <li>
+                      <p>Logo Design</p>
+                    </li>
+                    <li>
+                      <p>Visual Identity</p>
+                    </li>
+                    <li>
+                      <p>Personal Branding</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-udemy-4" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Master en CSS: Responsive, SASS, Flexbox, Grid y Bootstrap</h3>
+                  <h4>Udemy</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-udemy-4">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-udemy-4">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>CSS</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-udemy-5" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Cisco Curso de direccionamiento IP y Subnetting - CCNA</h3>
+                  <h4>Udemy</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-udemy-5">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-udemy-5">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>VLSM</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-mastermind-1" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Diseño de Bases de Datos Relacionales con MySQL</h3>
+                  <h4>Mastermind</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-mastermind-1">Skill</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-mastermind-1">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>Relational Databases</p>
+                    </li>
+                    <li>
+                      <p>SQL</p>
+                    </li>
+                    <li>
+                      <p>MySQL</p>
+                    </li>
+                    <li>
+                      <p>MariaDB</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <input type="checkbox" id="flip-udemy-6" class="card__toggle" hidden>
+              <div class="card__inner">
+                <div class="card__front">
+                  <h3>Curso de HTML5 completo y desde cero</h3>
+                  <h4>Udemy</h4>
+                  <a href="" target="_blank">Certificate</a>
+                  <label for="flip-udemy-6">Skills</label>
+                </div>
+                <div class="card__back">
+                  <label for="flip-udemy-6">Go Back</label>
+                  <ul>
+                    <li>
+                      <p>HTML</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
+
       <section class="section" id="contact">
         <h2 class="section__title">Get in touch with me</h2>
         <article class="section__content"></article>
       </section>
     </main>
+
     <footer class="home__footer">
       <p class="copyright">&copy; 2025 David Llamas Román. Licensed under the <a
           href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU General Public License version 3
