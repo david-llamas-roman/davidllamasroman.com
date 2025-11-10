@@ -33,7 +33,7 @@ function closeNavbar() {
     .querySelectorAll('li a')
     .forEach((anchor) => {
       anchor.addEventListener('click', () => {
-        mainHeaderNavbar.querySelector('ul article li label').click()
+        mainHeaderNavbar.querySelector('ul ul li label').click()
       })
     })
 }
