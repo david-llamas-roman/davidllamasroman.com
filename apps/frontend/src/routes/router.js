@@ -19,63 +19,80 @@
 'use strict'
 
 import '@/routes/static-routes-renderer.js'
+import { getLanguage } from '@/utils/the-system/i18n.js'
+import { enableTargetAnimations } from '@/utils/the-surface/the-surface'
 
 let spaContent = null
 
-const workspacesMap = {
-  'about-me': ['en/about-me', 'es/sobre-mi'],
-  projects: ['en/projects', 'es/proyectos'],
-  experience: ['en/experience', 'es/experiencia'],
-  certifications: ['en/certifications', 'es/certificaciones'],
-  blog: ['en/blog', 'es/blog'],
-  academy: ['en/academy', 'es/academia'],
-  contact: ['en/contact', 'es/contacto'],
+const theSystem = {
+  workspaces: {
+    'about-me': ['system/en/about-me', 'system/es/sobre-mi'],
+    projects: ['system/en/projects', 'system/es/proyectos'],
+    experience: ['system/en/experience', 'system/es/experiencia'],
+    certifications: ['system/en/certifications', 'system/es/certificaciones'],
+    blog: ['system/en/blog', 'system/es/blog'],
+    academy: ['system/en/academy', 'system/es/academia'],
+    contact: ['system/en/contact', 'system/es/contacto'],
+  },
+  static: {
+    creatidevpedia: [
+      'system/en/creatidevpedia/dev/David_Llamas_Román',
+      'system/es/creatidevpedia/dev/David_Llamas_Román',
+    ],
+    dlrdevacademy: ['system/en/dlrdevacademy', 'system/es/dlrdevacademy'],
+  },
 }
 
-const staticRoutesMap = {
-  creatidevpedia: [
-    'en/creatidevpedia/dev/David_Llamas_Román',
-    'es/creatidevpedia/dev/David_Llamas_Román',
-  ],
-  dlrdevacademy: ['en/dlrdevacademy', 'es/dlrdevacademy'],
+const theSurface = {
+  'about-me': ['surface/en/about-me', 'surface/es/sobre-mi'],
+  projects: ['surface/en/projects', 'surface/es/proyectos'],
+  experience: ['surface/en/experience', 'surface/es/experience'],
+  certifications: ['surface/en/certifications', 'surface/es/certificaciones'],
+  contact: ['surface/en/contact', 'surface/es/contact'],
 }
 
-const getLangFromUrl = () => {
-  const seg = (window.location.pathname.split('/')[1] || '').toLowerCase()
-  return seg === 'en' || seg === 'es' ? seg : 'en'
+const hashToSurfaceId = {
+  '#about-me': 'about-me',
+  '#projects': 'projects',
+  '#experience': 'experience',
+  '#certifications': 'certifications',
+  '#contact': 'contact',
 }
 
-const findWorkspaceIdFromPath = () => {
-  const fullPath = window.location.pathname.replace(/^\/+/, '')
+const homeRoute = ['en/home', 'es/inicio']
 
-  return Object.keys(workspacesMap).find(
-    (id) => workspacesMap[id].some((route) => fullPath.endsWith(route)) || null,
-  )
-}
-
-const findStaticRouteIdFromPath = () => {
+const findRouteFromPath = (routesGroup) => {
   const fullPath = decodeURIComponent(
     window.location.pathname.replace(/^\/+/, ''),
   )
 
-  return Object.keys(staticRoutesMap).find(
-    (id) =>
-      staticRoutesMap[id].some((route) => fullPath.endsWith(route)) || null,
+  return Object.keys(routesGroup).find((id) =>
+    routesGroup[id].some((route) => fullPath.endsWith(route)),
   )
 }
 
-const navigate = (path, state = {}) => {
-  history.pushState(state, '', path)
-  handleRoute()
+const findWorkspaceIdFromPath = () => {
+  return findRouteFromPath(theSystem.workspaces) || null
+}
+
+const findStaticRouteIdFromPath = () => {
+  return findRouteFromPath(theSystem.static) || null
 }
 
 const handleRoute = () => {
   const fullPath = window.location.pathname.replace(/^\/+/, '')
+  const lang = getLanguage()
 
-  if (!fullPath) {
+  if (
+    !fullPath ||
+    fullPath === lang ||
+    homeRoute.some((route) => fullPath.endsWith(route))
+  ) {
+    window.dispatchEvent(new CustomEvent('home:navigate'))
     return
   }
 
+  // THE SYSTEM - Workspaces
   const workspaceId = findWorkspaceIdFromPath()
   if (workspaceId) {
     if (spaContent) {
@@ -90,6 +107,7 @@ const handleRoute = () => {
     return
   }
 
+  // THE SYSTEM - Static Routes
   const staticRouteId = findStaticRouteIdFromPath()
   if (staticRouteId) {
     if (!spaContent) spaContent = document.body.innerHTML
@@ -101,14 +119,20 @@ const handleRoute = () => {
   }
 }
 
+const navigate = (path, state = {}) => {
+  history.pushState(state, '', path)
+  handleRoute()
+}
+
 window.addEventListener('workspace:navigate', (event) => {
   const id = event?.detail?.id
-  if (!id || !workspacesMap[id]) return
+  if (!id || !theSystem.workspaces[id]) return
 
-  const lang = getLangFromUrl()
+  const lang = getLanguage()
   const target =
-    workspacesMap[id].find((route) => route.startsWith(`${lang}/`)) ||
-    workspacesMap[id][0]
+    theSystem.workspaces[id].find((route) =>
+      route.startsWith(`system/${lang}/`),
+    ) || theSystem.workspaces[id][0]
   const path = `/${target}`
 
   history.pushState({}, '', path)
@@ -117,12 +141,28 @@ window.addEventListener('workspace:navigate', (event) => {
 
 window.addEventListener('static:navigate', (event) => {
   const id = event?.detail?.id
-  if (!id || !staticRoutesMap[id]) return
+  if (!id || !theSystem.static[id]) return
 
-  const lang = getLangFromUrl()
+  const lang = getLanguage()
   const target =
-    staticRoutesMap[id].find((route) => route.startsWith(`${lang}/`)) ||
-    staticRoutesMap[id][0]
+    theSystem.static[id].find((route) => route.startsWith(`system/${lang}/`)) ||
+    theSystem.static[id][0]
+  const path = `/${target}`
+
+  history.pushState({}, '', path)
+  handleRoute()
+})
+
+window.addEventListener('surface:navigate', (event) => {
+  const id = event?.detail?.id
+  if (!id || !theSurface[id]) return
+
+  enableTargetAnimations(id)
+
+  const lang = getLanguage()
+  const target =
+    theSurface[id].find((route) => route.startsWith(`surface/${lang}/`)) ||
+    theSurface[id][0]
   const path = `/${target}`
 
   history.pushState({}, '', path)
@@ -132,4 +172,4 @@ window.addEventListener('static:navigate', (event) => {
 window.addEventListener('popstate', handleRoute)
 window.addEventListener('DOMContentLoaded', handleRoute)
 
-export { findWorkspaceIdFromPath, getLangFromUrl, staticRoutesMap, navigate }
+export { findWorkspaceIdFromPath, theSystem, navigate, hashToSurfaceId }
