@@ -14,7 +14,7 @@
 
 <body>
   <div id="home">
-    <header class="home__header">
+    <header class="home__header" id="front-page">
       <div class="id__container">
         <div class="id">
           <img src="/img/dlr/dlr.png" loading="lazy" alt="David Llamas Román" class="id__photo">
@@ -28,7 +28,7 @@
         <h3>Choose your reality...</h3>
         <nav class="theme__navbar">
           <ul>
-            <li><a href="#about-me">The Surface</a></li>
+            <li><a href="#about-me" id="the-surface">The Surface</a></li>
             <li class="disabled"><a href="#" id="the-system" class="disabled">The System</a></li>
           </ul>
         </nav>
@@ -54,7 +54,7 @@
             <li><a href="#">Academy</a></li>
             <li><a href="#contact">Contact</a></li>
             <ul>
-              <li><a href=""><img src="/img/google-fonts-icons/home.svg" loading="lazy"
+              <li><a href="#front-page"><img src="/img/google-fonts-icons/home.svg" loading="lazy"
                     alt="Google Fonts Home Icon"></a></li>
               <li><label for="close__menu"><img src="/img/google-fonts-icons/close.svg" loading="lazy"
                     alt="Google Fonts Close Icon"></label></li>
@@ -303,27 +303,30 @@
         <h2 class="section__title">Training</h2>
         <div class="section__content">
           <nav class="filters">
+            <input type="radio" name="training__filters" id="cambridge__training" hidden>
+            <input type="radio" name="training__filters" id="platzi__training" hidden>
+            <input type="radio" name="training__filters" id="udemy__training" hidden>
+            <input type="radio" name="training__filters" id="mastermind__training" hidden>
+            <input type="radio" name="training__filters" id="openwebinars__training" hidden>
+
             <ul class="filters__list">
-              <li><label for="formal__training">Formal</label></li>
-              <li><label for="non-formal__training">Non-Formal</label></li>
-            </ul>
-            <ul class="filters__list-2">
-              <li><label for="">Cambridge</label></li>
-              <li><label for="">Platzi</label></li>
-              <li><label for="">Udemy</label></li>
-              <li><label for="">Mastermind</label></li>
-              <li><label for="">OpenWebinars</label></li>
+              <li><label for="cambridge__training">Cambridge</label></li>
+              <li><label for="platzi__training">Platzi</label></li>
+              <li><label for="udemy__training">Udemy</label></li>
+              <li><label for="mastermind__training">Mastermind</label></li>
+              <li><label for="openwebinars__training">OpenWebinars</label></li>
             </ul>
           </nav>
-          <input type="radio" name="training__filters" id="formal__training" hidden>
-          <input type="radio" name="training__filters" id="non-formal__training" hidden>
+
           <div class="certifications__grid">
-            <article class="card">
+            <article class="card" data-cambridge>
               <input type="checkbox" id="flip-cambridge-1" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Cambridge B1 Preliminary</h3>
-                  <h4>Score 142</h4>
+                  <div>
+                    <h3>Cambridge B1 Preliminary</h3>
+                    <h4>Score 142</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-cambridge-1">Skills</label>
                 </div>
@@ -346,12 +349,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-platzi>
               <input type="checkbox" id="flip-platzi-1" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de Fundamentos de JavaScript</h3>
-                  <h4>Platzi</h4>
+                  <div>
+                    <h3>Curso de Fundamentos de JavaScript</h3>
+                    <h4>Platzi</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-platzi-1">Skills</label>
                 </div>
@@ -365,12 +370,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-platzi>
               <input type="checkbox" id="flip-platzi-2" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de JavaScript: Web Components</h3>
-                  <h4>Platzi</h4>
+                  <div>
+                    <h3>Curso de JavaScript: Web Components</h3>
+                    <h4>Platzi</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-platzi-2">Skills</label>
                 </div>
@@ -384,12 +391,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-udemy>
               <input type="checkbox" id="flip-udemy-1" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Diseña tu Estrategia de Marca Personal paso a paso</h3>
-                  <h4>Udemy</h4>
+                  <div>
+                    <h3>Diseña tu Estrategia de Marca Personal paso a paso</h3>
+                    <h4>Udemy</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-udemy-1">Skills</label>
                 </div>
@@ -403,12 +412,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-platzi>
               <input type="checkbox" id="flip-platzi-3" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de NestJS: Autenticación con Passport y JWT</h3>
-                  <h4>Platzi</h4>
+                  <div>
+                    <h3>Curso de NestJS: Autenticación con Passport y JWT</h3>
+                    <h4>Platzi</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-platzi-3">Skills</label>
                 </div>
@@ -434,12 +445,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-platzi>
               <input type="checkbox" id="flip-platzi-4" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de NestJS: Persistencia de Datos con TypeORM</h3>
-                  <h4>Platzi</h4>
+                  <div>
+                    <h3>Curso de NestJS: Persistencia de Datos con TypeORM</h3>
+                    <h4>Platzi</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-platzi-4">Skills</label>
                 </div>
@@ -459,12 +472,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-platzi>
               <input type="checkbox" id="flip-platzi-5" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de NestJS: Programación Modular, Documentación con Swagger y Deploy</h3>
-                  <h4>Platzi</h4>
+                  <div>
+                    <h3>Curso de NestJS: Programación Modular, Documentación con Swagger y Deploy</h3>
+                    <h4>Platzi</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-platzi-5">Skills</label>
                 </div>
@@ -484,12 +499,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-platzi>
               <input type="checkbox" id="flip-platzi-6" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de Backend con NestJS</h3>
-                  <h4>Platzi</h4>
+                  <div>
+                    <h3>Curso de Backend con NestJS</h3>
+                    <h4>Platzi</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-platzi-6">Skills</label>
                 </div>
@@ -515,12 +532,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-platzi>
               <input type="checkbox" id="flip-platzi-7" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de Arquitecturas CSS</h3>
-                  <h4>Platzi</h4>
+                  <div>
+                    <h3>Curso de Arquitecturas CSS</h3>
+                    <h4>Platzi</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-platzi-7">Skills</label>
                 </div>
@@ -552,12 +571,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-platzi>
               <input type="checkbox" id="flip-platzi-8" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de Responsive Design: Maquetación Mobile First</h3>
-                  <h4>Platzi</h4>
+                  <div>
+                    <h3>Curso de Responsive Design: Maquetación Mobile First</h3>
+                    <h4>Platzi</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-platzi-8">Skills</label>
                 </div>
@@ -574,12 +595,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-platzi>
               <input type="checkbox" id="flip-platzi-9" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso para Desarrollar tu Creatividad: Técnicas y Hábitos</h3>
-                  <h4>Platzi</h4>
+                  <div>
+                    <h3>Curso para Desarrollar tu Creatividad: Técnicas y Hábitos</h3>
+                    <h4>Platzi</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-platzi-9">Skills</label>
                 </div>
@@ -596,12 +619,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-udemy>
               <input type="checkbox" id="flip-udemy-2" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Ingeniería de Requisitos</h3>
-                  <h4>Udemy</h4>
+                  <div>
+                    <h3>Ingeniería de Requisitos</h3>
+                    <h4>Udemy</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-udemy-2">Skills</label>
                 </div>
@@ -615,12 +640,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-openwebinars>
               <input type="checkbox" id="flip-openwebinars-1" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de Flexbox y CSS Grid</h3>
-                  <h4>OpenWebinars</h4>
+                  <div>
+                    <h3>Curso de Flexbox y CSS Grid</h3>
+                    <h4>OpenWebinars</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-openwebinars-1">Skills</label>
                 </div>
@@ -634,12 +661,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-udemy>
               <input type="checkbox" id="flip-udemy-3" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de Branding - Marca, Logotipo, Naming, Marketing, Logo</h3>
-                  <h4>Udemy</h4>
+                  <div>
+                    <h3>Curso de Branding - Marca, Logotipo, Naming, Marketing, Logo</h3>
+                    <h4>Udemy</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-udemy-3">Skills</label>
                 </div>
@@ -671,12 +700,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-udemy>
               <input type="checkbox" id="flip-udemy-4" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Master en CSS: Responsive, SASS, Flexbox, Grid y Bootstrap</h3>
-                  <h4>Udemy</h4>
+                  <div>
+                    <h3>Master en CSS: Responsive, SASS, Flexbox, Grid y Bootstrap</h3>
+                    <h4>Udemy</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-udemy-4">Skills</label>
                 </div>
@@ -690,12 +721,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-udemy>
               <input type="checkbox" id="flip-udemy-5" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Cisco Curso de direccionamiento IP y Subnetting - CCNA</h3>
-                  <h4>Udemy</h4>
+                  <div>
+                    <h3>Cisco Curso de direccionamiento IP y Subnetting - CCNA</h3>
+                    <h4>Udemy</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-udemy-5">Skills</label>
                 </div>
@@ -709,12 +742,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-mastermind>
               <input type="checkbox" id="flip-mastermind-1" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Diseño de Bases de Datos Relacionales con MySQL</h3>
-                  <h4>Mastermind</h4>
+                  <div>
+                    <h3>Diseño de Bases de Datos Relacionales con MySQL</h3>
+                    <h4>Mastermind</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-mastermind-1">Skill</label>
                 </div>
@@ -737,12 +772,14 @@
                 </div>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-udemy>
               <input type="checkbox" id="flip-udemy-6" class="card__toggle" hidden>
               <div class="card__inner">
                 <div class="card__front">
-                  <h3>Curso de HTML5 completo y desde cero</h3>
-                  <h4>Udemy</h4>
+                  <div>
+                    <h3>Curso de HTML5 completo y desde cero</h3>
+                    <h4>Udemy</h4>
+                  </div>
                   <a href="" target="_blank">Certificate</a>
                   <label for="flip-udemy-6">Skills</label>
                 </div>
@@ -757,12 +794,15 @@
               </div>
             </article>
           </div>
+
+          <p class="last-updated">Last updated: November 7, 2025</p>
         </div>
       </section>
 
       <section class="section" id="contact">
         <h2 class="section__title">Get in touch with me</h2>
-        <article class="section__content"></article>
+        <div class="section__content">
+        </div>
       </section>
     </main>
 
