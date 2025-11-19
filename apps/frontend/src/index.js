@@ -18,47 +18,14 @@
 
 'use strict'
 
+import { initTheSystem } from '@/utils/the-surface/the-system'
+import { initTheSurface } from '@/utils/the-surface/the-surface'
+
+// navigate to the surface version of portfolio
+initTheSurface()
+
 // go to thematic version of portfolio (OS - Desktop & Mobile)
-const theSystemAnchor = document.getElementById('the-system')
-theSystemAnchor.addEventListener('click', async (event) => {
-  event.preventDefault()
-
-  const [{ navigate }, { getLanguage }] = await Promise.all([
-    import('@/routes/router.js'),
-    import('@/utils/the-system/i18n.js'),
-  ])
-
-  await import('@/components/components.js')
-
-  const body = document.body
-  body.innerHTML = ''
-
-  const app = document.createElement('div')
-  app.id = 'app'
-  const mainHeader = document.createElement('main-header')
-
-  const appContent = document.createElement('main')
-  appContent.id = 'app__content'
-  const mainContent = document.createElement('main-content')
-  appContent.appendChild(mainContent)
-
-  const mainFooter = document.createElement('main-footer')
-  app.append(mainHeader, appContent, mainFooter)
-
-  const language = getLanguage()
-
-  if (language === 'en') {
-    navigate('en/about-me')
-  } else if (language === 'es') {
-    navigate('es/sobre-mi')
-  }
-
-  body.appendChild(app)
-})
-
-// if JS is enabled
-theSystemAnchor.classList.remove('disabled')
-theSystemAnchor.parentElement.classList.remove('disabled')
+initTheSystem()
 
 // lazy loading
 const observer = new IntersectionObserver(
