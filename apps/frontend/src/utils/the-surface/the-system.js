@@ -41,23 +41,6 @@ async function goToTheSystem() {
     import('@/utils/the-system/i18n.js'),
   ])
 
-  await import('@/components/components.js')
-
-  const body = document.body
-  body.innerHTML = ''
-
-  const app = document.createElement('div')
-  app.id = 'app'
-  const mainHeader = document.createElement('main-header')
-
-  const appContent = document.createElement('main')
-  appContent.id = 'app__content'
-  const mainContent = document.createElement('main-content')
-  appContent.appendChild(mainContent)
-
-  const mainFooter = document.createElement('main-footer')
-  app.append(mainHeader, appContent, mainFooter)
-
   const language = getLanguage()
 
   navigate(`/system/${language}/${language === 'en' ? 'about-me' : 'sobre-mi'}`)
@@ -67,8 +50,6 @@ async function goToTheSystem() {
       new CustomEvent('workspace:switch', { detail: { id: 'about-me' } }),
     )
   }, 0)
-
-  body.appendChild(app)
 }
 
 export { initTheSystem }

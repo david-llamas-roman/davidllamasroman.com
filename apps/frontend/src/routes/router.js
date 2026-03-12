@@ -18,7 +18,6 @@
 
 'use strict'
 
-import '@/routes/static-routes-renderer.js'
 import { getLanguage } from '@/utils/the-system/i18n.js'
 import { enableTargetAnimations } from '@/utils/the-surface/the-surface'
 
@@ -79,9 +78,90 @@ const findStaticRouteIdFromPath = () => {
   return findRouteFromPath(theSystem.static) || null
 }
 
-const handleRoute = () => {
+const findSurfaceIdFromPath = () => {
+  const fullPath = decodeURIComponent(
+    window.location.pathname.replace(/^\/+/, ''),
+  )
+
+  return Object.keys(theSurface).find((id) =>
+    theSurface[id].some((route) => fullPath.endsWith(route)),
+  )
+}
+
+const initAppContainer = async () => {
+  let app = document.getElementById('app')
+
+  if (!app) {
+    const body = document.body
+    body.innerHTML = ''
+
+    app = document.createElement('div')
+    app.id = 'app'
+
+    const mainHeader = document.createElement('main-header')
+    const appContent = document.createElement('main')
+    appContent.id = 'app__content'
+
+    const mainContent = document.createElement('main-content')
+    appContent.appendChild(mainContent)
+
+    const mainFooter = document.createElement('main-footer')
+
+    app.append(mainHeader, appContent, mainFooter)
+    body.appendChild(app)
+
+    await import('@/components/components.js')
+  }
+
+  return app
+}
+
+const handleRoute = async () => {
   const fullPath = window.location.pathname.replace(/^\/+/, '')
   const lang = getLanguage()
+
+  if (fullPath.startsWith('system/')) {
+    await initAppContainer()
+
+    const workspaceId = findWorkspaceIdFromPath()
+    if (workspaceId) {
+      if (spaContent) {
+        document.body.innerHTML = spaContent
+        spaContent = null
+        document.body.removeAttribute('style')
+      }
+
+      window.dispatchEvent(
+        new CustomEvent('workspace:switch', { detail: { id: workspaceId } }),
+      )
+    }
+
+    const staticRouteId = findStaticRouteIdFromPath()
+    if (staticRouteId) {
+      if (!spaContent) spaContent = document.body.innerHTML
+
+      window.dispatchEvent(
+        new CustomEvent('static:switch', { detail: { id: staticRouteId } }),
+      )
+    }
+
+    return
+  }
+
+  const surfaceId = findSurfaceIdFromPath()
+  if (surfaceId) {
+    requestAnimationFrame(() => {
+      enableTargetAnimations(surfaceId)
+
+      const target = document.getElementById(surfaceId)
+
+      if (target) {
+        target.scrollIntoView({ block: 'start' })
+      }
+    })
+
+    return
+  }
 
   if (
     !fullPath ||
@@ -89,33 +169,6 @@ const handleRoute = () => {
     homeRoute.some((route) => fullPath.endsWith(route))
   ) {
     window.dispatchEvent(new CustomEvent('home:navigate'))
-    return
-  }
-
-  // THE SYSTEM - Workspaces
-  const workspaceId = findWorkspaceIdFromPath()
-  if (workspaceId) {
-    if (spaContent) {
-      document.body.innerHTML = spaContent
-      spaContent = null
-      document.body.removeAttribute('style')
-    }
-
-    window.dispatchEvent(
-      new CustomEvent('workspace:switch', { detail: { id: workspaceId } }),
-    )
-    return
-  }
-
-  // THE SYSTEM - Static Routes
-  const staticRouteId = findStaticRouteIdFromPath()
-  if (staticRouteId) {
-    if (!spaContent) spaContent = document.body.innerHTML
-
-    window.dispatchEvent(
-      new CustomEvent('static:switch', { detail: { id: staticRouteId } }),
-    )
-    return
   }
 }
 
@@ -151,6 +204,47 @@ window.addEventListener('static:navigate', (event) => {
 
   history.pushState({}, '', path)
   handleRoute()
+})
+
+window.addEventListener('static:switch', (event) => {
+  const { id } = event.detail
+
+  document.body.innerHTML = ''
+
+  let element
+  switch (id) {
+    case 'creatidevpedia':
+      element = document.createElement('creatidevpedia-web')
+      element.setAttribute('static-route', '')
+      document.body.style.backgroundColor =
+        'var(--creatidevpedia-dark-blue, #121420)'
+      break
+    case 'dlrdevacademy':
+      element = document.createElement('dlrdevacademy-web')
+      element.setAttribute('static-route', '')
+      document.body.style.backgroundColor =
+        'var(--dlrdevacademy-dark-blue, #0f0e17)'
+      break
+    default:
+      break
+  }
+
+  document.body.appendChild(element)
+})
+
+window.addEventListener('app:open-static', (event) => {
+  const { id } = event.detail
+  if (!id) return
+
+  const lang = getLanguage()
+  const target =
+    theSystem.static[id].find((route) => route.startsWith(`system/${lang}/`)) ||
+    theSystem.static[id][0]
+
+  const prevRoute = window.location.pathname
+  const path = `/${target}`
+
+  navigate(path, { prevRoute })
 })
 
 window.addEventListener('surface:navigate', (event) => {
