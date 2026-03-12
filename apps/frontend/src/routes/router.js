@@ -20,6 +20,7 @@
 
 import { getLanguage } from '@/utils/the-system/i18n.js'
 import { enableTargetAnimations } from '@/utils/the-surface/the-surface'
+import updatePageTitle from './dynamic-title'
 
 let spaContent = null
 
@@ -119,6 +120,8 @@ const initAppContainer = async () => {
 const handleRoute = async () => {
   const fullPath = window.location.pathname.replace(/^\/+/, '')
   const lang = getLanguage()
+
+  updatePageTitle()
 
   if (fullPath.startsWith('system/')) {
     await initAppContainer()
