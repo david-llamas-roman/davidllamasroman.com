@@ -349,7 +349,7 @@ class TilingWM extends BaseComponent {
       // open browser
       'Space+KeyB': () => this.#openAppByTagName('web-browser'),
       // open visual studio code
-      'Space+KeyC': () => this.#openAppByTagName('vs-code'),
+      'Space+KeyC': () => this.#openAppByTagName('code-editor'),
       // close app
       'Space+F4': () =>
         this.#closeApp(this.#getActiveState()?.focusedIndex ?? -1),
