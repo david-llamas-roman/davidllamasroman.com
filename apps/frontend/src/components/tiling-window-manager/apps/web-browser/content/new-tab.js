@@ -19,10 +19,14 @@
 'use strict'
 
 import BaseComponent from '@/components/base-component.js'
+import clock from '@/utils/the-system/clock'
+import { getHoursMinutes } from '@/utils/the-system/formatters.js'
 
 class NewTab extends BaseComponent {
   constructor() {
     super()
+
+    this._onTick = (event) => this.#onTick(event)
   }
 
   #getTemplate() {
@@ -30,7 +34,9 @@ class NewTab extends BaseComponent {
 
     template.innerHTML = `
       ${this.#getStyles()}
-      <article class="newtab"></article>
+      <article class="newtab">
+        <p class="newtab__clock">${getHoursMinutes()}<p>
+      </article>
     `
 
     return template
@@ -43,7 +49,17 @@ class NewTab extends BaseComponent {
           width: var(--max-percentage, 100%);
           height: var(--max-percentage, 100%);
 
+          padding: 1rem 1.5rem;
+
           background-color: var(--dark-grey, #232327);
+
+          .newtab__clock {
+            color: var(--pantone-red, #da291c);
+            
+            font-size: max(40px, 2.5vmax);
+            font-family: 'Montserrat';
+            font-weight: 700;
+          }
         }
       </style>
     `
@@ -57,10 +73,25 @@ class NewTab extends BaseComponent {
     this.shadowRoot.adoptedStyleSheets = sheets
 
     this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
+
+    this.p = this.shadowRoot.querySelector('p')
   }
 
   connectedCallback() {
     this.render()
+    clock.addEventListener('tick', this._onTick)
+  }
+
+  disconnectedCallback() {
+    clock.removeEventListener('tick', this._onTick)
+  }
+
+  #onTick(event) {
+    const date = event?.detail ?? new Date()
+
+    if (this.p) {
+      this.p.textContent = getHoursMinutes(date)
+    }
   }
 }
 
