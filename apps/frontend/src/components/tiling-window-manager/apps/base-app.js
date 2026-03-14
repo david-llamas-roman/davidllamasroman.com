@@ -66,6 +66,10 @@ class BaseApp extends BaseComponent {
           overflow: hidden;
 
           & ul {
+            &.no-window-icons {
+              display: none;
+            }
+
             position: absolute;
             top: 0;
             right: 5px;
@@ -129,6 +133,10 @@ class BaseApp extends BaseComponent {
 
   setNoBorder() {
     this.getAppContainer().classList.add('no-border')
+  }
+
+  setNoWindowIcons() {
+    this.getAppContainer().querySelector('ul').classList.add('no-window-icons')
   }
 }
 
