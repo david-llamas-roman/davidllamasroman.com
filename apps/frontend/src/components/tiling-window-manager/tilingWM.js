@@ -22,16 +22,34 @@ import BaseComponent from '@/components/base-component.js'
 
 class TilingWM extends BaseComponent {
   static INITIAL_APPS = {
-    'about-me': [{ tag: 'web-browser', attributes: { creatidevpedia: '' } }],
+    'about-me': [
+      {
+        tag: 'web-browser',
+        attributes: { creatidevpedia: '', 'browser-id': crypto.randomUUID() },
+      },
+    ],
     projects: [
       { tag: 'terminal-emulator', attributes: { projects: '' } },
       { tag: 'code-editor', attributes: { projects: '' } },
     ],
-    experience: [{ tag: 'web-browser', attributes: {} }],
-    certifications: [{ tag: 'web-browser', attributes: {} }],
-    blog: [{ tag: 'web-browser', attributes: {} }],
-    academy: [{ tag: 'web-browser', attributes: { dlrdevacademy: '' } }],
-    contact: [{ tag: 'web-browser', attributes: {} }],
+    experience: [
+      { tag: 'web-browser', attributes: { 'browser-id': crypto.randomUUID() } },
+    ],
+    certifications: [
+      { tag: 'web-browser', attributes: { 'browser-id': crypto.randomUUID() } },
+    ],
+    blog: [
+      { tag: 'web-browser', attributes: { 'browser-id': crypto.randomUUID() } },
+    ],
+    academy: [
+      {
+        tag: 'web-browser',
+        attributes: { dlrdevacademy: '', 'browser-id': crypto.randomUUID() },
+      },
+    ],
+    contact: [
+      { tag: 'web-browser', attributes: { 'browser-id': crypto.randomUUID() } },
+    ],
   }
 
   constructor() {

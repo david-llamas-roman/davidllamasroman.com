@@ -27,6 +27,8 @@ class WebBrowserContent extends BaseComponent {
 
     this.tabs = []
     this.currentTabIndex = 0
+
+    this.browserId = null
   }
 
   #getTemplate() {
@@ -336,7 +338,31 @@ class WebBrowserContent extends BaseComponent {
   }
 
   connectedCallback() {
+    let browserId = this.getAttribute('browser-id')
+    if (!browserId) {
+      browserId = crypto.randomUUID()
+      this.setAttribute('browser-id', browserId)
+    }
+    this.browserId = browserId
+
+    const restoredState = this.#restoreState()
+
     this.render()
+
+    if (restoredState && this.tabs.length) {
+      this.#renderTabs()
+      this.#renderCurrentTab()
+    } else {
+      const lang = getLanguage() === 'en' ? 'en' : 'es'
+
+      const initialUrl = this.hasAttribute('creatidevpedia')
+        ? `https://davidllamasroman.com/system/${lang}/creatidevpedia/dev/David_Llamas_Román`
+        : this.hasAttribute('dlrdevacademy')
+          ? `https://davidllamasroman.com/system/${lang}/dlrdevacademy`
+          : 'browser://newtab'
+
+      this.#newTab(initialUrl)
+    }
 
     const aside = this.shadowRoot.querySelector('.content__aside')
     if (!aside) return
@@ -371,17 +397,6 @@ class WebBrowserContent extends BaseComponent {
     this._onEnter = onEnter
     this._onLeave = onLeave
     this._onResize = onResize
-
-    if (this.tabs.length === 0) {
-      const lang = getLanguage() === 'en' ? 'en' : 'es'
-      const initialUrl = this.hasAttribute('creatidevpedia')
-        ? `https://davidllamasroman.com/system/${lang}/creatidevpedia/dev/David_Llamas_Román`
-        : this.hasAttribute('dlrdevacademy')
-          ? `https://davidllamasroman.com/system/${lang}/dlrdevacademy`
-          : 'browser://newtab'
-
-      this.#newTab(initialUrl)
-    }
 
     this.shadowRoot
       .querySelector('.list__element.border-top button')
@@ -424,7 +439,7 @@ class WebBrowserContent extends BaseComponent {
 
   #newTab(url = 'browser://newtab') {
     const newTab = {
-      id: this.tabs.length,
+      id: crypto.randomUUID(),
       title: { icon: 'new-tab-icon', text: 'New Tab' },
       history: url ? [url] : [],
       currentIndex: url ? 0 : -1,
@@ -448,6 +463,8 @@ class WebBrowserContent extends BaseComponent {
 
     this.tabs.push(newTab)
     this.currentTabIndex = this.tabs.length - 1
+
+    this.#saveState()
 
     this.#renderCurrentTab()
     this.#renderTabs()
@@ -510,6 +527,8 @@ class WebBrowserContent extends BaseComponent {
         if (this.currentTabIndex >= this.tabs.length) {
           this.currentTabIndex = this.tabs.length - 1
         }
+
+        this.#saveState()
 
         this.#renderTabs()
         this.#renderCurrentTab()
@@ -593,6 +612,8 @@ class WebBrowserContent extends BaseComponent {
       )
     }
 
+    this.#saveState()
+
     this.#renderCurrentTab()
     this.#renderTabs()
   }
@@ -627,8 +648,13 @@ class WebBrowserContent extends BaseComponent {
       const currentTab = this.tabs[this.currentTabIndex]
       const words = currentTab.title.text.split(' ')
 
-      fullScreenIcon.setAttribute('static-id', (words.length - 1).toLowerCase())
+      fullScreenIcon.setAttribute(
+        'static-id',
+        words[words.length - 1].toLowerCase(),
+      )
     }
+
+    this.#saveState()
 
     this.#renderCurrentTab()
     this.#renderTabs()
@@ -676,6 +702,42 @@ class WebBrowserContent extends BaseComponent {
 
     if (canForward) right.removeAttribute('disabled')
     else right.setAttribute('disabled', '')
+  }
+
+  #saveState() {
+    const allStates = JSON.parse(
+      sessionStorage.getItem('web-browser-instance-states') || '{}',
+    )
+
+    allStates[this.browserId] = {
+      tabs: this.tabs,
+      currentTabIndex: this.currentTabIndex,
+    }
+
+    sessionStorage.setItem(
+      'web-browser-instance-states',
+      JSON.stringify(allStates),
+    )
+  }
+
+  #restoreState() {
+    const allStates = JSON.parse(
+      sessionStorage.getItem('web-browser-instance-states') || '{}',
+    )
+
+    if (
+      allStates[this.browserId] &&
+      Array.isArray(allStates[this.browserId].tabs)
+    ) {
+      const state = allStates[this.browserId]
+
+      this.tabs = state.tabs
+      this.currentTabIndex = state.currentTabIndex ?? 0
+
+      return true
+    }
+
+    return false
   }
 }
 
