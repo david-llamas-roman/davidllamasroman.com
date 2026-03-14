@@ -47,7 +47,7 @@ class WebBrowserContent extends BaseComponent {
             <arrows-icon right></arrows-icon>
             <article class="website__url">
               <url-info-icon></url-info-icon>
-              <input type="search" class="url" value="${isCreatidevpedia ? `https://davidllamasroman.com/${getLanguage() === 'en' ? 'en' : 'es'}/creatidevpedia/dev/David_Llamas_Román` : isDlrdevacademy ? `https://davidllamasroman.com/${getLanguage() === 'en' ? 'en' : 'es'}/dlrdevacademy` : ''}" disabled />
+              <input type="search" class="url" value="${isCreatidevpedia ? `https://davidllamasroman.com/system/${getLanguage() === 'en' ? 'en' : 'es'}/creatidevpedia/dev/David_Llamas_Román` : isDlrdevacademy ? `https://davidllamasroman.com/system/${getLanguage() === 'en' ? 'en' : 'es'}/dlrdevacademy` : ''}" disabled />
             </article>
           </article>
           <article class="browser__bookmarks">
@@ -375,9 +375,9 @@ class WebBrowserContent extends BaseComponent {
     if (this.tabs.length === 0) {
       const lang = getLanguage() === 'en' ? 'en' : 'es'
       const initialUrl = this.hasAttribute('creatidevpedia')
-        ? `https://davidllamasroman.com/${lang}/creatidevpedia/dev/David_Llamas_Román`
+        ? `https://davidllamasroman.com/system/${lang}/creatidevpedia/dev/David_Llamas_Román`
         : this.hasAttribute('dlrdevacademy')
-          ? `https://davidllamasroman.com/${lang}/dlrdevacademy`
+          ? `https://davidllamasroman.com/system/${lang}/dlrdevacademy`
           : 'browser://newtab'
 
       this.#newTab(initialUrl)
@@ -396,8 +396,8 @@ class WebBrowserContent extends BaseComponent {
         btn.addEventListener('click', () => {
           const lang = getLanguage() === 'en' ? 'en' : 'es'
           const url = btn.textContent.includes('CreatiDevpedia')
-            ? `https://davidllamasroman.com/${lang}/creatidevpedia/dev/David_Llamas_Román`
-            : `https://davidllamasroman.com/${lang}/dlrdevacademy`
+            ? `https://davidllamasroman.com/system/${lang}/creatidevpedia/dev/David_Llamas_Román`
+            : `https://davidllamasroman.com/system/${lang}/dlrdevacademy`
           this.#goTo(url)
         })
       })
@@ -581,6 +581,18 @@ class WebBrowserContent extends BaseComponent {
       currentTab.title = { icon: null, text: 'New Tab' }
     }
 
+    const fullScreenIcon =
+      this.getRootNode().host?.shadowRoot?.querySelector('full-screen-icon')
+    if (fullScreenIcon) {
+      const currentTab = this.tabs[this.currentTabIndex]
+      const words = currentTab.title.text.split(' ')
+
+      fullScreenIcon.setAttribute(
+        'static-id',
+        words[words.length - 1].toLowerCase(),
+      )
+    }
+
     this.#renderCurrentTab()
     this.#renderTabs()
   }
@@ -607,6 +619,15 @@ class WebBrowserContent extends BaseComponent {
       }
     } else {
       currentTab.title = { icon: null, text: 'New Tab' }
+    }
+
+    const fullScreenIcon =
+      this.getRootNode().host?.shadowRoot?.querySelector('full-screen-icon')
+    if (fullScreenIcon) {
+      const currentTab = this.tabs[this.currentTabIndex]
+      const words = currentTab.title.text.split(' ')
+
+      fullScreenIcon.setAttribute('static-id', (words.length - 1).toLowerCase())
     }
 
     this.#renderCurrentTab()
