@@ -31,25 +31,92 @@ class WebBrowserContent extends BaseComponent {
     this.browserId = null
   }
 
+  isCreatidevpedia() {
+    return this.hasAttribute('creatidevpedia')
+  }
+  isDlrdevacademy() {
+    return this.hasAttribute('dlrdevacademy')
+  }
+  isInfoDev() {
+    return this.hasAttribute('infodev')
+  }
+  isLinkDevIn() {
+    return this.hasAttribute('linkdevin')
+  }
+  isWhatsDev() {
+    return this.hasAttribute('whatsDev')
+  }
+
+  language() {
+    return getLanguage() === 'en' ? 'en' : 'es'
+  }
+
+  webTitle() {
+    if (this.isCreatidevpedia()) {
+      return 'David Llamas Román - CreatiDevpedia'
+    } else if (this.isDlrdevacademy()) {
+      return 'Home | DlrDevAcademy'
+    } else if (this.isInfoDev()) {
+      return 'Experience | InfoDev'
+    } else if (this.isLinkDevIn()) {
+      return 'Certifications | LinkDevIn'
+    } else if (this.isWhatsDev()) {
+      return 'Home | WhatsDev'
+    } else {
+      return 'New Tab - Browser'
+    }
+  }
+
+  webTitleFromUrl(url, version) {
+    if (url.includes('creatidevpedia')) {
+      return version === 1
+        ? 'David Llamas Román - CreatiDevpedia'
+        : 'DLR - CreatiDevpedia'
+    } else if (url.includes('dlrdevacademy')) {
+      return 'Home | DlrDevAcademy'
+    } else if (url.includes('infodev')) {
+      return 'Experience | InfoDev'
+    } else if (url.includes('linkdevin')) {
+      return 'Certifications | LinkDevIn'
+    } else if (url.includes('whatsdev')) {
+      return 'Home | WhatsDev'
+    } else {
+      return 'New Tab'
+    }
+  }
+
+  url() {
+    if (this.isCreatidevpedia()) {
+      return `https://portfolio.davidllamasroman.com/system/${this.language()}/creatidevpedia/dev/David_Llamas_Román`
+    } else if (this.isDlrdevacademy()) {
+      return `https://portfolio.davidllamasroman.com/system/${this.language()}/dlrdevacademy`
+    } else if (this.isInfoDev()) {
+      return `https://portfolio.davidllamasroman.com/system/${this.language()}/infodev`
+    } else if (this.isLinkDevIn()) {
+      return `https://portfolio.davidllamasroman.com/system/${this.language()}/linkdevin`
+    } else if (this.isWhatsDev()) {
+      return `https://portfolio.davidllamasroman.com/system/${this.language()}/whatsdev`
+    } else {
+      return `browser://newtab`
+    }
+  }
+
   #getTemplate() {
     const template = document.createElement('template')
-
-    const isCreatidevpedia = this.hasAttribute('creatidevpedia')
-    const isDlrdevacademy = this.hasAttribute('dlrdevacademy')
 
     template.innerHTML = `
       ${this.#getStyles()}
       <article class="browser">
         <header class="browser__header">
           <article class="website__title">
-            <p class="title">${isCreatidevpedia ? 'David Llamas Román - CreatiDevpedia' : isDlrdevacademy ? 'Home | DlrDevAcademy' : ''}</p>
+            <p class="title">${this.webTitle()}</p>
           </article>
           <article class="browser__controls">
             <arrows-icon left></arrows-icon>
             <arrows-icon right></arrows-icon>
             <article class="website__url">
               <url-info-icon></url-info-icon>
-              <input type="search" class="url" value="${isCreatidevpedia ? `https://davidllamasroman.com/system/${getLanguage() === 'en' ? 'en' : 'es'}/creatidevpedia/dev/David_Llamas_Román` : isDlrdevacademy ? `https://davidllamasroman.com/system/${getLanguage() === 'en' ? 'en' : 'es'}/dlrdevacademy` : ''}" disabled />
+              <input type="search" class="url" value="${this.url()}" disabled />
             </article>
           </article>
           <article class="browser__bookmarks">
@@ -353,13 +420,7 @@ class WebBrowserContent extends BaseComponent {
       this.#renderTabs()
       this.#renderCurrentTab()
     } else {
-      const lang = getLanguage() === 'en' ? 'en' : 'es'
-
-      const initialUrl = this.hasAttribute('creatidevpedia')
-        ? `https://davidllamasroman.com/system/${lang}/creatidevpedia/dev/David_Llamas_Román`
-        : this.hasAttribute('dlrdevacademy')
-          ? `https://davidllamasroman.com/system/${lang}/dlrdevacademy`
-          : 'browser://newtab'
+      const initialUrl = this.url()
 
       this.#newTab(initialUrl)
     }
@@ -409,10 +470,20 @@ class WebBrowserContent extends BaseComponent {
       .querySelectorAll('.bookmarks__list button')
       .forEach((btn) => {
         btn.addEventListener('click', () => {
-          const lang = getLanguage() === 'en' ? 'en' : 'es'
-          const url = btn.textContent.includes('CreatiDevpedia')
-            ? `https://davidllamasroman.com/system/${lang}/creatidevpedia/dev/David_Llamas_Román`
-            : `https://davidllamasroman.com/system/${lang}/dlrdevacademy`
+          let url = ''
+
+          if (btn.querySelector('creatidevpedia-icon')) {
+            url = `https://portfolio.davidllamasroman.com/system/${this.language()}/creatidevpedia/dev/David_Llamas_Román`
+          } else if (btn.querySelector('dlrdevacademy-icon')) {
+            url = `https://portfolio.davidllamasroman.com/system/${this.language()}/dlrdevacademy`
+          } else if (btn.querySelector('infodev-icon')) {
+            url = `https://portfolio.davidllamasroman.com/system/${this.language()}/infodev`
+          } else if (btn.querySelector('linkdevin-icon')) {
+            url = `https://portfolio.davidllamasroman.com/system/${this.language()}/linkdevin`
+          } else if (btn.querySelector('whatsdev')) {
+            url = `https://portfolio.davidllamasroman.com/system/${this.language()}/whatsdev`
+          }
+
           this.#goTo(url)
         })
       })
@@ -449,12 +520,27 @@ class WebBrowserContent extends BaseComponent {
       if (url.includes('creatidevpedia')) {
         newTab.title = {
           icon: 'creatidevpedia-icon',
-          text: 'DLR - CreatiDevpedia',
+          text: this.webTitleFromUrl(url),
         }
       } else if (url.includes('dlrdevacademy')) {
         newTab.title = {
           icon: 'dlrdevacademy-icon',
-          text: 'Home | DlrDevAcademy',
+          text: this.webTitleFromUrl(url),
+        }
+      } else if (url.includes('infodev')) {
+        newTab.title = {
+          icon: 'infodev-icon',
+          text: this.webTitleFromUrl(url),
+        }
+      } else if (url.includes('linkdevin')) {
+        newTab.title = {
+          icon: 'linkdevin-icon',
+          text: this.webTitleFromUrl(url),
+        }
+      } else if (url.includes('whatsdev')) {
+        newTab.title = {
+          icon: 'whatsdev-icon',
+          text: this.webTitleFromUrl(url),
         }
       } else {
         newTab.title = { icon: 'new-tab-icon', text: 'New Tab' }
@@ -562,7 +648,7 @@ class WebBrowserContent extends BaseComponent {
 
     contentArea
       .querySelectorAll(
-        'creatidevpedia-web, dlrdevacademy-web, new-tab, div[data-url]',
+        'creatidevpedia-web, dlrdevacademy-web, infodev-web, linkdevin-web, whatsdev, new-tab, div[data-url]',
       )
       .forEach((el) => {
         if (el.getAttribute('data-url') === currentUrl) {
@@ -589,12 +675,27 @@ class WebBrowserContent extends BaseComponent {
     if (url.includes('creatidevpedia')) {
       currentTab.title = {
         icon: 'creatidevpedia-icon',
-        text: 'DLR - CreatiDevpedia',
+        text: this.webTitleFromUrl(url),
       }
     } else if (url.includes('dlrdevacademy')) {
       currentTab.title = {
         icon: 'dlrdevacademy-icon',
-        text: 'Home | DlrDevAcademy',
+        text: this.webTitleFromUrl(url),
+      }
+    } else if (url.includes('infodev')) {
+      currentTab.title = {
+        icon: 'infodev-icon',
+        text: this.webTitleFromUrl(url),
+      }
+    } else if (url.includes('linkdevin')) {
+      currentTab.title = {
+        icon: 'linkdevin-icon',
+        text: this.webTitleFromUrl(url),
+      }
+    } else if (url.includes('whatsdev')) {
+      currentTab.title = {
+        icon: 'whatsdev-icon',
+        text: this.webTitleFromUrl(url),
       }
     } else {
       currentTab.title = { icon: null, text: 'New Tab' }
@@ -631,12 +732,27 @@ class WebBrowserContent extends BaseComponent {
     if (currentUrl.includes('creatidevpedia')) {
       currentTab.title = {
         icon: 'creatidevpedia-icon',
-        text: 'DLR - CreatiDevpedia',
+        text: this.webTitleFromUrl(currentUrl),
       }
     } else if (currentUrl.includes('dlrdevacademy')) {
       currentTab.title = {
         icon: 'dlrdevacademy-icon',
-        text: 'Home | DlrDevAcademy',
+        text: this.webTitleFromUrl(currentUrl),
+      }
+    } else if (currentUrl.includes('infodev')) {
+      currentTab.title = {
+        icon: 'infodev-icon',
+        text: this.webTitleFromUrl(currentUrl),
+      }
+    } else if (currentUrl.includes('linkdevin')) {
+      currentTab.title = {
+        icon: 'linkdevin-icon',
+        text: this.webTitleFromUrl(currentUrl),
+      }
+    } else if (currentUrl.includes('whatsdev')) {
+      currentTab.title = {
+        icon: 'whatsdev-icon',
+        text: this.webTitleFromUrl(currentUrl),
       }
     } else {
       currentTab.title = { icon: null, text: 'New Tab' }
@@ -661,31 +777,31 @@ class WebBrowserContent extends BaseComponent {
   }
 
   #updateHeaderFromUrl(url) {
-    if (url.includes('creatidevpedia')) {
-      return { headerTitle: 'David Llamas Román - CreatiDevpedia' }
-    }
-    if (url.includes('dlrdevacademy')) {
-      return { headerTitle: 'Home | DlrDevAcademy' }
-    }
-    return { headerTitle: 'New Tab - Browser' }
+    return { headerTitle: this.webTitleFromUrl(url, 1) }
   }
 
   #createContentElementFromUrl(url) {
-    let el
+    let element
 
     if (url.includes('creatidevpedia')) {
-      el = document.createElement('creatidevpedia-web')
+      element = document.createElement('creatidevpedia-web')
     } else if (url.includes('dlrdevacademy')) {
-      el = document.createElement('dlrdevacademy-web')
+      element = document.createElement('dlrdevacademy-web')
+    } else if (url.includes('infodev')) {
+      element = document.createElement('infodev-web')
+    } else if (url.includes('linkdevin')) {
+      element = document.createElement('linkdevin-web')
+    } else if (url.includes('whatsdev')) {
+      element = document.createElement('whatsdev-web')
     } else if (url === 'browser://newtab') {
-      el = document.createElement('new-tab')
+      element = document.createElement('new-tab')
     } else {
-      el = document.createElement('div')
-      el.textContent = ''
+      element = document.createElement('div')
+      element.textContent = ''
     }
 
-    el.setAttribute('data-url', url)
-    return el
+    element.setAttribute('data-url', url)
+    return element
   }
 
   #updateArrows() {

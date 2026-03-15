@@ -33,10 +33,16 @@ class TilingWM extends BaseComponent {
       { tag: 'code-editor', attributes: { projects: '' } },
     ],
     experience: [
-      { tag: 'web-browser', attributes: { 'browser-id': crypto.randomUUID() } },
+      {
+        tag: 'web-browser',
+        attributes: { infodev: '', 'browser-id': crypto.randomUUID() },
+      },
     ],
     certifications: [
-      { tag: 'web-browser', attributes: { 'browser-id': crypto.randomUUID() } },
+      {
+        tag: 'web-browser',
+        attributes: { linkdevin: '', 'browser-id': crypto.randomUUID() },
+      },
     ],
     blog: [
       { tag: 'web-browser', attributes: { 'browser-id': crypto.randomUUID() } },
@@ -48,7 +54,10 @@ class TilingWM extends BaseComponent {
       },
     ],
     contact: [
-      { tag: 'web-browser', attributes: { 'browser-id': crypto.randomUUID() } },
+      {
+        tag: 'web-browser',
+        attributes: { whatsdev: '', 'browser-id': crypto.randomUUID() },
+      },
     ],
   }
 
