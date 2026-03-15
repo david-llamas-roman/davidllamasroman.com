@@ -32,11 +32,19 @@ class TerminalEmulator extends BaseApp {
 
   #setupTerminal() {
     this.setNoBorder()
+    this.setNoWindowIcons()
 
     const app = this.getAppContainer()
-    app.innerHTML = `
-      <terminal-emulator-content></terminal-emulator-content>
-    `
+
+    const content = document.createElement('terminal-emulator-content')
+
+    for (const { name, value } of this.attributes) {
+      if (name !== 'style') {
+        content.setAttribute(name, value ?? '')
+      }
+    }
+
+    app.appendChild(content)
   }
 }
 
