@@ -70,6 +70,12 @@ class BaseApp extends BaseComponent {
               display: none;
             }
 
+            &.no-fullscreen-icon {
+              & li:nth-child(1) {
+                display: none;
+              }
+            }
+
             position: absolute;
             top: 0;
             right: 5px;
@@ -137,6 +143,12 @@ class BaseApp extends BaseComponent {
 
   setNoWindowIcons() {
     this.getAppContainer().querySelector('ul').classList.add('no-window-icons')
+  }
+
+  setNoFullScreenIcon() {
+    this.getAppContainer()
+      .querySelector('ul')
+      .classList.add('no-fullscreen-icon')
   }
 }
 

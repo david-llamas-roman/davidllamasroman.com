@@ -31,6 +31,8 @@ class CodeEditor extends BaseApp {
   }
 
   #setupCodeEditor() {
+    this.setNoFullScreenIcon()
+
     const app = this.getAppContainer()
 
     const content = document.createElement('code-editor-content')
