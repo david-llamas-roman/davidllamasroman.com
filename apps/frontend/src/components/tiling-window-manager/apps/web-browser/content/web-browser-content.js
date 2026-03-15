@@ -125,6 +125,9 @@ class WebBrowserContent extends BaseComponent {
               <ul class="bookmarks__list">
                 <li><button type="button"><creatidevpedia-icon></creatidevpedia-icon> CreatiDevpedia</button></li>
                 <li><button type="button"><dlrdevacademy-icon></dlrdevacademy-icon> DlrDevAcademy</button></li>
+                <li><button type="button"><infodev-icon></infodev-icon> InfoDev</button></li>
+                <li><button type="button"><linkdevin-icon></linkdevin-icon> LinkDevIn</button></li>
+                <li><button type="button"><whatsdev-icon></whatsdev-icon> WhatsDev</button></li>
               </ul>
             </nav>
           </article>
