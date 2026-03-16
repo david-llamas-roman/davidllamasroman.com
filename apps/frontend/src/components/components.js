@@ -30,6 +30,9 @@ import '@/components/icons/tiling-window-manager/apps/browser/close-tab-icon.js'
 import '@/components/icons/tiling-window-manager/apps/browser/new-tab-icon.js' // new tab
 import '@/components/icons/tiling-window-manager/apps/browser/creatidevpedia-icon.js' // CreatiDevPedia
 import '@/components/icons/tiling-window-manager/apps/browser/dlrdevacademy-icon.js' // DlrDevAcademy
+import '@/components/icons/tiling-window-manager/apps/browser/infodev-icon.js' // InfoDev
+import '@/components/icons/tiling-window-manager/apps/browser/linkdevin-icon.js' // LinkDevIn
+import '@/components/icons/tiling-window-manager/apps/browser/whatsdev-icon.js' // WhatsDev
 import '@/components/icons/tiling-window-manager/apps/browser/addition-icon.js' // addition
 
 // header
