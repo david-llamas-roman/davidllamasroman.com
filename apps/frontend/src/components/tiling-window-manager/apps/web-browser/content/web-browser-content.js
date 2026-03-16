@@ -483,7 +483,7 @@ class WebBrowserContent extends BaseComponent {
             url = `https://portfolio.davidllamasroman.com/system/${this.language()}/infodev`
           } else if (btn.querySelector('linkdevin-icon')) {
             url = `https://portfolio.davidllamasroman.com/system/${this.language()}/linkdevin`
-          } else if (btn.querySelector('whatsdev')) {
+          } else if (btn.querySelector('whatsdev-icon')) {
             url = `https://portfolio.davidllamasroman.com/system/${this.language()}/whatsdev`
           }
 
