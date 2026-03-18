@@ -19,14 +19,11 @@
 'use strict'
 
 import { t } from '@/utils/the-system/i18n.js'
-import BaseComponent from '@/components/base-component.js'
+import FullHeight from '@/components/tiling-window-manager/apps/web-browser/content/full-height'
 
-class CreatidevpediaWeb extends BaseComponent {
+class CreatidevpediaWeb extends FullHeight {
   constructor() {
     super()
-
-    this._resizeObserver = null
-    this.isStaticRoute = false
   }
 
   #getTemplate() {
@@ -274,52 +271,14 @@ class CreatidevpediaWeb extends BaseComponent {
     this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
   }
 
-  static get observedAttributes() {
-    return ['static-route']
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'static-route') {
-      this.isStaticRoute = newValue !== null
-    }
-  }
-
   connectedCallback() {
     this.render()
 
-    if (this.isStaticRoute) return
-
-    const updateHeight = () => this.setHeightToParent()
-
-    requestAnimationFrame(updateHeight)
-
-    const container = this.shadowRoot.querySelector('.creatidevpedia')
-    const parent = this.parentElement
-    if (container && parent) {
-      this._resizeObserver = new ResizeObserver(updateHeight)
-      this._resizeObserver.observe(parent)
-    }
-
-    window.addEventListener('resize', updateHeight)
+    super.connectedCallback()
   }
 
-  disconnectedCallback() {
-    if (this._resizeObserver) {
-      this._resizeObserver.disconnect()
-    }
-    window.removeEventListener('resize', this.setHeightToParent)
-  }
-
-  setHeightToParent() {
-    if (this.isStaticRoute) return
-
-    const container = this.shadowRoot.querySelector('.creatidevpedia')
-    if (!container) return
-
-    const parent = this.parentElement
-    if (!parent) return
-
-    container.style.height = `${parent.clientHeight}px`
+  getTargetElement() {
+    return this.shadowRoot.querySelector('.creatidevpedia')
   }
 }
 
