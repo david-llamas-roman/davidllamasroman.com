@@ -354,40 +354,28 @@ class TerminalEmulatorContent extends BaseComponent {
     this.#initTerminal()
   }
 
-  #projects = {
-    Portfolio: {
-      description: 'Personal Developer Portfolio',
-      tech: [
-        'HTML',
-        'CSS',
-        'JavaScript',
-        'Web Components',
-        'MariaDB',
-        'Docker',
-      ],
-    },
-  }
+  #projects = t('terminal-emulator.projects')
 
   #commandLs(args) {
     if (args[0] !== '-l') {
       this.#printLine(
-        `${t('terminal-emulator-usage')}: ls -l`,
+        `${t('terminal-emulator.messages.usage')}: ls -l`,
         messageType.INSTRUCTION,
       )
       return
     }
 
-    const names = Object.keys(this.#projects)
+    const entries = Object.entries(this.#projects)
 
-    names.forEach((name, index) => {
-      const isLast = index === names.length - 1
+    entries.forEach(([key, value], index) => {
+      const isLast = index === entries.length - 1
       const branch = isLast ? '└── ' : '├── '
 
-      this.#printLine(branch + '📁 ' + name)
+      this.#printLine(branch + '📁 ' + key)
 
       const prefix = isLast ? '    ' : '│   '
 
-      this.#printProjectTree(this.#projects[name], prefix)
+      this.#printProjectTree(value, prefix)
     })
   }
 
@@ -395,7 +383,7 @@ class TerminalEmulatorContent extends BaseComponent {
     const projectNameRaw = args[0]
     if (!projectNameRaw) {
       this.#printLine(
-        `${t('terminal-emulator-usage')}: cd project-name`,
+        `${t('terminal-emulator.messages.usage')}: cd project-name`,
         messageType.INSTRUCTION,
       )
       return
@@ -408,7 +396,7 @@ class TerminalEmulatorContent extends BaseComponent {
     )
     if (!projectKey) {
       this.#printLine(
-        `${t('terminal-emulator-project-not-found')}: ${projectNameRaw}`,
+        `${t('terminal-emulator.messages.errors.project-not-found')}: ${projectNameRaw}`,
         messageType.ERROR,
       )
       return
@@ -507,7 +495,7 @@ class TerminalEmulatorContent extends BaseComponent {
 
     if (!this.#commands[cmd]) {
       this.#printLine(
-        `${t('terminal-emulator-command-not-found')}: ${cmd}`,
+        `${t('terminal-emulator.messages.errors.command-not-found')}: ${cmd}`,
         messageType.ERROR,
       )
       return
@@ -531,7 +519,7 @@ class TerminalEmulatorContent extends BaseComponent {
       const command = this.#sanitizeInput(raw)
       if (!command) {
         this.#printLine(
-          t('terminal-emulator-invalid-command'),
+          t('terminal-emulator.messages.errors.invalid-command'),
           messageType.ERROR,
         )
         return

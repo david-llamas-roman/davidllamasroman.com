@@ -78,12 +78,6 @@ const translations = {
         },
       },
     },
-    dlrdevacademy: {
-      'search-input-placeholder': 'What do you want to learn today?',
-      'navbar-elements': {
-        1: 'Web Development',
-      },
-    },
     'terminal-emulator': {
       title: 'Projects',
       instructions: {
@@ -100,6 +94,25 @@ const translations = {
           'command-not-found': 'Command Not Found',
           'invalid-command': 'Invalid Command',
         },
+      },
+      projects: {
+        Portfolio: {
+          description: 'Personal Developer Portfolio',
+          tech: [
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'Web Components',
+            'MariaDB',
+            'Docker',
+          ],
+        },
+      },
+    },
+    dlrdevacademy: {
+      'search-input-placeholder': 'What do you want to learn today?',
+      'navbar-elements': {
+        1: 'Web Development',
       },
     },
   },
@@ -150,12 +163,6 @@ const translations = {
         },
       },
     },
-    dlrdevacademy: {
-      'search-input-placeholder': '¿Qué quieres aprender hoy?',
-      'navbar-elements': {
-        1: 'Desarrollo Web',
-      },
-    },
     'terminal-emulator': {
       title: 'Proyectos',
       instructions: {
@@ -172,6 +179,25 @@ const translations = {
           'command-not-found': 'Comando No Encontrado',
           'invalid-command': 'Comando Inválido',
         },
+      },
+      projects: {
+        Portfolio: {
+          description: 'Personal Developer Portfolio',
+          tech: [
+            'HTML',
+            'CSS',
+            'JavaScript',
+            'Web Components',
+            'MariaDB',
+            'Docker',
+          ],
+        },
+      },
+    },
+    dlrdevacademy: {
+      'search-input-placeholder': '¿Qué quieres aprender hoy?',
+      'navbar-elements': {
+        1: 'Desarrollo Web',
       },
     },
   },
