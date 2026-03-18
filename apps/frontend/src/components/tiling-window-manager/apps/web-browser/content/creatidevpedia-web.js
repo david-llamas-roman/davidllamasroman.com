@@ -36,40 +36,42 @@ class CreatidevpediaWeb extends FullHeight {
           <article class="logo">
             <article class="logo__text">
               <h2><span>C</span>REATI<span>D</span>EVPEDIA</h2>
-              <p>${t('creatidevpedia-logo')}</p>
+              <p>${t('creatidevpedia.logo.text')}</p>
             </article>
           </article>
         </header>
         <main class="creatidevpedia__content">
           <header class="content__header">
             <h1 class="title">David Llamas Román</h1>
-            <h2 class="subtitle">${t('full-stack-developer')}</h2>
+            <h2 class="subtitle">${t('creatidevpedia.title')}</h2>
           </header>
           <article class="content">
             <article class="content__text">
-              ${t('creatidevpedia-about-me')}
+              ${Object.values(t('creatidevpedia.about-me.paragraphs'))
+                .map((element) => `<p>${element}</p>`)
+                .join('')}
             </article>
             <article class="info__container">
               <h3>HTML Engineer</h3>
               <article class="info">
                 <img src="" alt="David Llamas Román" />
                 <section class="biography">
-                  <h4>${t('biography')}</h4>
+                  <h4>${t('creatidevpedia.biography.title')}</h4>
                   <article>
-                    <h4>${t('born')}</h4>
+                    <h4>${t('creatidevpedia.biography.info.born')}</h4>
                     <p>2005 (${new Date().getFullYear() - 2005 - 1}/${new Date().getFullYear() - 2005})</p>
                   </article>
                   <article>
-                    <h4>${t('dream-title')}</h4>
-                    <p>${t('dream')}</p>
+                    <h4>${t('creatidevpedia.biography.info.dream.title')}</h4>
+                    <p>${t('creatidevpedia.biography.info.dream.text')}</p>
                   </article>
                   <article>
-                    <h4>${t('occupation')}</h4>
-                    <p>${t('unicorn')}</p>
+                    <h4>${t('creatidevpedia.biography.info.occupation.title')}</h4>
+                    <p>${t('creatidevpedia.biography.info.occupation.text')}</p>
                   </article>
                   <article>
-                    <h4>${t('spouse-title')}</h4>
-                    <p>${t('spouse')}</p>
+                    <h4>${t('creatidevpedia.biography.info.spouse.title')}</h4>
+                    <p>${t('creatidevpedia.biography.info.spouse.text')}</p>
                   </article>
                 </section>
               </article>

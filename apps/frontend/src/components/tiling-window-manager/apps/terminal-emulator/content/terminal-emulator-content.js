@@ -35,24 +35,20 @@ class TerminalEmulatorContent extends BaseComponent {
 
     const isProjects = this.hasAttribute('projects')
 
-    const projectsHeader = `<h1>${t('projects')}</h1>`
+    const projectsHeader = `<h1>${t('terminal-emulator.title')}</h1>`
     const normalHeader = `<h1>DLR's Terminal</h1>`
 
-    const projectsInstructionsEnglish = [
-      t('terminal-emulator-instructions-list-element-1'),
-      t('terminal-emulator-instructions-list-element-2'),
-    ]
+    let count = 0
 
     template.innerHTML = `
       ${this.#getStyles()}
       <article class="terminal">
         <div class="terminal__titles">
           ${isProjects ? projectsHeader : normalHeader}
-          <h2>${t('terminal-emulator-instructions-title')}</h2>
+          <h2>${t('terminal-emulator.instructions.title')}</h2>
         </div>
         <ul class="terminal__rules">
-          <li><p><span>1.</span> ${projectsInstructionsEnglish[0]}</p></li>
-          <li><p><span>2.</span> ${projectsInstructionsEnglish[1]}</p></li>
+          ${Object.values(t('terminal-emulator.instructions.list-elements')).map((element) => `<li><p><span>${++count}.</span> ${element}</p></li>`)}
         </ul>
         <div class="terminal__output"></div>
         <div class="terminal__input">

@@ -34,7 +34,7 @@ class DlrDevAcademy extends BaseComponent {
               <p class="logo__text">DlrDA</p>
             </article>
             <article class="search__container">
-              <input type="search" name="search" id="search" placeholder="${t('search-courses')}" autocomplete="off" />
+              <input type="search" name="search" id="search" placeholder="${t('dlrdevacademy.search-input-placeholder')}" autocomplete="off" />
             </article>
             <button type="button" class="user">
               <img src="" alt="" />
@@ -42,7 +42,12 @@ class DlrDevAcademy extends BaseComponent {
           </article>
           <nav class="header__navbar">
             <ul class="navbar__list">
-              <li class="list__element"><button type="button">${t('web-development')}</button></li>
+              ${Object.values(t('dlrdevacademy.navbar-elements'))
+                .map(
+                  (element) =>
+                    `<li class="list__element"><button type="button">${t(element)}</button></li>`,
+                )
+                .join('')}
             </ul>
           </nav>
         </header>

@@ -40,27 +40,12 @@ class TwmWorkspaces extends BaseComponent {
       <nav class="workspaces">
         <twm-wos-icon></twm-wos-icon>
         <ul class="workspaces__list">
-          <li class="list__element">
-            <a href="#" class="element__link" data-ws="about-me">${t('about-me')}</a>
-          </li>
-          <li class="list__element">
-            <a href="#" class="element__link" data-ws="projects">${t('projects')}</a>
-          </li>
-          <li class="list__element">
-            <a href="#" class="element__link" data-ws="experience">${t('experience')}</a>
-          </li>
-          <li class="list__element">
-            <a href="#" class="element__link" data-ws="certifications">${t('certifications')}</a>
-          </li>
-          <li class="list__element">
-            <a href="#" class="element__link" data-ws="blog">${t('blog')}</a>
-          </li>
-          <li class="list__element">
-            <a href="#" class="element__link" data-ws="academy">${t('academy')}</a>
-          </li>
-          <li class="list__element">
-            <a href="#" class="element__link" data-ws="contact">${t('contact')}</a>
-          </li>
+          ${Object.entries(t('workspaces'))
+            .map(
+              ([key, value]) =>
+                `<li class="list__element"><a href="#" class="element__link" data-ws="${key}">${value}</a></li>`,
+            )
+            .join('')}
         </ul>
       </nav>
     `
