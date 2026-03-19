@@ -39,6 +39,7 @@ const theSystem = {
       'system/en/creatidevpedia/dev/David_Llamas_Román',
       'system/es/creatidevpedia/dev/David_Llamas_Román',
     ],
+    infodev: ['system/en/infodev', 'system/en/infodev'],
     dlrdevacademy: ['system/en/dlrdevacademy', 'system/es/dlrdevacademy'],
   },
 }
@@ -221,6 +222,11 @@ window.addEventListener('static:switch', (event) => {
       element.setAttribute('static-route', '')
       document.body.style.backgroundColor =
         'var(--creatidevpedia-dark-blue, #121420)'
+      break
+    case 'infodev':
+      element = document.createElement('infodev-web')
+      element.setAttribute('static-route', '')
+      document.body.style.backgroundColor = 'var(--infodev-dark-grey, #2c2c2c)'
       break
     case 'dlrdevacademy':
       element = document.createElement('dlrdevacademy-web')
