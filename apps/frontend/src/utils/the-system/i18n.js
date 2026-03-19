@@ -109,6 +109,75 @@ const translations = {
         },
       },
     },
+    infodev: {
+      subtitle: 'Main CV',
+      'profesional-data': {
+        location: 'Seville (Seville)',
+      },
+      'laboral-experience': 'Laboral Experience',
+      jobs: {
+        1: {
+          title: 'Private Java Teacher',
+          company: '',
+          date: 'February 2025 - March 2025',
+          description:
+            'I taught online Java classes from scratch to a health engineering student.',
+        },
+        2: {
+          title: 'Web Developer',
+          company: 'Ayesa',
+          date: 'April 2024 - March 2025',
+          description: `From April 2024 to June of the same year, I completed a series of internal training courses, including:
+  - Java.
+  - Angular.
+  - Spring.
+
+From November 2024 to March 2025, I participated in the migration of an internal project's web application. My responsibilities included analyzing the architecture of the new backend, creating new endpoints, modifying existing ones, and laying the foundations of the frontend (routing system, main page, navigation...). The project migrated from a backend built with Spring 2010 and JSF-based frontend to a REST API developed with Spring and lightweight frontend build with Angular 19.`,
+        },
+        3: {
+          title: 'Full-Stack Developer',
+          company: 'Ayesa',
+          date: 'March 2025 - June 2025',
+          description: `I participated in a project related to the energy sector, where I carried out various implementations, including data filtering features for large databases, as well as pages and tables in the web application. The application was developed using Spring (Java 17) on the backend and Angular 9 on the frontend.`,
+        },
+        4: {
+          title: 'Private Java Teacher',
+          company: '',
+          date: 'June 2025 - July 2025',
+          description:
+            'I taught online Java classes focused on functional programming and Java 8 streams to a health engineering student.',
+        },
+        5: {
+          title: 'Teleoperator',
+          company: 'Konecta',
+          date: 'October 2025 - October 2025',
+          description:
+            'I made calls with the objective of selling all type of devices (smartphones, headphones, smartwatches...) to clients already in the portfolio.',
+        },
+        6: {
+          title: 'Private Java Teacher',
+          company: '',
+          date: 'February 2026 - March 2026',
+          description:
+            'I taught online Java classes from scratch to a health engineering student.',
+        },
+        7: {
+          title: 'IT Customer Service Associate (IT Support L1)',
+          company: 'SearchIT',
+          date: 'December 2025 - Present',
+          description: `Providing first-line IT support in a project managed by Accenture, supporting end users in a healthcare environment.
+
+Key responsibilities:
+  - First-level IT Support (L1) for end users.
+  - Incident and service request management through ticketing tools.
+  - Troubleshooting hardware and software issues.
+  - Support for a corporate applications and systems.
+  - User assistance and issue diagnosis.
+  - Escalation to higher-level support teams when required.
+  - Compliance with SLAs and internal service protocols.`,
+        },
+      },
+    },
     dlrdevacademy: {
       'search-input-placeholder': 'What do you want to learn today?',
       'navbar-elements': {
@@ -191,6 +260,81 @@ const translations = {
             'MariaDB',
             'Docker',
           ],
+        },
+      },
+    },
+    infodev: {
+      subtitle: 'CV Principal',
+      'profesional-data': {
+        location: 'Sevilla (Sevilla)',
+      },
+      'laboral-experience': 'Experiencia Laboral',
+      jobs: {
+        1: {
+          title: 'Profesor Particular de Java',
+          company: '',
+          date: 'Febrero 2025 - Marzo 2025',
+          description:
+            'Impartí clases online de Java desde 0 a una estudiante de ingeniería de la salud.',
+        },
+        2: {
+          title: 'Desarrollador Web',
+          company: 'Ayesa',
+          date: 'Abril 2024 - Marzo 2025',
+          description: `
+            Desde Abril de 2024 hasta Junio de ese mismo año, cursé y finalicé una serie de cursos internos entre los que se encontraban:
+            - Java.
+            - Angular.
+            - Spring.
+
+            Desde Noviembre de 2024 hasta Marzo de 2025, participé en la migración de la aplicación web de un proyecto interno analizando la arquitectura que iba a tener el nuevo backend, creando nuevos endpoints y modificando alguno ya existente y construyendo los cimientos del frontend (sistema de rutas, página principal, navegación...). Se pasó de tener un backend con Spring 2010 y un frontend con JSF, a una API REST construida con Spring y un pequeño frontend construido con Angular 19.
+          `,
+        },
+        3: {
+          title: 'Desarrollador Full-Stack',
+          company: 'Ayesa',
+          date: 'Marzo 2025 - Junio 2025',
+          description: `
+              Participé en un proyecto relacionado con el sector energético donde llevé a cabo diversas implementaciones entre las que se pueden destacar filtros para el filtrado de datos (base de datos con gran cantidad de datos), páginas y tablas en su aplicación web, desarrollada con Spring (Java 17) en el lado del backend y con Angular 9 en el lado del frontend.
+            `,
+        },
+        4: {
+          title: 'Profesor Particular de Java',
+          company: '',
+          date: 'Junio 2025 - Julio 2025',
+          description:
+            'Impartí clases de Java enfocadas en la programación funcional y los streams de Java 8 a una estudiante de ingeniería de la salud.',
+        },
+        5: {
+          title: 'Teleoperador',
+          company: 'Konecta',
+          date: 'Octubre 2025 - Octubre 2025',
+          description:
+            'Llevé a cabo llamadas con el objetivo de vender todo tipo de dispositivos (smartphones, auriculares, smartwatches...) a cliente que ya estaban en cartera.',
+        },
+        6: {
+          title: 'Profesor Particular de Java',
+          company: '',
+          date: 'Febrero 2026 - Marzo 2026',
+          description:
+            'Impartí clases online de Java desde 0 a una estudiante de ingeniería de la salud.',
+        },
+        7: {
+          title: 'IT Customer Service Associate (IT Support L1)',
+          company: 'SearchIT',
+          date: 'Diciembre 2025 - Presente',
+          description: `
+            Brindando soporte informático de primer nivel en un proyecto gestionado por Accenture, apoyando a los usuarios del entorno sanitario.
+
+            Responsabilidades principales:
+            - Soporte técnico de primer nivel (L1) a usuarios finales.
+            - Gestión de incidencias y solicitudes mediante herramientas de ticketing.
+            - Resolución de problemas de hardware y software.
+            - Soporte en aplicaciones y sistemas corporativos.
+            - Asistencia de usuarios y diagnóstico de incidencias.
+            - Escalado de incidencias a niveles superiores cuando es necesario.
+            - Cumplimiento de SLAs y protocolos internos del servicio.
+          `,
         },
       },
     },
