@@ -60,8 +60,6 @@ const hashToSurfaceId = {
   '#contact': 'contact',
 }
 
-const homeRoute = ['en/home', 'es/inicio']
-
 const findRouteFromPath = (routesGroup) => {
   const fullPath = decodeURIComponent(
     window.location.pathname.replace(/^\/+/, ''),
@@ -120,7 +118,6 @@ const initAppContainer = async () => {
 
 const handleRoute = async () => {
   const fullPath = window.location.pathname.replace(/^\/+/, '')
-  const lang = getLanguage()
 
   updatePageTitle()
 
@@ -167,11 +164,7 @@ const handleRoute = async () => {
     return
   }
 
-  if (
-    !fullPath ||
-    fullPath === lang ||
-    homeRoute.some((route) => fullPath.endsWith(route))
-  ) {
+  if (!fullPath) {
     window.dispatchEvent(new CustomEvent('home:navigate'))
   }
 }

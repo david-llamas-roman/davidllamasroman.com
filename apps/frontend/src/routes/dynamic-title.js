@@ -19,8 +19,6 @@
 'use strict'
 
 const pageTitle = {
-  'en/home': 'DLR - Home',
-  'es/inicio': 'DLR - Inicio',
   'system/en/about-me': 'DLR - System - About Me',
   'system/es/sobre-mi': 'DLR - System - Sobre Mí',
   'system/en/projects': 'DLR - System - Projects',
