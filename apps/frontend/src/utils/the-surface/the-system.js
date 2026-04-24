@@ -38,7 +38,7 @@ function removeDisabledStateFromTheSystemAnchor(theSystemAnchor) {
 async function goToTheSystem() {
   const [{ navigate }, { getLanguage }] = await Promise.all([
     import('@/routes/router.js'),
-    import('@/utils/the-system/i18n.js'),
+    import('@/utils/i18n.js'),
   ])
 
   const language = getLanguage()

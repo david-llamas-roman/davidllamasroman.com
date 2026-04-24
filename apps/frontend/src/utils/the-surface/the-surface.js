@@ -19,7 +19,7 @@
 'use strict'
 
 import { navigate } from '@/routes/router'
-import { getLanguage } from '@/utils/the-system/i18n.js'
+import { getLanguage } from '@/utils/i18n.js'
 
 function initTheSurface() {
   gotToTheSurface()

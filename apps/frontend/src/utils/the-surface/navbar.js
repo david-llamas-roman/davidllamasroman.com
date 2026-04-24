@@ -19,7 +19,6 @@
 'use strict'
 
 import { hashToSurfaceId, navigate } from '@/routes/router'
-import { getLanguage } from '@/utils/the-system/i18n.js'
 
 function initNavbar() {
   setUpSpaNavigation()
@@ -35,14 +34,12 @@ function setUpSpaNavigation() {
     anchor.addEventListener('click', (event) => {
       event.preventDefault()
 
-      const language = getLanguage()
-
       const homeIcon = anchor.querySelector('img')
       if (
         anchor.getAttribute('href') === '#front-page' &&
         homeIcon?.src.includes('home.svg')
       ) {
-        navigate(`/${language}/${language === 'en' ? 'home' : 'inicio'}`)
+        navigate('/')
 
         document
           .querySelector(anchor.getAttribute('href'))
