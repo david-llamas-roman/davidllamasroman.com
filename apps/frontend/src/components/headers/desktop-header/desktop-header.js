@@ -19,7 +19,7 @@
 'use strict'
 
 import clock from '@/utils/the-system/clock.js'
-import { getFormattedDate } from '@/utils/the-system/formatters.js'
+import { getFormattedDate } from '@/utils/formatters.js'
 import BaseComponent from '@/components/base-component.js'
 
 class DesktopHeader extends BaseComponent {

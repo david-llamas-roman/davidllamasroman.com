@@ -20,7 +20,7 @@
 
 import BaseComponent from '@/components/base-component.js'
 import clock from '@/utils/the-system/clock'
-import { getHoursMinutes } from '@/utils/the-system/formatters.js'
+import { getHoursMinutes } from '@/utils/formatters.js'
 
 class NewTab extends BaseComponent {
   constructor() {

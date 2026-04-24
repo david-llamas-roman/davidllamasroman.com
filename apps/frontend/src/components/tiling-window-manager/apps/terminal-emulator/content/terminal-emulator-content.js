@@ -18,7 +18,7 @@
 'use strict'
 
 import BaseComponent from '@/components/base-component.js'
-import { t } from '@/utils/the-system/i18n'
+import { t } from '@/utils/i18n'
 
 const messageType = {
   ERROR: 'error',

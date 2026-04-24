@@ -18,7 +18,7 @@
 
 'use strict'
 
-import { getLanguage } from '@/utils/the-system/i18n.js'
+import { getLanguage } from './i18n.js'
 
 const getFormattedDate = (date = new Date()) => {
   const lang = getLanguage()
@@ -67,6 +67,12 @@ const getFormattedDate = (date = new Date()) => {
   return `${dayName} ${dayNumber} ${monthName} ${hours}:${minutes}`
 }
 
+const getFormattedDateWithoutTime = () => {
+  const formattedDateSplitted = getFormattedDate().split(' ')
+
+  return `${formattedDateSplitted[2]} ${formattedDateSplitted[1]}, ${new Date().getFullYear()}`
+}
+
 const getHoursMinutes = (date = new Date()) => {
   const hours = date.getHours().toString().padStart(2, '0')
   const minutes = date.getMinutes().toString().padStart(2, '0')
@@ -74,4 +80,4 @@ const getHoursMinutes = (date = new Date()) => {
   return `${hours}:${minutes}`
 }
 
-export { getFormattedDate, getHoursMinutes }
+export { getFormattedDate, getFormattedDateWithoutTime, getHoursMinutes }

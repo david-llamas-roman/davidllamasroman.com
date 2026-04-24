@@ -18,7 +18,7 @@
 
 'use strict'
 
-import { getLanguage } from '@/utils/the-system/i18n.js'
+import { getLanguage } from '@/utils/i18n.js'
 import { enableTargetAnimations } from '@/utils/the-surface/the-surface'
 import updatePageTitle from './dynamic-title'
 

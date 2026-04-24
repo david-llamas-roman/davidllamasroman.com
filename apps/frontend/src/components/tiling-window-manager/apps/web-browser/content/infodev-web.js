@@ -18,7 +18,7 @@
 
 'use strict'
 
-import { t } from '@/utils/the-system/i18n.js'
+import { t } from '@/utils/i18n.js'
 import FullHeight from '@/components/tiling-window-manager/apps/web-browser/content/full-height'
 
 class InfoDevWeb extends FullHeight {

@@ -19,7 +19,7 @@
 'use strict'
 
 import BaseComponent from '@/components/base-component.js'
-import { getLanguage } from '@/utils/the-system/i18n.js'
+import { getLanguage } from '@/utils/i18n.js'
 
 class WebBrowserContent extends BaseComponent {
   constructor() {
@@ -124,9 +124,9 @@ class WebBrowserContent extends BaseComponent {
             <nav class="bookmarks">
               <ul class="bookmarks__list">
                 <li><button type="button"><creatidevpedia-icon></creatidevpedia-icon> CreatiDevpedia</button></li>
-                <li><button type="button"><dlrdevacademy-icon></dlrdevacademy-icon> DlrDevAcademy</button></li>
                 <li><button type="button"><infodev-icon></infodev-icon> InfoDev</button></li>
                 <li><button type="button"><linkdevin-icon></linkdevin-icon> LinkDevIn</button></li>
+                <li><button type="button"><dlrdevacademy-icon></dlrdevacademy-icon> DlrDevAcademy</button></li>
                 <li><button type="button"><whatsdev-icon></whatsdev-icon> WhatsDev</button></li>
               </ul>
             </nav>
