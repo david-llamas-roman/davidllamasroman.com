@@ -31,7 +31,7 @@ class InfoDevWeb extends FullHeight {
 
     const currentDate = new Date()
 
-    const jobs = Object.values(t('infodev.jobs'))
+    const jobs = Object.values(t('experience.jobs'))
 
     const sortedJobs = jobs.toSorted((a, b) => {
       const getEndDate = (job) => {
@@ -54,7 +54,7 @@ class InfoDevWeb extends FullHeight {
       <article class="infodev">
         <header class="infodev__header">
           <h2 class="header__title">David</h2>
-          <h3 class="header__subtitle">${t('infodev.subtitle')}</h3>
+          <h3 class="header__subtitle">${t('the-system.websites.infodev.subtitle')}</h3>
         </header>
         <main class="infodev__content">
           <header class="content__header">
@@ -62,11 +62,11 @@ class InfoDevWeb extends FullHeight {
             <div class="header__text">
               <h3>David Llamas Román</h3>
               <p>${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}</p>
-              <p>${t('infodev.profesional-data.location')}</p>
+              <p>${t('the-system.websites.infodev.profesional-data.location')}</p>
             </div>
           </header>
           <article class="content">
-            <h2>${t('infodev.laboral-experience')}</h2>
+            <h2>${t('the-system.websites.infodev.laboral-experience')}</h2>
             <ul class="jobs__list">
               ${sortedJobs
                 .map(

@@ -18,7 +18,7 @@
 'use strict'
 
 import BaseComponent from '@/components/base-component.js'
-import { t } from '@/utils/i18n'
+import { t } from '@/utils/i18n.js'
 
 const messageType = {
   ERROR: 'error',
@@ -35,7 +35,7 @@ class TerminalEmulatorContent extends BaseComponent {
 
     const isProjects = this.hasAttribute('projects')
 
-    const projectsHeader = `<h1>${t('terminal-emulator.title')}</h1>`
+    const projectsHeader = `<h1>${t('the-system.terminal-emulator.title')}</h1>`
     const normalHeader = `<h1>DLR's Terminal</h1>`
 
     let count = 0
@@ -45,10 +45,10 @@ class TerminalEmulatorContent extends BaseComponent {
       <article class="terminal">
         <div class="terminal__titles">
           ${isProjects ? projectsHeader : normalHeader}
-          <h2>${t('terminal-emulator.instructions.title')}</h2>
+          <h2>${t('the-system.terminal-emulator.instructions.title')}</h2>
         </div>
         <ul class="terminal__rules">
-          ${Object.values(t('terminal-emulator.instructions.list-elements')).map((element) => `<li><p><span>${++count}.</span> ${element}</p></li>`)}
+          ${Object.values(t('the-system.terminal-emulator.instructions.list-elements')).map((element) => `<li><p><span>${++count}.</span> ${element}</p></li>`)}
         </ul>
         <div class="terminal__output"></div>
         <div class="terminal__input">
@@ -354,12 +354,12 @@ class TerminalEmulatorContent extends BaseComponent {
     this.#initTerminal()
   }
 
-  #projects = t('terminal-emulator.projects')
+  #projects = t('the-system.terminal-emulator.projects')
 
   #commandLs(args) {
     if (args[0] !== '-l') {
       this.#printLine(
-        `${t('terminal-emulator.messages.usage')}: ls -l`,
+        `${t('the-system.terminal-emulator.messages.usage')}: ls -l`,
         messageType.INSTRUCTION,
       )
       return
@@ -383,7 +383,7 @@ class TerminalEmulatorContent extends BaseComponent {
     const projectNameRaw = args[0]
     if (!projectNameRaw) {
       this.#printLine(
-        `${t('terminal-emulator.messages.usage')}: cd project-name`,
+        `${t('the-system.terminal-emulator.messages.usage')}: cd project-name`,
         messageType.INSTRUCTION,
       )
       return
@@ -396,7 +396,7 @@ class TerminalEmulatorContent extends BaseComponent {
     )
     if (!projectKey) {
       this.#printLine(
-        `${t('terminal-emulator.messages.errors.project-not-found')}: ${projectNameRaw}`,
+        `${t('the-system.terminal-emulator.messages.errors.project-not-found')}: ${projectNameRaw}`,
         messageType.ERROR,
       )
       return
@@ -495,7 +495,7 @@ class TerminalEmulatorContent extends BaseComponent {
 
     if (!this.#commands[cmd]) {
       this.#printLine(
-        `${t('terminal-emulator.messages.errors.command-not-found')}: ${cmd}`,
+        `${t('the-system.terminal-emulator.messages.errors.command-not-found')}: ${cmd}`,
         messageType.ERROR,
       )
       return
@@ -519,7 +519,7 @@ class TerminalEmulatorContent extends BaseComponent {
       const command = this.#sanitizeInput(raw)
       if (!command) {
         this.#printLine(
-          t('terminal-emulator.messages.errors.invalid-command'),
+          t('the-system.terminal-emulator.messages.errors.invalid-command'),
           messageType.ERROR,
         )
         return

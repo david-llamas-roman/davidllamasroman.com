@@ -36,18 +36,18 @@ class CreatidevpediaWeb extends FullHeight {
           <article class="logo">
             <article class="logo__text">
               <h2><span>C</span>REATI<span>D</span>EVPEDIA</h2>
-              <p>${t('creatidevpedia.logo.text')}</p>
+              <p>${t('the-system.websites.creatidevpedia.logo.text')}</p>
             </article>
           </article>
         </header>
         <main class="creatidevpedia__content">
           <header class="content__header">
             <h1 class="title">David Llamas Román</h1>
-            <h2 class="subtitle">${t('creatidevpedia.title')}</h2>
+            <h2 class="subtitle">${t('the-system.websites.creatidevpedia.title')}</h2>
           </header>
           <article class="content">
             <article class="content__text">
-              ${Object.values(t('creatidevpedia.about-me.paragraphs'))
+              ${Object.values(t('about-me.slides.paragraphs'))
                 .map((element) => `<p>${element}</p>`)
                 .join('')}
             </article>
@@ -56,22 +56,22 @@ class CreatidevpediaWeb extends FullHeight {
               <article class="info">
                 <img src="" alt="David Llamas Román" />
                 <section class="biography">
-                  <h4>${t('creatidevpedia.biography.title')}</h4>
+                  <h4>${t('the-system.websites.creatidevpedia.biography.title')}</h4>
                   <article>
-                    <h4>${t('creatidevpedia.biography.info.born')}</h4>
+                    <h4>${t('the-system.websites.creatidevpedia.biography.info.born')}</h4>
                     <p>2005 (${new Date().getFullYear() - 2005 - 1}/${new Date().getFullYear() - 2005})</p>
                   </article>
                   <article>
-                    <h4>${t('creatidevpedia.biography.info.dream.title')}</h4>
-                    <p>${t('creatidevpedia.biography.info.dream.text')}</p>
+                    <h4>${t('the-system.websites.creatidevpedia.biography.info.dream.title')}</h4>
+                    <p>${t('the-system.websites.creatidevpedia.biography.info.dream.text')}</p>
                   </article>
                   <article>
-                    <h4>${t('creatidevpedia.biography.info.occupation.title')}</h4>
-                    <p>${t('creatidevpedia.biography.info.occupation.text')}</p>
+                    <h4>${t('the-system.websites.creatidevpedia.biography.info.occupation.title')}</h4>
+                    <p>${t('the-system.websites.creatidevpedia.biography.info.occupation.text')}</p>
                   </article>
                   <article>
-                    <h4>${t('creatidevpedia.biography.info.spouse.title')}</h4>
-                    <p>${t('creatidevpedia.biography.info.spouse.text')}</p>
+                    <h4>${t('the-system.websites.creatidevpedia.biography.info.spouse.title')}</h4>
+                    <p>${t('the-system.websites.creatidevpedia.biography.info.spouse.text')}</p>
                   </article>
                 </section>
               </article>
