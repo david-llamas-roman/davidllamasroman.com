@@ -26,6 +26,9 @@ import buildHomeMainHeader from './sections/homeMainHeader.js'
 import buildAboutMe from './sections/about-me.js'
 import buildProjects from './sections/projects.js'
 import buildExperience from './sections/experience.js'
+import buildContact from './sections/contact.js'
+import buildFooter from './sections/footer.js'
+import buildCertifications from './sections/certifications.js'
 
 const lang = 'en'
 
@@ -36,8 +39,11 @@ const content = `
     ${buildAboutMe(lang)}
     ${buildProjects(lang)}
     ${buildExperience(lang)}
+    ${buildCertifications(lang)}
+    ${buildContact(lang)}
   </main>
+  ${buildFooter(lang)}
 `
 const html = layout({ content })
 
-fs.writeFileSync(path.resolve('./index2.html'), html, 'utf-8')
+fs.writeFileSync(path.resolve('./index.html'), html, 'utf-8')

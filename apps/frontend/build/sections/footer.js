@@ -20,18 +20,16 @@
 
 import { translations } from '../../src/utils/i18n.js'
 
-const buildContact = (lang) => {
-  const title = translations[lang].contact.title
+const buildFooter = (lang) => {
+  const copyright = `${translations[lang].copyright.symbol} ${new Date().getFullYear()} ${translations[lang].copyright.text}`
 
-  const contact = `
-    <section class="section" id="contact">
-      <h2 class="section__title">${title}</h2>
-      <div class="section__content">
-      </div>
-    </section> 
+  const footer = `
+    <footer class="home__footer">
+      <p class="copyright">${copyright}</p>
+    </footer>
   `
 
-  return contact
+  return footer
 }
 
-export default buildContact
+export default buildFooter

@@ -21,51 +21,51 @@
 import { translations } from '../../src/utils/i18n.js'
 import { getFormattedDateWithoutTime } from '../../src/utils/formatters.js'
 
+const parseDate = (value) => {
+  if (!value) return 0
+
+  const str = String(value).toLowerCase()
+
+  if (str.includes('present') || str.includes('presente')) {
+    return Date.now()
+  }
+
+  const monthMap = {
+    january: 0,
+    february: 1,
+    march: 2,
+    april: 3,
+    may: 4,
+    june: 5,
+    july: 6,
+    august: 7,
+    september: 8,
+    october: 9,
+    november: 10,
+    december: 11,
+  }
+
+  const monthRegex =
+    /(january|february|march|april|may|june|july|august|september|october|november|december)\s+(\d{4})/gi
+
+  const matches = [...str.matchAll(monthRegex)]
+
+  if (matches.length) {
+    const last = matches[matches.length - 1]
+    const month = last[1]
+    const year = Number(last[2])
+
+    return new Date(year, monthMap[month], 1).getTime()
+  }
+
+  const years = str.match(/\d{4}/g)
+  if (!years) return 0
+
+  return new Date(Number(years.at(-1)), 0, 1).getTime()
+}
+
 const buildExperience = (lang) => {
   const title = translations[lang].experience.title
-
-  const parseDate = (value) => {
-    if (!value) return 0
-
-    const str = String(value).toLowerCase()
-
-    if (str.includes('present') || str.includes('presente')) {
-      return Date.now()
-    }
-
-    const monthMap = {
-      january: 0,
-      february: 1,
-      march: 2,
-      april: 3,
-      may: 4,
-      june: 5,
-      july: 6,
-      august: 7,
-      september: 8,
-      october: 9,
-      november: 10,
-      december: 11,
-    }
-
-    const monthRegex =
-      /(january|february|march|april|may|june|july|august|september|october|november|december)\s+(\d{4})/gi
-
-    const matches = [...str.matchAll(monthRegex)]
-
-    if (matches.length) {
-      const last = matches[matches.length - 1]
-      const month = last[1]
-      const year = Number(last[2])
-
-      return new Date(year, monthMap[month], 1).getTime()
-    }
-
-    const years = str.match(/\d{4}/g)
-    if (!years) return 0
-
-    return new Date(Number(years.at(-1)), 0, 1).getTime()
-  }
 
   const jobs = Object.values(translations[lang].experience.jobs)
 
@@ -183,3 +183,4 @@ const buildExperience = (lang) => {
 }
 
 export default buildExperience
+export { parseDate }
