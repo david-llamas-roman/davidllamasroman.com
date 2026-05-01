@@ -29,6 +29,38 @@ class CreatidevpediaWeb extends FullHeight {
   #getTemplate() {
     const template = document.createElement('template')
 
+    const dropDownsTitles = Object.values(t('about-me.dropdowns.titles'))
+    const textParagraphs = Object.values(t('about-me.text.paragraphs'))
+
+    const groupedParagraphs = [
+      [textParagraphs[0], textParagraphs[1]],
+      [textParagraphs[2], textParagraphs[4]],
+      [textParagraphs[4], textParagraphs[5]],
+    ]
+
+    const details = dropDownsTitles.map((title, index) => {
+      const paragraphs = groupedParagraphs[index]
+
+      const detailsContent = paragraphs
+        .map((paragraph) => {
+          if (typeof paragraph === 'object') {
+            return Object.values(paragraph)
+              .map((subparagraph) => `<p>${subparagraph}</p>`)
+              .join('')
+          }
+
+          return `<p>${paragraph}</p>`
+        })
+        .join('')
+
+      return `
+        <details>
+          <summary>${title}</summary>
+          <div>${detailsContent}</div>
+        </details>
+      `
+    })
+
     template.innerHTML = `
       ${this.#getStyles()}
       <article class="creatidevpedia">
@@ -50,6 +82,8 @@ class CreatidevpediaWeb extends FullHeight {
               ${Object.values(t('about-me.slides.paragraphs'))
                 .map((element) => `<p>${element}</p>`)
                 .join('')}
+
+              <div>${details}</div>
             </article>
             <article class="info__container">
               <h3>HTML Engineer</h3>
@@ -113,6 +147,8 @@ class CreatidevpediaWeb extends FullHeight {
 
             .logo {
               .logo__text {
+                grid-area: text;
+
                 display: grid;
                 place-items: center;
 
@@ -171,7 +207,6 @@ class CreatidevpediaWeb extends FullHeight {
 
             .content {
               display: grid;
-              grid-template-rows: auto;
               grid-template-columns: auto 1fr;
 
               .content__text {
@@ -191,6 +226,27 @@ class CreatidevpediaWeb extends FullHeight {
                     font-style: italic;
                   }
                 }
+
+                & div {
+                  padding-top: 1.5rem;
+
+                  & details {
+                    & summary {
+                      padding-bottom: 0.75rem;
+
+                      color: var(--creatidevpedia-white, #f8fdfa);
+
+                      border-bottom: 1px solid var(--creatidevpedia-white, #f8fdfa);
+
+                      font-size: max(16px, 0.9vmax);
+                      font-weight: 700;
+                    }
+
+                    & div {
+                      padding: 1rem 0 0 1.5rem;
+                    }
+                  }
+                }
               }
 
               .info__container {
@@ -200,7 +256,7 @@ class CreatidevpediaWeb extends FullHeight {
 
                 background-color: var(--dark-grey, #1f1f23);
 
-                aspect-ratio: 9/16;
+                height: fit-content;
 
                 & h3 {
                   padding: 0.35rem;
