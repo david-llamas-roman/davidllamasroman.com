@@ -209,45 +209,10 @@ class TwmWorkspaces extends BaseComponent {
 
     this.shadowRoot.appendChild(this.#getTemplate().content.cloneNode(true))
 
-    this.shadowRoot
-      .querySelector('.workspaces-responsive__icon:nth-child(1)')
-      .addEventListener('click', () => {
-        const workspaces = this.shadowRoot.querySelector('.workspaces')
-        workspaces.classList.add('active')
-
-        const menuIcon = this.shadowRoot.querySelector(
-          '.workspaces-responsive__icon:nth-child(1)',
-        )
-        menuIcon.classList.add('hide')
-
-        const closeIcon = this.shadowRoot.querySelector(
-          '.workspaces-responsive__icon:nth-child(2)',
-        )
-        closeIcon.classList.remove('hide')
-
-        closeIcon.addEventListener('click', () => {
-          menuIcon.classList.remove('hide')
-          workspaces.classList.remove('active')
-          closeIcon.classList.add('hide')
-        })
-      })
-
-    this.shadowRoot.querySelectorAll('.element__link').forEach((anchor) =>
-      anchor.addEventListener('click', (event) => {
-        event.preventDefault()
-        const id = anchor.dataset.ws
-        if (!id) return
-
-        window.dispatchEvent(
-          new CustomEvent('workspace:navigate', { detail: { id } }),
-        )
-
-        this.#setActiveWorkspace(id)
-      }),
-    )
-
     const workspaceId = findWorkspaceIdFromPath()
     if (workspaceId) this.#setActiveWorkspace(workspaceId)
+
+    this.#bindEvents()
   }
 
   connectedCallback() {
@@ -268,6 +233,47 @@ class TwmWorkspaces extends BaseComponent {
 
   #handleResize = () => {
     this.render()
+  }
+
+  #bindEvents() {
+    const menuIcon = this.shadowRoot.querySelector(
+      '.workspaces-responsive__icon:nth-child(1)',
+    )
+
+    if (!menuIcon) return
+
+    menuIcon.onclick = () => {
+      const workspaces = this.shadowRoot.querySelector('.workspaces')
+      workspaces.classList.add('active')
+
+      menuIcon.classList.add('hide')
+
+      const closeIcon = this.shadowRoot.querySelector(
+        '.workspaces-responsive__icon:nth-child(2)',
+      )
+
+      closeIcon.classList.remove('hide')
+
+      closeIcon.onclick = () => {
+        menuIcon.classList.remove('hide')
+        workspaces.classList.remove('active')
+        closeIcon.classList.add('hide')
+      }
+    }
+
+    this.shadowRoot.querySelectorAll('.element__link').forEach((anchor) =>
+      anchor.addEventListener('click', (event) => {
+        event.preventDefault()
+        const id = anchor.dataset.ws
+        if (!id) return
+
+        window.dispatchEvent(
+          new CustomEvent('workspace:navigate', { detail: { id } }),
+        )
+
+        this.#setActiveWorkspace(id)
+      }),
+    )
   }
 
   #setActiveWorkspace(id) {
