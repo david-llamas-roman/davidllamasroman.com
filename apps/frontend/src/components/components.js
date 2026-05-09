@@ -72,6 +72,7 @@ import '@/components/tiling-window-manager/apps/web-browser/content/new-tab.js' 
 import '@/components/tiling-window-manager/apps/web-browser/content/creatidevpedia-web.js' // CreatiDevPedia
 import '@/components/tiling-window-manager/apps/web-browser/content/dlrdevacademy-web.js' // DlrDevAcademy
 import '@/components/tiling-window-manager/apps/web-browser/content/infodev-web.js' // InfoDev
+import '@/components/tiling-window-manager/apps/web-browser/content/linkdevin-web.js' // LinkDevIn
 
 // code editor components
 import '@/components/tiling-window-manager/apps/code-editor/content/code-editor-content.js' // content
