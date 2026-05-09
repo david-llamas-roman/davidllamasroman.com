@@ -220,19 +220,29 @@ class TwmWorkspaces extends BaseComponent {
 
     window.addEventListener('resize', this.#handleResize)
 
-    window.addEventListener('workspace:switch', (event) => {
-      const id = event?.detail?.id
-      if (id) this.#setActiveWorkspace(id)
-    })
-
-    window.addEventListener('popstate', () => {
-      const workspaceId = findWorkspaceIdFromPath()
-      if (workspaceId) this.#setActiveWorkspace(workspaceId)
-    })
+    this.shadowRoot.addEventListener('click', this.#onClick)
   }
 
   #handleResize = () => {
     this.render()
+  }
+
+  #onClick = (event) => {
+    const link = event.target.closest('.element__link')
+    if (!link) return
+
+    event.preventDefault()
+
+    const id = link.dataset.ws
+    if (!id) return
+
+    console.log(id)
+
+    window.dispatchEvent(
+      new CustomEvent('workspace:navigate', { detail: { id } }),
+    )
+
+    this.#setActiveWorkspace(id)
   }
 
   #bindEvents() {
@@ -240,40 +250,26 @@ class TwmWorkspaces extends BaseComponent {
       '.workspaces-responsive__icon:nth-child(1)',
     )
 
-    if (!menuIcon) return
+    if (menuIcon) {
+      menuIcon.onclick = () => {
+        const workspaces = this.shadowRoot.querySelector('.workspaces')
+        workspaces.classList.add('active')
 
-    menuIcon.onclick = () => {
-      const workspaces = this.shadowRoot.querySelector('.workspaces')
-      workspaces.classList.add('active')
+        menuIcon.classList.add('hide')
 
-      menuIcon.classList.add('hide')
-
-      const closeIcon = this.shadowRoot.querySelector(
-        '.workspaces-responsive__icon:nth-child(2)',
-      )
-
-      closeIcon.classList.remove('hide')
-
-      closeIcon.onclick = () => {
-        menuIcon.classList.remove('hide')
-        workspaces.classList.remove('active')
-        closeIcon.classList.add('hide')
-      }
-    }
-
-    this.shadowRoot.querySelectorAll('.element__link').forEach((anchor) =>
-      anchor.addEventListener('click', (event) => {
-        event.preventDefault()
-        const id = anchor.dataset.ws
-        if (!id) return
-
-        window.dispatchEvent(
-          new CustomEvent('workspace:navigate', { detail: { id } }),
+        const closeIcon = this.shadowRoot.querySelector(
+          '.workspaces-responsive__icon:nth-child(2)',
         )
 
-        this.#setActiveWorkspace(id)
-      }),
-    )
+        closeIcon.classList.remove('hide')
+
+        closeIcon.onclick = () => {
+          menuIcon.classList.remove('hide')
+          workspaces.classList.remove('active')
+          closeIcon.classList.add('hide')
+        }
+      }
+    }
   }
 
   #setActiveWorkspace(id) {
