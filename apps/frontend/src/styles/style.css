@@ -74,7 +74,17 @@
   --infodev-light-blue: #498dbb80;
   --infodev-dark-grey: #2c2c2c;
   --linkdevin-main-blue: #0a66c2;
-  --linkdevin-dark-blue: #004182;
+  --linkdevin-black: #010100;
+  --linkdevin-grey: #1a1f23;
+  --linkdevin-light-grey: #8d8f95;
+  --linkdevin-red: #d50032;
+  --linkdevin-green: #1fbf78;
+  --linkdevin-rose: #e60073;
+  --linkdevin-rose-purple: radial-gradient(
+    circle at top left,
+    #b80b92 0%,
+    #5f1fc2 100%
+  );
   --whatsdev-main-green: #25d366;
   --whatsdev-dark-green: #075e54;
   --code-editor-sop-bg: #0f0e17;
