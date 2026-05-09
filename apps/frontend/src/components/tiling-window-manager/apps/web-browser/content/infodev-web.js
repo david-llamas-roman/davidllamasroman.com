@@ -35,15 +35,16 @@ class InfoDevWeb extends FullHeight {
 
     const sortedJobs = jobs.toSorted((a, b) => {
       const getEndDate = (job) => {
-        if (
-          job.date.toLowerCase().includes('present') ||
-          job.date.toLowerCase().includes('presente')
-        ) {
+        const date = job.date.toLowerCase()
+
+        if (date.includes('present') || date.includes('presente')) {
           return new Date()
         }
 
-        const endYear = job.date.split(' ')[4]?.trim()
-        return new Date(endYear)
+        const parts = job.date.split(' - ')
+        const endPart = parts[1]
+
+        return new Date(endPart)
       }
 
       return getEndDate(b) - getEndDate(a)
@@ -173,12 +174,13 @@ class InfoDevWeb extends FullHeight {
               display: grid;
               grid-template-rows: 1fr;
               grid-template-columns: 0.15fr 1fr;
+              gap: 1rem;
 
               padding: 1rem 1.5rem;
 
               .profile__avatar {
                 & img {
-                  width: clamp(50px, 100%, 80px);
+                  width: clamp(50px, 10dvw, 100px);
                   aspect-ratio: 1/1;
 
                   border-radius: 50%;
