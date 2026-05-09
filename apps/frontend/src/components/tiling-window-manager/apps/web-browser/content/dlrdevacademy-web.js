@@ -19,9 +19,9 @@
 'use strict'
 
 import { t } from '@/utils/i18n.js'
-import BaseComponent from '@/components/base-component.js'
+import FullHeight from '@/components/tiling-window-manager/apps/web-browser/content/full-height'
 
-class DlrDevAcademy extends BaseComponent {
+class DlrDevAcademy extends FullHeight {
   #getTemplate() {
     const template = document.createElement('template')
 
@@ -29,17 +29,20 @@ class DlrDevAcademy extends BaseComponent {
       ${this.#getStyles()}
       <article class="dlrdevacademy">
         <header class="dlrdevacademy__header">
-          <article class="header__content">
-            <article class="logo">
+          <div class="header__content">
+            <div class="logo">
               <p class="logo__text">DlrDA</p>
-            </article>
-            <article class="search__container">
+            </div>
+
+            <form class="search__container" role="search">
               <input type="search" name="search" id="search" placeholder="${t('the-system.websites.dlrdevacademy.search-input-placeholder')}" autocomplete="off" />
-            </article>
+            </form>
+
             <button type="button" class="user">
               <img src="" alt="" />
             </button>
-          </article>
+          </div>
+
           <nav class="header__navbar">
             <ul class="navbar__list">
               ${Object.values(
@@ -190,6 +193,12 @@ class DlrDevAcademy extends BaseComponent {
 
   connectedCallback() {
     this.render()
+
+    super.connectedCallback()
+  }
+
+  getTargetElement() {
+    return this.shadowRoot.querySelector('.dlrdevacademy')
   }
 }
 

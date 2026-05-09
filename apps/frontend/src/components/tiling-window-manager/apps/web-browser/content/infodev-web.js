@@ -54,37 +54,59 @@ class InfoDevWeb extends FullHeight {
       <article class="infodev">
         <header class="infodev__header">
           <h2 class="header__title">David</h2>
-          <h3 class="header__subtitle">${t('the-system.websites.infodev.subtitle')}</h3>
+          <p class="header__subtitle">${t('the-system.websites.infodev.subtitle')}</p>
         </header>
+
         <main class="infodev__content">
-          <header class="content__header">
-            <img src="/img/dlr/dlr.png" alt="David Llamas Román" loading="lazy">
-            <div class="header__text">
-              <h3>David Llamas Román</h3>
-              <p>${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}</p>
-              <p>${t('the-system.websites.infodev.profesional-data.location')}</p>
-            </div>
-          </header>
-          <article class="content">
-            <h2>${t('the-system.websites.infodev.laboral-experience')}</h2>
+
+          <section class="profile">
+            <header class="profile__header">
+              <figure class="profile__avatar">
+                <img src="/img/dlr/dlr.png" alt="David Llamas Román" loading="lazy">
+              </figure>
+
+              <div class="profile__info">
+                <h2 class="profile__name">David Llamas Román</h2>
+
+                <time class="profile__date" datetime="${currentDate.toISOString()}">
+                  ${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}
+                </time>
+
+                <p class="profile__location">${t('the-system.websites.infodev.profesional-data.location')}</p>
+              </div>
+            </header>
+          </section>
+
+          <section class="experience">
+            <header class="experience__header">
+              <h1>${t('the-system.websites.infodev.laboral-experience')}</h1>
+            </header>
+
             <ul class="jobs__list">
               ${sortedJobs
                 .map(
-                  (element) => `<li class="list__element">
-                <header class="element__header">
-                  <infodev-company-icon></infodev-company-icon>
-                  <div class="header__text">
-                    <h3>${element.title}</h3>
-                    <p>${element.company}</p>
-                    <p>${element.date}</p>
-                  </div>
-                </header>
-                <p class="element__text">${element.description}</p>
-              </li>`,
+                  (element) => `
+                  <li class="job">
+                    <article class="job__item">
+                      <header class="job__header">
+                        <infodev-company-icon></infodev-company-icon>
+
+                        <div class="job__info">
+                          <h3>${element.title}</h3>
+                          <p>${element.company}</p>
+                          <time>${element.date}</time>
+                        </div>
+                      </header>
+
+                      <p class="job__description">${element.description}</p>
+                    </article>
+                  </li>
+                `,
                 )
                 .join('')}
             </ul>
-          </article>
+          </section>
+
         </main>
       </article>
     `
@@ -123,12 +145,12 @@ class InfoDevWeb extends FullHeight {
           }
 
           .infodev__header {
-            & h2 {
+            .header__title {
               font-size: max(20px, 1.25vmax);
               font-weight: 600;
             }
 
-            & h3 {
+            .header__subtitle {
               font-size: max(16px, 0.9vmax);
               font-weight: 400;
             }
@@ -140,53 +162,57 @@ class InfoDevWeb extends FullHeight {
             grid-template-rows: auto 1fr;
             gap: 0.5rem;
 
-            .content__header, .content {
+            .profile__header, .experience {
               background-color: inherit;
 
               border-radius: 10px;
               border: 1px solid var(--infodev-light-blue, #498dbb80);
             }
 
-            .content__header {
+            .profile__header {
               display: grid;
               grid-template-rows: 1fr;
               grid-template-columns: 0.15fr 1fr;
 
               padding: 1rem 1.5rem;
 
-              & img {
-                width: clamp(50px, 100%, 80px);
-                aspect-ratio: 1/1;
+              .profile__avatar {
+                  & img {
+                  width: clamp(50px, 100%, 80px);
+                  aspect-ratio: 1/1;
 
-                border-radius: 50%;
+                  border-radius: 50%;
+                }
               }
 
-              .header__text {
+              .profile__info {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: left;
                 gap: 0.25rem;
 
-                & h3 {
+                .profile__name {
                   font-size: max(16px, 0.9vmax);
                   font-weight: 600;
                 }
 
-                & p {
+                .profile__date, .profile__location {
                   font-size: max(16px, 0.9vmax);
                 }
               }
             }
             
-            .content {
-              & h2 {
-                padding: 1rem 1.5rem 0.75rem 1.5rem;
+            .experience {
+              .experience__header {
+                & h1 {
+                  padding: 1rem 1.5rem 0.75rem 1.5rem;
 
-                font-size: max(20px, 1.25vmax);
-                font-weight: 600;
+                  font-size: max(20px, 1.25vmax);
+                  font-weight: 600;
 
-                border-bottom: 1px solid var(--infodev-light-blue, #498dbb80)
+                  border-bottom: 1px solid var(--infodev-light-blue, #498dbb80)
+                }
               }
 
               .jobs__list {
@@ -200,39 +226,41 @@ class InfoDevWeb extends FullHeight {
 
                 list-style: none;
 
-                .list__element {
+                .job {
                   display: grid;
                   grid-template-rows: auto 1fr;
                   grid-template-columns: 1fr;
 
-                  .element__header {
-                    display: grid;
-                    grid-template-rows: 1fr;
-                    grid-template-columns: auto 1fr;
-                    align-items: top;
-                    gap: 1rem;
+                  .job__item {
+                    .job__header {
+                      display: grid;
+                      grid-template-rows: 1fr;
+                      grid-template-columns: auto 1fr;
+                      align-items: top;
+                      gap: 1rem;
 
-                    & infodev-company-icon {
-                      margin-top: 0.2rem;
+                      & infodev-company-icon {
+                        margin-top: 0.2rem;
+                      }
+
+                      .job__info {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: left;
+                        justify-content: center;
+                        gap: 0.2rem;
+                      }
                     }
 
-                    .header__text {
-                      display: flex;
-                      flex-direction: column;
-                      align-items: left;
-                      justify-content: center;
-                      gap: 0.2rem;
+                    .job__description {
+                      padding: 1rem;
+                      margin-top: 0.75rem;
+
+                      white-space: pre-wrap;
+
+                      border-radius: 6px;
+                      border: 1px solid var(--light-grey-2, rgba(255, 255, 255, 0.28));
                     }
-                  }
-
-                  .element__text {
-                    padding: 1rem;
-                    margin-top: 0.75rem;
-
-                    white-space: pre-wrap;
-
-                    border-radius: 6px;
-                    border: 1px solid var(--light-grey-2, rgba(255, 255, 255, 0.28));
                   }
                 }
               }

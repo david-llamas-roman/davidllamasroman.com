@@ -65,18 +65,21 @@ class CreatidevpediaWeb extends FullHeight {
       ${this.#getStyles()}
       <article class="creatidevpedia">
         <header class="creatidevpedia__header">
-          <article class="logo">
-            <article class="logo__text">
+          <div class="logo">
+            <div class="logo__text">
               <h2><span>C</span>REATI<span>D</span>EVPEDIA</h2>
               <p>${t('the-system.websites.creatidevpedia.logo.text')}</p>
-            </article>
-          </article>
+            </div>
+          </div>
         </header>
+
         <main class="creatidevpedia__content">
+
           <header class="content__header">
             <h1 class="title">David Llamas Román</h1>
             <h2 class="subtitle">${t('the-system.websites.creatidevpedia.title')}</h2>
           </header>
+
           <article class="content">
             <article class="content__text">
               ${Object.values(t('about-me.slides.paragraphs'))
@@ -85,12 +88,18 @@ class CreatidevpediaWeb extends FullHeight {
 
               <div>${details}</div>
             </article>
-            <article class="info__container">
+
+            <aside class="info__container">
               <h3>HTML Engineer</h3>
+
               <article class="info">
-                <img src="" alt="David Llamas Román" />
+                <figure>
+                  <img src="" alt="David Llamas Román" />
+                </figure>
+
                 <section class="biography">
                   <h4>${t('the-system.websites.creatidevpedia.biography.title')}</h4>
+
                   <article>
                     <h4>${t('the-system.websites.creatidevpedia.biography.info.born')}</h4>
                     <p>2005 (${new Date().getFullYear() - 2005 - 1}/${new Date().getFullYear() - 2005})</p>
@@ -109,8 +118,9 @@ class CreatidevpediaWeb extends FullHeight {
                   </article>
                 </section>
               </article>
-            </article>
+            </aside>
           </article>
+
         </main>
       </article>
     `
