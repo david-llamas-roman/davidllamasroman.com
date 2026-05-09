@@ -19,7 +19,7 @@
 'use strict'
 
 import { t } from '@/utils/i18n.js'
-import FullHeight from '@/components/tiling-window-manager/apps/web-browser/content/full-height'
+import FullHeight from '@/components/tiling-window-manager/apps/web-browser/content/full-height.js'
 
 class InfoDevWeb extends FullHeight {
   constructor() {
@@ -177,7 +177,7 @@ class InfoDevWeb extends FullHeight {
               padding: 1rem 1.5rem;
 
               .profile__avatar {
-                  & img {
+                & img {
                   width: clamp(50px, 100%, 80px);
                   aspect-ratio: 1/1;
 
