@@ -39,7 +39,7 @@ class DlrDevAcademy extends FullHeight {
             </form>
 
             <button type="button" class="user">
-              <img src="" alt="" />
+              <img src="" alt="">
             </button>
           </div>
 
@@ -193,6 +193,16 @@ class DlrDevAcademy extends FullHeight {
 
   connectedCallback() {
     this.render()
+
+    this.shadowRoot
+      .querySelector('.navbar__list')
+      ?.addEventListener('click', (event) => {
+        const button = event.target.closest('button')
+
+        if (button) {
+          button.blur()
+        }
+      })
 
     super.connectedCallback()
   }

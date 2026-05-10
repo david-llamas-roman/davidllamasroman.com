@@ -343,30 +343,21 @@ class TilingWM extends BaseComponent {
       return false
     }
 
-    const path =
-      event && typeof event.composedPath === 'function'
-        ? event.composedPath()
-        : []
+    const getDeepActiveElement = (root = document) => {
+      let active = root.activeElement
 
-    for (const node of path) {
-      if (isEditable(node)) return true
+      if (!active) {
+        return null
+      }
 
-      if (
-        node &&
-        node.shadowRoot &&
-        node.shadowRoot.activeElement &&
-        isEditable(node.shadowRoot.activeElement)
-      )
-        return true
+      if (active.shadowRoot?.activeElement) {
+        return getDeepActiveElement(active.shadowRoot)
+      }
+
+      return active
     }
 
-    let element = document.activeElement
-    while (element && element.shadowRoot && element.shadowRoot.activeElement) {
-      element = element.shadowRoot.activeElement
-    }
-    if (isEditable(element)) return true
-
-    return false
+    return isEditable(getDeepActiveElement())
   }
 
   #initShortcuts() {
@@ -443,8 +434,8 @@ class TilingWM extends BaseComponent {
 
     attachKeyListeners()
 
-    document.addEventListener('focusin', (event) => {
-      if (this.#isTyping(event.target)) detachKeyListeners()
+    document.addEventListener('focusin', () => {
+      if (this.#isTyping()) detachKeyListeners()
     })
 
     document.addEventListener('focusout', () => {
