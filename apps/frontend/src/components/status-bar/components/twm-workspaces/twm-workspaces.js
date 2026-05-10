@@ -220,6 +220,16 @@ class TwmWorkspaces extends BaseComponent {
 
     window.addEventListener('resize', this.#handleResize)
 
+    window.addEventListener('workspace:switch', (event) => {
+      const id = event?.detail?.id
+      if (id) this.#setActiveWorkspace(id)
+    })
+
+    window.addEventListener('popstate', () => {
+      const workspaceId = findWorkspaceIdFromPath()
+      if (workspaceId) this.#setActiveWorkspace(workspaceId)
+    })
+
     this.shadowRoot.addEventListener('click', this.#onClick)
   }
 
